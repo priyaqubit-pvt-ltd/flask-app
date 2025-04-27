@@ -327,19 +327,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", () => {});
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // faq question js
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -371,5 +358,135 @@ document.addEventListener("DOMContentLoaded", function () {
           "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>";
       }
     });
+  });
+});
+
+// platimum page contact from
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get form elements
+  const contactForm = document.getElementById("lozy_contact_form_element");
+  const nameInput = document.getElementById("lozy_contact_name_input");
+  const emailInput = document.getElementById("lozy_contact_email_input");
+  const phoneInput = document.getElementById("lozy_contact_phone_input");
+  const locationInput = document.getElementById("lozy_contact_location_input");
+  const successPopup = document.getElementById("lozy_contact_success_popup");
+  const popupClose = document.querySelector(".lozy_contact_popup_close");
+
+  // Validate email format
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Validate phone number format (accepts various formats)
+  function isValidPhone(phone) {
+    const phoneRegex =
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+    return phoneRegex.test(phone);
+  }
+
+  // Add input validation styling
+  function setInputValidation(input, isValid) {
+    if (isValid) {
+      input.style.borderColor = "#4CAF50";
+      input.style.backgroundColor = "rgba(76, 175, 80, 0.05)";
+    } else {
+      input.style.borderColor = "#F44336";
+      input.style.backgroundColor = "rgba(244, 67, 54, 0.05)";
+    }
+  }
+
+  // Reset input styling
+  function resetInputStyling(input) {
+    input.style.borderColor = "#333";
+    input.style.backgroundColor = "transparent";
+  }
+
+  // Add input event listeners for real-time validation
+  emailInput.addEventListener("input", function () {
+    if (this.value.trim() !== "") {
+      setInputValidation(this, isValidEmail(this.value));
+    } else {
+      resetInputStyling(this);
+    }
+  });
+
+  phoneInput.addEventListener("input", function () {
+    if (this.value.trim() !== "") {
+      setInputValidation(this, isValidPhone(this.value));
+    } else {
+      resetInputStyling(this);
+    }
+  });
+
+  // Form submission handler
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Validate all fields
+    let isValid = true;
+
+    // Name validation
+    if (nameInput.value.trim() === "") {
+      setInputValidation(nameInput, false);
+      isValid = false;
+    } else {
+      setInputValidation(nameInput, true);
+    }
+
+    // Email validation
+    if (!isValidEmail(emailInput.value)) {
+      setInputValidation(emailInput, false);
+      isValid = false;
+    } else {
+      setInputValidation(emailInput, true);
+    }
+
+    // Phone validation
+    if (!isValidPhone(phoneInput.value)) {
+      setInputValidation(phoneInput, false);
+      isValid = false;
+    } else {
+      setInputValidation(phoneInput, true);
+    }
+
+    // Location validation
+    if (locationInput.value.trim() === "") {
+      setInputValidation(locationInput, false);
+      isValid = false;
+    } else {
+      setInputValidation(locationInput, true);
+    }
+
+    // If all validations pass
+    if (isValid) {
+      // In a real application, you would send the form data to the server here
+      // For this example, we'll just show the success popup
+
+      // Show success popup
+      successPopup.style.display = "flex";
+
+      // Reset form
+      contactForm.reset();
+
+      // Reset all input styling
+      resetInputStyling(nameInput);
+      resetInputStyling(emailInput);
+      resetInputStyling(phoneInput);
+      resetInputStyling(locationInput);
+    }
+  });
+
+  // Close popup when clicking the X
+  popupClose.addEventListener("click", function () {
+    successPopup.style.display = "none";
+  });
+
+  // Close popup when clicking outside the content
+  successPopup.addEventListener("click", function (e) {
+    if (e.target === successPopup) {
+      successPopup.style.display = "none";
+    }
   });
 });
