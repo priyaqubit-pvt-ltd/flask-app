@@ -813,3 +813,255 @@ html, body {
         height: auto;
     }
 }
+
+
+
+
+/* Why Choose Lozy section */
+.lazy-container {
+    padding: 80px 0;
+    background: #000;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .grid-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 50px 50px;
+    z-index: 0;
+  }
+  
+  .why-choose-section {
+    padding: 0 190px;
+    position: relative;
+    margin-bottom: 50px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .storage-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ffde59;
+    margin-bottom: 40px;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    gap: 50px;
+    padding: 0 190px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .lazy-left-content {
+    position: relative;
+    flex: 1;
+    max-width: 550px;
+  }
+  
+  .lazy-left-content img {
+    position: absolute;
+    top: 35%;
+    left: -10%;
+    width: 100%;
+    height: auto;
+    max-width: 700px;
+    z-index: 1;
+  }
+  
+  .lazy-left-content h3 {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 70px;
+    max-width: 550px;
+  }
+  
+  .highlight {
+    color: #aaa;
+  }
+  
+  .lazy-right-content {
+    flex: 1;
+    color: #fff;
+    max-width: 800px;
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .feature-box {
+    background-color: #222;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    min-height: 100px;
+  }
+  
+  .feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .icon {
+    width: 44px;
+    height: 44px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  .feature-text p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  /* Why Choose Lozy Section Media Queries */
+  @media (max-width: 1440px) {
+    .why-choose-section,
+    .content-wrapper {
+      padding: 0 100px;
+    }
+  
+    .lazy-left-content h3 {
+      font-size: 48px;
+    }
+  
+    .feature-box {
+      min-height: 90px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .lazy-left-content img {
+      top: 20%;
+      left: -5%;
+    }
+  
+    .lazy-left-content h3 {
+      font-size: 42px;
+    }
+  
+    .feature-grid {
+      gap: 15px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .why-choose-section,
+    .content-wrapper {
+      padding: 0 50px;
+    }
+  
+    .content-wrapper {
+      gap: 30px;
+    }
+  
+    .lazy-left-content {
+      max-width: 450px;
+    }
+  
+    .lazy-left-content h3 {
+      font-size: 36px;
+    }
+  
+    .feature-text p {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column;
+      gap: 50px;
+    }
+  
+    .lazy-left-content {
+      max-width: 100%;
+    }
+  
+    .lazy-left-content img {
+      position: relative;
+      top: 0;
+      left: 0;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+    }
+  
+    .lazy-left-content h3 {
+      margin-top: 0;
+      max-width: 100%;
+    }
+  
+    .lazy-right-content {
+      max-width: 100%;
+    }
+  
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .why-choose-section,
+    .content-wrapper {
+      padding: 0 20px;
+    }
+  
+    .section-title {
+      font-size: 24px;
+    }
+  
+    .lazy-left-content h3 {
+      font-size: 32px;
+    }
+  
+    .feature-box {
+      min-height: auto;
+      padding: 15px;
+    }
+  
+    .icon {
+      width: 36px;
+      height: 36px;
+    }
+  }
+  
+  
+
+
+  .storage-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ffde59;
+    margin-bottom: 40px;
+  }
