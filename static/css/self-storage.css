@@ -57,7 +57,7 @@ body {
 }
 
 .hero-description {
-  font-size: 16px;
+  font-size: 18px;
   color: #333;
   margin-bottom: 30px;
   line-height: 1.6;
@@ -652,7 +652,6 @@ body {
 .step-text h3 {
   font-size: 26px;
   margin-bottom: 5px;
-  font-family: inter;
 }
 
 .step-text p {
@@ -1017,6 +1016,7 @@ body {
   height: 100%;
   background-color: #fff;
   position: relative;
+  padding-right: 5%;
 }
 
 .faq-header {
@@ -1024,6 +1024,8 @@ body {
   font-weight: 400;
   margin-bottom: 30px;
   color: #000;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
 }
 
 .faq-divider {
