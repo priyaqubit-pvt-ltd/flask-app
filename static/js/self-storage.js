@@ -206,7 +206,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // If already processing a scroll, return
       if (isScrolling) {
         console.log("Ignoring scroll - already scrolling");
-        event.preventDefault();
         return;
       }
 
@@ -219,10 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // If section changed successfully, prevent default scroll
       if (sectionChanged) {
-        document.querySelector(".storage-content").scrollIntoView({
-          behavior: 'smooth'
-        });
-        console.log("Preventing scroll")
         event.preventDefault();
 
         // Set scrolling flag
@@ -269,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener(
     "touchend",
-    (e) => {
+    () => {
       // Only handle special scrolling when inside showcase
       if (!isInsideShowcase) {
         return;
@@ -289,10 +284,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const sectionChanged = changeSection(currentIndex + direction);
 
         if (sectionChanged) {
-          document.querySelector(".storage-content").scrollIntoView({
-            behavior: 'smooth'
-          });
-          e.preventDefault();
           // Set scrolling flag
           isScrolling = true;
 
@@ -306,7 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     },
-    { passive: false }
+    { passive: true }
   );
 
   // Handle dot clicks
@@ -320,16 +311,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle keyboard navigation
   document.addEventListener("keydown", (event) => {
     // Only handle keyboard navigation when inside showcase
-    if (!isInsideShowcase) {
-      event.preventDefault();
-      return;
-    } 
+    if (!isInsideShowcase) return;
 
     if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-      event.preventDefault();
       changeSection(currentIndex + 1);
     } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-      event.preventDefault();
       changeSection(currentIndex - 1);
     }
   });
