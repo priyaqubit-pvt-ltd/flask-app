@@ -92,7 +92,7 @@ ul {
 .storage-navbar__menu-item {
   font-family: "SF Pro Text";
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
   color: #000;
   text-decoration: none;
   cursor: pointer;
@@ -336,16 +336,16 @@ ul {
 .storage-navbar__contact-btn {
   width: 174px;
   height: 61px;
-  background-color: #000;
+  background-color: #768948;
   color: #fff;
-  border: 1px solid #000;
+  border: 1px solid #768948;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "SF Pro Text";
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -412,7 +412,7 @@ ul {
 .storage-mobile-menu__item {
   font-family: "SF Pro Text";
   font-weight: 400;
-  font-size: 18px;
+  font-size: 20px;
   color: #000;
   text-decoration: none;
   padding: 15px 0;
@@ -456,7 +456,7 @@ ul {
 .storage-mobile-menu__dropdown-link {
   font-family: "SF Pro Text";
   font-weight: 400;
-  font-size: 16px;
+  font-size: 22px;
   color: #fff !important;
   text-decoration: none;
   padding: 5px 0;

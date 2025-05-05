@@ -56,7 +56,7 @@ html, body {
     width: 214px;
     height: 73px;
     margin-top: 56px;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #768948;
     border-radius: 10px;
     text-decoration: none;
     font-weight: 500;
@@ -817,6 +817,140 @@ html, body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+    font-family: 'SF Pro Text';
+    src: url('https://fonts.cdnfonts.com/css/sf-pro-text') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+.contact-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* margin-left: 43px; */
+    /* margin-top: 5020px; */
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-container {
+    position: absolute;
+    width: 1426px;
+    height: 380px;
+    top: 275px;
+    /* left: 204px; */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-line {
+    font-family: 'SF Pro Text';
+    font-weight: 500;
+    font-size: 80px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.text-line.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gray-text {
+    color: #AEAEAE;
+}
+
+.yellow-text {
+    color: #FFFF00;
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .contact-section {
+        width: 100%;
+        height: 700px;
+        margin-left: 0;
+        margin-top: 0;
+    }
+    
+    .text-container {
+        width: 90%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .text-line {
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .contact-section {
+        width: 100%;
+        height: 500px;
+        margin-left: 0;
+        margin-top: 0;
+    }
+    
+    .text-container {
+        width: 90%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .text-line {
+        font-size: 36px;
+        margin-bottom: 8px;
+    }
+}
+
+
 /* Why Choose Lozy section */
 .lazy-container {
     padding: 80px 0;
@@ -1065,3 +1199,477 @@ html, body {
     background-color: #ffde59;
     margin-bottom: 40px;
   }
+
+
+
+
+
+
+
+ /* Blog Section Styles */
+.blog-section {
+    padding: 40px 0;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.blog-container {
+    width: 80%; /* Takes up only 65% of the screen width */
+    margin: 0 auto;
+    padding: 0;
+}
+
+.blog-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.blog-heading {
+    font-family: Georgia;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.blog-view-more {
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    background-color: transparent;
+    color: #000000;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'SF Pro Text';
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.blog-view-more:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.blog-divider {
+    width: 100%;
+    height: 1px;
+    background: none;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.6);
+    margin: 0 0 30px 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 100%;
+}
+
+.blog-card {
+    width: 100%;
+    height: 345px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-card-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.blog-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(0.7);
+}
+
+.blog-card-content {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.blog-card-title {
+    font-family: 'SF Pro Text';
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+}
+
+.blog-card-description {
+    font-family: 'SF Pro Text';
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+/* Social Media Icons */
+/* .social-icons {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 100;
+} */
+
+/* .social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+} */
+
+/* .social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.phone-icon {
+    background-color: #4CAF50;
+}
+
+.email-icon {
+    background-color: #2196F3;
+}
+
+.whatsapp-icon {
+    background-color: #25D366;
+} */
+
+/* Media Queries for Responsive Design */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    .blog-container {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .blog-container {
+        width: 80%;
+    }
+    
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .blog-card {
+        height: 300px;
+    }
+    
+    /* .social-icons {
+        left: 10px;
+    } */
+}
+
+@media only screen and (max-width: 767px) {
+    .blog-container {
+        width: 90%;
+    }
+    
+    .blog-header-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .blog-view-more {
+        align-self: flex-end;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-card {
+        height: 250px;
+    }
+    
+    /* .social-icons {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
+        transform: none;
+    } */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Locations Section Styles */
+.locations-section {
+    position: relative;
+    width: 100%;
+    padding: 60px 0;
+    background-color: #000000;
+}
+
+.locations-heading {
+    width: 361px;
+    height: 30px;
+    margin: 0 0 24px 189px;
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #FFFFFF;
+}
+
+.locations-divider {
+    width: 1552px;
+    height: 1px;
+    margin: 0 0 50px 189px;
+    background-color: #FFDE59;
+    border: none;
+}
+
+/* Location Cards Common Styles */
+.locations-row {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    margin: 0 0 30px 189px;
+    flex-wrap: wrap;
+}
+
+.location-card {
+    position: relative;
+    height: 127px;
+    border-radius: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    margin: 0 15px 15px 0;
+    box-sizing: border-box;
+}
+
+.location-name {
+    font-family: 'SF Pro Text';
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 32px;
+    letter-spacing: 0;
+    color: #768948;
+    margin: 0;
+}
+
+.location-icon {
+    width: 57.77px;
+    height: 56.63px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.location-pin-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Individual Location Card Styles */
+.location-faridabad {
+    width: 353px;
+}
+
+.location-chennai {
+    width: 355px;
+}
+
+.location-delhi {
+    width: 273px;
+}
+
+.location-gurugram {
+    width: 354px;
+}
+
+.location-bangalore {
+    width: 353px;
+}
+
+.location-bombay {
+    width: 319px;
+}
+
+.location-maneswar {
+    width: 455px;
+}
+
+.location-pune {
+    width: 261px;
+}
+
+.location-noida {
+    width: 273px;
+}
+
+.location-chandigarh {
+    width: 384px;
+}
+
+.location-jaipur {
+    width: 281px;
+}
+
+/* Responsive Styles */
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .locations-heading {
+        margin-left: 100px;
+    }
+    
+    .locations-divider {
+        width: calc(100% - 200px);
+        margin-left: 100px;
+    }
+    
+    .locations-row {
+        margin-left: 100px;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .locations-heading {
+        margin-left: 50px;
+        width: auto;
+    }
+    
+    .locations-divider {
+        width: calc(100% - 100px);
+        margin-left: 50px;
+    }
+    
+    .locations-row {
+        margin-left: 50px;
+        justify-content: center;
+    }
+    
+    .location-card {
+        margin: 10px;
+        height: 100px;
+    }
+    
+    .location-name {
+        font-size: 32px;
+    }
+    
+    .location-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .location-faridabad, .location-chennai, .location-delhi, .location-gurugram,
+    .location-bangalore, .location-bombay, .location-maneswar,
+    .location-pune, .location-noida, .location-chandigarh, .location-jaipur {
+        width: calc(50% - 20px);
+        max-width: 300px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .locations-heading {
+        margin-left: 20px;
+        width: auto;
+        font-size: 22px;
+    }
+    
+    .locations-divider {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .locations-row {
+        margin-left: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .location-card {
+        width: calc(100% - 40px) !important;
+        max-width: 320px;
+        height: 80px;
+        margin: 10px 0;
+        border-radius: 40px;
+        padding: 0 20px;
+    }
+    
+    .location-name {
+        font-size: 24px;
+        line-height: 24px;
+    }
+    
+    .location-icon {
+        width: 36px;
+        height: 36px;
+    }
+}

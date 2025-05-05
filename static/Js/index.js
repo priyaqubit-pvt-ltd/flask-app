@@ -102,3 +102,194 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// video animation
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all text lines
+    const textLines = document.querySelectorAll('.text-line');
+    
+    // Function to check if an element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
+    // Function to handle scroll animation
+    function handleScrollAnimation() {
+        textLines.forEach((line, index) => {
+            if (isInViewport(line)) {
+                // Add delay based on the index for sequential animation
+                setTimeout(() => {
+                    line.classList.add('visible');
+                }, index * 200);
+            }
+        });
+    }
+    
+    // Check on initial load
+    handleScrollAnimation();
+    
+    // Check on scroll
+    window.addEventListener('scroll', handleScrollAnimation);
+    
+    // Ensure video plays automatically
+    const video = document.querySelector('.background-video');
+    
+    // Function to handle video playback
+    function handleVideoPlayback() {
+        if (video.paused) {
+            video.play().catch(error => {
+                console.error("Video play failed:", error);
+            });
+        }
+    }
+    
+    // Try to play video on page load
+    handleVideoPlayback();
+    
+    // Try to play video on user interaction (helps with autoplay restrictions)
+    document.addEventListener('click', handleVideoPlayback);
+    document.addEventListener('touchstart', handleVideoPlayback);
+});
+
+
+
+
+
+
+
+
+
+
+// JavaScript for Blog Section
+document.addEventListener('DOMContentLoaded', function() {
+    // Lazy loading for images
+    const blogImages = document.querySelectorAll('.blog-image');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('src');
+                    
+                    // If using placeholder, replace with actual image
+                    if (src.includes('placeholder')) {
+                        // In a real implementation, you would replace this with your actual image path
+                        // img.src = img.getAttribute('data-src');
+                    }
+                    
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        blogImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+    
+    // Enable cookies for faster loading (as per SEO requirements)
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+    
+    // Set a cookie to indicate the user has visited before
+    setCookie('visited', 'true', 30);
+    
+    // View More button functionality
+    const viewMoreButton = document.querySelector('.blog-view-more');
+    if (viewMoreButton) {
+        viewMoreButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Add your view more functionality here
+            console.log('View more blogs clicked');
+            // Example: window.location.href = '/all-blogs';
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// This script handles any dynamic functionality for the locations section
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to check if an element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Function to add animation class when element is in viewport
+    function handleScrollAnimation() {
+        const locationCards = document.querySelectorAll('.location-card');
+        
+        locationCards.forEach(card => {
+            if (isInViewport(card)) {
+                card.classList.add('visible');
+            }
+        });
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScrollAnimation);
+    
+    // Initial check on page load
+    handleScrollAnimation();
+    
+    // Add hover effect for location cards
+    const locationCards = document.querySelectorAll('.location-card');
+    
+    locationCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+});
