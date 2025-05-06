@@ -27,6 +27,20 @@ def platinum():
     return render_template("platinum-class.html")
 
 
+@app.route("/News")
+def News():
+    return render_template("News.html")
+
+@app.route("/footer")
+def footer():
+    return render_template("footer.html")
+
+@app.route("/news-desc")
+def newsDesc():
+    return render_template("news-desc.html")
+
+
+
 if __name__ == '__main__':
     # app.run(debug=True)
     app.run(debug=True, host='0.0.0.0', port='8080')

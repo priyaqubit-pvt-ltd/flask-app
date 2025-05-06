@@ -1,0 +1,121 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-text');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.storage-guide-section {
+    padding: 40px 0;
+    font-family: 'SF Pro Text';
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.guide-content {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.guide-heading {
+    margin: 0 0 30px 0;
+    padding: 0;
+    font-family: 'SF Pro Text';
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+.content-wrapper {
+    display: flex;
+    position: relative;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 108px;
+    background-color: #000000;
+    margin-right: 20px;
+}
+
+.guide-description {
+    max-width: 1145px;
+}
+
+.guide-description p {
+    margin: 0;
+    font-family: 'SF Pro Text';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+.guide-image {
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 1600px;
+}
+
+.guide-image img {
+    width: 100%;
+    max-width: 1541px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Tablet View */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .guide-heading {
+        font-size: 40px;
+        line-height: 48px;
+    }
+    
+    .vertical-line {
+        height: 150px;
+    }
+    
+    .guide-image {
+        max-width: 90%;
+    }
+}
+
+/* Mobile View */
+@media only screen and (max-width: 767px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .guide-heading {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .vertical-line {
+        width: 100px;
+        height: 1px;
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+    
+    .guide-description p {
+        font-size: 16px;
+    }
+    
+    .guide-image {
+        max-width: 100%;
+    }
+}
