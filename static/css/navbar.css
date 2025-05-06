@@ -25,8 +25,15 @@ ul {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'LozyFont';
+  src: url('/static/fonts/SF-Pro-Text-Semibold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   line-height: 1;
 }
 
@@ -58,13 +65,14 @@ ul {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  position: relative;
+  /* position: relative; */
 }
 
 .storage-navbar__logo {
-  position: relative;
-  z-index: 1002;
-  height: 60px;
+  /* position: relative; */
+  /* z-index: 1002; */
+  width: 20%;
+  height: 70px;
   display: flex;
   align-items: center;
 }
@@ -76,34 +84,39 @@ ul {
   object-fit: contain;
 }
 
+.storage-navbar_wrapper{
+  display: flex;
+  width: 80%;
+}
+
 .storage-navbar__menu {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 616px;
-  height: 24px;
-  position: absolute;
+  /* width: 616px; */
+  /* height: 24px; */
+  /* position: absolute;
   top: 37px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
   gap: 40px;
 }
 
 .storage-navbar__menu-item {
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 400;
   font-size: 20px;
   color: #000;
   text-decoration: none;
   cursor: pointer;
-  position: relative;
+  /* position: relative; */
   display: flex;
   align-items: center;
 }
 
 /* Dropdown Menu */
 .storage-navbar__dropdown {
-  position: relative;
+ 
   display: flex;
   align-items: center;
   gap: 5px;
@@ -120,16 +133,18 @@ ul {
 
 .storage-navbar__dropdown-content {
   position: absolute;
-  width: 1277px;
-  height: 532px;
-  top: 60px;
-  margin-left: -430px;
-  background: linear-gradient(359.87deg, rgba(47, 44, 44, 1) -4.16%, rgba(147, 147, 147, 1) 99.89%) !important;
-  backdrop-filter: blur(80px) !important;
+  width: 1266px;
+  height: 526px;
+  top: 100%;
+ left: 50%;
+ transform: translateX(-50%);
+  background: linear-gradient( rgba(147, 147, 147, 1) 0%,  rgba(47, 44, 44, 1) 100%);
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(80px);
   border-radius: 8px;
   padding: 30px;
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0;
+  visibility: hidden; */
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1001;
 }
@@ -145,12 +160,12 @@ ul {
 }
 
 .storage-navbar__dropdown-title {
-  width: 123px;
+  
   height: 26px;
   position: relative;
   top: 10px;
   left: 37px;
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 500;
   font-size: 22px;
   line-height: 100%;
@@ -165,6 +180,7 @@ ul {
   top: 56px;
   left: 37px;
   background-color: #FFFFFF;
+  opacity: 70%;
 }
 
 .storage-navbar__dropdown-columns {
@@ -181,6 +197,7 @@ ul {
 }
 
 .storage-navbar__dropdown-divider-vertical-1 {
+  opacity: 70%;
   width: 1px;
   height: 435px;
   position: absolute;
@@ -196,6 +213,7 @@ ul {
   top: -24px;
   left: 750px;
   background-color: #FFFFFF;
+  opacity: 70%;
 }
 
 .storage-navbar__dropdown-subtitle {
@@ -203,7 +221,7 @@ ul {
   height: 26px;
   margin-top: 10px;
   margin-left: 71px;
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 400;
   font-size: 22px;
   line-height: 100%;
@@ -228,12 +246,12 @@ ul {
 .storage-navbar__dropdown-bullet {
   width: 7px;
   height: 7px;
-  background-color: #AEAEAE;
-  border-radius: 50%;
+  background-color: #000000;
+
 }
 
 .storage-navbar__dropdown-link {
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 400;
   font-size: 22px;
   line-height: 100%;
@@ -268,7 +286,7 @@ ul {
 .storage-navbar__dropdown-description {
   width: 326px;
   height: 84px;
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
@@ -280,7 +298,7 @@ ul {
 .storage-navbar__dropdown-know-more {
   width: 116px;
   height: 26px;
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 400;
   font-size: 22px;
   line-height: 100%;
@@ -305,9 +323,9 @@ ul {
   display: flex;
   align-items: center;
   gap: 20px;
-  position: absolute;
+  /* position: absolute;
   top: 20px;
-  right: 20px;
+  right: 20px; */
 }
 
 .storage-navbar__broacher-btn {
@@ -319,7 +337,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 600;
   font-size: 20px;
   line-height: 100%;
@@ -336,14 +354,14 @@ ul {
 .storage-navbar__contact-btn {
   width: 174px;
   height: 61px;
-  background-color: #768948;
+  background-color: #000000;
   color: #fff;
-  border: 1px solid #768948;
+  border: 1px solid #000000;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 500;
   font-size: 20px;
   text-decoration: none;
@@ -410,7 +428,7 @@ ul {
 }
 
 .storage-mobile-menu__item {
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 400;
   font-size: 20px;
   color: #000;
@@ -454,7 +472,7 @@ ul {
 
 /* Update the link color to white for better visibility on the dark background */
 .storage-mobile-menu__dropdown-link {
-  font-family: "SF Pro Text";
+  font-family: "LozyFont";
   font-weight: 400;
   font-size: 22px;
   color: #fff !important;
