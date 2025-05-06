@@ -130,6 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalSections = sections.length;
   const showcaseContainer = document.querySelector(".storage-showcase");
 
+  // commented out the following code as scroll behavior for storage sections is handled in css in this commit
+
   // Current section index
   let currentIndex = 0;
 
@@ -142,186 +144,186 @@ document.addEventListener("DOMContentLoaded", () => {
   // Timeout for scroll debounce
   let scrollTimeout;
 
-  // Function to change section
-  function changeSection(newIndex) {
-    console.log("Changing section from", currentIndex, "to", newIndex);
+  // // Function to change section
+  // function changeSection(newIndex) {
+  //   console.log("Changing section from", currentIndex, "to", newIndex);
 
-    if (newIndex < 0) {
-      newIndex = 0;
-      console.log("Reached top of showcase, allowing normal scroll");
-      return false; // Allow normal scroll up
-    } else if (newIndex >= totalSections) {
-      newIndex = totalSections - 1;
-      console.log("Reached bottom of showcase, allowing normal scroll");
-      return false; // Allow normal scroll down
-    }
+  //   if (newIndex < 0) {
+  //     newIndex = 0;
+  //     console.log("Reached top of showcase, allowing normal scroll");
+  //     return false; // Allow normal scroll up
+  //   } else if (newIndex >= totalSections) {
+  //     newIndex = totalSections - 1;
+  //     console.log("Reached bottom of showcase, allowing normal scroll");
+  //     return false; // Allow normal scroll down
+  //   }
 
-    // Remove active class from current section and dot
-    sections[currentIndex].classList.remove("active");
-    dots[currentIndex].classList.remove("active");
+  //   // Remove active class from current section and dot
+  //   sections[currentIndex].classList.remove("active");
+  //   dots[currentIndex].classList.remove("active");
 
-    // Update current index
-    currentIndex = newIndex;
+  //   // Update current index
+  //   currentIndex = newIndex;
 
-    // Add active class to new section and dot
-    sections[currentIndex].classList.add("active");
-    dots[currentIndex].classList.add("active");
+  //   // Add active class to new section and dot
+  //   sections[currentIndex].classList.add("active");
+  //   dots[currentIndex].classList.add("active");
 
-    return true; // Section changed successfully
-  }
+  //   return true; // Section changed successfully
+  // }
 
-  // Function to check if element is in viewport
-  function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top <= window.innerHeight / 2 &&
-      rect.bottom >= window.innerHeight / 2
-    );
-  }
+  // // Function to check if element is in viewport
+  // function isInViewport(element) {
+  //   const rect = element.getBoundingClientRect();
+  //   return (
+  //     rect.top <= window.innerHeight / 2 &&
+  //     rect.bottom >= window.innerHeight / 2
+  //   );
+  // }
 
-  // Handle scroll event for the entire page
-  window.addEventListener("scroll", () => {
-    // Check if showcase is in viewport
-    const wasInside = isInsideShowcase;
-    isInsideShowcase = isInViewport(showcaseContainer);
+  // // Handle scroll event for the entire page
+  // window.addEventListener("scroll", () => {
+  //   // Check if showcase is in viewport
+  //   const wasInside = isInsideShowcase;
+  //   isInsideShowcase = isInViewport(showcaseContainer);
 
-    // Log when entering or exiting showcase
-    if (isInsideShowcase && !wasInside) {
-      console.log("Entered showcase container");
-    } else if (!isInsideShowcase && wasInside) {
-      console.log("Exited showcase container");
-    }
-  });
+  //   // Log when entering or exiting showcase
+  //   if (isInsideShowcase && !wasInside) {
+  //     console.log("Entered showcase container");
+  //   } else if (!isInsideShowcase && wasInside) {
+  //     console.log("Exited showcase container");
+  //   }
+  // });
 
-  // Handle wheel event for showcase scrolling
-  window.addEventListener(
-    "wheel",
-    (event) => {
-      // Only handle special scrolling when inside showcase
-      if (!isInsideShowcase) {
-        console.log("Normal scrolling (outside showcase)");
-        return; // Allow normal scrolling
-      }
+  // // Handle wheel event for showcase scrolling
+  // window.addEventListener(
+  //   "wheel",
+  //   (event) => {
+  //     // Only handle special scrolling when inside showcase
+  //     if (!isInsideShowcase) {
+  //       console.log("Normal scrolling (outside showcase)");
+  //       return; // Allow normal scrolling
+  //     }
 
-      // If already processing a scroll, return
-      if (isScrolling) {
-        console.log("Ignoring scroll - already scrolling");
-        return;
-      }
+  //     // If already processing a scroll, return
+  //     if (isScrolling) {
+  //       console.log("Ignoring scroll - already scrolling");
+  //       return;
+  //     }
 
-      // Determine scroll direction
-      const direction = event.deltaY > 0 ? 1 : -1;
-      console.log("Scroll direction:", direction > 0 ? "down" : "up");
+  //     // Determine scroll direction
+  //     const direction = event.deltaY > 0 ? 1 : -1;
+  //     console.log("Scroll direction:", direction > 0 ? "down" : "up");
 
-      // Try to change section
-      const sectionChanged = changeSection(currentIndex + direction);
+  //     // Try to change section
+  //     const sectionChanged = changeSection(currentIndex + direction);
 
-      // If section changed successfully, prevent default scroll
-      if (sectionChanged) {
-        event.preventDefault();
+  //     // If section changed successfully, prevent default scroll
+  //     if (sectionChanged) {
+  //       event.preventDefault();
 
-        // Set scrolling flag
-        isScrolling = true;
+  //       // Set scrolling flag
+  //       isScrolling = true;
 
-        // Clear previous timeout
-        clearTimeout(scrollTimeout);
+  //       // Clear previous timeout
+  //       clearTimeout(scrollTimeout);
 
-        // Set timeout to reset scrolling flag
-        scrollTimeout = setTimeout(() => {
-          isScrolling = false;
-          console.log("Reset scrolling flag");
-        }, 800); // Adjust this value to control scroll sensitivity
-      } else {
-        console.log("Allowing normal page scroll (reached showcase boundary)");
-      }
-    },
-    { passive: false }
-  );
+  //       // Set timeout to reset scrolling flag
+  //       scrollTimeout = setTimeout(() => {
+  //         isScrolling = false;
+  //         console.log("Reset scrolling flag");
+  //       }, 800); // Adjust this value to control scroll sensitivity
+  //     } else {
+  //       console.log("Allowing normal page scroll (reached showcase boundary)");
+  //     }
+  //   },
+  //   { passive: false }
+  // );
 
-  // Handle touch events for mobile
-  let touchStartY = 0;
-  let touchEndY = 0;
+  // // Handle touch events for mobile
+  // let touchStartY = 0;
+  // let touchEndY = 0;
 
-  document.addEventListener(
-    "touchstart",
-    (event) => {
-      touchStartY = event.touches[0].clientY;
-      console.log("Touch start at Y:", touchStartY);
-    },
-    { passive: true }
-  );
+  // document.addEventListener(
+  //   "touchstart",
+  //   (event) => {
+  //     touchStartY = event.touches[0].clientY;
+  //     console.log("Touch start at Y:", touchStartY);
+  //   },
+  //   { passive: true }
+  // );
 
-  document.addEventListener(
-    "touchmove",
-    (event) => {
-      // Only track touch if inside showcase
-      if (!isInsideShowcase) return;
+  // document.addEventListener(
+  //   "touchmove",
+  //   (event) => {
+  //     // Only track touch if inside showcase
+  //     if (!isInsideShowcase) return;
 
-      touchEndY = event.touches[0].clientY;
-    },
-    { passive: true }
-  );
+  //     touchEndY = event.touches[0].clientY;
+  //   },
+  //   { passive: true }
+  // );
 
-  document.addEventListener(
-    "touchend",
-    () => {
-      // Only handle special scrolling when inside showcase
-      if (!isInsideShowcase) {
-        return;
-      }
+  // document.addEventListener(
+  //   "touchend",
+  //   () => {
+  //     // Only handle special scrolling when inside showcase
+  //     if (!isInsideShowcase) {
+  //       return;
+  //     }
 
-      // If already scrolling, return
-      if (isScrolling) {
-        return;
-      }
+  //     // If already scrolling, return
+  //     if (isScrolling) {
+  //       return;
+  //     }
 
-      // Calculate swipe direction
-      const direction = touchStartY > touchEndY ? 1 : -1;
-      const swipeDistance = Math.abs(touchStartY - touchEndY);
+  //     // Calculate swipe direction
+  //     const direction = touchStartY > touchEndY ? 1 : -1;
+  //     const swipeDistance = Math.abs(touchStartY - touchEndY);
 
-      // Only change section if the swipe is significant
-      if (swipeDistance > 50) {
-        const sectionChanged = changeSection(currentIndex + direction);
+  //     // Only change section if the swipe is significant
+  //     if (swipeDistance > 50) {
+  //       const sectionChanged = changeSection(currentIndex + direction);
 
-        if (sectionChanged) {
-          // Set scrolling flag
-          isScrolling = true;
+  //       if (sectionChanged) {
+  //         // Set scrolling flag
+  //         isScrolling = true;
 
-          // Clear previous timeout
-          clearTimeout(scrollTimeout);
+  //         // Clear previous timeout
+  //         clearTimeout(scrollTimeout);
 
-          // Set timeout to reset scrolling flag
-          scrollTimeout = setTimeout(() => {
-            isScrolling = false;
-          }, 800);
-        }
-      }
-    },
-    { passive: true }
-  );
+  //         // Set timeout to reset scrolling flag
+  //         scrollTimeout = setTimeout(() => {
+  //           isScrolling = false;
+  //         }, 800);
+  //       }
+  //     }
+  //   },
+  //   { passive: true }
+  // );
 
   // Handle dot clicks
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      console.log("Dot clicked:", index);
-      changeSection(index);
-    });
-  });
+  // dots.forEach((dot, index) => {
+  //   dot.addEventListener("click", () => {
+  //     console.log("Dot clicked:", index);
+  //     changeSection(index);
+  //   });
+  // });
 
   // Handle keyboard navigation
-  document.addEventListener("keydown", (event) => {
-    // Only handle keyboard navigation when inside showcase
-    if (!isInsideShowcase) return;
+  // document.addEventListener("keydown", (event) => {
+  //   // Only handle keyboard navigation when inside showcase
+  //   if (!isInsideShowcase) return;
 
-    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-      changeSection(currentIndex + 1);
-    } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-      changeSection(currentIndex - 1);
-    }
-  });
+  //   if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+  //     changeSection(currentIndex + 1);
+  //   } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+  //     changeSection(currentIndex - 1);
+  //   }
+  // });
 
-  // Initialize first section
-  changeSection(0);
+  // // Initialize first section
+  // changeSection(0);
 
   // Add resize event listener to handle responsive adjustments
   window.addEventListener("resize", () => {});
