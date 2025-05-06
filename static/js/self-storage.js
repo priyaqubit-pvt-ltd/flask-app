@@ -132,17 +132,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // commented out the following code as scroll behavior for storage sections is handled in css in this commit
 
-  // Current section index
-  let currentIndex = 0;
+  // // Current section index
+  // let currentIndex = 0;
 
-  // Flag to prevent rapid scrolling
-  let isScrolling = false;
+  // // Flag to prevent rapid scrolling
+  // let isScrolling = false;
 
-  // Flag to track if we're inside the showcase container
-  let isInsideShowcase = false;
+  // // Flag to track if we're inside the showcase container
+  // let isInsideShowcase = false;
 
-  // Timeout for scroll debounce
-  let scrollTimeout;
+  // // Timeout for scroll debounce
+  // let scrollTimeout;
 
   // // Function to change section
   // function changeSection(newIndex) {
@@ -181,19 +181,24 @@ document.addEventListener("DOMContentLoaded", () => {
   //   );
   // }
 
-  // // Handle scroll event for the entire page
-  // window.addEventListener("scroll", () => {
-  //   // Check if showcase is in viewport
-  //   const wasInside = isInsideShowcase;
-  //   isInsideShowcase = isInViewport(showcaseContainer);
+  // Make the previous sections fade as the user scrolls
+  window.addEventListener('scroll', () => {
+    sections.forEach((section, i) => {
+      const nextSection = sections[i + 1];
 
-  //   // Log when entering or exiting showcase
-  //   if (isInsideShowcase && !wasInside) {
-  //     console.log("Entered showcase container");
-  //   } else if (!isInsideShowcase && wasInside) {
-  //     console.log("Exited showcase container");
-  //   }
-  // });
+      // If current is the last
+      if (!nextSection) return;
+  
+      const nextRect = nextSection.getBoundingClientRect();
+      const sectionRect = section.getBoundingClientRect();
+  
+      if (nextRect.top <= sectionRect.bottom) {
+        section.style.opacity = 1 - Math.min((sectionRect.bottom - nextRect.top) / sectionRect.height, 1);
+      } else {
+        section.style.opacity = 1;
+      }
+    });
+  });
 
   // // Handle wheel event for showcase scrolling
   // window.addEventListener(
@@ -204,40 +209,10 @@ document.addEventListener("DOMContentLoaded", () => {
   //       console.log("Normal scrolling (outside showcase)");
   //       return; // Allow normal scrolling
   //     }
-
-  //     // If already processing a scroll, return
-  //     if (isScrolling) {
-  //       console.log("Ignoring scroll - already scrolling");
-  //       return;
-  //     }
-
-  //     // Determine scroll direction
-  //     const direction = event.deltaY > 0 ? 1 : -1;
-  //     console.log("Scroll direction:", direction > 0 ? "down" : "up");
-
-  //     // Try to change section
-  //     const sectionChanged = changeSection(currentIndex + direction);
-
-  //     // If section changed successfully, prevent default scroll
-  //     if (sectionChanged) {
-  //       event.preventDefault();
-
-  //       // Set scrolling flag
-  //       isScrolling = true;
-
-  //       // Clear previous timeout
-  //       clearTimeout(scrollTimeout);
-
-  //       // Set timeout to reset scrolling flag
-  //       scrollTimeout = setTimeout(() => {
-  //         isScrolling = false;
-  //         console.log("Reset scrolling flag");
-  //       }, 800); // Adjust this value to control scroll sensitivity
-  //     } else {
-  //       console.log("Allowing normal page scroll (reached showcase boundary)");
-  //     }
+      
+      
   //   },
-  //   { passive: false }
+  //   { passive: true }
   // );
 
   // // Handle touch events for mobile
