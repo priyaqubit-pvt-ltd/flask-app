@@ -99,13 +99,13 @@ ul {
   top: 37px;
   left: 50%;
   transform: translateX(-50%); */
-  gap: 40px;
+  gap: clamp(10px, 2vw, 40px);
 }
 
 .storage-navbar__menu-item {
   font-family: "LozyFont";
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(18px, 1.5vw, 22px);
   color: #000;
   text-decoration: none;
   cursor: pointer;

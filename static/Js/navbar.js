@@ -58,6 +58,22 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
       });
     });
+
+const navbarImage = document.querySelector(".storage-navbar__dropdown-image");
+const Images = [
+  "img1.png",
+  "img2.png",
+  "img3.png"
+
+]
+// change images in mega menu on hover 
+document.querySelectorAll(".storage-navbar__dropdown-item").forEach((dropdownItem,idx) =>{
+  dropdownItem.addEventListener("mouseenter",()=>{
+    navbarImage.src = `/static/images/${Images[idx]}`;
+    
+  })
+})
+
   });
 
   // Add this to your existing Script.js file
