@@ -8,6 +8,8 @@
   padding: 0;
   box-sizing: border-box;
   line-height: 1.2;
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
 }
 
 html,
@@ -200,6 +202,10 @@ body {
     display: none;
   }
 
+  .storage-icon {
+    display: none;
+  }
+
   .vector-lines {
     width: 100%;
     height: 100%;
@@ -249,13 +255,36 @@ body {
 
 /* Section styles */
 .storage-section {
-  top: 0;
   transition: visibility 0.8s ease-in,
     transform 0.8s ease-in;
   padding: 2rem;
-  padding-right: 1%;
-  padding-left: 1%;
+  padding-right: 8%;
+  padding-left: 8%;
   position: sticky;
+}
+
+#section1 {
+  top: 0;
+}
+
+#section2 {
+  top: 1vw;
+}
+
+#section3 {
+  top: 2vw;
+}
+
+#section4 {
+  top: 3vw;
+}
+
+#section5 {
+  top: 4vw;
+}
+
+#section6 {
+  top: 5vw;
 }
 
 .storage-section.active {
@@ -271,11 +300,11 @@ body {
   padding-bottom: 5%;
   padding-left: 7%;
   padding-right: 7%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #141414;
   border-radius: 20px;
+  height: 90vh;
 }
 
 /* Title styles */
@@ -284,12 +313,15 @@ body {
   font-size: 26px;
   font-weight: 400;
   margin-bottom: 10px;
+  font-family: inter;
+  font-style: italic;
 }
 
 /* Divider line */
 .storage-divider {
   width: 100%;
   height: 1px;
+  min-height: 1px;
   background-color: #ffde59;
   margin-bottom: 40px;
 }
@@ -299,7 +331,7 @@ body {
   display: flex;
   flex-direction: row;
   flex: 1;
-  gap: 40px;
+  gap: 80px;
   align-items: start;
 }
 
@@ -307,7 +339,6 @@ body {
 .storage-text-container {
   flex: 1;
   position: relative;
-  padding-bottom: 80px;
 }
 
 /* Heading styles */
@@ -322,19 +353,16 @@ body {
 /* Description styles */
 .storage-description {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.6;
   max-width: 612px;
 }
 
 /* Icon styles */
 .storage-icon {
-  position: absolute;
-  top: 85%;
-  bottom: 0;
-  left: 0;
-  width: 186px;
-  height: 186px;
+  margin-top: 40px;
+  width: 130px;
+  height: 130px;
   opacity: 0.7;
 }
 .storage-icon img {
@@ -434,10 +462,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .storage-showcase {
-  }
-  .storage-content {
-  }
   .storage-info {
     flex-direction: column;
   }
@@ -825,7 +849,6 @@ body {
   left: -10%;
   width: 100%;
   height: 70vh;
-  max-width: 700px;
   z-index: 1;
 }
 
@@ -833,11 +856,11 @@ body {
   position: relative;
   z-index: 2;
   color: white;
-  font-size: 60px;
-  font-weight: 500;
+  font-size: 50px;
+  font-weight: 400;
   line-height: 1;
   margin-top: 70px;
-  max-width: 550px;
+  max-width: 600px;
   margin-left: 16%;
 }
 

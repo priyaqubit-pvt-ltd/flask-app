@@ -191,12 +191,25 @@ document.addEventListener("DOMContentLoaded", () => {
   
       const nextRect = nextSection.getBoundingClientRect();
       const sectionRect = section.getBoundingClientRect();
+      const baseWidth = 90*(1+(i/50));
   
       if (nextRect.top <= sectionRect.bottom) {
-        section.style.opacity = 1 - Math.min((sectionRect.bottom - nextRect.top) / sectionRect.height, 1);
+        section.children[0].style.width = Math.max((1-((sectionRect.bottom - nextRect.top) / sectionRect.height)*0.1)*(100),baseWidth)+"%";
+        if(((sectionRect.bottom - nextRect.top) / sectionRect.height) > 0.5)
+        section.style.opacity = Math.max(1 - Math.min((sectionRect.bottom - nextRect.top) / sectionRect.height, 1)+0.5,0.7);
       } else {
+        section.children[0].style.width = "100%";
         section.style.opacity = 1;
       }
+
+      if(section.style.opacity <= 0.7) {
+        Array.from(section.children[0].children).forEach(element => {
+          element.style.opacity = 1 - Math.min((sectionRect.bottom - nextRect.top) / sectionRect.height, 1);
+        }); } else {
+          Array.from(section.children[0].children).forEach(element => {
+            element.style.opacity = 1;
+          });
+        }
     });
   });
 
