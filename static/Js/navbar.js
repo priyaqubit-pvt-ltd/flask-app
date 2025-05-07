@@ -14,16 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileDropdowns = document.querySelectorAll('.storage-mobile-menu__dropdown');
     
     mobileDropdowns.forEach(dropdown => {
-      const dropdownToggle = dropdown.querySelector('span');
+      const dropdownToggle = dropdown.querySelector('.storage-mobile-menu__item_wrapper');
       const dropdownContent = dropdown.querySelector('.storage-mobile-menu__dropdown-content');
       
       // Apply the styles to the dropdown content initially
       if (dropdownContent) {
-        dropdownContent.style.background = 'linear-gradient(359.87deg, rgba(47, 44, 44, 0.5) -4.16%, rgba(147, 147, 147, 0.5) 99.89%)';
-        dropdownContent.style.backdropFilter = 'blur(80px)';
-        dropdownContent.style.webkitBackdropFilter = 'blur(80px)';
-        dropdownContent.style.borderRadius = '8px';
-        dropdownContent.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+        // dropdownContent.style.background = 'linear-gradient(359.87deg, rgba(47, 44, 44, 0.5) -4.16%, rgba(147, 147, 147, 0.5) 99.89%)';
+        // dropdownContent.style.backdropFilter = 'blur(80px)';
+        // dropdownContent.style.webkitBackdropFilter = 'blur(80px)';
+        // dropdownContent.style.borderRadius = '8px';
+        // dropdownContent.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
         
         // Update link colors
         const links = dropdownContent.querySelectorAll('.storage-mobile-menu__dropdown-link');

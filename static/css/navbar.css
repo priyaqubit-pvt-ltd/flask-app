@@ -143,8 +143,8 @@ ul {
   -webkit-backdrop-filter: blur(80px);
   border-radius: 8px;
   padding: 30px;
-  /* opacity: 0;
-  visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1001;
 }
@@ -267,7 +267,7 @@ ul {
 
 .storage-navbar__dropdown-feature {
   width: 343px;
-  margin-left: 40px;
+  margin-right: 50px;
 }
 
 .storage-navbar__dropdown-image-container {
@@ -296,7 +296,7 @@ ul {
 }
 
 .storage-navbar__dropdown-know-more {
-  width: 116px;
+  /* width: 116px; */
   height: 26px;
   font-family: "LozyFont";
   font-weight: 400;
@@ -310,13 +310,6 @@ ul {
   gap: 10px;
 }
 
-.storage-navbar__dropdown-arrow {
-  width: 38.36px;
-  height: 28.46px;
-  transform: rotate(45deg);
-  /* filter: invert(80%) sepia(75%) saturate(552%) hue-rotate(359deg) brightness(103%) contrast(107%); */
-  color: yellow;
-}
 
 /* Buttons */
 .storage-navbar__buttons {
@@ -406,12 +399,13 @@ ul {
 
 /* Mobile Menu */
 .storage-mobile-menu {
+  background: linear-gradient(rgba(127, 127, 127, 1), rgba(47, 44, 44, 1));
   position: fixed;
   top: 99px;
   right: -100%;
   width: 100%;
   height: calc(100vh - 99px);
-  background-color: #fff;
+ 
   z-index: 999;
   transition: right 0.3s ease;
   overflow-y: auto;
@@ -427,17 +421,23 @@ ul {
   padding: 20px;
 }
 
+
+
 .storage-mobile-menu__item {
   font-family: "LozyFont";
   font-weight: 400;
   font-size: 20px;
-  color: #000;
+  color: rgba(255, 255, 255, 1);
   text-decoration: none;
   padding: 15px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  display: flex;
+ 
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
+}
+
+.storage-mobile-menu_heading{
+  color: rgba(255, 255, 255, 0.71);
 }
 
 .storage-mobile-menu__dropdown {
@@ -458,12 +458,16 @@ ul {
   padding: 10px 0 10px 20px;
   flex-direction: column;
   gap: 15px;
-  /* background: linear-gradient(359.87deg, rgba(47, 44, 44, 0.5) -4.16%, rgba(147, 147, 147, 0.5) 99.89%) !important;
-  backdrop-filter: blur(80px) !important;
-  -webkit-backdrop-filter: blur(80px) !important; */
+  
   border-radius: 8px !important;
   margin-top: 10px !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+
+}
+
+.storage-mobile-menu__item_wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .storage-mobile-menu__dropdown.active .storage-mobile-menu__dropdown-content {
@@ -589,6 +593,10 @@ ul {
   .storage-mobile-menu {
     top: 80px;
     height: calc(100vh - 80px);
+  }
+
+  .storage-mobile-menu__dropdown-link{
+    font-size: 20px;
   }
   
   .logo-image {
