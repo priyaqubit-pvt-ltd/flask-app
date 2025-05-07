@@ -39,6 +39,14 @@ def footer():
 def newsDesc():
     return render_template("news-desc.html")
 
+@app.route("/404")
+def e404():
+    return render_template("404.html")
+
+@app.route("/contact-us")
+def contact():
+    return render_template("contact-us.html")
+
 
 
 if __name__ == '__main__':
