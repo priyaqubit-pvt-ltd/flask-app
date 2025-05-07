@@ -14,7 +14,7 @@
 
 html,
 body {
-  font-family: "SF Pro Text", Arial, sans-serif;
+  font-family: "SF Pro Text";
   line-height: 1.6;
   max-width: 100%;
   margin: 0;
@@ -53,7 +53,7 @@ body {
 .hero-title {
   font-size: 100px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 110px;
   margin-bottom: 20px;
   color: #000;
 }
@@ -63,7 +63,7 @@ body {
 }
 
 .hero-description {
-  font-size: 18px;
+  font-size: 16px;
   color: #333;
   margin-bottom: 30px;
   line-height: 1.6;
@@ -310,7 +310,7 @@ body {
 /* Title styles */
 .storage-title {
   color: #fff;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 400;
   margin-bottom: 10px;
   font-family: inter;
@@ -344,7 +344,7 @@ body {
 /* Heading styles */
 .storage-heading {
   color: #fff;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
   margin-bottom: 20px;
   max-width: 300px;
@@ -382,7 +382,7 @@ body {
 /* Image styles */
 .storage-image {
   width: 100%;
-  max-width: 850px;
+  max-width: 799px;
   max-height: 550px;
   border-radius: 4px;
   object-fit: cover;
@@ -417,8 +417,6 @@ body {
 /* Storage Showcase Media Queries */
 
 @media (max-width: 1300px) {
-  .storage-showcase {
-  }
   .storage-section {
     padding: 2rem;
   }
@@ -504,13 +502,9 @@ body {
 }
 
 @media (max-width: 480px) {
-  .storage-showcase {
-  }
   .storage-text-container {
     padding-bottom: 0;
     flex: unset;
-  }
-  .storage-content {
   }
 
   .storage-title {
@@ -1215,8 +1209,6 @@ body {
 @media (max-width: 1300px) {
   .faq-banner {
     width: 97%;
-  }
-  .faq-divider {
   }
 }
 @media (max-width: 1024px) {
