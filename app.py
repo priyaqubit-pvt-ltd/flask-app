@@ -4,9 +4,13 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 app.secret_key = "secret_key"
 
+@app.route('/pre')
+def home():
+    return render_template('Home.html')
+
 @app.route('/')
 def index():
-    return render_template('setup.html')
+    return render_template('index.html')
 
 # ✅ Flask-Mail Configuration (Update with your SMTP settings)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Replace with your mail server

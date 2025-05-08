@@ -56,39 +56,70 @@ document.addEventListener('DOMContentLoaded', function() {
     dropdownToggles.forEach(toggle => {
       toggle.addEventListener('click', function(e) {
         e.preventDefault();
+        document.querySelector(".storage-navbar__dropdown-content").classList.toggle("active");
+        document.querySelector(".storage-navbar__dropdown-icon").classList.toggle("active");
       });
     });
 
 const navbarImage = document.querySelector(".storage-navbar__dropdown-image");
+const navbarContent = document.querySelector(".storage-navbar__dropdown-description");
+const navbarLink = document.querySelector(".storage-navbar__dropdown-know-more");
 const Images = [
-  "img1.png",
-  "img2.png",
-  "img3.png"
-
+  {"src":"img1.png", "content":`Self-storage offers a secure, flexible, and convenient
+                      solution for storing your belongings, whether for
+                      short-term or long-term needs.`
+                      , "link":"/self-storage"},
+  {"src":"img2.png", "content":`Corporate-storage offers a secure, flexible, and convenient
+                      solution for storing your belongings, whether for
+                      short-term or long-term needs.`, "link":"/corporate-storage"},
+  {"src":"img3.png", "content":`Business-storage offers a secure, flexible, and convenient
+                      solution for storing your belongings, whether for
+                      short-term or long-term needs.`, "link":"/business"},
+  {"src":"img1.png", "content":`Enterprise-storage offers a secure, flexible, and convenient
+                      solution for storing your belongings, whether for
+                      short-term or long-term needs.`, "link":"/enterprise-storage"},
+  {"src":"img2.png", "content":`3pl-storage offers a secure, flexible, and convenient
+                      solution for storing your belongings, whether for
+                      short-term or long-term needs.`, "link":"/3pl-storage"},
+  {"src":"img3.png", "content":`Vehicle-storage offers a secure, flexible, and convenient
+                      solution for storing your belongings, whether for
+                      short-term or long-term needs.`, "link":"/vehicle-storage"},
+  {"src":"img1.png", "content":`Platinum-storage offers a secure, flexible, and convenient
+                      solution for storing your belongings, whether for
+                      short-term or long-term needs.`, "link":"/platinum-storage"},
+  {"src":"img2.png", "content":`Platinum-storage offers a secure, flexible, and convenient
+                      solution for storing your belongings, whether for
+                      short-term or long-term needs.`, "link":"/platinum-storage"},
+  {"src":"img3.png", "content":`Bonded-storage offers a secure, flexible, and convenient
+                      solution for storing your belongings, whether for
+                      short-term or long-term needs.`, "link":"/bonded-storage"},
 ]
 // change images in mega menu on hover 
 document.querySelectorAll(".storage-navbar__dropdown-item").forEach((dropdownItem,idx) =>{
   dropdownItem.addEventListener("mouseenter",()=>{
-    navbarImage.src = `/static/images/${Images[idx]}`;
-    
+    navbarImage.src = `/static/images/${Images[idx].src}`;
+    navbarContent.innerText = Images[idx].content;
+    navbarLink.href = Images[idx].link;
   })
 })
 
+  // Add this to your existing Script.js file
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the Contact Us button from your navbar
+    const contactButton = document.querySelector('.storage-navbar__contact-btn');
+    
+    // Add click event listener to open the popup
+    if (contactButton) {
+      contactButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        // This calls the function we exposed in the contact-popup.js file
+        const contactPopUp = document.querySelector(".contact-popup-container");
+        if (contactPopUp) {
+          contactPopUp.classList.toggle("active");
+        }
+      });
+    }
   });
 
-  // Add this to your existing Script.js file
-// document.addEventListener('DOMContentLoaded', function() {
-//     // Get the Contact Us button from your navbar
-//     const contactButton = document.querySelector('.storage-navbar__contact-btn');
-    
-//     // Add click event listener to open the popup
-//     if (contactButton) {
-//       contactButton.addEventListener('click', function(e) {
-//         e.preventDefault();
-//         // This calls the function we exposed in the contact-popup.js file
-//         if (window.openContactPopup) {
-//           window.openContactPopup();
-//         }
-//       });
-//     }
-//   });
+  });
+
