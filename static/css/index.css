@@ -282,13 +282,13 @@ html, body {
 }
 
 .pricing-text {
-    font-family: 'SF Pro Text';
+    font-family: 'LozyFont';
     font-weight: 500;
     font-size: 70px;
     line-height: 100%;
     letter-spacing: 0;
     text-align: center;
-    color: white;
+    color: #88888880;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.8s ease, transform 0.8s ease;
@@ -300,13 +300,27 @@ html, body {
     transform: translateY(0);
 }
 
-.gray-text {
-    color: #888888;
+.pricing-text span.filled {
+    color: #ffffff;
+}
+
+/* .gray-text {
+ 
+    color: #88888880;
 }
 
 .white-text {
+   
+    color: #88888880;
+}
+
+.white-text.filled{
     color: white;
 }
+
+.gray-text.filled{
+    color: #888888;
+} */
 
 /* Storage Section Styles */
 .lozy_storage_section_wrapper {
@@ -898,9 +912,9 @@ html, body {
     transform: translateY(0);
 }
 
-.gray-text {
+/* .gray-text {
     color: #AEAEAE;
-}
+} */
 
 .yellow-text {
     color: #FFFF00;

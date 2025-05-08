@@ -103,22 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // video animation
-
 document.addEventListener('DOMContentLoaded', function() {
     // Get all text lines
     const textLines = document.querySelectorAll('.text-line');
@@ -172,15 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchstart', handleVideoPlayback);
 });
 
-
-
-
-
-
-
-
-
-
 // JavaScript for Blog Section
 document.addEventListener('DOMContentLoaded', function() {
     // Lazy loading for images
@@ -197,8 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (src.includes('placeholder')) {
                         // In a real implementation, you would replace this with your actual image path
                         // img.src = img.getAttribute('data-src');
-                    }
-                    
+                    }  
                     observer.unobserve(img);
                 }
             });
@@ -234,20 +209,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // This script handles any dynamic functionality for the locations section
 document.addEventListener('DOMContentLoaded', function() {
@@ -293,3 +254,53 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", function(){
+    const section = document.querySelector(".pricing-section");
+    const textSpans = document.querySelectorAll(".pricing-text span");
+    let filledIndex = 0;
+    let locked = false;
+    let lockTriggered = false; // track if section was ever locked
+  
+    window.addEventListener("wheel", (e) => {
+      if (!locked) return;
+  
+      e.preventDefault();
+  
+      if (filledIndex < textSpans.length) {
+        textSpans[filledIndex].classList.add("filled");
+        filledIndex++;
+      } else {
+        // Unlock scroll — but before that, push the page down
+        section.style.position = "relative";
+        section.style.top = "";
+        section.style.left = "";
+        section.style.right = "";
+        section.style.zIndex = "";
+  
+        locked = false;
+  
+        // Scroll past the section to avoid jump
+        const offset = section.offsetTop + section.offsetHeight;
+        window.scrollTo({
+          top: offset,
+          behavior: "instant" // or "smooth" if you prefer
+        });
+      }
+    }, { passive: false });
+  
+    window.addEventListener("scroll", () => {
+      const sectionTop = section.getBoundingClientRect().top;
+  
+      if (sectionTop <= 10 && !locked && !lockTriggered) {
+        section.style.position = "fixed";
+        section.style.top = "100px";
+        section.style.left = "0";
+        section.style.right = "0";
+        section.style.zIndex = "2000";
+  
+        locked = true;
+        lockTriggered = true;
+      }
+    });
+  });
+  
