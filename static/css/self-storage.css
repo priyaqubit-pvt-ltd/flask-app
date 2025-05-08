@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "SF Pro Text";
+  src: url('../fonts/SF-Pro.ttf');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -245,7 +250,7 @@ body {
 /* Section styles */
 .storage-section {
   top: 0;
-  transition: opacity 0.8s ease-in, visibility 0.8s ease-in,
+  transition: visibility 0.8s ease-in,
     transform 0.8s ease-in;
   padding: 2rem;
   padding-right: 1%;
