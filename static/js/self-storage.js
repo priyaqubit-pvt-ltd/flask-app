@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const timeline = document.querySelector(".timeline");
   const scrollDot = document.querySelector(".scroll-dot");
   const steps = document.querySelectorAll(".step");
+  const stepNumbers = document.querySelectorAll(".step-number");
 
   // Store the initial top position of the container
   let initialContainerTop = 0;
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     left: "0",
     top: "0",
     width: "100%",
-    background: "white",
+    background: "#FFDE59",
     zIndex: "-1",
     height: "0",
     opacity: "1",
@@ -84,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Dot Position (px):", finalDotPosition.toFixed(2));
 
     // Update timeline progress
-    timelineProgress.style.height = `${dotPosition}px`;
+    timelineProgress.style.height = `${Math.max(0,window.innerHeight / 2 - timelineProgress.getBoundingClientRect().top)}px`;
     timelineProgress.style.opacity = `${1 - scrollProgress * 0.5}`;
 
     console.log("Timeline Progress Height:", timelineProgress.style.height);
@@ -107,6 +108,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // Apply styles based on progress
       step.style.opacity = Math.min(1, stepProgress * 1.2);
       step.style.transform = `translateY(${(1 - stepProgress) * 30}px)`;
+
+      const isCentered = stepNumbers[index].getBoundingClientRect().top <= window.innerHeight / 2 + 100 && stepNumbers[index].getBoundingClientRect().bottom >= window.innerHeight / 2 - 100;
+
+      if(isCentered) {
+        stepNumbers[index].style.color = "#FFDE59";
+      } else {
+        stepNumbers[index].style.color = "#FFFFFF";
+      }
     });
   }
 
