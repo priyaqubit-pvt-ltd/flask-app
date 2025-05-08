@@ -205,8 +205,8 @@ html, body {
 /* Fixed hero image positioning */
 .hero-image {
     position: absolute;
-    bottom: -100px;
-    right: -10px;
+    top: 99px;
+    right: -15px;
     width: 60%;
     /* height: 100%; */
     z-index: 3;
