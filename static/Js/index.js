@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Function to handle scroll events for social links
-    function handleSocialScroll() {
-        const scrollPosition = window.scrollY;
-        const socialLinksContainer = document.querySelector('.social-links-container');
+    // function handleSocialScroll() {
+    //     const scrollPosition = window.scrollY;
+    //     const socialLinksContainer = document.querySelector('.social-links-container');
         
-        // Adjust the position of social links container based on scroll
-        if (scrollPosition > 0) {
-            socialLinksContainer.style.top = `${Math.max(621 - scrollPosition, 100)}px`;
-        } else {
-            socialLinksContainer.style.top = '621px';
-        }
-    }
+    //     // Adjust the position of social links container based on scroll
+    //     if (scrollPosition > 0) {
+    //         socialLinksContainer.style.top = `${Math.max(621 - scrollPosition, 100)}px`;
+    //     } else {
+    //         socialLinksContainer.style.top = '621px';
+    //     }
+    // }
 
     // Add scroll event listener for social links
-    window.addEventListener('scroll', handleSocialScroll);
+    // window.addEventListener('scroll', handleSocialScroll);
 
     // Add hover effect for social links
     const socialLinks = document.querySelectorAll('.social-link');
@@ -315,91 +315,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const section = document.querySelector(".pricing-section");
   const textSpans = document.querySelectorAll(".pricing-text span");
   let filledIndex = 0;
-  let locked = false;
-  let lockTriggered = false;
-  let reverseLock = false;
 
   window.addEventListener("wheel", (e) => {
-    if (!locked && !reverseLock) return;
-
-    e.preventDefault();
-
-    if (locked) {
+    if (e.deltaY > 0) {
+      // Scroll down — fill next span
       if (filledIndex < textSpans.length) {
         textSpans[filledIndex].classList.add("filled");
         filledIndex++;
-      } else {
-        // Unlock scroll going down
-        section.style.position = "relative";
-        section.style.top = "";
-        section.style.left = "";
-        section.style.right = "";
-        section.style.zIndex = "";
-        locked = false;
-
-        // Jump past section
-        const offset = section.offsetTop + section.offsetHeight;
-        window.scrollTo({
-          top: offset,
-          behavior: "instant"
-        });
       }
-    }
-
-    if (reverseLock) {
+    } else {
+      // Scroll up — unfill previous span
       if (filledIndex > 0) {
         filledIndex--;
         textSpans[filledIndex].classList.remove("filled");
-      } else {
-        // Unlock scroll going up
-        section.style.position = "relative";
-        section.style.top = "";
-        section.style.left = "";
-        section.style.right = "";
-        section.style.zIndex = "";
-        reverseLock = false;
-
-        // Jump before section
-        const offset = section.offsetTop - window.innerHeight + section.offsetHeight;
-        window.scrollTo({
-          top: offset,
-          behavior: "instant"
-        });
       }
-    }
-  }, { passive: false });
-
-  window.addEventListener("scroll", () => {
-    const sectionTop = section.getBoundingClientRect().top;
-    const sectionBottom = section.getBoundingClientRect().bottom;
-
-    // Lock scroll when section top touches 10px from top of viewport — for downward
-    if (sectionTop <= 10 && !locked && !lockTriggered) {
-      section.style.position = "fixed";
-      section.style.top = "100px";
-      section.style.left = "0";
-      section.style.right = "0";
-      section.style.zIndex = "2000";
-
-      locked = true;
-      lockTriggered = true;
-    }
-
-    // Lock scroll when section bottom touches viewport bottom — for upward
-    if (sectionBottom >= window.innerHeight && !reverseLock && lockTriggered && window.scrollY < section.offsetTop) {
-      section.style.position = "fixed";
-      section.style.top = "100px";
-      section.style.left = "0";
-      section.style.right = "0";
-      section.style.zIndex = "2000";
-
-      reverseLock = true;
     }
   });
 });
+
 
   
 

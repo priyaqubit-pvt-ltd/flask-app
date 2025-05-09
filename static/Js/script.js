@@ -59,19 +59,28 @@ document.addEventListener("DOMContentLoaded", () => {
     setCookie("visited", "true", 30)
   })
 
-      document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
   const section = document.querySelector(".footer-section");
   const textSpans = document.querySelectorAll(".lozy-text span");
+  let triggered = false;
 
-   window.addEventListener("scroll", () => {
-    const sectionTop = section.getBoundingClientRect().top;
+  window.addEventListener("scroll", () => {
     const sectionBottom = section.getBoundingClientRect().bottom;
+    const sectionTop = section.getBoundingClientRect().top;
+    
+    if (sectionTop <= 100 && !triggered) {
+      // allow a few pixels buffer to reliably catch the moment
+      triggered = true;
+      let index = 0;
 
-    // Lock scroll when section top touches 10px from top of viewport — for downward
-    if (sectionTop <= 0 ) {
-        textSpans.forEach(span => {
-        span.classList.add("show");
-      });
-    }});
+      const interval = setInterval(() => {
+        if (index < textSpans.length) {
+          textSpans[index].classList.add("show");
+          index++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 150);
+    }
+  });
 });
-  

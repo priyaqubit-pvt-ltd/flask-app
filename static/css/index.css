@@ -80,10 +80,10 @@ html, body {
 .social-links-container {
     position: fixed;
     left: -28px;
-    top: 621px;
+    top: 40%;
     width: 106px;
     height: 238px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.441);
     backdrop-filter: blur(80px);
     border-radius: 20px;
     z-index: 10;
@@ -2070,14 +2070,14 @@ html, body {
     margin-left: 60px;
 }
 
-.horizontal-line {
+/* .horizontal-line {
     width: calc(100% - 120px);
     height: 1px;
     margin: 24px auto 45px;
     background-color: rgba(0, 0, 0, 0.6);
     border: none;
     max-width: 1533px;
-}
+} */
 
 .clients-rows-container {
     position: relative;
@@ -2162,11 +2162,11 @@ html, body {
     .clients-heading {
         margin-left: 40px;
     }
-    
+/*     
     .horizontal-line {
         width: calc(100% - 80px);
     }
-    
+     */
     .clients-rows-container {
         padding: 0 40px;
     }

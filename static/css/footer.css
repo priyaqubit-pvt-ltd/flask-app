@@ -293,9 +293,10 @@
     margin: 0;
     transform: translateY(-110%);
     display: inline-block;
+    transition: all 1.5s ease-out;
   }
 
-  .show{
+  .lozy-text span.show{
     transform: translateY(0);
   }
   
