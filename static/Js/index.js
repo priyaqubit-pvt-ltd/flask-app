@@ -314,7 +314,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
   const section = document.querySelector(".pricing-section");
   const textSpans = document.querySelectorAll(".pricing-text span");
@@ -403,7 +402,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
   
-=======
 
 
 
@@ -605,4 +603,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 500);
 });
->>>>>>> Lozy-P2

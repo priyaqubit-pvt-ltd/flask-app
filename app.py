@@ -87,8 +87,6 @@ def submit2():
 
         return redirect(url_for('home1'))
 
-if __name__ == '__main__':
-    # app.run(debug=True)
 @app.route("/platinum-storage")
 def platinum():
     return render_template("platinum-class.html")
