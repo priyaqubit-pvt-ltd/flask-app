@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
         this.style.transition = "opacity 0.3s ease"
       })
     })
+
+
+
   
     // Minify CSS and JS in production
     // This is a placeholder - actual minification would be done during build process
@@ -55,4 +58,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set a cookie to indicate the user has visited before
     setCookie("visited", "true", 30)
   })
+
+      document.addEventListener("DOMContentLoaded", function () {
+  const section = document.querySelector(".footer-section");
+  const textSpans = document.querySelectorAll(".lozy-text span");
+
+   window.addEventListener("scroll", () => {
+    const sectionTop = section.getBoundingClientRect().top;
+    const sectionBottom = section.getBoundingClientRect().bottom;
+
+    // Lock scroll when section top touches 10px from top of viewport — for downward
+    if (sectionTop <= 0 ) {
+        textSpans.forEach(span => {
+        span.classList.add("show");
+      });
+    }});
+});
   

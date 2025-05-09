@@ -275,22 +275,28 @@
   
   .lozy-text {
     width: 964px;
-    height: 454px;
+    height: 370px;
     position: relative;
     top: 50px;
+    overflow: hidden;
     margin: 0 auto;
     text-align: center;
     clear: both; /* Add this to ensure it appears below all columns */
   }
   
-  .lozy-text h1 {
+  .lozy-text span{
     font-family: "Georgia";
     font-weight: 700;
-    font-size: 400px;
+    font-size: 350px;
     line-height: 100%;
-    letter-spacing: 0;
     color: #ffffff;
     margin: 0;
+    transform: translateY(-110%);
+    display: inline-block;
+  }
+
+  .show{
+    transform: translateY(0);
   }
   
   .footer-divider {
