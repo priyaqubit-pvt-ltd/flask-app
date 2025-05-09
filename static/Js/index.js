@@ -103,7 +103,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // video animation
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get all text lines
     const textLines = document.querySelectorAll('.text-line');
@@ -157,6 +172,15 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchstart', handleVideoPlayback);
 });
 
+
+
+
+
+
+
+
+
+
 // JavaScript for Blog Section
 document.addEventListener('DOMContentLoaded', function() {
     // Lazy loading for images
@@ -173,7 +197,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (src.includes('placeholder')) {
                         // In a real implementation, you would replace this with your actual image path
                         // img.src = img.getAttribute('data-src');
-                    }  
+                    }
+                    
                     observer.unobserve(img);
                 }
             });
@@ -209,6 +234,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+// For handling horizontal scroll in client section
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Function to check if an element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.bottom > 0 &&
+            rect.right > 0 &&
+            rect.top < window.innerHeight &&
+            rect.left < window.innerWidth
+        );
+    }
+
+    const horizontalScrollSection = document.querySelector(".client-horizontal-scroll-container");
+    const clientSection = document.querySelector(".client-section");
+
+    window.addEventListener("wheel",(e)=>{
+
+        const rect = clientSection.getBoundingClientRect();
+        const maxScroll = clientSection.offsetHeight - window.innerHeight;
+
+        if (rect.top <= 0 && Math.abs(rect.top) <= maxScroll) {
+            const scrollProgress = Math.abs(rect.top) / maxScroll;
+            const scrollWidth = horizontalScrollSection.scrollWidth - window.innerWidth;
+            let transformValue = scrollWidth * scrollProgress * 1.5;
+            if(transformValue > window.innerWidth*1.64)
+                transformValue = window.innerWidth*1.64;
+            horizontalScrollSection.style.transform = `translateX(-${transformValue}px)`;
+        }
+    });
+
+});
+
+
+
+
+
+
+
+
+
+
 
 // This script handles any dynamic functionality for the locations section
 document.addEventListener('DOMContentLoaded', function() {
