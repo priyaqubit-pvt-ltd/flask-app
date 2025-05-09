@@ -243,7 +243,7 @@
   /* FAQ Section Styles */
 .faq-section {
     background-color: #000000;
-    padding: 60px 5%;
+    padding: 60px 3%;
     color: #FFFFFF;
     font-family: 'SF Pro Text';
 }
@@ -421,7 +421,7 @@
 }
 
 .faq-question-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     font-weight: 500;
     font-size: 26px;
     line-height: 20px;
@@ -456,7 +456,7 @@
 }
 
 .faq-question-answer {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato';
     font-weight: 400;
     font-size: 24px;
     line-height: 100%;
