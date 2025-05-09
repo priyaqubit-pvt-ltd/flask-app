@@ -25,8 +25,25 @@ def corporate():
 @app.route("/platinum-storage")
 def platinum():
     return render_template("platinum-class.html")
+@app.route("/News")
+def news():
+    return render_template("News.html")
 
+@app.route("/News-desc")
+def newsDesc():
+    return render_template("News-desc.html")
 
-if __name__ == '__main__':
-    # app.run(debug=True)
-    app.run(debug=True, host='0.0.0.0', port='8080')
+@app.route("/404")
+def e404():
+    return render_template("404.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact-us.html")
+
+@app.route("/faq")
+def faq():
+    return render_template("Faq.html")
+ 
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port='80')

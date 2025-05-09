@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "SF Pro Text";
+    src: url('../fonts/SF-Pro.ttf');
+  }
+
 html, body {
     margin: 0;
     padding: 0;
@@ -1467,7 +1472,7 @@ html, body {
     width: 361px;
     height: 30px;
     margin: 0 0 24px 189px;
-    font-family: 'Georgia';
+    font-family: 'Georgia', serif;
     font-weight: 400;
     font-style: italic;
     font-size: 26px;
@@ -1671,5 +1676,496 @@ html, body {
     .location-icon {
         width: 36px;
         height: 36px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Achievements Section */
+.achievements-section {
+    background-color: #000000;
+    padding: 60px 0;
+    position: relative;
+}
+
+.achievements-container {
+    max-width: 1540px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.achievements-title {
+    font-family: Georgia;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    width: 384px;
+    height: 45px;
+}
+
+.achievements-gallery {
+    display: flex;
+    gap: 21px;
+}
+
+.achievement-box {
+    width: 194px;
+    height: 184px;
+    background-color: #D9D9D9;
+    flex-shrink: 0;
+}
+
+.achievement-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* About Us Section */
+.about-section {
+    background-color: #000000;
+    padding: 60px 0;
+    position: relative;
+}
+
+.about-container {
+    width: 80%;
+    max-width: 1730px;
+    margin: 0 auto;
+}
+
+.about-title {
+    font-family: Georgia;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    width: 110px;
+    height: 30px;
+    margin-bottom: 24px;
+}
+
+.divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: #FFDE59;
+    border: 1px solid #FFDE59;
+    margin-bottom: 55px;
+}
+
+.about-content {
+    display: flex;
+    gap: 116px;
+    justify-content: space-between;
+}
+
+.about-image-container {
+    width: 712px;
+    height: 473px;
+    flex-shrink: 0;
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.about-text-container {
+    width: 721px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-paragraph {
+    font-family: 'SF Pro Text';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0;
+    color: #FFFFFFCC;
+}
+
+/* Media Queries for Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+    .achievements-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        width: 95%;
+    }
+    
+    .achievements-title {
+        width: auto;
+        font-size: 36px;
+    }
+    
+    .achievements-gallery {
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 15px;
+    }
+    
+    .achievement-box {
+        width: 160px;
+        height: 150px;
+    }
+    
+    .about-container {
+        width: 95%;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .about-image-container {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/2;
+    }
+    
+    .about-text-container {
+        width: 100%;
+    }
+    
+    .about-paragraph {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+/* Media Queries for Mobile */
+@media only screen and (max-width: 767px) {
+    .achievements-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        width: 95%;
+    }
+    
+    .achievements-title {
+        width: auto;
+        font-size: 32px;
+    }
+    
+    .achievements-gallery {
+        overflow-x: auto;
+        width: 100%;
+        gap: 15px;
+        padding-bottom: 10px;
+    }
+    
+    .achievement-box {
+        width: 140px;
+        height: 130px;
+    }
+    
+    .about-container {
+        width: 95%;
+    }
+    
+    .about-title {
+        width: auto;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-image-container {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/2;
+    }
+    
+    .about-text-container {
+        width: 100%;
+    }
+    
+    .about-paragraph {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+
+/* Large screens */
+@media only screen and (min-width: 1280px) and (max-width: 1919px) {
+    .about-content {
+        gap: 80px;
+    }
+    
+    .about-image-container {
+        width: 45%;
+        height: auto;
+        aspect-ratio: 3/2;
+    }
+    
+    .about-text-container {
+        width: 45%;
+    }
+}
+
+/* Extra large screens */
+@media only screen and (min-width: 1920px) {
+    .achievements-container,
+    .about-container {
+        max-width: 1850px;
+    }
+}
+
+
+
+.clients-section {
+    padding: 60px 0 20px;
+    position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.clients-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.clients-heading {
+    font-family: Georgia;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    width: 247px;
+    height: 30px;
+    margin-left: 60px;
+}
+
+.horizontal-line {
+    width: calc(100% - 120px);
+    height: 1px;
+    margin: 24px auto 45px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    max-width: 1533px;
+}
+
+.clients-rows-container {
+    position: relative;
+    margin-top: 30px;
+    padding: 0 60px;
+    overflow: hidden;
+}
+
+.client-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    transform: translateX(0);
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+    position: relative;
+}
+
+.client-card {
+    width: 378px;
+    height: 154.53px;
+    border-radius: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.white-card {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+}
+
+.black-card {
+    background: #000000;
+}
+
+.client-content {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.client-logo {
+    height: auto;
+    max-height: 70%;
+    width: auto;
+    max-width: 40%;
+    object-fit: contain;
+    margin-right: 0px;
+    margin-left: 10px;
+}
+
+.logo-only {
+    max-width: 80%;
+    /* margin-right: 0; */
+}
+
+.client-name {
+    font-family: 'SF Pro Text';
+    font-weight: 800;
+    font-size: 32px;
+    white-space: nowrap;
+    margin: 0;
+    color: #000000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 55%;
+}
+
+.white-text {
+    color: #FFFFFF;
+}
+
+/* Media Queries */
+@media (min-width: 1025px) and (max-width: 1600px) {
+    .clients-heading {
+        margin-left: 40px;
+    }
+    
+    .horizontal-line {
+        width: calc(100% - 80px);
+    }
+    
+    .clients-rows-container {
+        padding: 0 40px;
+    }
+    
+    .client-card {
+        width: 320px;
+        height: 140px;
+    }
+    
+    .client-name {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .clients-heading {
+        margin-left: 30px;
+    }
+    
+    .horizontal-line {
+        width: calc(100% - 60px);
+    }
+    
+    .clients-rows-container {
+        padding: 0 30px;
+    }
+    
+    .client-card {
+        width: 280px;
+        height: 120px;
+        border-radius: 60px;
+    }
+    
+    .client-row {
+        gap: 20px;
+        overflow-x: visible;
+        padding-bottom: 10px;
+    }
+    
+    .client-name {
+        font-size: 24px;
+        max-width: 50%;
+    }
+    
+    .client-content {
+        padding: 0 20px;
+    }
+    
+    .client-logo {
+        max-width: 35%;
+        margin-right: 10px;
+    }
+    
+    .logo-only {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 767px) {
+    .clients-heading {
+        margin-left: 20px;
+        width: auto;
+    }
+    
+    .horizontal-line {
+        width: calc(100% - 40px);
+        margin: 24px auto 30px;
+    }
+    
+    .clients-rows-container {
+        padding: 0 20px;
+    }
+    
+    .client-card {
+        width: 220px;
+        height: 100px;
+        border-radius: 50px;
+    }
+    
+    .client-row {
+        gap: 15px;
+        overflow-x: visible;
+        padding-bottom: 10px;
+        flex-wrap: nowrap;
+    }
+    
+    .client-name {
+        font-size: 18px;
+        max-width: 45%;
+    }
+    
+    .client-content {
+        padding: 0 15px;
+    }
+    
+    .client-logo {
+        max-width: 30%;
+        margin-right: 8px;
+    }
+    
+    .logo-only {
+        max-width: 65%;
     }
 }
