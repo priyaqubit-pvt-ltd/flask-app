@@ -1,4 +1,9 @@
 /* Reset styles */
+@font-face {
+    font-family: "SF Pro Text";
+    src: url('../fonts/SF-Pro.ttf');
+  }
+
 html, head, body, section, div, h1, p, img {
     margin: 0;
     padding: 0;
