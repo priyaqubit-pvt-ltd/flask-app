@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const stepsContainer = document.querySelector(".steps-container");
   const timeline = document.querySelector(".timeline");
-  const scrollDot = document.querySelector(".scroll-dot");
+  const scrollDot = document.querySelectorAll(".scroll-dot");
   const steps = document.querySelectorAll(".step");
   const stepNumbers = document.querySelectorAll(".step-number");
 
@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
       stepsContainer.getBoundingClientRect().top + window.scrollY;
 
     // Force initial state - dot at top
-    scrollDot.style.top = "0px";
     timelineProgress.style.height = "0px";
 
     // Set initial opacity for steps
@@ -80,12 +79,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update dot position
     const dotPosition = timelineHeight * scrollProgress;
     const finalDotPosition = Math.min(timelineHeight - 10, dotPosition);
-    scrollDot.style.top = `${finalDotPosition}px`;
 
     console.log("Dot Position (px):", finalDotPosition.toFixed(2));
 
     // Update timeline progress
-    timelineProgress.style.height = `${Math.max(0,window.innerHeight / 2 - timelineProgress.getBoundingClientRect().top)}px`;
+    timelineProgress.style.height = `${Math.min(Math.max(0,window.innerHeight / 2 - timelineProgress.getBoundingClientRect().top),timeline.getBoundingClientRect().bottom-timeline.getBoundingClientRect().top)}px`;
     timelineProgress.style.opacity = `${1 - scrollProgress * 0.5}`;
 
     console.log("Timeline Progress Height:", timelineProgress.style.height);
@@ -109,12 +107,23 @@ document.addEventListener("DOMContentLoaded", function () {
       step.style.opacity = Math.min(1, stepProgress * 1.2);
       step.style.transform = `translateY(${(1 - stepProgress) * 30}px)`;
 
-      const isCentered = stepNumbers[index].getBoundingClientRect().top <= window.innerHeight / 2 + 100 && stepNumbers[index].getBoundingClientRect().bottom >= window.innerHeight / 2 - 100;
+      const isCentered = stepNumbers[index].getBoundingClientRect().top <= window.innerHeight / 2 + 200 && stepNumbers[index].getBoundingClientRect().bottom >= window.innerHeight / 2 - 200;
 
       if(isCentered) {
         stepNumbers[index].style.color = "#FFDE59";
       } else {
         stepNumbers[index].style.color = "#FFFFFF";
+      }
+    });
+
+    Array.from(scrollDot).forEach((dot) => {
+      const dotRect = dot.getBoundingClientRect();
+      const isCentered = dotRect.top <= window.innerHeight / 2 + 20 && dotRect.bottom >= window.innerHeight / 2 - 20;
+
+      if(isCentered) {
+        dot.style.transform = "translate(-50%,40px)";
+      } else {
+        dot.style.transform = "translate(-50%,0px)";
       }
     });
   }
@@ -129,7 +138,18 @@ document.addEventListener("DOMContentLoaded", function () {
     initialContainerTop =
       stepsContainer.getBoundingClientRect().top + window.scrollY;
     updateTimeline();
+    initScrollDotsMargins();
   });
+
+  function initScrollDotsMargins() {
+    const scrollDotFirstMargin = Math.abs(timeline.getBoundingClientRect().top - ((steps[0].getBoundingClientRect().top + steps[0].getBoundingClientRect().bottom)/2)) - 40;
+    const scrollDotSecondMargin = Math.abs(timeline.getBoundingClientRect().top - ((steps[1].getBoundingClientRect().top + steps[1].getBoundingClientRect().bottom)/2)) - scrollDotFirstMargin - 90;
+    const scrollDotThirdMargin = Math.abs(timeline.getBoundingClientRect().top - ((steps[2].getBoundingClientRect().top + steps[2].getBoundingClientRect().bottom)/2)) - scrollDotSecondMargin - scrollDotFirstMargin - 120;
+    document.querySelector(".scroll-dot.first").style.marginTop = scrollDotFirstMargin + "px";
+    document.querySelector(".scroll-dot.second").style.marginTop = scrollDotSecondMargin + "px";
+    document.querySelector(".scroll-dot.third").style.marginTop = scrollDotThirdMargin + "px";
+  }
+  initScrollDotsMargins();
 });
 
 document.addEventListener("DOMContentLoaded", () => {

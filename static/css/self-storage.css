@@ -10,6 +10,7 @@
   line-height: 1.2;
   scrollbar-width: none;
   -ms-overflow-style: none; 
+  scroll-behavior: smooth;
 }
 
 html,
@@ -73,7 +74,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 60%;
+  width: 45%;
   height: 100vh;
   z-index: 1;
 }
@@ -296,15 +297,17 @@ body {
 .storage-content {
   width: 100%;
   margin: 0 auto;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 7%;
-  padding-right: 7%;
+  padding-top: 3vw;
+  padding-bottom: 3vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   background-color: #141414;
   border-radius: 20px;
   height: 90vh;
+  max-height: 900px;
 }
 
 /* Title styles */
@@ -312,7 +315,7 @@ body {
   color: #fff;
   font-size: 28px;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 3%;
   font-family: inter;
   font-style: italic;
 }
@@ -323,7 +326,7 @@ body {
   height: 1px;
   min-height: 1px;
   background-color: #ffde59;
-  margin-bottom: 40px;
+  margin-bottom: 70px;
 }
 
 /* Info container */
@@ -344,7 +347,7 @@ body {
 /* Heading styles */
 .storage-heading {
   color: #fff;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 600;
   margin-bottom: 20px;
   max-width: 300px;
@@ -473,7 +476,7 @@ body {
   }
 
   .storage-description {
-    font-size: 18px;
+    font-size: 16px;
     max-width: 100%;
   }
   .storage-image-container {
@@ -586,11 +589,13 @@ body {
   font-style: italic;
   font-size: 26px;
   color: #fff;
+  margin-bottom: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .line {
   border: 1px solid gold;
-  margin-bottom: 40px;
+  margin-bottom: 10vh;
   width: 100%;
 }
 
@@ -615,22 +620,25 @@ body {
 
 .scroll-dot {
   left: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
+  width: 35px;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.12);
   border-radius: 50%;
   transform: translate(-50%, 0);
   top: 11%;
   z-index: 2;
-  transition: top 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s;
 }
 
-.scroll-dot.first {
-  margin-top: 50vh;
-}
-
-.scroll-dot.second, .scroll-dot.third {
-  margin-top: 100vh;
+.scroll-dot-inner {
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  z-index: 3;
 }
 
 .step {
@@ -691,12 +699,30 @@ body {
   left: 52%;
   height: 100%;
   width: 3px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0));
+  background: rgba(255,255,255,0.8);
   opacity: 0.8;
   transform: translateX(-50%);
   z-index: 2;
   transition: opacity 0.3s ease;
   display: grid;
+}
+
+.timeline-top {
+  position: absolute;
+  width: 3px;
+  top: 0;
+  z-index: 3;
+  background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+  height: 150px;
+}
+
+.timeline-bottom {
+  position: absolute;
+  width: 3px;
+  bottom: 0;
+  z-index: 3;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+  height: 150px;
 }
 
 .scroll-dots {
@@ -725,7 +751,7 @@ body {
     width: 50%;
   }
   .step-image {
-    width: 100%;
+    width: 400px;
   }
   .step-content-container {
     margin-left: 40px;
@@ -741,7 +767,7 @@ body {
 
 @media (max-width: 1024px) {
   .step-image {
-    width: 100%;
+    width: 400px;
   }
 }
 @media (max-width: 992px) {
@@ -757,7 +783,7 @@ body {
 
   .step-image {
     width: 100%;
-    max-width: 720px;
+    max-width: 400px;
     margin-left: 50px;
   }
 
@@ -793,12 +819,21 @@ body {
     font-size: 50px;
   }
 
+  .step-text {
+    max-width: 60vw;
+  }
+
   .step-text h3 {
     font-size: 22px;
   }
 
   .step-text p {
     font-size: 18px;
+  }
+
+  .step-image {
+    max-width: 200px;
+    height: auto;
   }
 }
 
@@ -828,7 +863,7 @@ body {
 
 .why-choose-section {
   margin-left: 3%;
-  padding: 0 40px 30px 30px;
+  padding: 0 40px 5% 5%;
   position: relative;
   height: auto;
   width: 100%;
@@ -837,8 +872,9 @@ body {
 .section-title {
   font-size: 28px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   color: #fff;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .content-wrapper {
@@ -869,7 +905,7 @@ body {
   position: relative;
   z-index: 2;
   color: white;
-  font-size: 50px;
+  font-size: 60px;
   font-weight: 400;
   line-height: 1;
   margin-top: 70px;
