@@ -25,6 +25,16 @@ def corporate():
 @app.route("/platinum-storage")
 def platinum():
     return render_template("platinum-class.html")
+
+<<<<<<<<< Temporary merge branch 1
+@app.route("/blog")
+def blog():
+    return render_template("blog.html")
+ 
+if __name__ == "__main__":
+    app.run(debug=True)
+=========
+
 @app.route("/News")
 def news():
     return render_template("News.html")
@@ -41,9 +51,9 @@ def e404():
 def contact():
     return render_template("contact-us.html")
 
-@app.route("/faq")
-def faq():
-    return render_template("Faq.html")
- 
-if __name__ == "__main__":
-    app.run(debug=True)
+
+
+if __name__ == '__main__':
+    # app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port='8080')
+>>>>>>>>> Temporary merge branch 2
