@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Update timeline progress
     timelineProgress.style.height = `${Math.min(Math.max(0,window.innerHeight / 2 - timelineProgress.getBoundingClientRect().top),timeline.getBoundingClientRect().bottom-timeline.getBoundingClientRect().top)}px`;
-    timelineProgress.style.opacity = `${1 - scrollProgress * 0.5}`;
 
     console.log("Timeline Progress Height:", timelineProgress.style.height);
     console.log("Timeline Opacity:", timelineProgress.style.opacity);
@@ -155,9 +154,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   // Get all sections and dots
   const sections = document.querySelectorAll(".storage-section");
-  const dots = document.querySelectorAll(".storage-dot");
-  const totalSections = sections.length;
-  const showcaseContainer = document.querySelector(".storage-showcase");
+  const storageDescription = document.querySelectorAll(".storage-description");
+
+  const baseFont = parseFloat(window.getComputedStyle(storageDescription[0]).fontSize);
 
   // commented out the following code as scroll behavior for storage sections is handled in css in this commit
 
@@ -224,11 +223,11 @@ document.addEventListener("DOMContentLoaded", () => {
   
       if (nextRect.top <= sectionRect.bottom) {
         section.children[0].style.width = Math.max((1-((sectionRect.bottom - nextRect.top) / sectionRect.height)*0.1)*(100),baseWidth)+"%";
-        if(((sectionRect.bottom - nextRect.top) / sectionRect.height) > 0.5)
-        section.style.opacity = Math.max(1 - Math.min((sectionRect.bottom - nextRect.top) / sectionRect.height, 1)+0.5,0.7);
+        if(parseFloat(section.children[0].style.width) != 100)
+        storageDescription[i].style.fontSize = baseFont * parseFloat(section.children[0].style.width)/100 + "px";
       } else {
         section.children[0].style.width = "100%";
-        section.style.opacity = 1;
+        storageDescription[i].style.fontSize = baseFont+"px";
       }
 
       if(section.style.opacity <= 0.7) {
@@ -359,18 +358,20 @@ document.addEventListener("DOMContentLoaded", function () {
       // Close all answers
       document.querySelectorAll(".faq-answer").forEach((item) => {
         item.classList.remove("active");
+        item.parentElement.style.width = "90%";
       });
 
       // Reset all arrow buttons
-      document.querySelectorAll(".arrow-button svg").forEach((svg) => {
+      document.querySelectorAll(".arrow-button img").forEach((svg) => {
         svg.style.transform = "rotate(0deg)";
       });
 
       // If the clicked answer wasn't active, open it
       if (!isActive) {
         answer.classList.add("active");
-        this.querySelector(".arrow-button svg").style.transform =
+        this.querySelector(".arrow-button img").style.transform =
           "rotate(90deg)";
+        answer.parentElement.style.width = "100%";
       }
       if (!answer.innerHTML.trim()) {
         answer.innerHTML =

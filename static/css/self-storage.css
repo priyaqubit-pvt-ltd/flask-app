@@ -877,6 +877,13 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.feature-divider {
+  width: 100%;
+  height: 1px;
+  min-height: 1px;
+  background-color: #ffde59;
+}
+
 .content-wrapper {
   display: flex;
   gap: 30px;
@@ -925,13 +932,22 @@ body {
 
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: 1fr;
+  row-gap: 16px;
+}
+
+.feature-box-outer {
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 120px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
 }
 
 .feature-box {
-  background-color: #222;
-  border-radius: 5px;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -940,9 +956,11 @@ body {
   width: 100%;
 }
 
-.feature-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.feature-box-divider {
+  width: 1px;
+  min-width: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 80%;
 }
 
 .icon {
@@ -1075,9 +1093,10 @@ body {
   height: auto;
   min-height: 100vh;
   padding: 5%;
-  padding-right: 0;
   background-color: #fff;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .fa-container {
@@ -1085,10 +1104,11 @@ body {
   height: 100%;
   background-color: #fff;
   position: relative;
-  padding-right: 5%;
 }
 
 .faq-header {
+  padding-left: 5%;
+  padding-right: 5%;
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 30px;
@@ -1098,23 +1118,26 @@ body {
 }
 
 .faq-divider {
+  margin-left: 5%;
   height: 1px;
   background-color: #000;
   margin-bottom: 50px;
-  margin-right: 5%;
-  width: 100%;
+  width: 90%;
 }
 
 .faq-list {
-  width: 50%;
+  margin-left: 5%;
+  width: 45%;
   max-width: 800px;
 }
 
 .faq-item {
   margin-bottom: 30px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 35px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 15px;
   position: relative;
+  width: 90%;
+  transition: width 0.5s ease;
 }
 
 .faq-question {
@@ -1122,34 +1145,36 @@ body {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 400;
   color: #000;
 }
 
 .arrow-button {
-  width: 28px;
-  height: 28px;
-  border: 1px solid #000;
-  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   background-color: transparent;
+  border: none;
 }
 
-.arrow-button svg {
-  width: 14px;
-  height: 14px;
+.arrow-button img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.5s ease;
 }
 
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.5s ease;
   padding-top: 0;
-  color: #000;
+  color: #3B3B3B;
+  padding-left: 15px;
+  max-width: 600px;
 }
 
 .faq-answer.active {
@@ -1169,7 +1194,7 @@ body {
 }
 
 .fa-right-content h2 {
-  font-size: 70px;
+  font-size: 60px;
   margin-bottom: 15px;
   line-height: 1.2;
   color: #000;
@@ -1177,7 +1202,7 @@ body {
 
 .vector-line {
   position: absolute;
-  right: -0;
+  right: -5%;
   top: 80%;
   transform: translateY(-50%);
   width: 50%;
@@ -1192,11 +1217,11 @@ body {
 }
 
 .faq-banner {
-  margin-top: 100px;
-  width: 96%;
+  align-self: center;
+  width: 90%;
   max-width: 1530px;
   height: 495px;
-  background-image: url("/static/images/03_mk18\ Image\ 1\ \(1\).png");
+  background-image: url("/static/images/contact_us_faq_background.png");
   background-size: cover;
   background-position: center;
   border-radius: 8px;
@@ -1218,25 +1243,29 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 .faq-banner-content {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .faq-banner h3 {
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 10px;
+  max-width: 55%;
 }
 
 .faq-banner p {
   font-size: 20px;
   margin-bottom: 20px;
-  max-width: 80%;
+  max-width: 60%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1388,10 +1417,12 @@ body {
   }
 
   .faq-banner h3 {
+    max-width: 70%;
     font-size: 18px;
   }
 
   .faq-banner p {
+    max-width: 80%;
     font-size: 13px;
   }
 
