@@ -47,6 +47,10 @@ def e404():
 def contact():
     return render_template("contact-us.html")
 
+@app.route("/blogs")
+def blogs():
+    return render_template("blog.html")
+
 
 
 if __name__ == '__main__':
