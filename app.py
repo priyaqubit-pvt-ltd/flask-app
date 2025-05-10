@@ -49,7 +49,7 @@ def contact():
 
 @app.route("/blogs")
 def blogs():
-    return render_template("blog.html")
+    return render_template("blogs.html")
 
 
 
