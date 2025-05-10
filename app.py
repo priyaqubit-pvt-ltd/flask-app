@@ -51,6 +51,10 @@ def contact():
 def blogs():
     return render_template("blogs.html")
 
+@app.route("/blog")
+def blog():
+    return render_template("blog.html")
+
 
 
 if __name__ == '__main__':
