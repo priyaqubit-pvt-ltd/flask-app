@@ -24,7 +24,6 @@ def corporate():
 def platinum():
     return render_template("platinum-class.html")
 
-
 @app.route("/blog")
 def blog():
     return render_template("blog.html")
