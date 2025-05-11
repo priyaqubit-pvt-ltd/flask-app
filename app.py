@@ -12,8 +12,6 @@ def index():
 def navbar():
     return render_template('navbar.html')
 
-
- 
 @app.route("/self-storage")
 def hello_world():
     return render_template("self-storage.html")
