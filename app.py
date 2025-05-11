@@ -25,6 +25,13 @@ def corporate():
 @app.route("/platinum-storage")
 def platinum():
     return render_template("platinum-class.html")
+
+
+@app.route("/blog")
+def blog():
+    return render_template("blog.html")
+ 
+
 @app.route("/News")
 def news():
     return render_template("News.html")

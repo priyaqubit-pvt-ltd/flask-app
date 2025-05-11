@@ -237,7 +237,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+// For handling horizontal scroll in client section
+document.addEventListener('DOMContentLoaded', function() {
 
+    // Function to check if an element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.bottom > 0 &&
+            rect.right > 0 &&
+            rect.top < window.innerHeight &&
+            rect.left < window.innerWidth
+        );
+    }
+
+    const horizontalScrollSection = document.querySelector(".client-horizontal-scroll-container");
+    const clientSection = document.querySelector(".client-section");
+
+    window.addEventListener("wheel",(e)=>{
+
+        const rect = clientSection.getBoundingClientRect();
+        const maxScroll = clientSection.offsetHeight - window.innerHeight;
+
+        if (rect.top <= 0 && Math.abs(rect.top) <= maxScroll) {
+            const scrollProgress = Math.abs(rect.top) / maxScroll;
+            const scrollWidth = horizontalScrollSection.scrollWidth - window.innerWidth;
+            let transformValue = scrollWidth * scrollProgress * 1.5;
+            if(transformValue > window.innerWidth*1.64)
+                transformValue = window.innerWidth*1.64;
+            horizontalScrollSection.style.transform = `translateX(-${transformValue}px)`;
+        }
+    });
+
+});
 
 
 
