@@ -67,3 +67,17 @@
 //     // Expose the openContactPopup function globally so it can be called from the navbar
 //     window.openContactPopup = openContactPopup;
 //   });
+
+document.addEventListener("DOMContentLoaded",()=>{
+const contactBtn = document.querySelector(".storage-navbar__contact-btn");
+const contactPopUp = document.querySelector(".contact-popup-container");
+
+
+contactBtn.addEventListener("click",()=>{
+contactPopUp.classList.toggle("active");
+})
+
+document.querySelector(".contact-popup-close").addEventListener("click",()=>{
+    contactPopUp.classList.remove("active");
+})
+})

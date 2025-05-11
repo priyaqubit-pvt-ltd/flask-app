@@ -59,6 +59,7 @@
     overflow: hidden;
     /* transform: scale(0.9); */
     transition: transform 0.3s ease;
+    z-index: 100;
   }
 
   .contact-popup-container.active{
@@ -72,8 +73,9 @@
  
   /* Left Side */
   .contact-popup-left {
-    width: 611px;
-    height: 616px;
+    /* width: 611px;
+    height: 616px; */
+    width: 50%;
     margin: 16px;
     border-radius: 6px;
     position: relative;
@@ -81,8 +83,8 @@
   }
  
   .contact-popup-left-content {
-    width: 592px;
-    height: 584px;
+    /* width: 592px;
+    height: 584px; */
     background-color: #000000;
     border-radius: 6px;
     padding: 32px;
@@ -193,8 +195,8 @@
   }
  
   .contact-popup-find-title {
-    width: 202px;
-    height: 24px;
+    /* width: 202px;
+    height: 24px; */
     font-family: 'LozyFont';
     font-weight: 600;
     font-size: 22px;
@@ -228,8 +230,9 @@
  
   /* Right Side */
   .contact-popup-right {
-    width: 592px;
-    height: 584px;
+    /* width: 592px;
+    height: 584px; */
+    width: 50%;
     margin: 16px;
     border-radius: 6px;
     /* background-color: #000; */
@@ -239,8 +242,8 @@
  
   /* Form Title */
   .contact-popup-form-title {
-    width: 528px;
-    height: 28px;
+    /* width: 528px;
+    height: 28px; */
     font-family: 'LozyFont';
     font-weight: 600;
     font-size: 24px;

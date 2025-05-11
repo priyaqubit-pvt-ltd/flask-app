@@ -25,7 +25,6 @@ ul {
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 @font-face {
   font-family: 'LozyFont';
   src: url('/static/fonts/SF-Pro-Text-Semibold.otf') format('opentype');
@@ -35,10 +34,6 @@ ul {
 
 body {
   font-family: "LozyFont";
-=======
-body {
-  font-family: "SF Pro Text";
->>>>>>> charu-branch
   line-height: 1;
 }
 
