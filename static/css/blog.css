@@ -249,3 +249,48 @@ body {
 .contact-btn:hover {
   background-color: #333;
 }
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+  .blog-title {
+    font-size: 50px;
+  }
+
+  .blog-description {
+    font-size: 20px;
+  }
+
+  .blog-content-title {
+	  font-size: 30px;
+  }
+
+
+  .blog-content-paras p {
+    font-size: 20px;
+  }
+  .content-index-title {
+	  font-size: 30px;
+  }
+  .content-index-list {
+	  font-size: 18px;
+  }
+  .content-social-media-title {
+	  font-size: 26px;
+  }
+  .contact-banner-content h3 {
+    font-size: 30px;
+  }
+  .contact-banner-content p {
+    font-size: 20px;
+  }
+  .contact-btn {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+    
+}
+
+@media only screen and (max-width: 767px) {
+    
+}
