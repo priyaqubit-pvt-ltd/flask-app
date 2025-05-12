@@ -1,21 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to handle scroll events for social links
-    function handleSocialScroll() {
-        const scrollPosition = window.scrollY;
-        const socialLinksContainer = document.querySelector('.social-links-container');
-        
-        // Adjust the position of social links container based on scroll
-        if (scrollPosition > 0) {
-            socialLinksContainer.style.top = `${Math.max(621 - scrollPosition, 100)}px`;
-        } else {
-            socialLinksContainer.style.top = '621px';
-        }
-    }
-
-    // Add scroll event listener for social links
-    window.addEventListener('scroll', handleSocialScroll);
-
-    // Add hover effect for social links
     const socialLinks = document.querySelectorAll('.social-link');
     socialLinks.forEach(link => {
         link.addEventListener('mouseenter', function() {
@@ -103,22 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // video animation
-
 document.addEventListener('DOMContentLoaded', function() {
     // Get all text lines
     const textLines = document.querySelectorAll('.text-line');
@@ -171,15 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', handleVideoPlayback);
     document.addEventListener('touchstart', handleVideoPlayback);
 });
-
-
-
-
-
-
-
-
-
 
 // JavaScript for Blog Section
 document.addEventListener('DOMContentLoaded', function() {
@@ -235,13 +194,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
 // For handling horizontal scroll in client section
 document.addEventListener('DOMContentLoaded', function() {
 
-    const horizontalScrollSection = document.querySelector(".client-horizontal-scroll-container");
-    const clientSection = document.querySelector(".client-section");
+    // Function to check if an element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.bottom > 0 &&
+            rect.right > 0 &&
+            rect.top < window.innerHeight &&
+            rect.left < window.innerWidth
+        );
+    }
+
+    const horizontalScrollSection = document.querySelector(".clients-say-horizontal-scroll-container");
+    const clientSection = document.querySelector(".clients-say-section");
 
     window.addEventListener("wheel",(e)=>{
 
@@ -258,20 +226,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if(transformValue > window.innerWidth*1.64)
                 transformValue = window.innerWidth*1.64;
             horizontalScrollSection.style.transform = `translateX(-${transformValue}px)`;
+        } else if (rect.top > 0) {
+            horizontalScrollSection.style.transform = `translateX(0px)`;
         }
     });
 
+    // add event handler for scroll up button
+    document.querySelector(".scroll-up-button").addEventListener("click",()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
 });
-
-
-
-
-
-
-
-
-
-
 
 // This script handles any dynamic functionality for the locations section
 document.addEventListener('DOMContentLoaded', function() {
@@ -319,16 +284,121 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelector(".hero-image-up").classList.add("show");
+  document.querySelector(".hero-image-down").classList.add("show");
 
+  const headings = document.querySelectorAll(".heading-line");
 
+  headings.forEach((heading) => {
+    let textSpans = heading.querySelectorAll("span");
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < textSpans.length) {
+        textSpans[index].classList.add("show");
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+  });
+});
 
+// text span filling color animation
+document.addEventListener('DOMContentLoaded', function() {
+    const pricingSection = document.querySelector(".pricing-section");
+    const textSpans = document.querySelectorAll(".pricing-text span");
+    let isScrollBlocked = false;
+    let currentFilledIndex = 0;
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Lock scroll when section enters view
+                isScrollBlocked = true;
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Release scroll when section exits view
+                isScrollBlocked = false;
+                document.body.style.overflow = '';
+            }
+        });
+    }, { threshold: 0.9 });
 
+    observer.observe(pricingSection);
 
+    window.addEventListener('wheel', (e) => {
+        if (!isScrollBlocked) return;
+        
+        const isScrollingDown = e.deltaY > 0;
+        e.preventDefault(); // Block default scroll
 
+        if (isScrollingDown) {
+            // Fill next span if not all filled
+            if (currentFilledIndex < textSpans.length) {
+                textSpans[currentFilledIndex].classList.add('filled');
+                currentFilledIndex++;
+            }
+            // Unlock if all spans are now filled
+            if (currentFilledIndex === textSpans.length) {
+                releaseScrollLock();
+            }
+        } else {
+            // Unfill last span if not all unfilled
+            if (currentFilledIndex > 0) {
+                currentFilledIndex--;
+                textSpans[currentFilledIndex].classList.remove('filled');
+            }
+            // Unlock if all spans are now empty
+            if (currentFilledIndex === 0) {
+                releaseScrollLock();
+            }
+        }
+    }, { passive: false });
 
+    function releaseScrollLock() {
+        isScrollBlocked = false;
+        document.body.style.overflow = '';
+    }
+});
 
+document.addEventListener("DOMContentLoaded", () => {
+  const block1 = document.querySelector(".block-1");
+  const block2 = document.querySelector(".pricing-section");
 
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+
+            
+          // When block-2 is in view — add a scroll listener
+          window.addEventListener("scroll", moveBlock1);
+        } else {
+          // Remove the scroll listener when out of view
+          window.removeEventListener("scroll", moveBlock1);
+        }
+      });
+    },
+    {
+      threshold: 0.1, // 10% visibility
+    }
+  );
+
+  observer.observe(block2);
+
+  function moveBlock1() {
+    console.log("block one move down bitch")
+    const rect = block2.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    // Calculate how much block2 has moved into the viewport
+    const progress = Math.min(Math.max(0, (viewportHeight - rect.top) / viewportHeight), 1);
+
+    // Move block1 down based on progress — you can multiply for speed
+    block1.style.transform = `translateY(${progress * 200}px)`;
+  }
+});
 
 // JavaScript for lazy loading images
 document.addEventListener('DOMContentLoaded', function() {
@@ -376,12 +446,6 @@ document.addEventListener('DOMContentLoaded', function() {
         achievementObserver.observe(box);
     });
 });
-
-
-
-
-
-
 
 // Valuuable client 
 document.addEventListener('DOMContentLoaded', () => {

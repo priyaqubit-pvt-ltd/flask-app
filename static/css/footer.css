@@ -42,7 +42,7 @@
   }
   
   .contact-us {
-    width: 289px;
+    /* width: 289px; */
     height: 198px;
     position: relative;
     top: 0; /* Change from -9px to 0 */
@@ -130,7 +130,7 @@
   }
   
   .quick-links {
-    width: 305px;
+    /* width: 305px; */
     height: 269px;
     position: relative;
     top: 0; /* Change from -9px to 0 */
@@ -170,7 +170,7 @@
   }
   
   .policies {
-    width: 194px;
+    /* width: 194px; */
     height: 161px;
     position: relative;
     top: 0; /* Change from -9px to 0 */
@@ -210,7 +210,7 @@
   }
   
   .corporate-address {
-    width: 290px;
+    /* width: 290px; */
     height: 264px;
     position: relative;
     top: 0; /* Change from -9px to 0 */
@@ -252,6 +252,10 @@
     color: #f2f2f2;
     margin-top: 15px;
   }
+
+  .footer-social-links{
+    margin-top: 40px;
+  }
   
   .social-heading {
     width: 232px;
@@ -268,29 +272,37 @@
   .social-icons {
     display: flex;
     gap: 15px;
-    margin-top: 5px;
+    margin-top: 15px;
     width: 67.5px;
     height: 66.25px;
   }
   
   .lozy-text {
     width: 964px;
-    height: 454px;
-    position: relative;
-    top: 50px;
+    height: 370px;
+    /* position: relative;
+    top: 50px; */
+    overflow: hidden;
     margin: 0 auto;
     text-align: center;
     clear: both; /* Add this to ensure it appears below all columns */
   }
   
-  .lozy-text h1 {
+  .lozy-text span{
     font-family: "Georgia";
     font-weight: 700;
-    font-size: 400px;
+    font-size:  350px;
+
     line-height: 100%;
-    letter-spacing: 0;
     color: #ffffff;
     margin: 0;
+    transform: translateY(-110%);
+    display: inline-block;
+    transition: all 1.5s ease-out;
+  }
+
+  .lozy-text span.show{
+    transform: translateY(0);
   }
   
   .footer-divider {
@@ -339,11 +351,12 @@
   
     .lozy-text {
       width: 100%;
-      margin-top: 30px;
+      /* margin-top: 30px; */
     }
   
     .lozy-text h1 {
       font-size: 200px;
+      letter-spacing: -30px;
     }
   
     .footer-divider {
@@ -360,6 +373,14 @@
       padding: 0 20px;
     }
   
+    
+    .corporate-address .company-name,
+    .corporate-address .address,
+    .corporate-address h3,
+    .policies h3,
+    .quick-links h3,
+    .contact-us h3,
+    .contact-us .address,
     .footer-logo,
     .contact-us,
     .quick-links,
@@ -385,10 +406,20 @@
       justify-content: center;
       margin: 0 auto;
     }
+
+    .lozy-text{
+      margin: 20px 0;
+      height: 170px;
+    }
   
     .lozy-text h1 {
       font-size: 100px;
     }
+
+    .lozy-text span{
+      font-size: 150px;
+    letter-spacing: 10px;
+  }
   
     .copyright {
       width: 100%;

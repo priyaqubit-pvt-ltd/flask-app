@@ -52,14 +52,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Prevent parent link click when clicking on dropdown toggle
     const dropdownToggles = document.querySelectorAll('.storage-navbar__dropdown span');
-    
+    const dropdownMenu = document.querySelector(".storage-navbar__dropdown-content");
     dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', function(e) {
+      toggle.addEventListener('mouseenter', function(e) {
         e.preventDefault();
-        document.querySelector(".storage-navbar__dropdown-content").classList.toggle("active");
+        dropdownMenu.classList.toggle("active");
         document.querySelector(".storage-navbar__dropdown-icon").classList.toggle("active");
       });
     });
+
+    dropdownMenu.addEventListener("mouseleave",()=>{
+      dropdownMenu.classList.remove("active");
+        document.querySelector(".storage-navbar__dropdown-icon").classList.remove("active");
+    })
 
 const navbarImage = document.querySelector(".storage-navbar__dropdown-image");
 const navbarContent = document.querySelector(".storage-navbar__dropdown-description");
@@ -107,7 +112,7 @@ document.querySelectorAll(".storage-navbar__dropdown-item").forEach((dropdownIte
 document.addEventListener('DOMContentLoaded', function() {
     // Get the Contact Us button from your navbar
     const contactButton = document.querySelector('.storage-navbar__contact-btn');
-    
+  
     // Add click event listener to open the popup
     if (contactButton) {
       contactButton.addEventListener('click', function(e) {
@@ -119,7 +124,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+
+       
   });
 
+    document.addEventListener('click', function(e) {
+    if (contactPopUp && contactPopUp.classList.contains("active")) {
+      // Check if click target is outside the popup and button
+      if (!contactPopUp.contains(e.target) && !contactButton.contains(e.target)) {
+        contactPopUp.classList.remove("active");
+      }
+    }
+  });
   });
 
