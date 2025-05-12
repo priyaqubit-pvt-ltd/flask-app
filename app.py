@@ -48,9 +48,15 @@ def e404():
 def contact():
     return render_template("contact-us.html")
 
+
 @app.route("/faq")
 def faq():
     return render_template("Faq.html")
+
+@app.route("/blogs")
+def blogs():
+    return render_template("blogs.html")
+
 
 
 

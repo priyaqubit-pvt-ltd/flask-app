@@ -1459,7 +1459,7 @@ html, body {
     background-color: #000;
     position: relative;
     top:0;
-    height: 230vw;
+    height: 300vw;
     width: 100vw;
 }
 
@@ -1532,7 +1532,7 @@ html, body {
     align-items: center;
     color: rgba(255,255,255,0.8);
     font-weight: 600;
-    font-size: 30px;
+    font-size: 2vw;
     gap: 50px;
     padding-left: 12%;
     padding-right: 12%;
@@ -1540,8 +1540,8 @@ html, body {
 }
 
 .client-quote-icon {
-    height: 130px;
-    width: 130px;
+    height: 7vw;
+    width: 7vw;
 }
 
 .client-quote-icon img {
@@ -1598,6 +1598,27 @@ html, body {
 
 .client-description {
     font-size: 15px;
+}
+
+/* client section media queries */
+@media (max-width: 576px) {
+    .client-horizontal-scroll-container {
+        flex-direction: column;
+        width: 100vw;
+        gap: 50px;
+    }
+    .client-section {
+        height: 100vh;
+    }
+    .client-name {
+        font-size: 2vw;
+    }
+    .client-quote {
+        gap: 5vw;
+    }
+    .client-description {
+        font-size: 1vw;
+    }
 }
 
 
@@ -1667,7 +1688,7 @@ html, body {
     font-size: 32px;
     line-height: 32px;
     letter-spacing: 1px;
-    color: #768948;
+    color: #FFDE59;
     margin: 0;
 }
 
@@ -1741,6 +1762,9 @@ html, body {
 }
 
 @media only screen and (max-width: 767px) {
+    .locations-section {
+        margin-top: 0;
+    }
     .locations-heading {
         margin-left: 20px;
         width: auto;
