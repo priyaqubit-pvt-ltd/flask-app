@@ -52,14 +52,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Prevent parent link click when clicking on dropdown toggle
     const dropdownToggles = document.querySelectorAll('.storage-navbar__dropdown span');
-    
+    const dropdownMenu = document.querySelector(".storage-navbar__dropdown-content");
     dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', function(e) {
+      toggle.addEventListener('mouseenter', function(e) {
         e.preventDefault();
-        document.querySelector(".storage-navbar__dropdown-content").classList.toggle("active");
+        dropdownMenu.classList.toggle("active");
         document.querySelector(".storage-navbar__dropdown-icon").classList.toggle("active");
       });
     });
+
+    dropdownMenu.addEventListener("mouseleave",()=>{
+      dropdownMenu.classList.remove("active");
+        document.querySelector(".storage-navbar__dropdown-icon").classList.remove("active");
+    })
 
 const navbarImage = document.querySelector(".storage-navbar__dropdown-image");
 const navbarContent = document.querySelector(".storage-navbar__dropdown-description");

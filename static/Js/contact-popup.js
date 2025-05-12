@@ -80,4 +80,10 @@ contactPopUp.classList.toggle("active");
 document.querySelector(".contact-popup-close").addEventListener("click",()=>{
     contactPopUp.classList.remove("active");
 })
+
+document.addEventListener("click",(e)=>{
+    if (contactPopUp && !contactPopUp.contains(e.target) && !e.target.classList.contains("storage-navbar__contact-btn")) {
+    contactPopUp.classList.remove("active");
+  }
+})
 })
