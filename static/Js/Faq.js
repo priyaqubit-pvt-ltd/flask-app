@@ -142,8 +142,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   document.addEventListener('DOMContentLoaded', function() {
-    // FAQ Toggle Functionality
+    // FAQ Toggle Functionality with improved animation
     const toggleButtons = document.querySelectorAll('.faq-toggle-btn');
+    
+    // Initialize accordion heights for smoother animations
+    document.querySelectorAll('.faq-question-content.active').forEach(content => {
+        content.style.maxHeight = content.scrollHeight + 'px';
+    });
     
     toggleButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -160,9 +165,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 icon.classList.add('fa-plus');
             }
             
-            // Toggle content visibility
+            // Toggle content visibility with smoother animation
             const content = this.closest('.faq-question-header').nextElementSibling;
-            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                content.style.maxHeight = '0px';
+                // Small delay to allow the animation to complete before removing the active class
+                setTimeout(() => {
+                    content.classList.remove('active');
+                }, 500);
+            } else {
+                content.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
         });
     });
     

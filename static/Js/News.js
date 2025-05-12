@@ -200,3 +200,55 @@
 //         document.body.appendChild(script);
 //     }
 // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to handle responsive adjustments
+    function handleResponsiveLayout() {
+        const windowWidth = window.innerWidth;
+        const contentWrapper = document.querySelector('.lozy-business-content-wrapper');
+        const imageWrapper = document.querySelector('.lozy-business-image-wrapper');
+        
+        // Adjust layout based on screen size
+        if (windowWidth <= 1200) {
+            // For smaller screens, ensure content is fully visible
+            contentWrapper.style.width = '100%';
+            imageWrapper.style.width = '100%';
+        } else {
+            // Reset styles for larger screens
+            contentWrapper.style.width = '';
+            imageWrapper.style.width = '';
+        }
+    }
+
+    // Initial call
+    handleResponsiveLayout();
+    
+    // Add resize event listener
+    window.addEventListener('resize', handleResponsiveLayout);
+    
+    // Optional: Add intersection observer for animation when section comes into view
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('lozy-business-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(document.querySelector('.lozy-business-section'));
+    }
+});
