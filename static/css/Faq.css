@@ -63,7 +63,7 @@
   }
   
   .hero-description {
-    font-size: 16px;
+    font-size: 24px; /* Increased from 16px to 20px for better readability */
     color: #333;
     margin-bottom: 30px;
     line-height: 1.6;
@@ -307,10 +307,11 @@
 
 .faq-form-container {
     width: 500px;
-    height: 544px;
+    height: 555px;
     border-radius: 6px;
     background: #211E1E;
     padding: 32px;
+    margin-bottom: 80px; /* Added more bottom spacing to the form container */
 }
 
 .faq-form-title {
@@ -446,7 +447,7 @@
 .faq-question-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Improved transition with cubic-bezier for smoother animation */
 }
 
 .faq-question-content.active {

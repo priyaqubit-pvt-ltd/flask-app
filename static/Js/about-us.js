@@ -41,8 +41,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Counter Animation for Stats
 document.addEventListener('DOMContentLoaded', function() {
-    const counters = document.querySelectorAll('.stat-number');
-    const speed = 200; // The lower the faster
+    const counters = document.querySelectorAll('.counter');
+    const speed = 2000; // Animation duration in milliseconds
+    
+    // Function to animate counter
+    function animateCounter(counter) {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = speed;
+        const startTime = performance.now();
+        
+        function updateCounter(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const currentValue = Math.floor(progress * target);
+            
+            counter.textContent = currentValue;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        }
+        
+        requestAnimationFrame(updateCounter);
+    }
     
     // Function to check if an element is in viewport
     function isInViewport(element) {
@@ -55,28 +78,22 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
     
-    // Function to start counter animation
-    function startCounters() {
+    // Start animation when counters are in viewport
+    function checkCounters() {
         counters.forEach(counter => {
-            if (isInViewport(counter) && !counter.classList.contains('counted')) {
-                counter.classList.add('counted');
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const increment = Math.ceil(target / speed);
-                
-                if (count < target) {
-                    counter.innerText = count + increment;
-                    setTimeout(() => startCounters(), 1);
-                } else {
-                    counter.innerText = target;
-                }
+            if (isInViewport(counter) && !counter.classList.contains('animated')) {
+                counter.classList.add('animated');
+                animateCounter(counter);
             }
         });
     }
     
-    // Start counters when they come into view
-    window.addEventListener('scroll', startCounters);
+    // Check on scroll
+    window.addEventListener('scroll', checkCounters);
     
-    // Initial check on page load
-    startCounters();
+    // Initial check
+    checkCounters();
+    
+    // If counters are already in viewport on page load, start animation
+    setTimeout(checkCounters, 500);
 });
