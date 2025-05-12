@@ -1580,7 +1580,7 @@ html, body {
 }
 
 .clients-say-divider {
-    width: 100%;
+    width: 82vw;
     height: 1px;
     min-height: 1px;
     background-color: #FFDE59;
