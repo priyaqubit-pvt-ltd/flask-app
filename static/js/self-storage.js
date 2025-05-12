@@ -114,10 +114,9 @@ document.addEventListener("DOMContentLoaded", function () {
         stepNumbers[index].style.color = "#FFFFFF";
       }
     });
-
     Array.from(scrollDot).forEach((dot) => {
       const dotRect = dot.getBoundingClientRect();
-      const isCentered = dotRect.top <= window.innerHeight / 2 + 20 && dotRect.bottom >= window.innerHeight / 2 - 20;
+      const isCentered = dotRect.top <= window.innerHeight / 2 + 50 && dotRect.bottom >= window.innerHeight / 2 - 50;
 
       if(isCentered) {
         dot.style.transform = "translate(-50%,40px)";
@@ -154,9 +153,8 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   // Get all sections and dots
   const sections = document.querySelectorAll(".storage-section");
-  const storageDescription = document.querySelectorAll(".storage-description");
-
-  const baseFont = parseFloat(window.getComputedStyle(storageDescription[0]).fontSize);
+  const storageText = document.querySelectorAll(".storage-text-container");
+  const storageImage = document.querySelectorAll(".storage-image");
 
   // commented out the following code as scroll behavior for storage sections is handled in css in this commit
 
@@ -222,12 +220,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const baseWidth = 90*(1+(i/50));
   
       if (nextRect.top <= sectionRect.bottom) {
-        section.children[0].style.width = Math.max((1-((sectionRect.bottom - nextRect.top) / sectionRect.height)*0.1)*(100),baseWidth)+"%";
-        if(parseFloat(section.children[0].style.width) != 100)
-        storageDescription[i].style.fontSize = baseFont * parseFloat(section.children[0].style.width)/100 + "px";
+        const transformValue = Math.max((1-((sectionRect.bottom - nextRect.top) / sectionRect.height)*0.1)*(100),baseWidth);
+        section.children[0].style.transform = `scale(${transformValue}%) translateY(-${100-transformValue}%)`;
       } else {
-        section.children[0].style.width = "100%";
-        storageDescription[i].style.fontSize = baseFont+"px";
+        section.children[0].style.transform = "";
       }
 
       if(section.style.opacity <= 0.7) {
@@ -241,6 +237,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  function initStorageImageSize() {
+    storageText.forEach((text,i)=>{
+      const textHeight = window.getComputedStyle(text).height;
+      storageImage[i].style.maxHeight = textHeight;
+    });
+  }
+
+  initStorageImageSize();
   // // Handle wheel event for showcase scrolling
   // window.addEventListener(
   //   "wheel",
@@ -342,7 +346,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // changeSection(0);
 
   // Add resize event listener to handle responsive adjustments
-  window.addEventListener("resize", () => {});
+  window.addEventListener("resize", () => {
+    initStorageImageSize();
+  });
 });
 
 // faq question js

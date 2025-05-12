@@ -1651,7 +1651,7 @@ html, body {
 /* Location Cards Common Styles */
 .locations-row {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     position: relative;
     width: 100%;
     margin: 0 0 30px;
@@ -1704,7 +1704,7 @@ html, body {
 }
 
 /* Responsive Styles */
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+@media only screen and (min-width: 1080px) and (max-width: 1600px) {
     .locations-heading {
         margin-left: 100px;
     }
@@ -1719,7 +1719,7 @@ html, body {
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1199px) {
+@media only screen and (min-width: 768px) and (max-width: 1079px) {
     .locations-heading {
         margin-left: 50px;
         width: auto;
