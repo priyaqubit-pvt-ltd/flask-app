@@ -114,7 +114,7 @@ def e404():
 def contact():
     return render_template("contact-us.html")
 
-<<<<<<<<< Temporary merge branch 1
+
 @app.route("/blogs")
 def blogs():
     return render_template("blogs.html")
@@ -124,11 +124,11 @@ def blogs():
 if __name__ == '__main__':
     # app.run(debug=True)
     app.run(debug=True, host='0.0.0.0', port='8080')
-=========
+
 @app.route("/faq")
 def faq():
     return render_template("Faq.html")
  
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port='80')
->>>>>>>>> Temporary merge branch 2
+
