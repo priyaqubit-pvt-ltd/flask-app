@@ -12,8 +12,6 @@ def index():
 def navbar():
     return render_template('navbar.html')
 
-
- 
 @app.route("/self-storage")
 def hello_world():
     return render_template("self-storage.html")
@@ -25,7 +23,6 @@ def corporate():
 @app.route("/platinum-storage")
 def platinum():
     return render_template("platinum-class.html")
-
 
 @app.route("/blog")
 def blog():
@@ -52,11 +49,6 @@ def contact():
 @app.route("/faq")
 def faq():
     return render_template("Faq.html")
-
-@app.route("/blogs")
-def blogs():
-    return render_template("blogs.html")
-
 
 
 
