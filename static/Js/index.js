@@ -208,8 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
 
-    const horizontalScrollSection = document.querySelector(".client-horizontal-scroll-container");
-    const clientSection = document.querySelector(".client-section");
+    const horizontalScrollSection = document.querySelector(".clients-say-horizontal-scroll-container");
+    const clientSection = document.querySelector(".clients-say-section");
 
     window.addEventListener("wheel",(e)=>{
 
@@ -223,7 +223,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if(transformValue > window.innerWidth*1.64)
                 transformValue = window.innerWidth*1.64;
             horizontalScrollSection.style.transform = `translateX(-${transformValue}px)`;
+        } else if (rect.top > 0) {
+            horizontalScrollSection.style.transform = `translateX(0px)`;
         }
+    });
+
+    // add event handler for scroll up button
+    document.querySelector(".scroll-up-button").addEventListener("click",()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
 });
