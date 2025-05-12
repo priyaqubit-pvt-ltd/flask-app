@@ -197,8 +197,19 @@ document.addEventListener('DOMContentLoaded', function() {
 // For handling horizontal scroll in client section
 document.addEventListener('DOMContentLoaded', function() {
 
-    const horizontalScrollSection = document.querySelector(".client-horizontal-scroll-container");
-    const clientSection = document.querySelector(".client-section");
+    // Function to check if an element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.bottom > 0 &&
+            rect.right > 0 &&
+            rect.top < window.innerHeight &&
+            rect.left < window.innerWidth
+        );
+    }
+
+    const horizontalScrollSection = document.querySelector(".clients-say-horizontal-scroll-container");
+    const clientSection = document.querySelector(".clients-say-section");
 
     window.addEventListener("wheel",(e)=>{
 
@@ -215,7 +226,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if(transformValue > window.innerWidth*1.64)
                 transformValue = window.innerWidth*1.64;
             horizontalScrollSection.style.transform = `translateX(-${transformValue}px)`;
+        } else if (rect.top > 0) {
+            horizontalScrollSection.style.transform = `translateX(0px)`;
         }
+    });
+
+    // add event handler for scroll up button
+    document.querySelector(".scroll-up-button").addEventListener("click",()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
 });
