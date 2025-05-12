@@ -42,7 +42,7 @@
   }
   
   .contact-us {
-    width: 289px;
+    /* width: 289px; */
     height: 198px;
     position: relative;
     top: 0; /* Change from -9px to 0 */
@@ -130,7 +130,7 @@
   }
   
   .quick-links {
-    width: 305px;
+    /* width: 305px; */
     height: 269px;
     position: relative;
     top: 0; /* Change from -9px to 0 */
@@ -170,7 +170,7 @@
   }
   
   .policies {
-    width: 194px;
+    /* width: 194px; */
     height: 161px;
     position: relative;
     top: 0; /* Change from -9px to 0 */
@@ -210,7 +210,7 @@
   }
   
   .corporate-address {
-    width: 290px;
+    /* width: 290px; */
     height: 264px;
     position: relative;
     top: 0; /* Change from -9px to 0 */
@@ -252,6 +252,10 @@
     color: #f2f2f2;
     margin-top: 15px;
   }
+
+  .footer-social-links{
+    margin-top: 40px;
+  }
   
   .social-heading {
     width: 232px;
@@ -268,7 +272,7 @@
   .social-icons {
     display: flex;
     gap: 15px;
-    margin-top: 5px;
+    margin-top: 15px;
     width: 67.5px;
     height: 66.25px;
   }
@@ -287,7 +291,8 @@
   .lozy-text span{
     font-family: "Georgia";
     font-weight: 700;
-    font-size: clamp(150px, 4vw, 350px);
+    font-size:  350px;
+
     line-height: 100%;
     color: #ffffff;
     margin: 0;
@@ -351,6 +356,7 @@
   
     .lozy-text h1 {
       font-size: 200px;
+      letter-spacing: -30px;
     }
   
     .footer-divider {
@@ -411,7 +417,8 @@
     }
 
     .lozy-text span{
-    letter-spacing: -20px;
+      font-size: 150px;
+    letter-spacing: 10px;
   }
   
     .copyright {

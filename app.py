@@ -98,11 +98,6 @@ def corporate():
 def platinum():
     return render_template("platinum-class.html")
 
-@app.route("/blog")
-def blog():
-    return render_template("blog.html")
- 
-
 @app.route("/News")
 def news():
     return render_template("News.html")
@@ -122,6 +117,14 @@ def contact():
 @app.route("/faq")
 def faq():
     return render_template("Faq.html")
- 
+
+@app.route("/blogs")
+def blogs():
+    return render_template("blogs.html")
+
+@app.route("/blog")
+def blog():
+    return render_template("blog.html")
+
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port='80')

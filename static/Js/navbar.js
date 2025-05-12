@@ -107,7 +107,7 @@ document.querySelectorAll(".storage-navbar__dropdown-item").forEach((dropdownIte
 document.addEventListener('DOMContentLoaded', function() {
     // Get the Contact Us button from your navbar
     const contactButton = document.querySelector('.storage-navbar__contact-btn');
-    
+  
     // Add click event listener to open the popup
     if (contactButton) {
       contactButton.addEventListener('click', function(e) {
@@ -119,7 +119,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+
+       
   });
 
+    document.addEventListener('click', function(e) {
+    if (contactPopUp && contactPopUp.classList.contains("active")) {
+      // Check if click target is outside the popup and button
+      if (!contactPopUp.contains(e.target) && !contactButton.contains(e.target)) {
+        contactPopUp.classList.remove("active");
+      }
+    }
+  });
   });
 
