@@ -97,3 +97,69 @@ document.addEventListener('DOMContentLoaded', function() {
     // If counters are already in viewport on page load, start animation
     setTimeout(checkCounters, 500);
 });
+
+
+// animation for horizontal slider in vision to reality section
+
+window.addEventListener('DOMContentLoaded', ()=>{
+
+    const visionCards = document.querySelector(".vision-horizontal-slider");
+
+    document.querySelector(".vision-card.dummy").style.width = window.getComputedStyle(visionCards.children[0].children[1]).width;
+    document.querySelector(".vision-card.empty").style.minWidth = 1.5 * parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width) + "px";
+
+    let isDragging = false;
+    let startX;
+    let scrollStart;
+
+    visionCards.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        visionCards.classList.add("dragging");
+        startX = e.pageX - visionCards.offsetLeft;
+        scrollStart = visionCards.scrollLeft;
+    });
+
+    visionCards.addEventListener("mouseleave", () => {
+        isDragging = false;
+        visionCards.classList.remove("dragging");
+    });
+
+    visionCards.addEventListener("mouseup", () => {
+        isDragging = false;
+        visionCards.classList.remove("dragging");
+    });
+
+    visionCards.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - visionCards.offsetLeft;
+        const difference = x - startX;
+        visionCards.scrollLeft = scrollStart - difference;
+    });
+
+    // Touch support
+    visionCards.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].pageX - visionCards.offsetLeft;
+        scrollStart = visionCards.scrollLeft;
+    });
+
+    visionCards.addEventListener("touchmove", (e) => {
+        const x = e.touches[0].pageX - visionCards  .offsetLeft;
+        const difference = x - startX;
+        visionCards.scrollLeft = scrollStart - difference;
+    });
+
+    document.querySelector(".vision-horizontal-slider-button.left").addEventListener("click",()=>{
+        visionCards.scrollBy({
+            left: parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width),
+            behavior: "smooth"
+        });
+    });
+
+    document.querySelector(".vision-horizontal-slider-button.right").addEventListener("click",()=>{
+        visionCards.scrollBy({
+            left: -1 * parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width),
+            behavior: "smooth"
+        });
+    });
+});

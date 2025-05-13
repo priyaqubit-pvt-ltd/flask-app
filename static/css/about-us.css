@@ -17,6 +17,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none; 
   scroll-behavior: smooth;
+  font-family: "SF Pro Text";
 }
 
 html,
@@ -353,6 +354,7 @@ body {
 }
 
 .about-image-container {
+	 filter: grayscale(100%); /* to make the image black and white */
     position: absolute;
     width: 923px;
     height: 764px;
@@ -475,6 +477,10 @@ body {
 /* Section Styles */
 .stats-section, .why-choose-section {
     padding: 60px 0;
+}
+
+.why-choose-section {
+    margin-bottom: 100px;
 }
 
 .section-heading {
@@ -649,31 +655,167 @@ body {
 }
 
 
+/* vision section css */
+.vision-section {
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	overflow: hidden;
+}
+
+.video-container {
+	grid-row: 1/2;
+	grid-column: 1/2;
+	width: 100vw;
+	height: 100vh;
+    z-index: 1;
+	display: grid;
+}
+
+.video-overlay {
+	grid-row: 1/2;
+	grid-column: 1/2;
+	background-color: #000;
+	opacity: 0.43;
+	width: 100vw;
+	height: 100vh;
+}
+
+.background-video {
+	grid-row: 1/2;
+	grid-column: 1/2;
+	width: 100vw;
+	height: 100vh;
+    object-fit: cover;
+}
+
+.vision-content {
+	z-index: 2;
+	grid-row: 1/2;
+	grid-column: 1/2;
+	width: 100vw;
+	height: 100vh;
+	padding-bottom: 5vh;
+}
+
+.vision-heading h4{
+	margin-top: 10vh;
+	margin-bottom: 10vh;
+	margin-left: 10vw;
+	color: #fff;
+	font-weight: 600;
+	font-size: 70px;
+}
+
+.vision-horizontal-slider-outer {
+	display: grid;
+	grid-template-columns: 1fr 80vw;
+	width: 100vw;
+}
+
+.vision-horizontal-slider {
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+  	overflow-x: auto;
+  	scroll-snap-type: x mandatory;
+  	display: flex;
+}
+
+.vision-cards {
+  	display: flex;
+  	gap: 1rem;
+  	scroll-snap-type: x mandatory;
+  	scroll-behavior: smooth;
+	cursor: grab;
+}
+
+.vision-cards.dragging {
+	cursor: grabbing;
+}
+
+.vision-card {
+	max-width: 340px;
+  	background: rgb(255, 255, 255);
+  	scroll-snap-align: start;
+  	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border-radius: 8px;
+}
+
+.vision-card.empty , .vision-card.dummy {
+	min-width: 15vw;
+	z-index: -1;
+  	background: none;
+}
+
+.vision-card-arrow {
+	align-self: flex-end;
+	height: 30px;
+	width: 30px;
+}
+
+.vision-card-arrow img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+.vision-card-title {
+	color: #000;
+	max-width: 80%;
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 60%;
+}
+
+.vision-card-text {
+	opacity: 0.8;
+	align-self: flex-end;
+	color: #000;
+	font-size: 16px;
+	font-weight: 500;
+	margin-bottom: 25px;
+}
+
+.vision-horizontal-slider-buttons {
+	z-index: 1;
+	display: flex;
+	justify-content: start;
+	align-items: flex-end;
+	padding-left: 6vw;
+	padding-bottom: 4vh;
+	gap: 20px;
+}
+
+.vision-horizontal-slider-button {
+	z-index: 3;
+	cursor: pointer;
+	background: none;
+	border: none;
+}
 
 
+@media (min-width: 1441px) and (max-width: 1920px) {
+	.vision-heading {
+		font-size: 80px;
+	}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (min-width: 768px) and (max-width: 1024px) {
+ 
+}
+ 
+@media (max-width:768px) {
+}
 
 
 /* form section */
  
   .form-section{
- width: 100%; background-color: white; padding: 60px 0;margin-top: 100px;
+ width: 100%; background-color: white; padding: 60px 0;
   }
  
  
