@@ -720,6 +720,7 @@ body {
   	overflow-x: auto;
   	scroll-snap-type: x mandatory;
   	display: flex;
+	cursor: grab;
 }
 
 .vision-cards {
@@ -727,10 +728,9 @@ body {
   	gap: 1rem;
   	scroll-snap-type: x mandatory;
   	scroll-behavior: smooth;
-	cursor: grab;
 }
 
-.vision-cards.dragging {
+.vision-horizontal-slider.dragging {
 	cursor: grabbing;
 }
 
@@ -743,6 +743,8 @@ body {
 	flex-direction: column;
 	padding: 20px;
 	border-radius: 8px;
+  	user-select: none;
+	transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .vision-card.empty , .vision-card.dummy {

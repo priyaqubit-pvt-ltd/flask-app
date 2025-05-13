@@ -106,7 +106,9 @@ window.addEventListener('DOMContentLoaded', ()=>{
     const visionCards = document.querySelector(".vision-horizontal-slider");
 
     document.querySelector(".vision-card.dummy").style.width = window.getComputedStyle(visionCards.children[0].children[1]).width;
-    document.querySelector(".vision-card.empty").style.minWidth = 1.5 * parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width) + "px";
+    document.querySelector(".vision-card.empty").style.minWidth = 3 * parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width) + "px";
+
+    const scrollValue = parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width);
 
     let isDragging = false;
     let startX;
@@ -115,7 +117,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     visionCards.addEventListener("mousedown", (e) => {
         isDragging = true;
         visionCards.classList.add("dragging");
-        startX = e.pageX - visionCards.offsetLeft;
+        startX = e.clientX;
         scrollStart = visionCards.scrollLeft;
     });
 
@@ -127,39 +129,71 @@ window.addEventListener('DOMContentLoaded', ()=>{
     visionCards.addEventListener("mouseup", () => {
         isDragging = false;
         visionCards.classList.remove("dragging");
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
     });
 
     visionCards.addEventListener("mousemove", (e) => {
         if (!isDragging) return;
         e.preventDefault();
-        const x = e.pageX - visionCards.offsetLeft;
-        const difference = x - startX;
-        visionCards.scrollLeft = scrollStart - difference;
+        const x = e.clientX;
+        const difference = (startX - x)/50;
+        visionCards.scrollBy({
+            left: difference,
+            behavior: "smooth"
+        });
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
     });
 
     // Touch support
     visionCards.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].pageX - visionCards.offsetLeft;
-        scrollStart = visionCards.scrollLeft;
+        startX = e.touches[0].pageX;
     });
 
     visionCards.addEventListener("touchmove", (e) => {
-        const x = e.touches[0].pageX - visionCards  .offsetLeft;
+        const x = e.touches[0].pageX;
         const difference = x - startX;
-        visionCards.scrollLeft = scrollStart - difference;
+        visionCards.scrollBy({
+            left: difference,
+            behavior: "smooth"
+        });
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
     });
 
     document.querySelector(".vision-horizontal-slider-button.left").addEventListener("click",()=>{
         visionCards.scrollBy({
-            left: parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width),
+            left: scrollValue,
             behavior: "smooth"
         });
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
     });
 
     document.querySelector(".vision-horizontal-slider-button.right").addEventListener("click",()=>{
         visionCards.scrollBy({
-            left: -1 * parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width),
+            left: -1 * scrollValue,
             behavior: "smooth"
         });
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
     });
+
+    function vanishCheck() {
+        document.querySelectorAll(".vision-card").forEach((i)=>{
+            if(i.getBoundingClientRect().left <= visionCards.getBoundingClientRect().left + 100 && !i.classList.contains("dummy")) {
+                i.style.opacity = 0;
+                i.style.transform = "scaleY(0.8)";
+            } else {
+                i.style.opacity = 1;
+                i.style.transform = "";
+            }
+        });
+    }
 });
