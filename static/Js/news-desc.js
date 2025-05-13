@@ -57,3 +57,56 @@ document.addEventListener("DOMContentLoaded", function() {
         window.addEventListener("orientationChange", lazyLoad);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+// Check if the document has loaded
+// Check if the document has loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to check viewport size and adjust elements if needed
+    function adjustLayoutForViewport() {
+        const currentViewportWidth = window.innerWidth;
+        
+        // Adjust elements based on viewport width
+        if (currentViewportWidth <= 767) {
+            // Mobile view adjustments
+            document.querySelectorAll('.primary-content-text, .extended-content-paragraph, .secondary-content-text').forEach(paragraph => {
+                paragraph.style.fontSize = '16px';
+            });
+        } else if (currentViewportWidth <= 1024) {
+            // Tablet view adjustments
+            document.querySelectorAll('.primary-content-text, .extended-content-paragraph, .secondary-content-text').forEach(paragraph => {
+                paragraph.style.fontSize = '18px';
+            });
+        } else {
+            // Desktop view - reset to default
+            document.querySelectorAll('.primary-content-text').forEach(paragraph => {
+                paragraph.style.fontSize = '20px';
+            });
+            document.querySelectorAll('.extended-content-paragraph').forEach(paragraph => {
+                paragraph.style.fontSize = '20px';
+            });
+            document.querySelectorAll('.secondary-content-text').forEach(paragraph => {
+                paragraph.style.fontSize = '18px';
+            });
+        }
+    }
+
+    // Run on page load
+    adjustLayoutForViewport();
+    
+    // Run on window resize with debounce for performance
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(adjustLayoutForViewport, 100);
+    });
+});

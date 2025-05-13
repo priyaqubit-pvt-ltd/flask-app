@@ -124,6 +124,14 @@ def blogs():
 def about():
     return render_template("about-us.html")
 
+@app.route("/blog")
+def blog():
+    return render_template("blog.html")
+
+@app.route("/faq")
+def faq():
+    return render_template("Faq.html")
+
 
 
 if __name__ == '__main__':

@@ -58,7 +58,7 @@ body {
     font-size: 18px;
     line-height: 150%;
     letter-spacing: 0%;
-    color: #000000;
+    color: #4B5563;
 }
 
 .guide-image {
@@ -590,3 +590,308 @@ body {
     }
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .page-main-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Primary Section Styles */
+.storage-guide-primary-section {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.primary-content-container {
+    width: 65%;
+}
+
+/* Main Heading Styles */
+.main-heading-title {
+    font-family: 'SF Pro Text';
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
+    margin-bottom: 10px;
+    width: 953px;
+    max-width: 100%;
+}
+
+.heading-underline {
+    width: 100px;
+    height: 1px;
+    background-color: #1F2937;
+    margin-bottom: 30px;
+}
+
+/* Content with Divider Layout */
+.content-with-divider {
+    display: flex;
+    gap: 20px;
+}
+
+/* Vertical Divider Styles - Fixed to be parallel to paragraph */
+.decorative-vertical-divider,
+.secondary-vertical-divider {
+    width: 1px;
+    min-width: 1px;
+    background-color: #1F2937;
+    align-self: stretch;
+}
+
+.text-content-wrapper {
+    flex: 1;
+}
+
+/* Primary Content Text Styles */
+.primary-content-text {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    color: #4B5563;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.extended-content-paragraph {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    color: #4B5563;
+    width: 100%;
+    /* Removed height and overflow to fix scrolling issue */
+}
+
+/* Secondary Section Styles */
+.storage-guide-secondary-section {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.secondary-content-container {
+    width: 65%;
+}
+
+.secondary-heading-title {
+    font-family: 'SF Pro Text';
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
+    margin-bottom: 10px;
+    width: 953px;
+    max-width: 100%;
+}
+
+.secondary-content-text {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #4B5563;
+    width: 100%;
+}
+
+/* Social Media Sidebar Styles */
+.social-media-sidebar-container {
+    width: 30%;
+    padding-left: 150px;
+}
+
+.social-media-heading {
+    font-family: 'SF Pro Text';
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 40px;
+    color: #000000;
+    margin-bottom: 20px;
+    width: 241px;
+    max-width: 100%;
+}
+
+.social-icons-wrapper {
+    display: flex;
+    gap: 15px;
+}
+
+.social-platform-link {
+    text-decoration: none;
+}
+
+.social-platform-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Banner Section Styles */
+.storage-banner-section {
+    position: relative;
+    width: 100%;
+    height: 493px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 40px;
+    background-image: url('/static/images/Image (7).png');
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(88.65deg, rgba(147, 147, 147, 0.8) 19.01%, rgba(147, 147, 147, 0) 100.83%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-centered-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.banner-heading-text {
+    font-family: 'SF Pro Text';
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.banner-description-text {
+    font-family: 'SF Pro Text';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 110%;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.contact-action-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 167px;
+    height: 53px;
+    background-color: #000000;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .page-main-container {
+        width: 90%;
+    }
+    
+    .storage-guide-primary-section {
+        flex-direction: column;
+    }
+    
+    .primary-content-container,
+    .secondary-content-container {
+        width: 100%;
+    }
+    
+    .social-media-sidebar-container {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 40px;
+    }
+    
+    .main-heading-title, 
+    .secondary-heading-title {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .page-main-container {
+        width: 95%;
+    }
+    
+    .storage-guide-primary-section {
+        flex-direction: column;
+    }
+    
+    .primary-content-container,
+    .secondary-content-container {
+        width: 100%;
+    }
+    
+    .social-media-sidebar-container {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 40px;
+    }
+    
+    .main-heading-title,
+    .secondary-heading-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    
+    .primary-content-text,
+    .secondary-content-text,
+    .extended-content-paragraph {
+        font-size: 16px;
+    }
+    
+    .storage-banner-section {
+        height: 400px;
+    }
+    
+    .banner-heading-text {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    
+    .banner-description-text {
+        font-size: 16px;
+    }
+    
+    .contact-action-button {
+        width: 140px;
+        height: 45px;
+        font-size: 16px;
+    }
+}
