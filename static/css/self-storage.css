@@ -968,7 +968,7 @@ body {
 .feature-grid {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 16px;
+  row-gap: 3vh;
   height: 80vh;
 }
 

@@ -143,17 +143,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     // Initialize the map
     const map = L.map("map", {
-      zoomControl: false,
+      zoom: 15,
       attributionControl: false,
     }).setView([28.5921, 77.046], 13) // Coordinates for Dwarka, New Delhi
   
     // Add a dark-themed map layer
     L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
-	    minZoom: 7,
-	    maxZoom: 7,
+	    minZoom: 0,
+	    maxZoom: 20,
 	    attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	    ext: 'png'
     }).addTo(map)
+
+    const zoomControl = L.control.zoom({}).setPosition("bottomright");
+    zoomControl.addTo(map);
   
     // Add a marker for the location
     L.marker([28.5921, 77.046], { icon: styledIcon }).addTo(map)
@@ -231,9 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         const userLocation = [position.coords.latitude, position.coords.longitude]
-  
-        // // Add a marker for user's location
-        L.marker(userLocation, { icon: styledIcon }).addTo(map)
   
         // Calculate distance to office
         const officeLocation = [28.5921, 77.046]
