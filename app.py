@@ -122,6 +122,7 @@ def faq():
 def blogs():
     return render_template("blogs.html")
 
+
 @app.route("/blog")
 def blog():
     return render_template("blog.html")

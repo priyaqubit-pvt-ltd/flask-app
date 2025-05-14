@@ -10,6 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const scrollDot = document.querySelectorAll(".scroll-dot");
   const steps = document.querySelectorAll(".step");
   const stepNumbers = document.querySelectorAll(".step-number");
+  const stepText = document.querySelectorAll(".step-text");
+  const scrollContainers = document.querySelectorAll(".scroll-dot-container");
+
+  const scrollDotMargin = [null,null,null];
+    scrollDotMargin[0] = Math.abs(stepText[0].getBoundingClientRect().top - timeline.getBoundingClientRect().top) + 35;
+    scrollDotMargin[1] = Math.abs(stepText[1].getBoundingClientRect().top - timeline.getBoundingClientRect().top) + 35;
+    scrollDotMargin[2] = Math.abs(stepText[2].getBoundingClientRect().top - timeline.getBoundingClientRect().top) + 35;
 
   // Store the initial top position of the container
   let initialContainerTop = 0;
@@ -83,7 +90,10 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Dot Position (px):", finalDotPosition.toFixed(2));
 
     // Update timeline progress
-    timelineProgress.style.height = `${Math.min(Math.max(0,window.innerHeight / 2 - timelineProgress.getBoundingClientRect().top),timeline.getBoundingClientRect().bottom-timeline.getBoundingClientRect().top)}px`;
+
+    const heightValue = Math.min(Math.max(0,window.innerHeight / 2 - timelineProgress.getBoundingClientRect().top),timeline.getBoundingClientRect().bottom-timeline.getBoundingClientRect().top);
+    timelineProgress.style.height = `${heightValue}px`;
+    updateDotPosition(heightValue);
 
     console.log("Timeline Progress Height:", timelineProgress.style.height);
     console.log("Timeline Opacity:", timelineProgress.style.opacity);
@@ -114,15 +124,11 @@ document.addEventListener("DOMContentLoaded", function () {
         stepNumbers[index].style.color = "#FFFFFF";
       }
     });
-    Array.from(scrollDot).forEach((dot) => {
-      const dotRect = dot.getBoundingClientRect();
-      const isCentered = dotRect.top <= window.innerHeight / 2 + 50 && dotRect.bottom >= window.innerHeight / 2 - 50;
+  }
 
-      if(isCentered) {
-        dot.style.transform = "translate(-50%,40px)";
-      } else {
-        dot.style.transform = "translate(-50%,0px)";
-      }
+  function updateDotPosition(height) {
+    Array.from(scrollContainers).forEach((container , i) => {
+      container.style.height = Math.max(Math.min (height, stepText[i].getBoundingClientRect().bottom - timeline.getBoundingClientRect().top),scrollDotMargin[i]) + "px";
     });
   }
 
@@ -140,12 +146,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function initScrollDotsMargins() {
-    const scrollDotFirstMargin = Math.abs(timeline.getBoundingClientRect().top - ((steps[0].getBoundingClientRect().top + steps[0].getBoundingClientRect().bottom)/2)) - 40;
-    const scrollDotSecondMargin = Math.abs(timeline.getBoundingClientRect().top - ((steps[1].getBoundingClientRect().top + steps[1].getBoundingClientRect().bottom)/2)) - scrollDotFirstMargin - 90;
-    const scrollDotThirdMargin = Math.abs(timeline.getBoundingClientRect().top - ((steps[2].getBoundingClientRect().top + steps[2].getBoundingClientRect().bottom)/2)) - scrollDotSecondMargin - scrollDotFirstMargin - 120;
-    document.querySelector(".scroll-dot.first").style.marginTop = scrollDotFirstMargin + "px";
-    document.querySelector(".scroll-dot.second").style.marginTop = scrollDotSecondMargin + "px";
-    document.querySelector(".scroll-dot.third").style.marginTop = scrollDotThirdMargin + "px";
+    document.querySelector(".scroll-dot-container.first").style.height = scrollDotMargin[0] + "px";
+    document.querySelector(".scroll-dot-container.second").style.height = scrollDotMargin[1] + "px";
+    document.querySelector(".scroll-dot-container.third").style.height = scrollDotMargin[2] + "px";
   }
   initScrollDotsMargins();
 });
@@ -153,8 +156,13 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   // Get all sections and dots
   const sections = document.querySelectorAll(".storage-section");
+  const contents = document.querySelectorAll(".storage-content");
   const storageText = document.querySelectorAll(".storage-text-container");
   const storageImage = document.querySelectorAll(".storage-image");
+
+  contents.forEach((i)=>{
+    i.style.minHeight = window.getComputedStyle(contents[0]).height;
+  });
 
   // commented out the following code as scroll behavior for storage sections is handled in css in this commit
 
@@ -237,14 +245,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  function initStorageImageSize() {
-    storageText.forEach((text,i)=>{
-      const textHeight = window.getComputedStyle(text).height;
-      storageImage[i].style.maxHeight = textHeight;
-    });
-  }
+  // function initStorageImageSize() {
+  //   storageText.forEach((text,i)=>{
+  //     const textHeight = window.getComputedStyle(text).height;
+  //     storageImage[i].style.maxHeight = textHeight;
+  //   });
+  // }
 
-  initStorageImageSize();
+  // initStorageImageSize();
   // // Handle wheel event for showcase scrolling
   // window.addEventListener(
   //   "wheel",
@@ -347,7 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Add resize event listener to handle responsive adjustments
   window.addEventListener("resize", () => {
-    initStorageImageSize();
+    // initStorageImageSize();
   });
 });
 
@@ -364,7 +372,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Close all answers
       document.querySelectorAll(".faq-answer").forEach((item) => {
         item.classList.remove("active");
-        item.parentElement.style.width = "90%";
       });
 
       // Reset all arrow buttons
@@ -377,7 +384,6 @@ document.addEventListener("DOMContentLoaded", function () {
         answer.classList.add("active");
         this.querySelector(".arrow-button img").style.transform =
           "rotate(90deg)";
-        answer.parentElement.style.width = "100%";
       }
       if (!answer.innerHTML.trim()) {
         answer.innerHTML =
