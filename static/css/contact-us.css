@@ -269,19 +269,36 @@
   bottom: 50px !important;
   margin: 0 !important;
 }
+
+.marker .marker-outer {
+  display: grid;
+}
+
 .marker .marker-shape {
+  grid-row: 1/2;
+  grid-column: 1/2;
   z-index: 5;
   width: 32px;
   height: 35px;
-  animation: pulse 1s infinite;
   background-image: url('/static/images/location_marker.png');
   background-position: center;
 }
 
+.marker .marker-circle {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1/1;
+  border-radius: 100px;
+  border: 1px solid white;
+  animation: pulse 2s infinite;
+}
+
 @keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+  0% { opacity: 0; transform: scale(1);}
+  50% { opacity: 1;}
+  100% { opacity: 0; transform: scale(8);}
 }
 
 .contact-content {
