@@ -9,7 +9,7 @@ function adjustContactBannerImage() {
     if(window.getComputedStyle(backgroundImage).height >= reqHeight) {
         return;
     } else {
-        if(window.innerWidth <= 800) {
+        if(window.innerWidth <= 820) {
             backgroundImage.style.height = reqHeight + 80 + "px";
         } else {
             backgroundImage.style.height = reqHeight + 160 + "px";
