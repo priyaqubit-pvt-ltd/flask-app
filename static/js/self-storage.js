@@ -156,8 +156,13 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   // Get all sections and dots
   const sections = document.querySelectorAll(".storage-section");
+  const contents = document.querySelectorAll(".storage-content");
   const storageText = document.querySelectorAll(".storage-text-container");
   const storageImage = document.querySelectorAll(".storage-image");
+
+  contents.forEach((i)=>{
+    i.style.minHeight = window.getComputedStyle(contents[0]).height;
+  });
 
   // commented out the following code as scroll behavior for storage sections is handled in css in this commit
 
@@ -240,14 +245,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  function initStorageImageSize() {
-    storageText.forEach((text,i)=>{
-      const textHeight = window.getComputedStyle(text).height;
-      storageImage[i].style.maxHeight = textHeight;
-    });
-  }
+  // function initStorageImageSize() {
+  //   storageText.forEach((text,i)=>{
+  //     const textHeight = window.getComputedStyle(text).height;
+  //     storageImage[i].style.maxHeight = textHeight;
+  //   });
+  // }
 
-  initStorageImageSize();
+  // initStorageImageSize();
   // // Handle wheel event for showcase scrolling
   // window.addEventListener(
   //   "wheel",
@@ -350,7 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Add resize event listener to handle responsive adjustments
   window.addEventListener("resize", () => {
-    initStorageImageSize();
+    // initStorageImageSize();
   });
 });
 

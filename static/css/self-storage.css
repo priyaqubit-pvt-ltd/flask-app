@@ -304,7 +304,7 @@ body {
 .storage-content {
   width: 100%;
   margin: 0 auto;
-  padding-top: 3vw;
+  padding-top: 2vw;
   padding-bottom: 3vw;
   padding-left: 3vw;
   padding-right: 3vw;
@@ -347,6 +347,8 @@ body {
 .storage-text-container {
   flex: 1;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Heading styles */
@@ -372,6 +374,7 @@ body {
   width: 130px;
   height: 130px;
   opacity: 0.7;
+  justify-content: flex-end;
 }
 .storage-icon img {
   height: 100%;
@@ -390,36 +393,9 @@ body {
 /* Image styles */
 .storage-image {
   width: 100%;
-  max-width: 799px;
-  max-height: 400px;
+  height: auto;
   border-radius: 4px;
   object-fit: cover;
-}
-
-/* Pagination dots */
-.storage-pagination {
-  position: fixed;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 100;
-}
-
-.storage-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  /* background-color: rgba(255, 255, 255, 0.3); */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.storage-dot.active {
-  /* background-color: rgba(255, 255, 255, 0.9); */
-  transform: scale(1.2);
 }
 
 /* Storage Showcase Media Queries */
@@ -431,6 +407,9 @@ body {
   .storage-heading {
     font-size: 26px;
   }
+.storage-icon {
+  margin-top: 60px;
+}
 }
 
 @media (max-width: 1300px) {
@@ -969,7 +948,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 3vh;
-  height: 80vh;
+  height: 70vh;
 }
 
 .feature-box-outer {
@@ -1002,8 +981,6 @@ body {
 .icon {
   width: 44px;
   height: 44px;
-  background-color: #333;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1011,16 +988,30 @@ body {
   flex-shrink: 0;
 }
 
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .feature-text p {
   font-size: 18px;
   font-weight: 400;
+  text-align: center;
 }
 
 /* Why Choose Lozy Section Media Queries */
 @media (max-width: 1980px) {
   .feature-text p {
-    font-size: 26px;
+    font-size: 28px;
   }
+  .lazy-left-content h3 {
+    font-size: 75px;
+  }
+
+.icon {
+  margin-right: 20px;
+}
 }
 
 @media (max-width: 1300px) {
