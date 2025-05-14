@@ -855,7 +855,6 @@ body {
 .lazy-container {
   padding: 5%;
   padding-left: 0;
-  padding-bottom: 12%;
   height: auto;
   min-height: 100vh;
   background: #000;
@@ -948,7 +947,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 3vh;
-  height: 70vh;
+  height: 75vh;
 }
 
 .feature-box-outer {
@@ -994,23 +993,27 @@ body {
   object-fit: cover;
 }
 
+.feature-text {
+  max-width: 75%;
+}
+
 .feature-text p {
   font-size: 18px;
   font-weight: 400;
-  text-align: center;
+  opacity: 0.8;
 }
 
 /* Why Choose Lozy Section Media Queries */
-@media (max-width: 1980px) {
+@media (min-width: 1600px) and (max-width: 1980px) {
   .feature-text p {
     font-size: 28px;
   }
   .lazy-left-content h3 {
-    font-size: 75px;
+    font-size: 72px;
   }
 
 .icon {
-  margin-right: 20px;
+  margin-left: 30px;
 }
 }
 
