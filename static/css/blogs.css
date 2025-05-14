@@ -39,7 +39,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 600px;
+  min-height: 80vh;
   display: grid;
   align-items: center;
   padding-left: 10%;
@@ -51,7 +51,8 @@ body {
   grid-column: 1/1;
   display: grid;
   grid-template-columns: 7fr 10fr;
-  min-height: 600px;
+  min-height: 80vh;
+  max-height: 80vh;
 }
 
 .hero-background-plain {
@@ -78,7 +79,7 @@ body {
   margin-left: 7%;
   margin-right: 53%;
   background-color: rgb(239, 239, 239);
-  max-height: 60vh;
+  height: 60vh;
   padding: 3%;
   padding-top: 2%;
 }
@@ -109,8 +110,8 @@ body {
 }
 
 .hero-read-more {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   display: flex;
   color: #000;
   font-size: 18px;
@@ -122,6 +123,75 @@ body {
   height: 20px;
   width: 20px;
 }
+
+
+/* media queries for hero section*/
+@media (min-width: 1600px) and (max-width: 1920px) {
+  .hero-title {
+    font-size: 32px;
+    margin-top: 40px;
+  }
+
+.hero-date {
+  font-size: 20px;
+}
+
+.hero-description {
+  font-size: 24px;
+  margin-top: 40px;
+}
+
+.hero-read-more {
+  font-size: 24px;
+}
+
+.hero-read-more img {
+  height: 30px;
+  width: 30px;
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+  .hero-content {
+    margin-top: 20px;
+    margin-right: 20%;
+    padding: 5%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .hero-content {
+    margin-right: 7%;
+    padding: 5%;
+  }
+
+  .hero-title {
+    font-size: 20px;
+  }
+
+  .hero-date {
+    font-size: 16px;
+  }
+
+  .hero-description {
+    font-size: 18px;
+  }
+
+  .hero-read-more {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
+  .hero-read-more img {
+    height: 15px;
+    width: 15px;
+  }
+    
+}
+
 
 /* Blogs Section */
 .blogs-section {
@@ -239,4 +309,37 @@ body {
   border: none;
   font-size: 16px;
   font-family: 'Poppins','SF Pro Text';
+}
+
+@media (min-width: 1600px) and (max-width: 1920px) {
+  .blog-content {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+    
+}
+
+@media only screen and (max-width: 767px) {
+  .blogs-grid {
+    grid-template-columns: 1fr;
+  }
+  .blog-image {
+    width: 80vw;
+  }
+  .blog-image img {
+    width: 80vw;
+  }
+  .blog-read-more {
+    font-size: 16px;
+  }
+  .blog-read-more img {
+    height: 16px;
+    width: 16px;
+  }
+  .blog-outer {
+    margin-bottom: 50px;
+  }
+    
 }

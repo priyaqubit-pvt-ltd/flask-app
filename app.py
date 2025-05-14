@@ -102,7 +102,13 @@ def platinum():
 def news():
     return render_template("News.html")
 
+@app.route("/footer")
+def footer():
+    return render_template("footer.html")
 
+@app.route("/news-desc")
+def newsDesc():
+    return render_template("news-desc.html")
 
 @app.route("/404")
 def e404():
@@ -117,31 +123,12 @@ def contact():
 def blogs():
     return render_template("blogs.html")
 
-
-@app.route("/about-us")
-def about():
-    return render_template("about-us.html")
-
 @app.route("/blog")
 def blog():
     return render_template("blog.html")
-
-@app.route("/faq")
-def faq():
-    return render_template("Faq.html")
-
-
-@app.route("/news-desc")
-def newsDesc():
-    return render_template("news-desc.html")
 
 
 
 if __name__ == '__main__':
     # app.run(debug=True)
     app.run(debug=True, host='0.0.0.0', port='8080')
-
- 
-# if __name__ == "__main__":
-#     app.run(debug=True, host='0.0.0.0', port='80')
-
