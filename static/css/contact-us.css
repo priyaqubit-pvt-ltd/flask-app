@@ -9,6 +9,9 @@
     box-sizing: border-box;
     line-height: 1.2;
     font-family: "SF Pro Text";
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+    scroll-behavior: smooth;
   }
   
   html,
@@ -250,13 +253,29 @@
   width: 100%;
   height: 100%;
   z-index: 0;
-  filter: brightness(0.7);
+  filter: grayscale(100%);
+  display: flex;
+  justify-content: flex-end;
 }
 
-.map-container img {
-  width: 100%;
+#map {
+  width: 60%;
   height: 100%;
-  object-fit: cover;
+}
+
+.marker .marker-shape {
+  z-index: 5;
+  width: 32px;
+  height: 35px;
+  animation: pulse 1s infinite;
+  background-image: url('/static/images/location_marker.png');
+  background-position: center;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
 }
 
 .contact-content {
@@ -265,9 +284,10 @@
   padding-top: 60px;
   padding-left: 100px;
   color: #ffffff;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 40%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0) 100%);
   height: 100%;
   width: 100%;
+    /* pointer-events: none; */
 }
 
 .contact-header {
@@ -468,6 +488,10 @@
     background: rgba(0, 0, 0, 0.8);
   }
 
+  #map {
+    width: 100%;
+  }
+
   .contact-info {
     flex-direction: column;
     gap: 30px;
@@ -487,3 +511,12 @@
     height: auto;
   }
 }
+
+
+/* letting inputs and buttons receive events */
+/* input {
+  pointer-events: auto;
+}
+button {
+  pointer-events: auto;
+} */

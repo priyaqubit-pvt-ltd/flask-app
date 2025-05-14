@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact-Us</title>
     <link rel="stylesheet" href="/static/css/contact-us.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
     
@@ -229,8 +233,8 @@
 
 
       <section class="contact-section">
-        <div id="map" class="map-container">
-          <img src="/static/images/Map.png">
+        <div class="map-container">
+          <div id="map"></div>
         </div>
         
         <div class="contact-content">
@@ -306,6 +310,6 @@
         </div>
       </section>
 
-    <script src="/static/Js/contact-us.js"></script>
+    <script src="/static/js/contact-us.js"></script>
 </body>
 </html>
