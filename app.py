@@ -133,6 +133,11 @@ def about():
     return render_template("about-us.html")
 
 
+@app.route("/faq")
+def faq():
+    return render_template("Faq.html")    
+
+
 
 if __name__ == '__main__':
     # app.run(debug=True)
