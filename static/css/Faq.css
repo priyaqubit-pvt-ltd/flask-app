@@ -3,39 +3,36 @@
   src: url('../fonts/SF-Pro.ttf');
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    line-height: 1.2;
-  }
-  
-  html,
-  body {
-    font-family: "SF Pro Text";
+}
+
+html,
+body {
+    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
     max-width: 100%;
     margin: 0;
     padding: 0;
     background-color: #000;
-    color: #fff;
-  }
-  
-  /* Hero Section */
-  .hero-section {
+    color: #f6f6f6;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
     padding-top: 50px;
-  
     position: relative;
     width: 100%;
     margin: 0 auto;
     min-height: 100vh;
     background-color: #fff;
     overflow: hidden;
-  }
-  
-  .hero-container {
+}
+
+.hero-container {
     position: relative;
     width: 100%;
     height: 100%;
@@ -43,214 +40,113 @@
     display: flex;
     align-items: center;
     padding: 0 5%;
-  }
-  
-  .hero-content {
+}
+
+.hero-content {
     width: 100%;
     z-index: 2;
-  }
-  
-  .hero-title {
+}
+
+.hero-title {
     font-size: 100px;
     font-weight: 600;
-    line-height: 110px;
+    line-height: 1.1;
     margin-bottom: 20px;
     color: #000;
-  }
-  
-  .text-gray {
+}
+
+.text-gray {
     color: #aaa;
-  }
-  
-  .hero-description {
-    font-size: 24px; /* Increased from 16px to 20px for better readability */
+}
+
+.hero-description {
+    font-size: 24px;
     color: #333;
     margin-bottom: 30px;
     line-height: 1.6;
-  }
-  
-  .vector-lines {
+}
+
+.vector-lines {
     position: absolute;
     top: 0;
     right: 0;
-    width: 60%;
+    width: 45%;
     height: 100vh;
     z-index: 1;
-  }
-  
-  .vector-lines svg {
+}
+
+.vector-lines svg {
     position: absolute;
     top: 0;
     right: 0;
     width: 100%;
     height: 100%;
     display: block;
-  }
-  
-  .line {
+}
+
+.line {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     animation: drawLine 2s forwards, gradientMove 10s infinite linear;
     stroke: #00000033 !important;
-  }
-  
-  .line-1 {
+}
+
+.line-1 {
     animation-delay: 0s, 2s;
-  }
-  
-  .line-2 {
+}
+
+.line-2 {
     animation-delay: 0.2s, 2.2s;
-  }
-  
-  .line-3 {
+}
+
+.line-3 {
     animation-delay: 0.4s, 2.4s;
-  }
-  
-  .line-4 {
+}
+
+.line-4 {
     animation-delay: 0.6s, 2.6s;
-  }
-  
-  .line-5 {
+}
+
+.line-5 {
     animation-delay: 0.8s, 2.8s;
-  }
-  
-  @keyframes drawLine {
+}
+
+@keyframes drawLine {
     to {
-      stroke-dashoffset: 0;
+        stroke-dashoffset: 0;
     }
-  }
-  
-  @keyframes gradientMove {
+}
+
+@keyframes gradientMove {
     0% {
-      stroke: gray;
+        stroke: gray;
     }
     25% {
-      stroke: gray;
+        stroke: gray;
     }
     50% {
-      stroke: gray;
+        stroke: gray;
     }
     75% {
-      stroke: gray;
+        stroke: gray;
     }
     100% {
-      stroke: gray;
+        stroke: gray;
     }
-  }
-  
-  /* Hero Section Media Queries */
-  
-  @media (max-width: 1300px) {
-    .hero-section {
-      height: auto;
-    }
-    .vector-lines {
-      height: 100%;
-    }
-    .hero-container {
-      min-width: none;
-    }
-  }
-  
-  @media (max-width: 1024px) {
-    .hero-section {
-      width: 100%;
-      height: auto;
-      min-height: 600px;
-    }
-    .hero-title {
-      font-size: 60px;
-    }
-  
-    .hero-content {
-      width: 70%;
-    }
-  
-    .vector-lines {
-      width: 50%;
-      height: 100%;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .hero-section {
-      height: auto;
-    }
-  
-    .hero-container {
-      height: auto;
-      flex-direction: column;
-      justify-content: center;
-      padding: 25% 5%;
-      padding-bottom: 10%;
-    }
-  
-    .hero-content {
-      width: 100%;
-      text-align: left;
-    }
-  
-    .hero-title {
-      font-size: 48px;
-    }
-  
-    .hero-description {
-      font-size: 18px;
-    }
-  
-    .hero-description br {
-      display: none;
-    }
-  
-    .vector-lines {
-      width: 100%;
-      height: 100%;
-      opacity: 0.3;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .hero-description {
-      font-size: 18px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .hero-section {
-      height: auto;
-      width: 100%;
-    }
-    .hero-title {
-      font-size: 42px;
-    }
-  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* FAQ Section Styles */
+/* FAQ Section Styles */
 .faq-section {
     background-color: #000000;
-    padding: 60px 3%;
+    padding: 60px 0;
     color: #FFFFFF;
-    font-family: 'SF Pro Text';
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .faq-container {
     display: flex;
     justify-content: space-between;
+    width: 80%; /* Set to 80% as requested */
     max-width: 1920px;
     margin: 0 auto;
     gap: 50px;
@@ -258,13 +154,12 @@
 
 /* Left Side Styles */
 .faq-left {
-    width: 30%;
+    width: 40%;
     min-width: 300px;
 }
 
 .faq-category-container {
     width: 500px;
-    height: 544px;
     border-radius: 6px;
     background: #211E1E;
     padding: 32px;
@@ -274,7 +169,7 @@
 .faq-category-title {
     font-weight: 600;
     font-size: 26px;
-    line-height: 32px;
+    line-height: 1.2;
     margin-bottom: 40px;
     color: #FFFFFF;
 }
@@ -288,6 +183,22 @@
     display: flex;
     align-items: center;
     margin-bottom: 27px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-category-item:hover .faq-category-text {
+    color: #FFDE59;
+}
+
+.faq-category-item.active .faq-category-dot {
+    background-color: #FFDE59;
+    transform: scale(1.2);
+}
+
+.faq-category-item.active .faq-category-text {
+    color: #FFDE59;
+    font-weight: 600;
 }
 
 .faq-category-dot {
@@ -296,28 +207,30 @@
     background-color: #FFDE59;
     border-radius: 50%;
     margin-right: 16px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
 }
 
 .faq-category-text {
     font-weight: 500;
     font-size: 24px;
-    line-height: 32px;
+    line-height: 1.3;
     color: #FFFFFF;
+    transition: color 0.3s ease;
 }
 
 .faq-form-container {
     width: 500px;
-    height: 555px;
     border-radius: 6px;
     background: #211E1E;
     padding: 32px;
-    margin-bottom: 80px; /* Added more bottom spacing to the form container */
+    margin-bottom: 80px;
 }
 
 .faq-form-title {
     font-weight: 600;
     font-size: 26px;
-    line-height: 28px;
+    line-height: 1.2;
     margin-bottom: 32px;
     color: #FFFFFF;
 }
@@ -337,7 +250,7 @@
     display: block;
     font-weight: 400;
     font-size: 18px;
-    line-height: 16px;
+    line-height: 1.2;
     margin-bottom: 12px;
     color: #FFFFFF;
 }
@@ -351,13 +264,13 @@
     color: #FFFFFF;
     padding: 0 12px;
     font-size: 16px;
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .faq-form-textarea {
     height: 100px;
     padding: 12px;
     resize: none;
-    font-family: 'SF Pro Text';
 }
 
 .faq-form-submit {
@@ -368,7 +281,7 @@
     border: none;
     font-weight: 500;
     font-size: 20px;
-    line-height: 16px;
+    line-height: 1;
     color: #000000;
     cursor: pointer;
     margin-top: 16px;
@@ -382,6 +295,7 @@
 .faq-right {
     width: 60%;
     min-width: 300px;
+    /* padding-left: 50px; */
 }
 
 .faq-header {
@@ -393,9 +307,10 @@
 .faq-title {
     font-weight: 600;
     font-size: 32px;
-    line-height: 32px;
+    line-height: 1.2;
     color: #FFFFFF;
     margin-right: 20px;
+    white-space: nowrap;
 }
 
 .faq-line {
@@ -406,7 +321,7 @@
 }
 
 .faq-questions {
-    max-width: 910px;
+    max-width: 100%;
 }
 
 .faq-question-item {
@@ -425,10 +340,11 @@
     font-family: 'Inter';
     font-weight: 500;
     font-size: 26px;
-    line-height: 20px;
+    line-height: 1.3;
     color: #FFFFFF;
     margin: 0;
     width: 90%;
+    word-wrap: break-word;
 }
 
 .faq-toggle-btn {
@@ -442,12 +358,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .faq-question-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Improved transition with cubic-bezier for smoother animation */
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-question-content.active {
@@ -457,13 +374,14 @@
 }
 
 .faq-question-answer {
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 100%;
+    font-size: 20px; /* Adjusted font size for better readability */
+    line-height: 1.5; /* Improved line spacing */
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
     padding-right: 40px;
+    word-wrap: break-word;
 }
 
 .faq-divider {
@@ -474,20 +392,37 @@
 }
 
 /* Responsive Styles */
+@media (max-width: 1400px) {
+    .hero-title {
+        font-size: 80px;
+    }
+    
+    .faq-question-title {
+        font-size: 24px;
+    }
+    
+    .faq-question-answer {
+        font-size: 18px;
+    }
+}
+
 @media (max-width: 1200px) {
+    .hero-title {
+        font-size: 70px;
+    }
+    
     .faq-container {
         flex-direction: column;
         align-items: center;
     }
     
     .faq-left, .faq-right {
-        width: 90%;
+        width: 100%;
     }
     
     .faq-category-container, .faq-form-container {
         width: 100%;
         height: auto;
-        min-height: 400px;
     }
     
     .faq-questions {
@@ -495,9 +430,39 @@
     }
 }
 
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 60px;
+    }
+    
+    .hero-description {
+        font-size: 20px;
+    }
+    
+    .faq-category-text {
+        font-size: 20px;
+    }
+    
+    .faq-question-title {
+        font-size: 22px;
+    }
+}
+
 @media (max-width: 768px) {
+    .hero-title {
+        font-size: 48px;
+    }
+    
+    .hero-description {
+        font-size: 18px;
+    }
+    
+    .hero-description br {
+        display: none;
+    }
+    
     .faq-section {
-        padding: 40px 20px;
+        padding: 40px 0;
     }
     
     .faq-form-row {
@@ -514,37 +479,107 @@
     }
     
     .faq-question-title {
-        font-size: 22px;
+        font-size: 20px;
         width: 80%;
     }
     
     .faq-question-answer {
+        font-size: 16px;
+        padding-right: 20px;
+    }
+    
+    .faq-category-text {
         font-size: 18px;
     }
 }
 
+/* Specific device fixes */
+/* iPad Mini, Air, Surface Pro 7 */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .faq-question-title {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+    
+    .faq-question-answer {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+/* Nest Hub Max */
+@media (min-width: 1200px) and (max-width: 1280px) {
+    .faq-container {
+        align-items: flex-start;
+    }
+    
+    .faq-right {
+        padding-top: 0;
+    }
+}
+
+/* iPhone SE, XR, 12 Pro, 14 Pro Max, Pixel 7, Samsung Galaxy */
 @media (max-width: 480px) {
+    .hero-title {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+    }
+    
+    .faq-container {
+        width: 90%;
+    }
+    
     .faq-category-title, .faq-form-title {
         font-size: 22px;
     }
     
     .faq-category-text {
-        font-size: 20px;
+        font-size: 16px;
     }
     
     .faq-title {
-        font-size: 24px;
+        font-size: 22px;
     }
     
     .faq-question-title {
         font-size: 18px;
+        line-height: 1.4;
     }
     
     .faq-question-answer {
-        font-size: 16px;
+        font-size: 14px;
+        line-height: 1.5;
+        padding-right: 10px;
     }
     
     .faq-form-submit {
         width: 100%;
+    }
+    
+    .faq-form-label {
+        font-size: 16px;
+    }
+}
+
+/* Galaxy Z Fold 5 specific */
+@media (max-width: 280px) {
+    .faq-container {
+        width: 95%;
+    }
+    
+    .faq-category-title, .faq-form-title, .faq-title {
+        font-size: 20px;
+    }
+    
+    .faq-question-title {
+        font-size: 16px;
+    }
+    
+    .faq-question-answer {
+        font-size: 14px;
     }
 }
