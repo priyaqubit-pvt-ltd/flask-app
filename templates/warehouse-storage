@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3PL-storage</title>
+    <title>Warehouse-storage</title>
     <link rel="stylesheet" href="/static/css/storage.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;500;600&display=swap"
@@ -19,8 +19,8 @@
       <div class="hero-container">
         <div class="hero-content">
           <h1 class="hero-title">
-            3PL Storage Solutions – <br /> Third-Party
-            & <span class="text-gray">Logistics Support</span>
+            On-Demand Warehousing –  <br />Storage 
+            & <span class="text-gray">as You Need It</span>
           </h1>
           <p class="hero-description">
             Keep your business organized with secure, flexible, and scalable
@@ -226,7 +226,7 @@
     <div class="storage-showcase">
       <div class="storage-section active" id="section1">
         <div class="storage-content">
-          <h1 class="storage-title">3PL Storage Services</h1>
+          <h1 class="storage-title">Warehouse Storage Services</h1>
           <div class="storage-divider"></div>
           <div class="storage-info">
             <div class="storage-text-container">

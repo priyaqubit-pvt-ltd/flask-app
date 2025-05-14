@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Self-storage</title>
-    <link rel="stylesheet" href="/static/css/Corporate.css" />
+    <title>Enterprise-storage</title>
+    <link rel="stylesheet" href="/static/css/storage.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;500;600&display=swap"
       rel="stylesheet"
@@ -19,8 +19,8 @@
       <div class="hero-container">
         <div class="hero-content">
           <h1 class="hero-title">
-            Corporate Storage – <br />Secure Business
-            <span class="text-gray">Asset Management</span>
+            Enterprise Storage – Personalized<br />
+            & <span class="text-gray">Secure Units</span>
           </h1>
           <p class="hero-description">
             Keep your business organized with secure, flexible, and scalable
@@ -38,39 +38,184 @@
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <!-- <path
-              class="line line-1"
-              d="M100,0 C-50,400 -50,600 100,1000"
-              stroke="rgba(255,165,0,0.5)"
-              stroke-width="3"
-              fill="none"
-            /> -->
+            <defs>
+              <!-- Pulse for Line 2 -->
+              <linearGradient id="pulseGradient2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0;1"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="3%" stop-color="#F6AA10CC">
+                  <animate
+                    attributeName="offset"
+                    values="0.03;1.03"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="6%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0.06;1.06"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+
+              <!-- Pulse for Line 3 -->
+              <linearGradient id="pulseGradient3" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0;1"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="3%" stop-color="#31EE2ACC">
+                  <animate
+                    attributeName="offset"
+                    values="0.03;1.03"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="6%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0.06;1.06"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+
+              <!-- Pulse for Line 4 -->
+              <linearGradient id="pulseGradient4" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0;1"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="3%" stop-color="#2A37EECC">
+                  <animate
+                    attributeName="offset"
+                    values="0.03;1.03"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="6%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0.06;1.06"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+
+              <!-- Pulse for Line 5 -->
+              <linearGradient id="pulseGradient5" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0;1"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="3%" stop-color="rgba(238, 42, 42)">
+                  <animate
+                    attributeName="offset"
+                    values="0.03;1.03"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="6%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0.06;1.06"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+            </defs>
+
+            <!-- Line 1 is commented (keeping as you did) -->
+            <!--
+  <path
+    class="line line-1"
+    d="M100,0 C-50,400 -50,600 100,1000"
+    stroke="rgba(255,165,0,0.5)"
+    stroke-width="3"
+    fill="none"
+  />
+  -->
+
+            <!-- Base lines always visible -->
             <path
               class="line line-2"
               d="M320,0 C170,400 170,600 320,1000"
-              stroke="rgba(0,128,0,0.5)"
-              stroke-width="3"
+              stroke="#00000033"
+              stroke-width="2"
               fill="none"
             />
             <path
               class="line line-3"
               d="M540,0 C390,400 390,600 540,1000"
-              stroke="rgba(75,0,130,0.5)"
-              stroke-width="3"
+              stroke="#00000033"
+              stroke-width="2"
               fill="none"
             />
             <path
               class="line line-4"
               d="M760,0 C610,400 610,600 760,1000"
-              stroke="rgba(255,0,0,0.5)"
-              stroke-width="3"
+              stroke="#00000033"
+              stroke-width="2"
               fill="none"
             />
             <path
               class="line line-5"
               d="M980,0 C830,400 830,600 980,1000"
-              stroke="rgba(0,0,255,0.5)"
-              stroke-width="3"
+              stroke="#00000033"
+              stroke-width="2"
+              fill="none"
+            />
+
+            <!-- Animated pulse layers -->
+            <path
+              d="M320,0 C170,400 170,600 320,1000"
+              stroke="url(#pulseGradient2)"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M540,0 C390,400 390,600 540,1000"
+              stroke="url(#pulseGradient3)"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M760,0 C610,400 610,600 760,1000"
+              stroke="url(#pulseGradient4)"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M980,0 C830,400 830,600 980,1000"
+              stroke="url(#pulseGradient5)"
+              stroke-width="2"
               fill="none"
             />
           </svg>
@@ -78,54 +223,221 @@
       </div>
     </section>
 
-    <div class="main-container">
-      <!-- Section Heading -->
-      <div class="self-storage-heading">
-        <i>Self Storage Services</i>
-        <div class="seperation-line"></div>
-      </div>
-
-      <!-- Left Content -->
-      <div class="wraper-container">
-        <div class="self-sub-container">
-          <div class="service-description">
-            <h3>Secure & Monitored Facilities</h3>
-            <p>
-              We prioritize the safety of your business assets with 24/7
-              surveillance, controlled access, and advanced security systems.
-              Our storage units are equipped with CCTV monitoring, biometric
-              authentication, and alarm systems to ensure that your inventory,
-              documents, and equipment are well-protected from theft, damage, or
-              unauthorized access.
-            </p>
-            <div class="lock-img">
-              <img src="/static/Images/Mask group (6).png" alt="" />
+    <div class="storage-showcase">
+      <div class="storage-section active" id="section1">
+        <div class="storage-content">
+          <h1 class="storage-title">Enterprise Storage Services</h1>
+          <div class="storage-divider"></div>
+          <div class="storage-info">
+            <div class="storage-text-container">
+              <h2 class="storage-heading">Secure & Monitored Facilities</h2>
+              <p class="storage-description">
+                We prioritize the safety of your business assets with 24/7
+                surveillance, controlled access, and advanced security systems.
+                Our storage units are equipped with CCTV monitoring, biometric
+                authentication, and alarm systems to ensure that your inventory,
+                documents, and equipment are well-protected from theft, damage,
+                or unauthorized access.
+              </p>
+              <div class="storage-icon security-icon">
+                <img src="/static/images/Mask group (6).png" alt="" />
+              </div>
+            </div>
+            <div class="storage-image-container">
+              <img
+                src="/static/images/storage_image_1.png"
+                alt="Security monitoring screen"
+                class="storage-image"
+              />
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Right Image -->
-        <div class="right-img-container">
-          <img src="/static/Images/Rectangle 217 (3).png" alt="" />
+      <div class="storage-section" id="section2">
+        <div class="storage-content">
+          <h1 class="storage-title">Household Storage Services</h1>
+          <div class="storage-divider"></div>
+          <div class="storage-info">
+            <div class="storage-text-container">
+              <h2 class="storage-heading">Easy Online Reservation System</h2>
+              <p class="storage-description">
+                Reserving a storage unit is simple and convenient with our
+                online booking system. You can easily select your preferred
+                unit, make payments, and manage your storage needs, all from the
+                comfort of your home.
+              </p>
+              <div class="storage-icon reservation-icon">
+                <img src="/static/images/Mask group (1).png" alt="" />
+              </div>
+            </div>
+            <div class="storage-image-container">
+              <img
+                src="/static/images/storage_image_2.png"
+                alt="Person scanning QR code for storage reservation"
+                class="storage-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="storage-section" id="section3">
+        <div class="storage-content">
+          <h1 class="storage-title">Household Storage Services</h1>
+          <div class="storage-divider"></div>
+          <div class="storage-info">
+            <div class="storage-text-container">
+              <h2 class="storage-heading">
+                Protect Your Items from Harsh Elements
+              </h2>
+              <p class="storage-description">
+                If you have valuable or delicate items that require special
+                care, our climate-controlled storage units are the perfect
+                solution. These units maintain a consistent and optimal
+                temperature and humidity level, offering ideal protection for
+                sensitive items that could be damaged by extreme temperatures or
+                moisture.
+              </p>
+              <div class="storage-icon protection-icon">
+                <img src="/static/images/protect_icon.png" alt="" />
+              </div>
+            </div>
+            <div class="storage-image-container">
+              <img
+                src="/static/images/storage_image_3.png"
+                alt="Workers handling boxes in storage facility"
+                class="storage-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="storage-section" id="section4">
+        <div class="storage-content">
+          <h1 class="storage-title">Household Storage Services</h1>
+          <div class="storage-divider"></div>
+          <div class="storage-info">
+            <div class="storage-text-container">
+              <h2 class="storage-heading">
+                Climate-Controlled Storage for Sensitive Items
+              </h2>
+              <p class="storage-description">
+                If you have valuable or delicate items that require special
+                care, our climate-controlled storage units are the perfect
+                solution. These units maintain a consistent and optimal
+                temperature and humidity level, offering ideal protection for
+                sensitive items that could be damaged by extreme temperatures or
+                moisture.
+              </p>
+              <div class="storage-icon climate-icon">
+                <img src="/static/images/climate_icon.png" alt="" />
+              </div>
+            </div>
+            <div class="storage-image-container">
+              <img
+                src="/static/images/storage_image_4.png"
+                alt="Climate control units for storage"
+                class="storage-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="storage-section" id="section5">
+        <div class="storage-content">
+          <h1 class="storage-title">Household Storage Services</h1>
+          <div class="storage-divider"></div>
+          <div class="storage-info">
+            <div class="storage-text-container">
+              <h2 class="storage-heading">Variety of Storage Options</h2>
+              <p class="storage-description">
+                We provide a wide range of storage sizes to accommodate all
+                types of household storage, from compact household to fine art
+                and your special items. Choose the perfect storage unit that
+                meets your needs, whether it's for short-term or long-term
+                storage.
+              </p>
+              <div class="storage-icon variety-icon">
+                <img src="/static/images/Mask group (4).png" alt="" />
+              </div>
+            </div>
+            <div class="storage-image-container">
+              <img
+                src="/static/images/storage_image_5.png"
+                alt="Warehouse with various storage options"
+                class="storage-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="storage-section" id="section6">
+        <div class="storage-content">
+          <h1 class="storage-title">Household Storage Services</h1>
+          <div class="storage-divider"></div>
+          <div class="storage-info">
+            <div class="storage-text-container">
+              <h2 class="storage-heading">Convenient and Flexible Access</h2>
+              <p class="storage-description">
+                We offer easy access to your items whenever you need it. Our
+                storage units feature key card access, ensuring you can retrieve
+                your items at any hour. Whether it's early morning or late at
+                night, we provide the flexibility to suit your schedule.
+              </p>
+              <div class="storage-icon access-icon">
+                <img src="/static/images/Mask group (5).png" alt="" />
+              </div>
+            </div>
+            <div class="storage-image-container">
+              <img
+                src="/static/images/storage_image_6.png"
+                alt="Stacked storage boxes"
+                class="storage-image"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
     <section class="how-it-works-section">
       <div class="container">
         <div class="process-wrapper">
-          <p class="priority-text">How Its Work's</p>
+          <p class="priority-text">How It Works</p>
           <hr class="line" />
 
           <div class="steps-container">
             <div class="timeline">
-              <div class="scroll-dot"></div>
+              <div class="timeline-top"></div>
+              <div class="scroll-dots">
+                <div class="scroll-dot-container first">
+                  <div class="scroll-dot first">
+                    <div class="scroll-dot-inner"></div>
+                  </div>
+                </div>
+                <div class="scroll-dot-container second">
+                  <div class="scroll-dot second">
+                    <div class="scroll-dot-inner"></div>
+                  </div>
+                </div>
+                <div class="scroll-dot-container third">
+                  <div class="scroll-dot third">
+                    <div class="scroll-dot-inner"></div>
+                  </div>
+                </div>
+              <div class="timeline-bottom"></div>
+              </div>
             </div>
 
             <!-- Step 1 -->
-            <div class="step">
+            <div class="step" id="step1">
               <div class="step-image-container">
                 <img
-                  src="/static/images/Group 1921 (1).png"
+                  src="/static/images/timeline_step_1.png"
                   alt="Person writing on paper"
                   class="step-image"
                 />
@@ -136,8 +448,7 @@
                   <div class="step-text">
                     <h3>Request a Quote</h3>
                     <p>
-                      Tell us about your storage needs, and<br />
-                      we'll provide you with a customized quote.
+                      Tell us about your storage needs, and we’ll provide you with a customized quote.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                   </div>
                 </div>
@@ -145,10 +456,10 @@
             </div>
 
             <!-- Step 2 -->
-            <div class="step">
+            <div class="step" id="step2">
               <div class="step-image-container">
                 <img
-                  src="/static/images/Rectangle 445 (1).png"
+                  src="/static/images/timeline_step_2.png"
                   alt="Hands holding digital representation"
                   class="step-image"
                 />
@@ -159,8 +470,7 @@
                   <div class="step-text">
                     <h3>Secure Your Space</h3>
                     <p>
-                      Choose your storage plan and <br />reservation date for a
-                      secure spot.
+                      Tell us about your storage needs, and we’ll provide you with a customized quote.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                   </div>
                 </div>
@@ -168,10 +478,10 @@
             </div>
 
             <!-- Step 3 -->
-            <div class="step">
+            <div class="step" id="step3">
               <div class="step-image-container">
                 <img
-                  src="/static/images/Rectangle 446 (1).png"
+                  src="/static/images/timeline_step_3.png"
                   alt="Warehouse with stacked boxes"
                   class="step-image"
                 />
@@ -182,8 +492,7 @@
                   <div class="step-text">
                     <h3>Store and Access</h3>
                     <p>
-                      Easily drop and access your items<br />
-                      whenever you need them.
+                      Tell us about your storage needs, and we’ll provide you with a customized quote.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                   </div>
                 </div>
@@ -200,91 +509,101 @@
 
       <section class="why-choose-section">
         <h2 class="section-title">Why Choose Lozy</h2>
-        <div class="storage-divider"></div>
+        <div class="feature-divider"></div>
       </section>
 
       <div class="content-wrapper">
         <div class="lazy-left-content">
           <img src="/static/images/Vector 1 (3).svg" alt="" />
           <h3>
-            At Lozy, we provide secure, flexible, and hassle-free
-            <span class="highlight">storage solutions</span> tailored to your
+            At Lozy, we provide <br/>secure, flexible, and <br/>hassle-free
+            <span class="highlight">storage <br/>solutions</span> tailored to <br/>your
             needs.
           </h3>
         </div>
 
         <div class="lazy-right-content">
           <div class="feature-grid">
-            <div class="feature-box">
-              <div class="icon">
-                <i class="fas fa-map-marker-alt"></i>
+            <div class="feature-box-outer">
+              <div class="feature-box">
+                <div class="icon">
+                  <img src="/static/images/storage_feature_icon_1.png">
+                </div>
+                <div class="feature-text">
+                  <p>Strategic Locations</p>
+                </div>
               </div>
-              <div class="feature-text">
-                <p>Strategic Locations</p>
+              <div class="feature-box-divider"></div>
+              <div class="feature-box">
+                <div class="icon">
+                  <img src="/static/images/storage_feature_icon_2.png">
+                </div>
+                <div class="feature-text">
+                  <p>Advance Inventory Management</p>
+                </div>
               </div>
             </div>
 
+            <div class="feature-box-outer">
             <div class="feature-box">
               <div class="icon">
-                <i class="fas fa-boxes"></i>
-              </div>
-              <div class="feature-text">
-                <p>Advance Inventory Management</p>
-              </div>
-            </div>
-
-            <div class="feature-box">
-              <div class="icon">
-                <i class="fas fa-university"></i>
+                  <img src="/static/images/storage_feature_icon_3.png">
               </div>
               <div class="feature-text">
                 <p>IBA Bank Approved</p>
               </div>
             </div>
-
+              <div class="feature-box-divider"></div>
             <div class="feature-box">
               <div class="icon">
-                <i class="fas fa-microchip"></i>
+                  <img src="/static/images/storage_feature_icon_4.png">
               </div>
               <div class="feature-text">
                 <p>Cutting Edge Technology</p>
               </div>
             </div>
+            </div>
 
+            <div class="feature-box-outer">
             <div class="feature-box">
               <div class="icon">
-                <i class="fas fa-shipping-fast"></i>
+                  <img src="/static/images/storage_feature_icon_5.png">
               </div>
               <div class="feature-text">
                 <p>All Mode Of Freight forwarding SURFACE AIR SEA</p>
               </div>
             </div>
 
+              <div class="feature-box-divider"></div>
             <div class="feature-box">
               <div class="icon">
-                <i class="fas fa-leaf"></i>
+                  <img src="/static/images/storage_feature_icon_6.png">
               </div>
               <div class="feature-text">
                 <p>Using Sustainable Packaging Solutions for Green Planet</p>
               </div>
             </div>
+            </div>
 
+            <div class="feature-box-outer">
             <div class="feature-box">
               <div class="icon">
-                <i class="fas fa-warehouse"></i>
+                  <img src="/static/images/storage_feature_icon_7.png">
               </div>
               <div class="feature-text">
                 <p>CO-Storage for MSMES</p>
               </div>
             </div>
 
+              <div class="feature-box-divider"></div>
             <div class="feature-box">
               <div class="icon">
-                <i class="fas fa-shield-alt"></i>
+                  <img src="/static/images/storage_feature_icon_8.png">
               </div>
               <div class="feature-text">
                 <p>In-house TPA for Insurance</p>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -302,17 +621,7 @@
             <div class="faq-question">
               What types of items can I store in your facility?
               <button class="arrow-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
+                <img src="/static/images/faq-arrow-closed.png">
               </button>
             </div>
             <div class="faq-answer">
@@ -327,17 +636,7 @@
             <div class="faq-question">
               Are the storage units accessible at all times?
               <button class="arrow-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
+                <img src="/static/images/faq-arrow-closed.png">
               </button>
             </div>
             <div class="faq-answer">
@@ -351,17 +650,7 @@
             <div class="faq-question">
               Are there any size options for storage units?
               <button class="arrow-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
+                <img src="/static/images/faq-arrow-closed.png">
               </button>
             </div>
             <div class="faq-answer">
@@ -375,17 +664,7 @@
             <div class="faq-question">
               How do I prepare my items for storage?
               <button class="arrow-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
+                <img src="/static/images/faq-arrow-closed.png">
               </button>
             </div>
             <div class="faq-answer">
@@ -419,6 +698,6 @@
       </div>
     </div>
 
-    <script src="/static/js/self-storage.js"></script>
+    <script src="/static/js/storage.js"></script>
   </body>
 </html>
