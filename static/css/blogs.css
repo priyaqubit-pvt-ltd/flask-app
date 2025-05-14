@@ -312,6 +312,11 @@ body {
 }
 
 @media (min-width: 1600px) and (max-width: 1920px) {
+
+  .blogs-view-all {
+    font-size: 20px;
+  }
+
   .blog-content {
     font-size: 18px;
   }
