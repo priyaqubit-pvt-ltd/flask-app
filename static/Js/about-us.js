@@ -106,7 +106,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     const visionCards = document.querySelector(".vision-horizontal-slider");
 
     document.querySelector(".vision-card.dummy").style.width = window.getComputedStyle(visionCards.children[0].children[1]).width;
-    document.querySelector(".vision-card.empty").style.minWidth = 3 * parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width) + "px";
+    document.querySelector(".vision-card.empty").style.minWidth = parseFloat(window.innerWidth - (visionCards.children[0].children[1]).getBoundingClientRect().right) + "px";
 
     const scrollValue = parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width);
 
