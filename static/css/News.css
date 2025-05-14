@@ -1,6 +1,6 @@
 @font-face {
   font-family: "SF Pro Text";
-  src: url('../fonts/SF-Pro.ttf');
+  src: url("../fonts/SF-Pro.ttf");
 }
 
 a,
@@ -27,7 +27,6 @@ ul {
   font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
-  
 }
 @font-face {
   font-family: "SF Pro Text";
@@ -317,7 +316,7 @@ ul {
 .news-section-container {
   display: flex;
   flex-wrap: wrap;
-  background-color: #FFFFFFCC;
+  background-color: #ffffffcc;
   max-width: auto;
   margin: 0 auto;
   padding: 20px;
@@ -331,7 +330,6 @@ ul {
   max-width: 860px;
   margin-left: 190px;
   margin-top: 60px;
-
 }
 .news-section-main-image-container {
   width: 860px;
@@ -454,7 +452,7 @@ ul {
   .news-section-main-image-container {
     width: 100%;
     height: auto;
-    aspect-ratio: 860/586;
+    aspect-ratio: 860 / 586;
   }
   .news-section-main-heading {
     width: 100%;
@@ -503,7 +501,7 @@ ul {
   .news-section-article-image-container {
     width: 100%;
     height: auto;
-    aspect-ratio: 185/173;
+    aspect-ratio: 185 / 173;
     max-width: 185px;
   }
 }
@@ -577,7 +575,7 @@ ul {
   overflow: hidden;
 }
 .lozy-news-card-image {
-  width: 85%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
@@ -725,7 +723,7 @@ ul {
   }
   .lozy-business-solutions-image-container {
     height: auto;
-    aspect-ratio: 860/586;
+    aspect-ratio: 860 / 586;
   }
 }
 @media (max-width: 992px) {
@@ -736,7 +734,7 @@ ul {
   .lozy-news-card-image-container {
     width: 100%;
     height: auto;
-    aspect-ratio: 445/373;
+    aspect-ratio: 445 / 373;
   }
   .lozy-news-card-heading,
   .lozy-news-card-text {
@@ -922,376 +920,439 @@ ul {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Reset some default styles */
 .storage-section {
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    position: relative;
-    overflow: hidden;
-    /* margin-bottom: 100px; */
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  /* margin-bottom: 100px; */
 }
 
 .storage-container {
-    position: relative;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 80px 0;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 0;
 }
 
 .storage-content {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 
 .storage-heading {
-    width: 528px;
-    height: 96px;
-    position: relative;
-    left: 150px;
-    font-family: 'SF Pro Text';
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #000000;
-    margin-bottom: 45px;
+  width: 528px;
+  height: 96px;
+  position: relative;
+  left: 150px;
+  font-family: "SF Pro Text";
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #000000;
+  margin-bottom: 45px;
 }
 
 .storage-paragraph {
-    font-family: 'SF Pro Text';
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: 0%;
-    color: rgba(0, 0, 0, 0.8);
+  font-family: "SF Pro Text";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .first-paragraph {
-    width: 548px;
-    height: 128px;
-    position: relative;
-     left: 150px;
-    margin-bottom: 48px;
+  width: 548px;
+  height: 128px;
+  position: relative;
+  left: 150px;
+  margin-bottom: 48px;
 }
 
 .second-paragraph {
-     width: 548px;
-    height: 128px;
-    position: relative;
-     left: 150px;
+  width: 548px;
+  height: 128px;
+  position: relative;
+  left: 150px;
 }
 
 .storage-vector-container {
-    position: absolute;
-    width: 2087px;
-    height: 571px;
-    top: calc(2398px - 2237px); /* Adjusting to make it relative to the section */
-    left: -147px;
-    z-index: 1;
+  position: absolute;
+  width: 2087px;
+  height: 571px;
+  top: calc(2398px - 2237px); /* Adjusting to make it relative to the section */
+  left: -147px;
+  z-index: 1;
 }
 
 .storage-vector {
-    width: 100%;
-    height: 100%;
-    border-width: 1.5px;
-    border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  border-width: 1.5px;
+  border-radius: 50px;
 }
 
 .storage-image-container {
-    position: absolute;
-    width: 688px;
-    height: 555px;
-    top: 40px;
-    left: 740px;
-    z-index: 1;
+  position: absolute;
+  width: 688px;
+  height: 555px;
+  top: 40px;
+  left: 740px;
+  z-index: 1;
 }
 
 .storage-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* Media Queries for Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    .storage-heading {
-        width: 80%;
-        left: 50px;
-        font-size: 36px;
-    }
-    
-    .first-paragraph, .second-paragraph {
-        width: 80%;
-        left: 50px;
-        font-size: 20px;
-    }
-    
-    .storage-image-container {
-        width: 600px;
-        height: 400px;
-        top: 500px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .storage-vector-container {
-        width: 100%;
-        left: 0;
-        top: 300px;
-    }
+  .storage-heading {
+    width: 80%;
+    left: 50px;
+    font-size: 36px;
+  }
+
+  .first-paragraph,
+  .second-paragraph {
+    width: 80%;
+    left: 50px;
+    font-size: 20px;
+  }
+
+  .storage-image-container {
+    width: 600px;
+    height: 400px;
+    top: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .storage-vector-container {
+    width: 100%;
+    left: 0;
+    top: 300px;
+  }
 }
 
 /* Media Queries for Mobile */
 @media only screen and (max-width: 767px) {
-    .storage-container {
-        padding: 40px 0;
-    }
-    
-    .storage-heading {
-        width: 90%;
-        left: 20px;
-        font-size: 28px;
-        height: auto;
-    }
-    
-    .first-paragraph, .second-paragraph {
-        width: 90%;
-        left: 20px;
-        font-size: 18px;
-        line-height: 26px;
-        height: auto;
-        margin-bottom: 30px;
-    }
-    
-    .storage-image-container {
-        position: relative;
-        width: 90%;
-        height: 300px;
-        top: 20px;
-        left: 5%;
-        margin-top: 30px;
-    }
-    
-    .storage-vector-container {
-        display: none;
-    }
+  .storage-container {
+    padding: 40px 0;
+  }
+
+  .storage-heading {
+    width: 90%;
+    left: 20px;
+    font-size: 28px;
+    height: auto;
+  }
+
+  .first-paragraph,
+  .second-paragraph {
+    width: 90%;
+    left: 20px;
+    font-size: 18px;
+    line-height: 26px;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .storage-image-container {
+    position: relative;
+    width: 90%;
+    height: 300px;
+    top: 20px;
+    left: 5%;
+    margin-top: 30px;
+  }
+
+  .storage-vector-container {
+    display: none;
+  }
 }
-
-
-
-
-
-
-
-
-
-
 
 /* Main section styles */
 .lozy-business-section {
-    position: relative;
-    width: 100%;
-    padding: 80px 0;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 80px 0;
+  overflow: hidden;
 }
 
 .lozy-business-container {
-    position: relative;
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 0 20px;
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Content styles */
 .lozy-business-content-wrapper {
-    position: relative;
-    z-index: 2;
-    max-width: 593px;
-    margin-left: 193px;
+  position: relative;
+  z-index: 2;
+  max-width: 593px;
+  margin-left: 193px;
 }
 
 .lozy-business-heading {
-    width: 528px;
-    height: 96px;
-    font-family: "SF Pro Text", sans-serif;
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #000000;
-    margin-bottom: 45px;
+  width: 528px;
+  height: 96px;
+  font-family: "SF Pro Text", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #000000;
+  margin-bottom: 45px;
 }
 
 .lozy-business-paragraph {
-    font-family: "SF Pro Text", sans-serif;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: 0%;
-    color: rgba(0, 0, 0, 0.8);
+  font-family: "SF Pro Text", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .lozy-business-paragraph-first {
-    width: 548px;
-    height: 128px;
-    margin-bottom: 58px;
+  width: 548px;
+  height: 128px;
+  margin-bottom: 58px;
 }
 
 .lozy-business-paragraph-second {
-    width: 593px;
-    height: 128px;
+  width: 593px;
+  height: 128px;
 }
 
 /* Vector line styles */
 .lozy-business-vector-wrapper {
-    position: absolute;
-    width: 2087px;
-    height: 571px;
-    top: 161px; /* 2398px - 2237px */
-    left: -147px;
-    z-index: 1;
+  position: absolute;
+  width: 2087px;
+  height: 571px;
+  top: 161px; /* 2398px - 2237px */
+  left: -147px;
+  z-index: 1;
 }
 
 .lozy-business-vector {
-    width: 100%;
-    height: 100%;
-    border-radius: 50px;
-    border: 1.5px solid rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
 }
 
 /* Image styles */
 .lozy-business-image-wrapper {
-    position: absolute;
-    width: 860px;
-    height: 586px;
-    top: -68px; /* 2169px - 2237px */
-    left: 870px;
-    z-index: 2;
+  position: absolute;
+  width: 860px;
+  height: 586px;
+  top: -68px; /* 2169px - 2237px */
+  left: 870px;
+  z-index: 2;
 }
 
 .lozy-business-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
 }
 
 /* Responsive styles */
 @media screen and (max-width: 1800px) {
-    .lozy-business-image-wrapper {
-        left: calc(100% - 900px);
-    }
+  .lozy-business-image-wrapper {
+    left: calc(100% - 900px);
+  }
 }
 
 @media screen and (max-width: 1600px) {
-    .lozy-business-content-wrapper {
-        margin-left: 100px;
-    }
-    
-    .lozy-business-image-wrapper {
-        left: calc(100% - 880px);
-        width: 780px;
-        height: 532px;
-    }
+  .lozy-business-content-wrapper {
+    margin-left: 100px;
+  }
+
+  .lozy-business-image-wrapper {
+    left: calc(100% - 880px);
+    width: 780px;
+    height: 532px;
+  }
 }
 
 @media screen and (max-width: 1400px) {
-    .lozy-business-content-wrapper {
-        margin-left: 50px;
-    }
-    
-    .lozy-business-image-wrapper {
-        left: calc(100% - 830px);
-        width: 700px;
-        height: 478px;
-    }
+  .lozy-business-content-wrapper {
+    margin-left: 50px;
+  }
+
+  .lozy-business-image-wrapper {
+    left: calc(100% - 830px);
+    width: 700px;
+    height: 478px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .lozy-business-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .lozy-business-content-wrapper {
-        margin-left: 0;
-        max-width: 100%;
-        padding: 0 20px;
-        margin-bottom: 50px;
-    }
-    
-    .lozy-business-heading {
-        width: 100%;
-        height: auto;
-        margin-bottom: 30px;
-    }
-    
-    .lozy-business-paragraph-first,
-    .lozy-business-paragraph-second {
-        width: 100%;
-        height: auto;
-        margin-bottom: 30px;
-    }
-    
-    .lozy-business-image-wrapper {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        max-width: 860px;
-        height: auto;
-        aspect-ratio: 860/586;
-    }
-    
-    .lozy-business-vector-wrapper {
-        display: none;
-    }
+  .lozy-business-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lozy-business-content-wrapper {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 0 20px;
+    margin-bottom: 50px;
+  }
+
+  .lozy-business-heading {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .lozy-business-paragraph-first,
+  .lozy-business-paragraph-second {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .lozy-business-image-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 860px;
+    height: auto;
+    aspect-ratio: 860 / 586;
+  }
+
+  .lozy-business-vector-wrapper {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .lozy-business-section {
-        padding: 60px 0;
-    }
-    
-    .lozy-business-heading {
-        font-size: 32px;
-    }
-    
-    .lozy-business-paragraph {
-        font-size: 20px;
-        line-height: 28px;
-    }
+  .lozy-business-section {
+    padding: 60px 0;
+  }
+
+  .lozy-business-heading {
+    font-size: 32px;
+  }
+
+  .lozy-business-paragraph {
+    font-size: 20px;
+    line-height: 28px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .lozy-business-section {
-        padding: 40px 0;
-    }
-    
-    .lozy-business-heading {
-        font-size: 28px;
-    }
-    
-    .lozy-business-paragraph {
-        font-size: 18px;
-        line-height: 26px;
-    }
+  .lozy-business-section {
+    padding: 40px 0;
+  }
+
+  .lozy-business-heading {
+    font-size: 28px;
+  }
+
+  .lozy-business-paragraph {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+/* FIX: Tablet-specific fixes for image display issues */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Fix for images not fully displayed on iPad mini, air, pro, etc. */
+  .lozy-news-card-image-container {
+    height: auto;
+    max-height: 373px;
+  }
+
+  .lozy-news-card-image {
+    width: 100%;
+    height: auto;
+    max-height: 373px;
+  }
+
+  /* Fix for the main news image */
+  .news-section-main-image-container {
+    height: auto;
+    max-height: 586px;
+  }
+
+  /* Fix for line spacing issues */
+  .news-section-continue-reading-text,
+  .news-section-article-link-text,
+  .lozy-news-card-link-text {
+    line-height: 1.5;
+    height: auto;
+    min-height: 34px;
+  }
+
+  /* Fix for social media icons spacing */
+  .news-section-article-card {
+    margin-bottom: 40px;
+  }
+
+  /* Ensure proper spacing between elements */
+  .news-section-article-content {
+    margin-left: 20px;
+  }
+
+  /* Fix for business solutions section image */
+  .lozy-business-solutions-image-container,
+  .storage-image-container {
+    height: auto;
+    max-height: 586px;
+  }
+}
+
+/* FIX: Specific fixes for Nest Hub Max */
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+  .news-section-continue-reading-text,
+  .news-section-article-link-text,
+  .lozy-news-card-link-text {
+    line-height: 1.5;
+    height: auto;
+  }
+
+  .news-section-article-card {
+    margin-bottom: 40px;
+  }
+}
+
+/* FIX: Ensure images are fully visible on all tablet devices */
+@media only screen and (min-width: 768px) and (max-width: 1366px) {
+  .lozy-news-card-image {
+    width: 85%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .news-section-main-image {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Fix for the business solutions section */
+  .lozy-business-solutions-image {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Fix for storage section image */
+  .storage-image {
+    width: 100%;
+    height: auto;
+  }
 }
