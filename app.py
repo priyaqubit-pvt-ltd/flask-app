@@ -120,6 +120,11 @@ def blogs():
     return render_template("blogs.html")
 
 
+@app.route("/blog")
+def blog():
+    return render_template("blog.html")
+
+
 @app.route("/about-us")
 def about():
     return render_template("about-us.html")
