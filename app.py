@@ -86,15 +86,15 @@ def submit2():
             flash("Email sending failed!", "error") 
 
         return redirect(url_for('home1'))
-@app.route("/self-storage")
+@app.route("/storage/self-storage")
 def hello_world():
     return render_template("self-storage.html")
  
-@app.route("/corporate-storage")
+@app.route("/storage/corporate-storage")
 def corporate():
     return render_template("corporate-storage.html")
 
-@app.route("/platinum-storage")
+@app.route("/storage/platinum-storage")
 def platinum():
     return render_template("platinum-class.html")
 

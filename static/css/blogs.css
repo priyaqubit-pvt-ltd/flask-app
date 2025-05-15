@@ -24,10 +24,15 @@ body {
   background-color: rgb(246, 246, 246);
   color: #fff;
 }
+
+a{
+  text-decoration: none;
+  
+}
   
 /* Hero Section */
 .hero-section {
-  padding-top: 70px;
+  padding-top: 170px;
   position: relative;
   width: 100%;
   margin: 0 auto;
