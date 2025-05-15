@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // styled icon for location marker
     const styledIcon = L.divIcon({
       className: 'marker',
-      html: '<div class="marker-shape"></div>',
+      html: '<div class="marker-outer"><div class="marker-shape"></div><div class="marker-circle"></div></div>',
       iconSize: [32, 35]
     });
     // Initialize the map
@@ -149,17 +149,25 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Add a dark-themed map layer
     L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
-	    minZoom: 0,
-	    maxZoom: 20,
+	    minZoom: 15,
+	    maxZoom: 15,
 	    attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	    ext: 'png'
     }).addTo(map)
-
-    const zoomControl = L.control.zoom({}).setPosition("bottomright");
-    zoomControl.addTo(map);
   
     // Add a marker for the location
-    L.marker([28.5921, 77.046], { icon: styledIcon }).addTo(map)
+    const marker = L.marker([28.5921, 77.046], { icon: styledIcon });
+    marker.addTo(map);
+
+    const point = map.latLngToContainerPoint(marker.getLatLng());
+
+    const difference = (window.innerWidth >= 1600)?100:80;
+
+    const offsetPoint = L.point(point.x - difference, point.y + 40);
+
+    const offsetLatLng = map.containerPointToLatLng(offsetPoint);
+
+    map.setView(offsetLatLng, map.getZoom());
   
     // Handle form submission
     const contactForm = document.getElementById("contactForm")

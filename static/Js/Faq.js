@@ -98,9 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Set max-height for active content
             if (isActive) {
                 const content = questionItem.querySelector('.faq-question-content');
-                setTimeout(() => {
+                // Use requestAnimationFrame for smoother animation
+                requestAnimationFrame(() => {
+                    content.style.opacity = '1';
                     content.style.maxHeight = content.scrollHeight + 'px';
-                }, 10);
+                });
             }
         });
 
@@ -142,33 +144,58 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Function to toggle question open/closed
+    // Function to toggle question open/closed with smooth animation
     function toggleQuestion(button) {
         // Toggle active class on button
         button.classList.toggle('active');
         
-        // Toggle icon
+        // Get the icon element
         const icon = button.querySelector('i');
+        
+        // Toggle icon with smooth animation
         if (icon.classList.contains('fa-plus')) {
+            // Smoothly transition from plus to minus
             icon.classList.remove('fa-plus');
             icon.classList.add('fa-minus');
         } else {
+            // Smoothly transition from minus to plus
             icon.classList.remove('fa-minus');
             icon.classList.add('fa-plus');
         }
         
-        // Toggle content visibility with smoother animation
+        // Get the content element
         const content = button.closest('.faq-question-header').nextElementSibling;
         
+        // Use GSAP-like smooth animation approach
         if (content.classList.contains('active')) {
-            content.style.maxHeight = '0px';
-            // Small delay to allow the animation to complete before removing the active class
-            setTimeout(() => {
+            // Closing animation
+            content.style.opacity = '0';
+            
+            // Use a transition end listener to handle the height change
+            const transitionEndHandler = () => {
+                content.style.maxHeight = '0px';
                 content.classList.remove('active');
-            }, 500);
+                content.removeEventListener('transitionend', transitionEndHandler);
+            };
+            
+            // Listen for the opacity transition to end
+            content.addEventListener('transitionend', transitionEndHandler, { once: true });
         } else {
+            // Opening animation - first add the active class and set initial height
             content.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + 'px';
+            
+            // Use requestAnimationFrame for smoother animation
+            requestAnimationFrame(() => {
+                // First frame: set initial state
+                content.style.maxHeight = '0px';
+                content.style.opacity = '0';
+                
+                // Second frame: animate to final state
+                requestAnimationFrame(() => {
+                    content.style.opacity = '1';
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                });
+            });
         }
     }
 
@@ -231,7 +258,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ensure proper resizing of content when window is resized
     window.addEventListener('resize', function() {
         document.querySelectorAll('.faq-question-content.active').forEach(content => {
-            content.style.maxHeight = content.scrollHeight + 'px';
+            // Use requestAnimationFrame for smoother updates
+            requestAnimationFrame(() => {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            });
         });
     });
-});
+}); 
