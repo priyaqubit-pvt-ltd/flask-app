@@ -843,7 +843,7 @@ body {
 
 .vision-heading h4{
 	margin-left: 20px;
-	font-size: 50px;
+	font-size: 60px;
 }
 
 .vision-horizontal-slider-outer {
@@ -864,12 +864,12 @@ body {
 }
 
 .vision-card-title {
-	font-size: 16px;
+	font-size: 20px;
 }
 
 .vision-card-text {
-	font-size: 12px;
-	margin-bottom: 15px;
+	font-size: 16px;
+	margin-bottom: 20px;
 }
 
 .vision-horizontal-slider-buttons {
@@ -878,6 +878,22 @@ body {
 }
 }
 
+@media (max-width: 500px) {
+
+.vision-card-text {
+	font-size: 12px;
+	margin-bottom: 15px;
+}
+
+.vision-card-title {
+	font-size: 16px;
+}
+.vision-heading h4{
+	margin-left: 20px;
+	font-size: 50px;
+}
+
+}
 
 /* form section */
  
