@@ -1,77 +1,134 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Function to handle responsive adjustments
-  function handleResponsiveLayout() {
-    const windowWidth = window.innerWidth
-    const contentWrapper = document.querySelector(".lozy-business-content-wrapper")
-    const imageWrapper = document.querySelector(".lozy-business-image-wrapper")
+// This script handles any dynamic functionality for the news section
+document.addEventListener('DOMContentLoaded', function() {
+    // Placeholder for future JavaScript functionality
+    // For example, you could add click event listeners to the "Continue Reading" links
+    
+    const readMoreLinks = document.querySelectorAll('.featured-read-more, .news-item-read-more');
+    
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Prevent default behavior for demo purposes
+            e.preventDefault();
+            
+            // Get the article title from the closest parent with a title
+            let articleTitle;
+            if (this.classList.contains('featured-read-more')) {
+                articleTitle = document.querySelector('.featured-title').textContent;
+            } else {
+                articleTitle = this.closest('.news-item').querySelector('.news-item-title').textContent;
+            }
+            
+            // Log which article was clicked (for demonstration)
+            console.log(`User clicked to read more about: "${articleTitle}"`);
+            
+            // In a real implementation, you would navigate to the article page
+            // window.location.href = this.getAttribute('href');
+        });
+    });
+    
+    // Add lazy loading for images to improve performance
+    const lazyLoadImages = () => {
+        const images = document.querySelectorAll('.featured-image, .news-item-image');
+        
+        // Replace with actual image sources when implementing
+        const imageSources = {
+            '.featured-image': 'path/to/featured-image.webp',
+            '.news-item-image:nth-of-type(1)': 'path/to/sustainable-storage.webp',
+            '.news-item-image:nth-of-type(2)': 'path/to/iba-bank.webp',
+            '.news-item-image:nth-of-type(3)': 'path/to/inventory-management.webp'
+        };
+        
+        // This is just a placeholder function - you would replace with actual image paths
+        // when implementing on your site
+    };
+    
+    // Call lazy load function
+    lazyLoadImages();
+});
 
-    // Adjust layout based on screen size
-    if (windowWidth <= 1200) {
-      // For smaller screens, ensure content is fully visible
-      if (contentWrapper) contentWrapper.style.width = "100%"
-      if (imageWrapper) imageWrapper.style.width = "100%"
-    } else {
-      // Reset styles for larger screens
-      if (contentWrapper) contentWrapper.style.width = ""
-      if (imageWrapper) imageWrapper.style.width = ""
-    }
 
-    // Fix for images not fully displayed on tablet devices
-    if (windowWidth >= 768 && windowWidth <= 1024) {
-      const newsCardImages = document.querySelectorAll(".lozy-news-card-image")
-      newsCardImages.forEach((img) => {
-        img.style.width = "85%"
-        img.style.margin = "0 auto"
-        img.style.display = "block"
-      })
 
-      // Fix line spacing issues
-      const readingTexts = document.querySelectorAll(
-        ".news-section-continue-reading-text, .news-section-article-link-text, .lozy-news-card-link-text",
-      )
-      readingTexts.forEach((text) => {
-        text.style.lineHeight = "1.5"
-        text.style.height = "auto"
-        text.style.minHeight = "34px"
-      })
-    }
-  }
 
-  // Initial call
-  handleResponsiveLayout()
 
-  // Add resize event listener
-  window.addEventListener("resize", handleResponsiveLayout)
 
-  // Optional: Add intersection observer for animation when section comes into view
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("lozy-business-visible")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
 
-    const businessSection = document.querySelector(".lozy-business-section")
-    if (businessSection) {
-      observer.observe(businessSection)
-    }
-  }
 
-  // Fix for images not displaying properly on load
-  window.addEventListener("load", () => {
-    // Force image containers to maintain proper aspect ratio
-    const imageContainers = document.querySelectorAll(
-      ".news-section-main-image-container, .lozy-news-card-image-container, .storage-image-container",
-    )
-    imageContainers.forEach((container) => {
-      if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
-        container.style.height = "auto"
-      }
-    })
-  })
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// This script handles any dynamic functionality for the latest news section
+document.addEventListener('DOMContentLoaded', function() {
+    // Placeholder for future JavaScript functionality
+    
+    const readMoreLinks = document.querySelectorAll('.news-card-read-more');
+    
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Prevent default behavior for demo purposes
+            e.preventDefault();
+            
+            // Get the article title from the closest parent with a title
+            const articleTitle = this.closest('.news-card').querySelector('.news-card-title').textContent;
+            
+            // Log which article was clicked (for demonstration)
+            console.log(`User clicked to read more about: "${articleTitle}"`);
+            
+            // In a real implementation, you would navigate to the article page
+            // window.location.href = this.getAttribute('href');
+        });
+    });
+    
+    // Add lazy loading for images to improve performance
+    const lazyLoadImages = () => {
+        const images = document.querySelectorAll('.news-card-image');
+        
+        // Replace with actual image sources when implementing
+        const imageSources = {
+            '.news-card:nth-child(1) .news-card-image': 'path/to/home-storage.webp',
+            '.news-card:nth-child(2) .news-card-image': 'path/to/business-storage.webp',
+            '.news-card:nth-child(3) .news-card-image': 'path/to/art-storage.webp'
+        };
+        
+        // This is just a placeholder function - you would replace with actual image paths
+        // when implementing on your site
+    };
+    
+    // Call lazy load function
+    lazyLoadImages();
+    
+    // Add animation for cards on scroll
+    const animateOnScroll = () => {
+        const cards = document.querySelectorAll('.news-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        cards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    };
+    
+    // Call animation function
+    animateOnScroll();
+});
