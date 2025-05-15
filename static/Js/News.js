@@ -132,3 +132,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call animation function
     animateOnScroll();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
