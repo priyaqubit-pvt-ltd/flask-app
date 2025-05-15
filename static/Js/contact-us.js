@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // styled icon for location marker
     const styledIcon = L.divIcon({
       className: 'marker',
-      html: '<div class="marker-outer"><div class="marker-shape"></div><div class="marker-circle"></div></div>',
+      html: '<div class="marker-outer"><div class="marker-shape"></div><div class="marker-circle"></div><div class="marker-circle-inner"></div></div>',
       iconSize: [32, 35]
     });
     // Initialize the map
