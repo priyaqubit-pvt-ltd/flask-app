@@ -768,7 +768,6 @@ body {
 }
 
 .vision-card.empty , .vision-card.dummy {
-	min-width: 15vw;
 	z-index: -1;
   	background: none;
 }
@@ -841,6 +840,42 @@ body {
 }
  
 @media (max-width:768px) {
+
+.vision-heading h4{
+	margin-left: 20px;
+	font-size: 50px;
+}
+
+.vision-horizontal-slider-outer {
+	display: grid;
+	grid-template-rows: 1fr 85vh;
+  grid-template-columns: 1fr;
+	width: 100vw;
+}
+
+.vision-card {
+  height: 40vh;
+  scroll-snap-align: center;
+}
+
+.vision-card-arrow {
+	height: 20px;
+	width: 20px;
+}
+
+.vision-card-title {
+	font-size: 16px;
+}
+
+.vision-card-text {
+	font-size: 12px;
+	margin-bottom: 15px;
+}
+
+.vision-horizontal-slider-buttons {
+	padding-left: 2vw;
+	padding-bottom: 6vh;
+}
 }
 
 

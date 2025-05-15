@@ -105,14 +105,13 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
     const visionCards = document.querySelector(".vision-horizontal-slider");
 
-    document.querySelector(".vision-card.dummy").style.width = window.getComputedStyle(visionCards.children[0].children[1]).width;
+    document.querySelector(".vision-card.dummy").style.width = window.innerWidth <= 768 ? (window.innerWidth - parseInt(window.getComputedStyle(visionCards.children[0].children[1]).width))/2 + "px" : window.getComputedStyle(visionCards.children[0].children[1]).width;
     document.querySelector(".vision-card.empty").style.minWidth = parseFloat(window.innerWidth - (visionCards.children[0].children[1]).getBoundingClientRect().right) + "px";
 
     const scrollValue = parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width);
 
     let isDragging = false;
     let startX;
-    let scrollStart;
 
     visionCards.addEventListener("mousedown", (e) => {
         isDragging = true;
@@ -157,7 +156,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         const x = e.touches[0].pageX;
         const difference = x - startX;
         visionCards.scrollBy({
-            left: difference,
+            left: -1*difference,
             behavior: "smooth"
         });
         setTimeout(()=>{
@@ -187,7 +186,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
     function vanishCheck() {
         document.querySelectorAll(".vision-card").forEach((i)=>{
-            if(i.getBoundingClientRect().left <= visionCards.getBoundingClientRect().left + 100 && !i.classList.contains("dummy")) {
+            const threshold = window.innerWidth > 768 ? 100 : 0;
+            if(i.getBoundingClientRect().left <= visionCards.getBoundingClientRect().left + threshold && !i.classList.contains("dummy")) {
                 i.style.opacity = 0;
                 i.style.transform = "scaleY(0.8)";
             } else {
