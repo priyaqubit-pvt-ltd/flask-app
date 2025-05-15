@@ -1420,7 +1420,7 @@ html, body {
 
 
 
-/* Client Section Styles */
+/* Clients Say Section Styles */
 
 .clients-say-section {
     background-color: #000;
@@ -1604,24 +1604,84 @@ html, body {
 }
 
 /* client section media queries */
-@media (max-width: 576px) {
-    .client-horizontal-scroll-container {
-        flex-direction: column;
-        width: 100vw;
-        gap: 50px;
-    }
-    .client-section {
-        height: 100vh;
-    }
-    .client-name {
-        font-size: 2vw;
-    }
-    .client-quote {
-        gap: 5vw;
-    }
-    .client-description {
-        font-size: 1vw;
-    }
+@media (max-width: 1024px) {
+
+.clients-say-section {
+    height: auto;
+}
+
+.scroll-up-button {
+    height: 50px;
+    width: 50px;
+    font-size: 12px;
+    gap: 0;
+    left: 75%;
+}
+
+.scroll-up-button img {
+    width: 10px;
+    height: auto;
+}
+
+.clients-say-section-sticky {
+    height: auto;
+    display: grid;
+}
+
+.clients-say-heading {
+    font-size: 16px;
+}
+
+.clients-say-horizontal-scroll-container {
+    height: 150vh;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.clients-say-grid {
+    aspect-ratio: 6/5;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 5fr 4fr;
+    row-gap: 3vw;
+    column-gap: 3vw;
+}
+
+.clients-say-quote {
+    font-size: 2vh;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.clients-say-image {
+    border-radius: 10px;
+}
+
+.clients-say-image img {
+    border-radius: 10px;
+}
+
+.clients-say-quote-icon {
+    height: 50px;
+    width: 50px;
+}
+
+.clients-say-brand-image {
+    border-radius: 10px;
+}
+
+.clients-say-info {
+    border-radius: 10px;
+}
+
+.clients-say-name {
+    font-size: 24px;
+}
+
+.clients-say-description {
+    font-size: 12px;
+}
 }
 
 
@@ -1713,7 +1773,28 @@ html, body {
 }
 
 /* Responsive Styles */
-@media only screen and (min-width: 1080px) and (max-width: 1600px) {
+@media only screen and (min-width: 1601px) and (max-width: 1920px) {
+    .location-card {
+    height: 110px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+    
+    .location-name {
+        font-size: 40px;
+    }
+    
+    .locations-row {
+        margin-bottom: 70px;
+    }
+
+    .locations-divider {
+        margin-bottom: 120px;
+    }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1600px) {
     .locations-heading {
         margin-left: 100px;
     }
@@ -1728,7 +1809,10 @@ html, body {
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1079px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .locations-section {
+        margin-top: 0;
+    }
     .locations-heading {
         margin-left: 50px;
         width: auto;
@@ -1769,6 +1853,7 @@ html, body {
 @media only screen and (max-width: 767px) {
     .locations-section {
         margin-top: 0;
+        height: auto;
     }
     .locations-heading {
         margin-left: 20px;
@@ -1783,7 +1868,6 @@ html, body {
     }
     
     .locations-row {
-        margin-left: 20px;
         flex-direction: column;
         align-items: center;
     }
