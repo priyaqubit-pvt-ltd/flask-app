@@ -310,8 +310,6 @@ body {
     margin-left: 190px;
     margin-top: 120px;
     z-index: 2;
-    min-width: 600px; /* Fixed width to match design */
-	max-width: 616px;
 }
 
 .vision-title {
@@ -328,13 +326,14 @@ body {
 }
 
 .about-paragraph {
-    width: 616px;
     height: auto; /* Changed from fixed height to auto */
     font-family: 'Inter';
     font-weight: 400;
     font-size: 22px;
     line-height: 30px;
     letter-spacing: 0%;
+    min-width: 33vw; /* Fixed width to match design */
+	  max-width: 33vw;
 }
 
 .first-paragraph {
@@ -512,15 +511,16 @@ body {
 /* Stats Section Styles */
 .stats-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
 }
 
 .stat-box {
-    width: 280px;
-    height: 187px;
+  aspect-ratio: 280/187;
+    width: 15vw;
+    height: auto;
     background-color: rgba(217, 217, 217, 0.2);
     border-radius: 10px;
     display: flex;
@@ -791,7 +791,7 @@ body {
 	max-width: 80%;
 	font-size: 20px;
 	font-weight: 600;
-	margin-bottom: 60%;
+	margin-bottom: auto;
 }
 
 .vision-card-text {
@@ -887,7 +887,7 @@ body {
   }
  
   .call-us{
-    color: rgba(255, 255, 255, 1);position: absolute; right: 40px;top: 40px;
+    color: rgba(255, 255, 255, 1);position: absolute; right: 100px;top: 80px;
     font-size: 22px;
   }
  
@@ -896,7 +896,6 @@ color: rgba(255, 255, 255, 0.8); font-size: 60px;margin-bottom: 35px; display: f
   }
  
  #wavy-hand-form-section {
-    width: clamp(30px, 4vw,55px );
     height: auto;
     margin: 0 20px;
     animation: waveHand 2s ease-in-out infinite;

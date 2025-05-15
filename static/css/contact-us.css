@@ -292,12 +292,24 @@
   aspect-ratio: 1/1;
   border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.497);
-  animation: pulse 2s infinite;
+  animation: pulse 3s infinite;
+}
+
+.marker .marker-circle-inner {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1/1;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.497);
+  animation: pulse 3s infinite;
+  animation-delay: 1s;
 }
 
 @keyframes pulse {
   0% { opacity: 0; transform: scale(1);}
-  50% { opacity: 1;}
+  40% { opacity: 1;}
   100% { opacity: 0; transform: scale(8);}
 }
 
