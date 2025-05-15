@@ -332,8 +332,7 @@ body {
     font-size: 22px;
     line-height: 30px;
     letter-spacing: 0%;
-    min-width: 33vw; /* Fixed width to match design */
-	  max-width: 33vw;
+    width: 33vw; /* Fixed width to match design */
 }
 
 .first-paragraph {
