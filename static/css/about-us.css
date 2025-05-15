@@ -17,6 +17,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none; 
   scroll-behavior: smooth;
+  font-family: "SF Pro Text";
 }
 
 html,
@@ -147,6 +148,12 @@ body {
 }
 
 /* Hero Section Media Queries */
+
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .hero-description {
+    font-size: 24px;
+  }
+}
 
 @media (max-width: 1300px) {
   .hero-section {
@@ -295,6 +302,7 @@ body {
     position: relative;
     display: flex;
     flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .about-text-container {
@@ -302,7 +310,8 @@ body {
     margin-left: 190px;
     margin-top: 120px;
     z-index: 2;
-    width: 616px; /* Fixed width to match design */
+    min-width: 600px; /* Fixed width to match design */
+	max-width: 616px;
 }
 
 .vision-title {
@@ -315,6 +324,7 @@ body {
     letter-spacing: 0%;
     color: #FFFFFF;
     margin-bottom: 36px;
+    margin-top: 40px;
 }
 
 .about-paragraph {
@@ -353,19 +363,18 @@ body {
 }
 
 .about-image-container {
-    position: absolute;
-    width: 923px;
-    height: 764px;
-    top: 138px;
-    right: 0; /* Changed from left: 997px to right: 0 to prevent overflow */
+	filter: grayscale(100%); /* to make the image black and white */
+    width: 100%;
+	max-width: 923px;
     z-index: 2;
+	margin-top: 120px;
     overflow: hidden; /* Added to prevent image overflow */
 }
 
 .about-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+	height: auto;
+    object-fit: contain;
 }
 
 /* Media Queries for Tablet */
@@ -466,6 +475,7 @@ body {
 
 
 .container {
+    background-color: #000000;
     width: 80%;
     max-width: 1552px;
     margin: 0 auto;
@@ -475,6 +485,10 @@ body {
 /* Section Styles */
 .stats-section, .why-choose-section {
     padding: 60px 0;
+}
+
+.why-choose-section {
+    margin-bottom: 100px;
 }
 
 .section-heading {
@@ -498,13 +512,14 @@ body {
 /* Stats Section Styles */
 .stats-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
+    align-items: center;
 }
 
 .stat-box {
-    width: 296px;
+    width: 280px;
     height: 187px;
     background-color: rgba(217, 217, 217, 0.2);
     border-radius: 10px;
@@ -582,6 +597,16 @@ body {
 }
 
 /* Responsive Styles */
+
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .stats-container {
+    padding-top: 30px;
+  }
+  .features-container {
+    gap: 50px;
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .container {
         width: 90%;
@@ -649,31 +674,181 @@ body {
 }
 
 
+/* vision section css */
+.vision-section {
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	overflow: hidden;
+}
+
+.video-container {
+	grid-row: 1/2;
+	grid-column: 1/2;
+	width: 100vw;
+	height: 100vh;
+    z-index: 1;
+	display: grid;
+}
+
+.video-overlay {
+	grid-row: 1/2;
+	grid-column: 1/2;
+	background-color: #000;
+	opacity: 0.43;
+	width: 100vw;
+	height: 100vh;
+}
+
+.background-video {
+	grid-row: 1/2;
+	grid-column: 1/2;
+	width: 100vw;
+	height: 100vh;
+    object-fit: cover;
+}
+
+.vision-content {
+	z-index: 2;
+	grid-row: 1/2;
+	grid-column: 1/2;
+	width: 100vw;
+	height: 100vh;
+	padding-bottom: 5vh;
+}
+
+.vision-heading h4{
+	margin-top: 12vh;
+	margin-bottom: 12vh;
+	margin-left: 12vw;
+	color: #fff;
+	font-weight: 600;
+	font-size: 70px;
+}
+
+.vision-horizontal-slider-outer {
+	display: grid;
+	grid-template-columns: 1fr 85vw;
+	width: 100vw;
+}
+
+.vision-horizontal-slider {
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+  	overflow-x: auto;
+  	scroll-snap-type: x mandatory;
+  	display: flex;
+	cursor: grab;
+}
+
+.vision-cards {
+  	display: flex;
+  	gap: 2rem;
+  	scroll-snap-type: x mandatory;
+  	scroll-behavior: smooth;
+}
+
+.vision-horizontal-slider.dragging {
+	cursor: grabbing;
+}
+
+.vision-card {
+  	background: rgb(255, 255, 255);
+  	scroll-snap-align: start;
+  	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border-radius: 8px;
+  	user-select: none;
+	transition: opacity 0.5s ease, transform 0.5s ease;
+  height: 56vh;
+  aspect-ratio: 41/50;
+  width: auto;
+}
+
+.vision-card.empty , .vision-card.dummy {
+	min-width: 15vw;
+	z-index: -1;
+  	background: none;
+}
+
+.vision-card-arrow {
+	align-self: flex-end;
+	height: 30px;
+	width: 30px;
+}
+
+.vision-card-arrow img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+.vision-card-title {
+	color: #000;
+	max-width: 80%;
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 60%;
+}
+
+.vision-card-text {
+	opacity: 0.8;
+	align-self: flex-end;
+	color: #000;
+	font-size: 16px;
+	font-weight: 500;
+	margin-bottom: 25px;
+}
+
+.vision-horizontal-slider-buttons {
+	z-index: 1;
+	display: flex;
+	justify-content: start;
+	align-items: flex-end;
+	padding-left: 6vw;
+	padding-bottom: 4vh;
+	gap: 20px;
+}
+
+.vision-horizontal-slider-button {
+	z-index: 3;
+	cursor: pointer;
+	background: none;
+	border: none;
+}
 
 
+@media (min-width: 1600px) and (max-width: 1920px) {
+	.vision-heading h4{
+		font-size: 95px;
+	}
+  .vision-card-title {
+	font-size: 40px;
+}
 
+.vision-card-text {
+	font-size: 24px;
+}
+.vision-card {
+  padding-bottom: 30px;
+}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (min-width: 768px) and (max-width: 1024px) {
+ 
+}
+ 
+@media (max-width:768px) {
+}
 
 
 /* form section */
  
   .form-section{
- width: 100%; background-color: white; padding: 60px 0;margin-top: 100px;
+ width: 100%; background-color: white; padding: 60px 0; padding-top: 100px;
   }
  
  
@@ -713,6 +888,7 @@ body {
  
   .call-us{
     color: rgba(255, 255, 255, 1);position: absolute; right: 40px;top: 40px;
+    font-size: 22px;
   }
  
   .hello-form-text{
@@ -754,6 +930,17 @@ color: rgba(255, 255, 255, 0.8); font-size: 60px;margin-bottom: 35px; display: f
  .form-input-field{
     flex: 1;
   height:50px;font-size:22px;background-color: transparent; border: none; border-bottom: 1px solid grey; width: auto;
+}
+
+@media (min-width: 1600px) and (max-width: 2000px) {
+ 
+  .form-section-submit-btn{
+ font-size: 26px;
+  }
+ 
+.call-us{
+    font-size: 26px;
+}
 }
  
 @media (min-width: 768px) and (max-width: 1024px) {

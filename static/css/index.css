@@ -968,254 +968,276 @@ html, body {
 
 /* Why Choose Lozy section */
 .lazy-container {
-    padding: 80px 0;
-    background: #000;
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .grid-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: 50px 50px;
-    z-index: 0;
-  }
-  
-  .why-choose-section {
-    padding: 0 190px;
-    position: relative;
-    margin-bottom: 50px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .section-title {
-    font-size: 26px;
-    font-weight: 500;
-    margin-bottom: 20px;
-    color: #fff;
-    font-family: 'SF Pro Text';
-  }
-  
-  .storage-divider {
-    width: 100%;
-    height: 1px;
-    background-color: #ffde59;
-    margin-bottom: 40px;
-  }
-  
-  .content-wrapper {
-    display: flex;
-    gap: 50px;
-    padding: 0 190px;
-    box-sizing: border-box;
-    width: 100%;
-  }
-  
-  .lazy-left-content {
-    position: relative;
-    flex: 1;
-    max-width: 550px;
-  }
-  
-  .lazy-left-content img {
-    position: absolute;
-    top: 35%;
-    left: -10%;
-    width: 100%;
-    height: auto;
-    max-width: 700px;
-    z-index: 1;
-  }
-  
-  .lazy-left-content h3 {
-    position: relative;
-    z-index: 2;
-    color: white;
-    font-size: 50px;
-    font-weight: 500;
-    line-height: 1.0;
-    margin-top: 40px;
-    max-width: 550px;
-  }
-  
-  .highlight {
-    color: #aaa;
-  }
-  
-  .lazy-right-content {
-    flex: 1;
-    color: #fff;
-    max-width: 800px;
-  }
-  
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .feature-box {
-    background-color: #222;
-    border-radius: 5px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease;
-    min-height: 100px;
-  }
-  
-  .feature-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .icon {
-    width: 44px;
-    height: 44px;
-    background-color: #333;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    flex-shrink: 0;
-  }
-  
+  padding: 5%;
+  padding-left: 0;
+  height: auto;
+  min-height: 100vh;
+  background: #000;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 50px 50px;
+  z-index: -1;
+}
+
+.why-choose-section {
+  margin-left: 3%;
+  padding: 0 40px 5% 5%;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.feature-divider {
+  width: 100%;
+  height: 1px;
+  min-height: 1px;
+  background-color: #ffde59;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 30px;
+  height: auto;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.lazy-left-content {
+  position: relative;
+  flex: 1.2;
+  height: auto;
+  width: 40%;
+}
+
+.lazy-left-content img {
+  position: absolute;
+  top: 35%;
+  left: -10%;
+  width: 100%;
+  height: 70vh;
+  z-index: 1;
+}
+
+.lazy-left-content h3 {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 70px;
+  max-width: 600px;
+  margin-left: 16%;
+}
+
+.highlight {
+  color: #aaa;
+}
+
+.lazy-right-content {
+  flex: 1;
+  color: #fff;
+  min-width: 300px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3vh;
+  height: 75vh;
+}
+
+.feature-box-outer {
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 120px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+}
+
+.feature-box {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  min-height: 120px;
+  width: 100%;
+}
+
+.feature-box-divider {
+  width: 1px;
+  min-width: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 80%;
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-text {
+  max-width: 75%;
+}
+
+.feature-text p {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Why Choose Lozy Section Media Queries */
+@media (min-width: 1600px) and (max-width: 1980px) {
   .feature-text p {
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0;
+    font-size: 28px;
   }
-  
-  /* Why Choose Lozy Section Media Queries */
-  @media (max-width: 1440px) {
-    .why-choose-section,
-    .content-wrapper {
-      padding: 0 100px;
-    }
-  
-    .lazy-left-content h3 {
-      font-size: 48px;
-    }
-  
-    .feature-box {
-      min-height: 90px;
-    }
+  .lazy-left-content h3 {
+    font-size: 72px;
   }
-  
-  @media (max-width: 1200px) {
-    .lazy-left-content img {
-      top: 20%;
-      left: -5%;
-    }
-  
-    .lazy-left-content h3 {
-      font-size: 42px;
-    }
-  
-    .feature-grid {
-      gap: 15px;
-    }
-  }
-  
-  @media (max-width: 992px) {
-    .why-choose-section,
-    .content-wrapper {
-      padding: 0 50px;
-    }
-  
-    .content-wrapper {
-      gap: 30px;
-    }
-  
-    .lazy-left-content {
-      max-width: 450px;
-    }
-  
-    .lazy-left-content h3 {
-      font-size: 36px;
-    }
-  
-    .feature-text p {
-      font-size: 14px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .content-wrapper {
-      flex-direction: column;
-      gap: 50px;
-    }
-  
-    .lazy-left-content {
-      max-width: 100%;
-    }
-  
-    .lazy-left-content img {
-      position: relative;
-      top: 0;
-      left: 0;
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 30px;
-    }
-  
-    .lazy-left-content h3 {
-      margin-top: 0;
-      max-width: 100%;
-    }
-  
-    .lazy-right-content {
-      max-width: 100%;
-    }
-  
-    .feature-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .why-choose-section,
-    .content-wrapper {
-      padding: 0 20px;
-    }
-  
-    .section-title {
-      font-size: 24px;
-    }
-  
-    .lazy-left-content h3 {
-      font-size: 32px;
-    }
-  
-    .feature-box {
-      min-height: auto;
-      padding: 15px;
-    }
-  
-    .icon {
-      width: 36px;
-      height: 36px;
-    }
-  }
-  
-  
 
+.icon {
+  margin-left: 10px;
+  margin-right: 30px;
+}
+}
 
-  .storage-divider {
+@media (max-width: 1300px) {
+  .lazy-container {
+    min-height: unset;
+  }
+  .lazy-left-content img {
+    top: 10%;
+    left: 0%;
+  }
+  .lazy-left-content h3 {
+    font-size: 48px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .lazy-container {
+    min-height: unset !important;
+    height: auto !important;
+  }
+  .lazy-left-content {
+    width: 40%;
+  }
+  .lazy-left-content img {
+    top: 20%;
+    height: 650px;
+    left: 0;
+  }
+
+  .lazy-left-content h3 {
+    position: absolute;
+    top: 8%;
+    margin-top: 30px;
+    font-size: 42px;
+    max-width: 100%;
+    margin-left: 15%;
+  }
+
+  .lazy-right-content {
+    width: 50%;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .lazy-left-content {
     width: 100%;
-    height: 1px;
-    background-color: #ffde59;
-    margin-bottom: 40px;
+  }
+  .lazy-left-content img {
+    position: relative;
+    max-width: 75%;
+    height: 580px;
+    object-fit: contain;
   }
 
+  .lazy-right-content {
+    width: 100%;
+    padding-left: 5%;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .lazy-left-content h3 {
+    font-size: 28px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .feature-text p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lazy-left-content h3 {
+    position: absolute;
+    top: -5%;
+    left: 20%;
+    font-size: 32px;
+    width: 80%;
+    margin: 0;
+    z-index: 2;
+    transform: translateY(-10%);
+  }
+
+  .lazy-left-content img {
+    height: 350px;
+    object-fit: contain;
+  }
+}
 
 
 

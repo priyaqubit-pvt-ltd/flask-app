@@ -97,3 +97,103 @@ document.addEventListener('DOMContentLoaded', function() {
     // If counters are already in viewport on page load, start animation
     setTimeout(checkCounters, 500);
 });
+
+
+// animation for horizontal slider in vision to reality section
+
+window.addEventListener('DOMContentLoaded', ()=>{
+
+    const visionCards = document.querySelector(".vision-horizontal-slider");
+
+    document.querySelector(".vision-card.dummy").style.width = window.getComputedStyle(visionCards.children[0].children[1]).width;
+    document.querySelector(".vision-card.empty").style.minWidth = parseFloat(window.innerWidth - (visionCards.children[0].children[1]).getBoundingClientRect().right) + "px";
+
+    const scrollValue = parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width);
+
+    let isDragging = false;
+    let startX;
+    let scrollStart;
+
+    visionCards.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        visionCards.classList.add("dragging");
+        startX = e.clientX;
+        scrollStart = visionCards.scrollLeft;
+    });
+
+    visionCards.addEventListener("mouseleave", () => {
+        isDragging = false;
+        visionCards.classList.remove("dragging");
+    });
+
+    visionCards.addEventListener("mouseup", () => {
+        isDragging = false;
+        visionCards.classList.remove("dragging");
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
+    });
+
+    visionCards.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.clientX;
+        const difference = (startX - x)/50;
+        visionCards.scrollBy({
+            left: difference,
+            behavior: "smooth"
+        });
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
+    });
+
+    // Touch support
+    visionCards.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].pageX;
+    });
+
+    visionCards.addEventListener("touchmove", (e) => {
+        const x = e.touches[0].pageX;
+        const difference = x - startX;
+        visionCards.scrollBy({
+            left: difference,
+            behavior: "smooth"
+        });
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
+    });
+
+    document.querySelector(".vision-horizontal-slider-button.left").addEventListener("click",()=>{
+        visionCards.scrollBy({
+            left: scrollValue,
+            behavior: "smooth"
+        });
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
+    });
+
+    document.querySelector(".vision-horizontal-slider-button.right").addEventListener("click",()=>{
+        visionCards.scrollBy({
+            left: -1 * scrollValue,
+            behavior: "smooth"
+        });
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
+    });
+
+    function vanishCheck() {
+        document.querySelectorAll(".vision-card").forEach((i)=>{
+            if(i.getBoundingClientRect().left <= visionCards.getBoundingClientRect().left + 100 && !i.classList.contains("dummy")) {
+                i.style.opacity = 0;
+                i.style.transform = "scaleY(0.8)";
+            } else {
+                i.style.opacity = 1;
+                i.style.transform = "";
+            }
+        });
+    }
+});

@@ -1,221 +1,267 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Ensure scroll starts at top
-    window.scrollTo(0, 0);
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-  
-    const stepsContainer = document.querySelector(".steps-container");
-    const timeline = document.querySelector(".timeline");
-    const scrollDot = document.querySelector(".scroll-dot");
-    const steps = document.querySelectorAll(".step");
-  
-    // Store the initial top position of the container
-    let initialContainerTop = 0;
-  
-    // Create timeline progress element
-    const timelineProgress = document.createElement("div");
-    timelineProgress.classList.add("timeline-progress");
-    Object.assign(timelineProgress.style, {
-      position: "absolute",
-      left: "0",
-      top: "0",
-      width: "100%",
-      background: "white",
-      zIndex: "-1",
-      height: "0",
-      opacity: "1",
-      transition: "height 0.2s ease, opacity 0.2s ease",
-    });
-    timeline.appendChild(timelineProgress);
-  
-    // Get initial position after a small delay to ensure accurate measurement
-    setTimeout(() => {
-      initialContainerTop =
-        stepsContainer.getBoundingClientRect().top + window.scrollY;
-  
-      // Force initial state - dot at top
-      scrollDot.style.top = "0px";
-      timelineProgress.style.height = "0px";
-  
-      // Set initial opacity for steps
-      steps.forEach((step) => {
-        step.style.opacity = "0";
-        step.style.transform = "translateY(20px)";
-      });
-  
-      // Make first step visible if in view
-      if (window.innerHeight > stepsContainer.getBoundingClientRect().top + 100) {
-        steps[0].style.opacity = "1";
-        steps[0].style.transform = "translateY(0px)";
-      }
-  
-      updateTimeline();
-    }, 100);
-  
-    function updateTimeline() {
-      const containerRect = stepsContainer.getBoundingClientRect();
-      const timelineHeight = timeline.offsetHeight;
-      const scrollPosition = window.scrollY;
-  
-      console.log("---- Scroll Update ----");
-      console.log("Steps Container Top:", containerRect.top);
-      console.log("Steps Container Height:", containerRect.height);
-  
-      // Calculate how far we've scrolled into the section
-      // This ensures we start at 0 and only progress as we scroll down
-      const scrollStart = initialContainerTop - window.innerHeight;
-      const scrollEnd =
-        initialContainerTop + containerRect.height - window.innerHeight * 0.5;
-      const scrollRange = scrollEnd - scrollStart;
-  
-      const scrollProgress = Math.max(
-        0,
-        Math.min(1, (scrollPosition - scrollStart) / scrollRange)
-      );
-  
-      console.log("Scroll Progress:", scrollProgress.toFixed(2));
-  
-      // Update dot position
-      const dotPosition = timelineHeight * scrollProgress;
-      const finalDotPosition = Math.min(timelineHeight - 10, dotPosition);
-      scrollDot.style.top = `${finalDotPosition}px`;
-  
-      console.log("Dot Position (px):", finalDotPosition.toFixed(2));
-  
-      // Update timeline progress
-      timelineProgress.style.height = `${dotPosition}px`;
-      timelineProgress.style.opacity = `${1 - scrollProgress * 0.5}`;
-  
-      console.log("Timeline Progress Height:", timelineProgress.style.height);
-      console.log("Timeline Opacity:", timelineProgress.style.opacity);
-  
-      // Update step visibility
-      steps.forEach((step, index) => {
-        const stepRect = step.getBoundingClientRect();
-        const stepTop = stepRect.top;
-        const triggerPoint = window.innerHeight * 0.7;
-  
-        // Calculate progress for each step
-        const stepProgress = Math.max(
-          0,
-          Math.min(1, ((triggerPoint - stepTop) / triggerPoint) * 1.5)
-        );
-  
-        console.log(`Step ${index + 1} - Progress: ${stepProgress.toFixed(2)}`);
-  
-        // Apply styles based on progress
-        step.style.opacity = Math.min(1, stepProgress * 1.2);
-        step.style.transform = `translateY(${(1 - stepProgress) * 30}px)`;
-      });
-    }
-  
-    // Initial update
-    window.addEventListener("scroll", () => {
-      requestAnimationFrame(updateTimeline);
-    });
-  
-    window.addEventListener("resize", () => {
-      // Recalculate initial position on resize
-      initialContainerTop =
-        stepsContainer.getBoundingClientRect().top + window.scrollY;
-      updateTimeline();
-    });
-  });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  document.addEventListener('DOMContentLoaded', function() {
-    // FAQ Toggle Functionality with improved animation
-    const toggleButtons = document.querySelectorAll('.faq-toggle-btn');
-    
-    // Initialize accordion heights for smoother animations
-    document.querySelectorAll('.faq-question-content.active').forEach(content => {
-        content.style.maxHeight = content.scrollHeight + 'px';
-    });
-    
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Toggle active class on button
-            this.classList.toggle('active');
-            
-            // Toggle icon
-            const icon = this.querySelector('i');
-            if (icon.classList.contains('fa-plus')) {
-                icon.classList.remove('fa-plus');
-                icon.classList.add('fa-minus');
-            } else {
-                icon.classList.remove('fa-minus');
-                icon.classList.add('fa-plus');
+document.addEventListener('DOMContentLoaded', function() {
+    // Define FAQ content for each category
+    const faqContent = {
+        "Services related": [
+            {
+                title: "What services do you offer?",
+                answer: "We provide IT consulting, software development, cloud solutions, cybersecurity, and AI/ML-based services tailored to businesses of all sizes."
+            },
+            {
+                title: "Do you offer custom software development?",
+                answer: "Yes, we specialize in custom software solutions designed specifically for your business needs, from web applications to enterprise systems."
+            },
+            {
+                title: "How long does a typical project take?",
+                answer: "Project timelines vary based on complexity and requirements. Small projects may take 2-4 weeks, while larger enterprise solutions can take 3-6 months or more."
             }
-            
-            // Toggle content visibility with smoother animation
-            const content = this.closest('.faq-question-header').nextElementSibling;
-            
-            if (content.classList.contains('active')) {
-                content.style.maxHeight = '0px';
-                // Small delay to allow the animation to complete before removing the active class
-                setTimeout(() => {
-                    content.classList.remove('active');
-                }, 500);
-            } else {
-                content.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + 'px';
+        ],
+        "Pricing": [
+            {
+                title: "How is your pricing structured?",
+                answer: "We offer flexible pricing models including fixed-price projects, hourly rates, and monthly retainers depending on your needs and project scope."
+            },
+            {
+                title: "Do you offer any discounts for startups?",
+                answer: "Yes, we have special startup packages and flexible payment terms to help new businesses get off the ground with quality technology solutions."
+            },
+            {
+                title: "What's included in your maintenance packages?",
+                answer: "Our maintenance packages include regular updates, security patches, performance monitoring, and technical support with various tiers based on response time and service level."
             }
-        });
-    });
-    
-    // Form Submission
+        ],
+        "Location related": [
+            {
+                title: "Where are your offices located?",
+                answer: "Our headquarters is in San Francisco, with additional offices in New York, London, and Singapore, allowing us to serve clients globally."
+            },
+            {
+                title: "Do you work with clients remotely?",
+                answer: "Yes, we work with clients worldwide through our secure remote collaboration tools and regular video meetings, ensuring smooth communication regardless of location."
+            },
+            {
+                title: "Do you offer on-site services?",
+                answer: "Yes, for certain projects and clients, we can arrange for our team members to work on-site at your location for better integration with your team."
+            }
+        ],
+        "Payment methods": [
+            {
+                title: "What payment methods do you accept?",
+                answer: "We accept credit cards, bank transfers, PayPal, and cryptocurrency payments to accommodate various client preferences."
+            },
+            {
+                title: "What are your payment terms?",
+                answer: "Standard payment terms include a 30% deposit upfront, with remaining payments tied to project milestones. For ongoing services, we typically bill monthly."
+            },
+            {
+                title: "Do you offer payment plans?",
+                answer: "Yes, we can arrange flexible payment plans for larger projects, spreading the cost over the development timeline to help with cash flow management."
+            }
+        ]
+    };
+
+    // Get DOM elements
+    const categoryItems = document.querySelectorAll('.faq-category-item');
+    const faqQuestionsContainer = document.querySelector('.faq-questions');
+    const phoneInput = document.getElementById('phone');
     const faqForm = document.getElementById('faqForm');
-    
-    faqForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(faqForm);
-        const formDataObj = {};
-        
-        formData.forEach((value, key) => {
-            formDataObj[key] = value;
-        });
-        
-        // Here you would typically send the data to your backend
-        console.log('Form submitted with data:', formDataObj);
-        
-        // For demonstration purposes, show success message
-        alert('Your question has been submitted successfully!');
-        
-        // Reset form
-        faqForm.reset();
-    });
-    
-    // Make the question headers clickable to toggle content
-    const questionHeaders = document.querySelectorAll('.faq-question-header');
-    
-    questionHeaders.forEach(header => {
-        header.addEventListener('click', function(e) {
-            // Don't trigger if the button itself was clicked (handled above)
-            if (e.target.closest('.faq-toggle-btn')) return;
+
+    // Function to update FAQ content based on selected category
+    function updateFAQContent(category) {
+        const questions = faqContent[category] || [];
+
+        // Clear existing questions
+        faqQuestionsContainer.innerHTML = '';
+
+        // Add new questions based on selected category
+        questions.forEach((question, index) => {
+            const questionItem = document.createElement('div');
+            questionItem.className = 'faq-question-item';
             
-            // Trigger click on the toggle button
-            const button = this.querySelector('.faq-toggle-btn');
-            button.click();
+            // Set the first question as active by default
+            const isActive = index === 0;
+            
+            questionItem.innerHTML = `
+                <div class="faq-question-header">
+                    <h3 class="faq-question-title">${question.title}</h3>
+                    <button class="faq-toggle-btn ${isActive ? 'active' : ''}">
+                        <i class="fas fa-${isActive ? 'minus' : 'plus'}"></i>
+                    </button>
+                </div>
+                <div class="faq-question-content ${isActive ? 'active' : ''}">
+                    <p class="faq-question-answer">${question.answer}</p>
+                </div>
+                <div class="faq-divider"></div>
+            `;
+            
+            faqQuestionsContainer.appendChild(questionItem);
+            
+            // Set max-height for active content
+            if (isActive) {
+                const content = questionItem.querySelector('.faq-question-content');
+                // Use requestAnimationFrame for smoother animation
+                requestAnimationFrame(() => {
+                    content.style.opacity = '1';
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                });
+            }
+        });
+
+        // Reattach event listeners to new toggle buttons
+        attachToggleListeners();
+    }
+
+    // Function to attach toggle listeners to buttons
+    function attachToggleListeners() {
+        const toggleButtons = document.querySelectorAll('.faq-toggle-btn');
+        const questionHeaders = document.querySelectorAll('.faq-question-header');
+        
+        // Add event listeners to toggle buttons
+        toggleButtons.forEach(button => {
+            // Remove existing event listeners if any
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            
+            newButton.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent event bubbling
+                toggleQuestion(this);
+            });
+        });
+        
+        // Make the question headers clickable to toggle content
+        questionHeaders.forEach(header => {
+            // Remove existing event listeners if any
+            const newHeader = header.cloneNode(true);
+            header.parentNode.replaceChild(newHeader, header);
+            
+            newHeader.addEventListener('click', function(e) {
+                // Don't trigger if the button itself was clicked (handled above)
+                if (e.target.closest('.faq-toggle-btn')) return;
+                
+                // Trigger toggle on the button
+                const button = this.querySelector('.faq-toggle-btn');
+                toggleQuestion(button);
+            });
+        });
+    }
+    
+    // Function to toggle question open/closed with smooth animation
+    function toggleQuestion(button) {
+        // Toggle active class on button
+        button.classList.toggle('active');
+        
+        // Get the icon element
+        const icon = button.querySelector('i');
+        
+        // Toggle icon with smooth animation
+        if (icon.classList.contains('fa-plus')) {
+            // Smoothly transition from plus to minus
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+        } else {
+            // Smoothly transition from minus to plus
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+        }
+        
+        // Get the content element
+        const content = button.closest('.faq-question-header').nextElementSibling;
+        
+        // Use GSAP-like smooth animation approach
+        if (content.classList.contains('active')) {
+            // Closing animation
+            content.style.opacity = '0';
+            
+            // Use a transition end listener to handle the height change
+            const transitionEndHandler = () => {
+                content.style.maxHeight = '0px';
+                content.classList.remove('active');
+                content.removeEventListener('transitionend', transitionEndHandler);
+            };
+            
+            // Listen for the opacity transition to end
+            content.addEventListener('transitionend', transitionEndHandler, { once: true });
+        } else {
+            // Opening animation - first add the active class and set initial height
+            content.classList.add('active');
+            
+            // Use requestAnimationFrame for smoother animation
+            requestAnimationFrame(() => {
+                // First frame: set initial state
+                content.style.maxHeight = '0px';
+                content.style.opacity = '0';
+                
+                // Second frame: animate to final state
+                requestAnimationFrame(() => {
+                    content.style.opacity = '1';
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                });
+            });
+        }
+    }
+
+    // Add click event listeners to category items
+    categoryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Remove active class from all category items
+            categoryItems.forEach(cat => cat.classList.remove('active'));
+            
+            // Add active class to clicked category
+            this.classList.add('active');
+            
+            // Get category text
+            const categoryText = this.querySelector('.faq-category-text').textContent;
+            
+            // Update FAQ content based on selected category
+            updateFAQContent(categoryText);
         });
     });
-});
+
+    // Set the first category as active by default and load its content
+    if (categoryItems.length > 0) {
+        categoryItems[0].classList.add('active');
+        const firstCategoryText = categoryItems[0].querySelector('.faq-category-text').textContent;
+        updateFAQContent(firstCategoryText);
+    }
+
+    // Form Validation - Fix for phone number accepting characters
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function() {
+            // Remove any non-numeric characters
+            this.value = this.value.replace(/\D/g, '');
+        });
+    }
+
+    // Form Submission
+    if (faqForm) {
+        faqForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(faqForm);
+            const formDataObj = {};
+            
+            formData.forEach((value, key) => {
+                formDataObj[key] = value;
+            });
+            
+            // Here you would typically send the data to your backend
+            console.log('Form submitted with data:', formDataObj);
+            
+            // For demonstration purposes, show success message
+            alert('Your question has been submitted successfully!');
+            
+            // Reset form
+            faqForm.reset();
+        });
+    }
+    
+    // Ensure proper resizing of content when window is resized
+    window.addEventListener('resize', function() {
+        document.querySelectorAll('.faq-question-content.active').forEach(content => {
+            // Use requestAnimationFrame for smoother updates
+            requestAnimationFrame(() => {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            });
+        });
+    });
+}); 
