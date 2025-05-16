@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/Lozy-2.0/static/css/a.css" />
   </head>
   <body>
+    {%include "navbar.html"%}
     <!-- <div class="storage-showcase">
       <div class="storage-section active" id="section1">
         <div class="storage-content">
@@ -311,9 +312,8 @@
       </div>
     </div>
      -->
-    
-    
-      <!-- <div class="container2">
+
+    <!-- <div class="container2">
       <h1 class="title">Why choose <span class="highlight">Harborleaf</span>?</h1>
       
       <div class="features-container">
@@ -560,55 +560,50 @@
       //   // Add resize event listener to handle responsive adjustments
       //   window.addEventListener("resize", function () {});
       // });
-    
-//       document.addEventListener("DOMContentLoaded", () => {
-//   const redIcons = document.querySelectorAll(".red-icon");
-//   const container = document.querySelector(".features-container");
 
-//   const containerRect = container.getBoundingClientRect();
-//   const centerX = containerRect.width / 2;
-//   const centerY = containerRect.height / 2;
+      //       document.addEventListener("DOMContentLoaded", () => {
+      //   const redIcons = document.querySelectorAll(".red-icon");
+      //   const container = document.querySelector(".features-container");
 
-//   // Set orbit radius
-//   const ORBIT_RADIUS = Math.min(containerRect.width, containerRect.height) / 2.2;
+      //   const containerRect = container.getBoundingClientRect();
+      //   const centerX = containerRect.width / 2;
+      //   const centerY = containerRect.height / 2;
 
-//   redIcons.forEach((icon, index) => {
-//     const angleOffset = (index / redIcons.length) * Math.PI * 2;
+      //   // Set orbit radius
+      //   const ORBIT_RADIUS = Math.min(containerRect.width, containerRect.height) / 2.2;
 
-//     // Each icon stores its own animation state
-//     icon._anim = {
-//       angle: angleOffset,
-//       speed: 0.01 + Math.random() * 0.01, // Each icon rotates a bit differently
-//       radius: ORBIT_RADIUS,
-//       delay: index * 10, // Optional slight delay in movement
-//     };
-//   });
+      //   redIcons.forEach((icon, index) => {
+      //     const angleOffset = (index / redIcons.length) * Math.PI * 2;
 
-//   function animate() {
-//     redIcons.forEach((icon) => {
-//       const a = icon._anim;
+      //     // Each icon stores its own animation state
+      //     icon._anim = {
+      //       angle: angleOffset,
+      //       speed: 0.01 + Math.random() * 0.01, // Each icon rotates a bit differently
+      //       radius: ORBIT_RADIUS,
+      //       delay: index * 10, // Optional slight delay in movement
+      //     };
+      //   });
 
-//       // Update angle
-//       a.angle += a.speed;
+      //   function animate() {
+      //     redIcons.forEach((icon) => {
+      //       const a = icon._anim;
 
-//       // Calculate position on circular orbit
-//       const x = centerX + Math.cos(a.angle) * a.radius;
-//       const y = centerY + Math.sin(a.angle) * a.radius;
+      //       // Update angle
+      //       a.angle += a.speed;
 
-//       icon.style.left = `${x}px`;
-//       icon.style.top = `${y}px`;
-//     });
+      //       // Calculate position on circular orbit
+      //       const x = centerX + Math.cos(a.angle) * a.radius;
+      //       const y = centerY + Math.sin(a.angle) * a.radius;
 
-//     requestAnimationFrame(animate);
-//   }
+      //       icon.style.left = `${x}px`;
+      //       icon.style.top = `${y}px`;
+      //     });
 
-//   animate();
-// });
+      //     requestAnimationFrame(animate);
+      //   }
 
-
-
-
-
+      //   animate();
+      // });
     </script>
   </body>
 </html>
