@@ -4,12 +4,14 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 app.secret_key = "secret_key"
 
-@app.route('/pre')
+@app.route('/')
 def home():
+    """Route for the home page with animation"""
     return render_template('Home.html')
 
-@app.route('/')
+@app.route('/index')
 def index():
+    """Route for the main index page"""
     return render_template('index.html')
 
 # ✅ Flask-Mail Configuration (Update with your SMTP settings)
