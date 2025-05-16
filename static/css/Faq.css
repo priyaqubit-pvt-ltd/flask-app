@@ -146,20 +146,22 @@ body {
 .faq-container {
     display: flex;
     justify-content: space-between;
-    width: 80%; /* Set to 80% as requested */
+    width: 90%; /* Increased from 80% to 90% for more space */
     max-width: 1920px;
     margin: 0 auto;
-    gap: 50px;
+    gap: 60px; /* Increased gap between left and right sides */
 }
 
 /* Left Side Styles */
 .faq-left {
     width: 40%;
     min-width: 300px;
+    flex-shrink: 0; /* Prevent shrinking below specified width */
 }
 
 .faq-category-container {
-    width: 500px;
+    width: 100%; /* Changed from fixed 500px to 100% */
+    max-width: 500px; /* Added max-width instead */
     border-radius: 6px;
     background: #211E1E;
     padding: 32px;
@@ -220,7 +222,8 @@ body {
 }
 
 .faq-form-container {
-    width: 500px;
+    width: 100%; /* Changed from fixed 500px to 100% */
+    max-width: 500px; /* Added max-width instead */
     border-radius: 6px;
     background: #211E1E;
     padding: 32px;
@@ -295,7 +298,7 @@ body {
 .faq-right {
     width: 60%;
     min-width: 300px;
-    padding-left: 30px;
+    padding-left: 0; /* Removed left padding */
 }
 
 .faq-header {
@@ -359,15 +362,15 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: transform 0.3s ease; /* Added transition for icon rotation */
+    transition: transform 0.3s ease;
 }
 
 .faq-toggle-btn i {
-    transition: transform 0.3s ease; /* Added transition for icon */
+    transition: transform 0.3s ease;
 }
 
 .faq-toggle-btn.active i.fa-plus {
-    transform: rotate(135deg); /* Rotate plus to make it look like a cross */
+    transform: rotate(135deg);
 }
 
 .faq-toggle-btn.active i.fa-minus {
@@ -377,13 +380,13 @@ body {
 .faq-question-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; /* Improved transition */
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
     opacity: 0;
     padding-right: 40px;
 }
 
 .faq-question-content.active {
-    max-height: 1000px; /* Increased max-height for larger content */
+    max-height: 1000px;
     opacity: 1;
     margin-top: 16px;
     margin-bottom: 16px;
@@ -392,13 +395,13 @@ body {
 .faq-question-answer {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 20px; /* Adjusted font size for better readability */
-    line-height: 1.5; /* Improved line spacing */
+    font-size: 20px;
+    line-height: 1.5;
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
     word-wrap: break-word;
-    transform: translateY(0); /* For animation */
-    transition: transform 0.3s ease; /* Smooth transform transition */
+    transform: translateY(0);
+    transition: transform 0.3s ease;
 }
 
 .faq-divider {
@@ -406,49 +409,84 @@ body {
     height: 1px;
     background-color: #E5E7EB;
     margin-top: 16px;
-    transition: opacity 0.3s ease; /* Added transition for divider */
+    transition: opacity 0.3s ease;
 }
 
-/* Responsive Styles */
-@media (max-width: 1400px) {
+/* Responsive Styles - Improved */
+@media (min-width: 1601px) {
+    .faq-container {
+        width: 85%; /* Slightly narrower for very large screens */
+        gap: 80px; /* More space between columns on large screens */
+    }
+    
+    .faq-left {
+        width: 35%; /* Slightly smaller left side on very large screens */
+    }
+    
+    .faq-right {
+        width: 65%; /* More space for questions on very large screens */
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+    .faq-container {
+        width: 90%;
+        gap: 60px;
+    }
+    
     .hero-title {
         font-size: 80px;
     }
     
     .faq-question-title {
         font-size: 24px;
+        width: 85%; /* Ensure title doesn't overlap with toggle button */
     }
     
     .faq-question-answer {
         font-size: 18px;
     }
+    
+    .faq-category-text {
+        font-size: 22px; /* Slightly smaller text */
+    }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1200px) {
+    .faq-container {
+        width: 95%; /* Almost full width */
+        gap: 40px; /* Reduced gap */
+    }
+    
     .hero-title {
         font-size: 70px;
     }
     
-    .faq-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
     .faq-left, .faq-right {
-        width: 100%;
+        width: 50%; /* Equal width columns */
     }
     
     .faq-category-container, .faq-form-container {
-        width: 100%;
-        height: auto;
+        max-width: 100%; /* Full width of parent */
     }
     
-    .faq-questions {
-        width: 100%;
+    .faq-category-text {
+        font-size: 20px;
+    }
+    
+    .faq-question-title {
+        font-size: 22px;
+        width: 85%;
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
+    .faq-container {
+        flex-direction: column;
+        width: 90%;
+        gap: 30px;
+    }
+    
     .hero-title {
         font-size: 60px;
     }
@@ -457,8 +495,14 @@ body {
         font-size: 20px;
     }
     
-    .faq-category-text {
-        font-size: 20px;
+    .faq-left, .faq-right {
+        width: 100%;
+        min-width: unset;
+    }
+    
+    .faq-category-container, .faq-form-container {
+        max-width: 100%;
+        width: 100%;
     }
     
     .faq-question-title {
@@ -517,11 +561,16 @@ body {
     .faq-question-title {
         font-size: 20px;
         line-height: 1.4;
+        width: 85%;
     }
     
     .faq-question-answer {
         font-size: 16px;
         line-height: 1.5;
+    }
+    
+    .faq-question-content {
+        padding-right: 30px; /* Reduced padding */
     }
 }
 
@@ -548,7 +597,7 @@ body {
     }
     
     .faq-container {
-        width: 90%;
+        width: 92%;
     }
     
     .faq-category-title, .faq-form-title {
@@ -566,6 +615,7 @@ body {
     .faq-question-title {
         font-size: 18px;
         line-height: 1.4;
+        width: 80%;
     }
     
     .faq-question-answer {
@@ -595,9 +645,10 @@ body {
     
     .faq-question-title {
         font-size: 16px;
+        width: 75%;
     }
     
     .faq-question-answer {
         font-size: 14px;
     }
-}
+}  
