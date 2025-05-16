@@ -197,23 +197,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // For handling horizontal scroll in client section
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Function to check if an element is in viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.bottom > 0 &&
-            rect.right > 0 &&
-            rect.top < window.innerHeight &&
-            rect.left < window.innerWidth
-        );
-    }
-
     const horizontalScrollSection = document.querySelector(".clients-say-horizontal-scroll-container");
     const clientSection = document.querySelector(".clients-say-section");
 
-    window.addEventListener("wheel",(e)=>{
+    window.addEventListener("scroll",()=>{
 
-        if(window.innerWidth < 580)
+        if(window.innerWidth <= 1024)
             return;
 
         const rect = clientSection.getBoundingClientRect();
