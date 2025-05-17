@@ -9,13 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script>
-      // Check if user has visited before
-      if (localStorage.getItem('hasVisitedBefore')) {
-        // If visited before, redirect immediately to index page
-        window.location.href = "{{ url_for('index') }}";
-      }
-    </script>
   </head>
   <body>
    
@@ -59,6 +52,12 @@
    
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Check if user has visited before - moved inside DOMContentLoaded
+        if (localStorage.getItem('hasVisitedBefore')) {
+          // If visited before, redirect immediately to index page
+          window.location.href = "{{ url_for('index') }}";
+          return; // Exit early to prevent animation
+        }
  
         const words = document.querySelectorAll(".animation_line");
         const animationBtn = document.querySelector(".animation_button");
