@@ -1764,7 +1764,8 @@ html, body {
 
 /* Locations Section Styles */
 .locations-section {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     position: relative;
     width: 100%;
     padding: 60px 0;
