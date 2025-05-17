@@ -183,8 +183,14 @@ body {
   margin-top: 10px;
 }
 
-.blog-contact-form-input#message input {
+.blog-contact-form-input#message textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #272A2B33;
+  border-radius: 5px;
+  margin-top: 10px;
   height: 70px;
+  resize: none;
 }
 
 .blog-contact-form-input {
@@ -360,7 +366,8 @@ body {
   margin-top: 10px;
 }
 
-.blog-contact-form-input#message input {
+.blog-contact-form-input#message textarea {
+  margin-top: 10px;
   height: 90px;
 }
 
@@ -448,6 +455,10 @@ body {
 }
 
 .blog-contact-form-input input {
+  margin-top: 10px;
+}
+
+.blog-contact-form-input#message > textarea {
   margin-top: 10px;
 }
 
