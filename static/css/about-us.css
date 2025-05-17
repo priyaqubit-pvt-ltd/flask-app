@@ -835,16 +835,12 @@ body {
   padding-bottom: 30px;
 }
 }
-
-@media (min-width: 768px) and (max-width: 1024px) {
  
-}
- 
-@media (max-width:768px) {
+@media (max-width:1024px) and (min-height: 700px) {
 
 .vision-heading h4{
 	margin-left: 20px;
-	font-size: 60px;
+	font-size: 65px;
 }
 
 .vision-horizontal-slider-outer {
@@ -860,6 +856,32 @@ body {
 }
 
 .vision-card-arrow {
+	height: 30px;
+	width: 30px;
+}
+
+.vision-card-title {
+	font-size: 22px;
+}
+
+.vision-card-text {
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+.vision-horizontal-slider-buttons {
+	padding-left: 4vw;
+	padding-bottom: 6vh;
+}
+}
+
+@media (max-width:768px) {
+
+.vision-heading h4{
+	font-size: 60px;
+}
+
+.vision-card-arrow {
 	height: 20px;
 	width: 20px;
 }
@@ -870,19 +892,17 @@ body {
 
 .vision-card-text {
 	font-size: 16px;
-	margin-bottom: 20px;
 }
 
 .vision-horizontal-slider-buttons {
 	padding-left: 2vw;
-	padding-bottom: 6vh;
 }
 }
 
 @media (max-width: 500px) {
 
 .vision-card-text {
-	font-size: 12px;
+	font-size: 16px;
 	margin-bottom: 15px;
 }
 
