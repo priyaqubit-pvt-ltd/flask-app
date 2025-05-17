@@ -199,9 +199,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const horizontalScrollSection = document.querySelector(".clients-say-horizontal-scroll-container");
     const clientSection = document.querySelector(".clients-say-section");
+    const widthRef = document.querySelector(".clients-say-container");
 
-    const maxThreshold = window.innerWidth > 1024 ? 1.64 : (2.05);
-    const scrollSpeed = window.innerWidth > 1024 ? 1.5 : (1.2);
+    const sectionWidth = widthRef.getBoundingClientRect().right - widthRef.getBoundingClientRect().left;
+
+    const maxThreshold = (window.innerWidth > 1024) ? sectionWidth * 2 : sectionWidth * 2 + 0.4 * window.innerWidth;
 
     window.addEventListener("scroll",()=>{
 
@@ -212,9 +214,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (rect.top <= 0 && Math.abs(rect.top) <= maxScroll) {
             const scrollProgress = Math.abs(rect.top) / maxScroll;
             const scrollWidth = horizontalScrollSection.scrollWidth - window.innerWidth;
-            let transformValue = scrollWidth * scrollProgress * scrollSpeed;
-            if(transformValue > window.innerWidth*maxThreshold)
-                transformValue = window.innerWidth*maxThreshold;
+            let transformValue = scrollWidth * scrollProgress * 1.5;
+            if(transformValue > maxThreshold)
+                transformValue = maxThreshold;
             horizontalScrollSection.style.transform = `translateX(-${transformValue}px)`;
         } else if (rect.top > 0) {
             horizontalScrollSection.style.transform = `translateX(0px)`;

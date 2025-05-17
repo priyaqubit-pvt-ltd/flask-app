@@ -215,7 +215,7 @@ html, body {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: white;
+    background-color: black; /* changed to black to fix white line issue */
 }
 
 /* Pricing Section Styles */
@@ -1520,6 +1520,7 @@ html, body {
     font-style: italic;
     font-size: 20px;
     margin-bottom: 20px;
+    max-width: 90vw;
 }
 
 .clients-say-divider {
@@ -1642,7 +1643,18 @@ html, body {
 }
 
 /* client section media queries */
-@media (max-width: 1024px) {
+
+@media (max-width: 1024px) and (max-height: 600px) {
+    .clients-say-quote-icon {
+        width: 80px;
+        height: 80px;
+    }
+    .clients-say-quote {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1024px) and (min-height: 620px){
 
     .clients-say-horizontal-scroll-container {
         gap: 20vw;
@@ -1651,18 +1663,18 @@ html, body {
 .scroll-up-button {
     height: 50px;
     width: 50px;
-    font-size: 12px;
+    font-size: 14px;
     gap: 0;
     left: 75%;
 }
 
 .scroll-up-button img {
-    width: 10px;
+    width: 20px;
     height: auto;
 }
 
 .clients-say-heading {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .clients-say-grid {
@@ -1677,7 +1689,7 @@ html, body {
 
 .clients-say-quote {
     font-size: 2vh;
-    gap: 20px;
+    gap: 30px;
     border-radius: 10px;
 }
 
@@ -1690,8 +1702,8 @@ html, body {
 }
 
 .clients-say-quote-icon {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
 }
 
 .clients-say-brand-image {
@@ -1701,6 +1713,38 @@ html, body {
 .clients-say-info {
     border-radius: 10px;
 }
+
+.clients-say-name {
+    font-size: 26px;
+}
+
+.clients-say-description {
+    font-size: 14px;
+}
+}
+
+@media (max-width: 576px) {
+
+
+.scroll-up-button img {
+    width: 10px;
+    height: auto;
+}
+
+.clients-say-heading {
+    font-size: 16px;
+}
+
+.clients-say-quote {
+    gap: 20px;
+}
+
+
+.clients-say-quote-icon {
+    height: 50px;
+    width: 50px;
+}
+
 
 .clients-say-name {
     font-size: 24px;
@@ -1916,6 +1960,12 @@ html, body {
     .location-icon {
         width: 36px;
         height: 36px;
+    }
+}
+
+@media (max-width: 1024px) and (max-height: 600px) {
+    .locations-section {
+        margin-top: -100vh;
     }
 }
 
