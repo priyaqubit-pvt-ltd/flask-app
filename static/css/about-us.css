@@ -824,11 +824,12 @@ body {
 		font-size: 95px;
 	}
   .vision-card-title {
-	font-size: 40px;
+	font-size: 36px;
 }
 
 .vision-card-text {
 	font-size: 24px;
+  font-weight: 300;
 }
 .vision-card {
   padding-bottom: 30px;
@@ -930,6 +931,7 @@ body {
   .form-section-heading p{
     color: rgb(0, 0, 0, 0.8);
     width: 50%;
+    font-size: 20px;
   }
  
   .form-section-form{
