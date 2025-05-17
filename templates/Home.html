@@ -52,13 +52,19 @@
    
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Check if user has visited before - moved inside DOMContentLoaded
-        if (localStorage.getItem('hasVisitedBefore')) {
-          // If visited before, redirect immediately to index page
+        // Create a function to handle the redirect
+        function redirectToIndex() {
           window.location.href = "{{ url_for('index') }}";
-          return; // Exit early to prevent animation
         }
- 
+        
+        // Check if this is a return visit
+        if (sessionStorage.getItem('animationPlayed')) {
+          // If animation already played in this session, redirect immediately
+          redirectToIndex();
+          return;
+        }
+        
+        // For first visit in this session, play the animation
         const words = document.querySelectorAll(".animation_line");
         const animationBtn = document.querySelector(".animation_button");
 
@@ -91,16 +97,31 @@
             
                 totalDelay = wordAppearTime + stayTime + (chars.length * 75);
             });
+            
+            // Calculate total animation time and set redirect timeout
+            const totalAnimationTime = totalDelay + 1000; // Add extra time to ensure animation completes
+            
+            // Set a flag in sessionStorage and redirect after animation completes
+            setTimeout(() => {
+                // Mark that animation has played in this session
+                sessionStorage.setItem('animationPlayed', 'true');
+                // Also store in localStorage for persistent tracking across sessions
+                localStorage.setItem('hasVisitedBefore', 'true');
+                // Redirect to index
+                redirectToIndex();
+            }, totalAnimationTime);
         }
         
         // Start the animation
         startAnimation();
-
-        // Set a flag in localStorage and redirect after animation completes
-        setTimeout(() => {
-            localStorage.setItem('hasVisitedBefore', 'true');
-            window.location.href = "{{ url_for('index') }}";
-        }, 6500);
+        
+        // Prevent the button from navigating immediately
+        animationBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          sessionStorage.setItem('animationPlayed', 'true');
+          localStorage.setItem('hasVisitedBefore', 'true');
+          redirectToIndex();
+        });
       });
     </script>
   </body>
