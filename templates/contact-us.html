@@ -1,154 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact-Us</title>
-    <link rel="stylesheet" href="/static/css/contact-us.css">
-    <link
+    <link rel="stylesheet" href="/static/css/contact-us.css" />
+        <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-</head>
-<body>
+
+  </head>
+  <body>
+    {%include "navbar.html"%}
+   
+
     
 
     <section class="hero-section">
-        <div class="hero-container">
-          <div class="hero-content">
-            <h1 class="hero-title">
-                Get in Touch with Us<br />
-              <!-- & <span class="text-gray">Secure Units</span> -->
-            </h1>
-            <p class="hero-description">
-                Reach out to us for storage solutions, pricing details, or any assistance—we’re here to help you every step of the way.
-            </p>
-          </div>
-          <div class="vector-lines">
-            <svg
-              width="100%"
-              height="100%"
-              viewBox="0 0 1000 1000"
-              fill="none"
-              preserveAspectRatio="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <!-- Pulse for Line 2 -->
-                <linearGradient id="pulseGradient2" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="transparent">
-                    <animate
-                      attributeName="offset"
-                      values="0;1"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                  <stop offset="3%" stop-color="#F6AA10CC">
-                    <animate
-                      attributeName="offset"
-                      values="0.03;1.03"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                  <stop offset="6%" stop-color="transparent">
-                    <animate
-                      attributeName="offset"
-                      values="0.06;1.06"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                </linearGradient>
-  
-                <!-- Pulse for Line 3 -->
-                <linearGradient id="pulseGradient3" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="transparent">
-                    <animate
-                      attributeName="offset"
-                      values="0;1"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                  <stop offset="3%" stop-color="#31EE2ACC">
-                    <animate
-                      attributeName="offset"
-                      values="0.03;1.03"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                  <stop offset="6%" stop-color="transparent">
-                    <animate
-                      attributeName="offset"
-                      values="0.06;1.06"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                </linearGradient>
-  
-                <!-- Pulse for Line 4 -->
-                <linearGradient id="pulseGradient4" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="transparent">
-                    <animate
-                      attributeName="offset"
-                      values="0;1"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                  <stop offset="3%" stop-color="#2A37EECC">
-                    <animate
-                      attributeName="offset"
-                      values="0.03;1.03"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                  <stop offset="6%" stop-color="transparent">
-                    <animate
-                      attributeName="offset"
-                      values="0.06;1.06"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                </linearGradient>
-  
-                <!-- Pulse for Line 5 -->
-                <linearGradient id="pulseGradient5" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="transparent">
-                    <animate
-                      attributeName="offset"
-                      values="0;1"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                  <stop offset="3%" stop-color="rgba(238, 42, 42)">
-                    <animate
-                      attributeName="offset"
-                      values="0.03;1.03"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                  <stop offset="6%" stop-color="transparent">
-                    <animate
-                      attributeName="offset"
-                      values="0.06;1.06"
-                      dur="3.3s"
-                      repeatCount="indefinite"
-                    />
-                  </stop>
-                </linearGradient>
-              </defs>
-  
-              <!-- Line 1 is commented (keeping as you did) -->
-              <!--
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Get in Touch with Us<br />
+            <!-- & <span class="text-gray">Secure Units</span> -->
+          </h1>
+          <p class="hero-description">
+            Reach out to us for storage solutions, pricing details, or any
+            assistance—we’re here to help you every step of the way.
+          </p>
+        </div>
+        <div class="vector-lines">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 1000 1000"
+            fill="none"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <!-- Pulse for Line 2 -->
+              <linearGradient id="pulseGradient2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0;1"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="3%" stop-color="#F6AA10CC">
+                  <animate
+                    attributeName="offset"
+                    values="0.03;1.03"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="6%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0.06;1.06"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+
+              <!-- Pulse for Line 3 -->
+              <linearGradient id="pulseGradient3" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0;1"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="3%" stop-color="#31EE2ACC">
+                  <animate
+                    attributeName="offset"
+                    values="0.03;1.03"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="6%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0.06;1.06"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+
+              <!-- Pulse for Line 4 -->
+              <linearGradient id="pulseGradient4" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0;1"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="3%" stop-color="#2A37EECC">
+                  <animate
+                    attributeName="offset"
+                    values="0.03;1.03"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="6%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0.06;1.06"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+
+              <!-- Pulse for Line 5 -->
+              <linearGradient id="pulseGradient5" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0;1"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="3%" stop-color="rgba(238, 42, 42)">
+                  <animate
+                    attributeName="offset"
+                    values="0.03;1.03"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="6%" stop-color="transparent">
+                  <animate
+                    attributeName="offset"
+                    values="0.06;1.06"
+                    dur="3.3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+            </defs>
+
+            <!-- Line 1 is commented (keeping as you did) -->
+            <!--
     <path
       class="line line-1"
       d="M100,0 C-50,400 -50,600 100,1000"
@@ -157,66 +162,110 @@
       fill="none"
     />
     -->
-  
-              <!-- Base lines always visible -->
-              <path
-                class="line line-2"
-                d="M320,0 C170,400 170,600 320,1000"
-                stroke="#00000033"
-                stroke-width="2"
-                fill="none"
-              />
-              <path
-                class="line line-3"
-                d="M540,0 C390,400 390,600 540,1000"
-                stroke="#00000033"
-                stroke-width="2"
-                fill="none"
-              />
-              <path
-                class="line line-4"
-                d="M760,0 C610,400 610,600 760,1000"
-                stroke="#00000033"
-                stroke-width="2"
-                fill="none"
-              />
-              <path
-                class="line line-5"
-                d="M980,0 C830,400 830,600 980,1000"
-                stroke="#00000033"
-                stroke-width="2"
-                fill="none"
-              />
-  
-              <!-- Animated pulse layers -->
-              <path
-                d="M320,0 C170,400 170,600 320,1000"
-                stroke="url(#pulseGradient2)"
-                stroke-width="2"
-                fill="none"
-              />
-              <path
-                d="M540,0 C390,400 390,600 540,1000"
-                stroke="url(#pulseGradient3)"
-                stroke-width="2"
-                fill="none"
-              />
-              <path
-                d="M760,0 C610,400 610,600 760,1000"
-                stroke="url(#pulseGradient4)"
-                stroke-width="2"
-                fill="none"
-              />
-              <path
-                d="M980,0 C830,400 830,600 980,1000"
-                stroke="url(#pulseGradient5)"
-                stroke-width="2"
-                fill="none"
-              />
-            </svg>
+
+            <!-- Base lines always visible -->
+            <path
+              class="line line-2"
+              d="M320,0 C170,400 170,600 320,1000"
+              stroke="#00000033"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              class="line line-3"
+              d="M540,0 C390,400 390,600 540,1000"
+              stroke="#00000033"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              class="line line-4"
+              d="M760,0 C610,400 610,600 760,1000"
+              stroke="#00000033"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              class="line line-5"
+              d="M980,0 C830,400 830,600 980,1000"
+              stroke="#00000033"
+              stroke-width="2"
+              fill="none"
+            />
+
+            <!-- Animated pulse layers -->
+            <path
+              d="M320,0 C170,400 170,600 320,1000"
+              stroke="url(#pulseGradient2)"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M540,0 C390,400 390,600 540,1000"
+              stroke="url(#pulseGradient3)"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M760,0 C610,400 610,600 760,1000"
+              stroke="url(#pulseGradient4)"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M980,0 C830,400 830,600 980,1000"
+              stroke="url(#pulseGradient5)"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div id="map" class="map-container"></div>
+
+      <div class="contact-content">
+        <div class="contact-header">
+          <h2 class="connect-heading">Connect with Us today</h2>
+          <div class="yellow-line"></div>
+          <h1 class="lets-talk-heading">Let's Talk</h1>
+        </div>
+
+        <div class="contact-info">
+          <div class="info-item address-info">
+            <div class="info-icon">
+              <img src="address-icon.png" alt="Address Icon" />
+            </div>
+            <div class="info-content">
+              <h3>Address</h3>
+              <p>
+                #G-41, Vardhman Crown Mall<br />Sector 19 Dwarka<br />New Delhi
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item phone-info">
+            <div class="info-icon">
+              <img src="phone-icon.png" alt="Phone Icon" />
+            </div>
+            <div class="info-content">
+              <h3>Phone</h3>
+              <p>+91 9354712345</p>
+            </div>
+          </div>
+
+          <div class="info-item email-info">
+            <div class="info-icon">
+              <img src="email-icon.png" alt="Email Icon" />
+            </div>
+            <div class="info-content">
+              <h3>Email</h3>
+              <p>care@lozy.in</p>
+            </div>
           </div>
         </div>
-      </section>
 
 
 
@@ -249,9 +298,14 @@
               <div class="info-icon">
                 <img src="/static/images/address-icon.png" alt="Address Icon">
               </div>
-              <div class="info-content">
-                <h3>Address</h3>
-                <p>#G-41, Vardhman Crown Mall<br>Sector 19 Dwarka<br>New Delhi</p>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="Location"
+                  required
+                />
               </div>
             </div>
             
@@ -259,9 +313,14 @@
               <div class="info-icon">
                 <img src="/static/images/phone-icon.png" alt="Phone Icon">
               </div>
-              <div class="info-content">
-                <h3>Phone</h3>
-                <p>+91 9354712345</p>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                />
               </div>
             </div>
             
@@ -308,8 +367,10 @@
             </form>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-    <script src="/static/js/contact-us.js"></script>
-</body>
+    {%include "footer.html"%}
+    <script src="/static/Js/contact-us.js"></script>
+  </body>
 </html>

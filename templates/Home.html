@@ -24,9 +24,6 @@
               <span class="animation_char">u</span>
               <span class="animation_char">r</span>
               <span class="animation_char">e</span>
-              <!-- <span class="animation_char">&nbsp;</span> -->
-              <!-- <span class="animation_char">&</span>
-              <span class="animation_char">&nbsp;</span> -->
             </div>
             <div class="animation_line">
               <span class="animation_char">S</span>
@@ -43,95 +40,89 @@
               <span class="animation_char">a</span>
               <span class="animation_char">g</span>
               <span class="animation_char">e</span>
-              <!-- <span class="animation_char">&nbsp;</span>
-              <span class="animation_char">S</span>
-              <span class="animation_char">o</span>
-              <span class="animation_char">l</span>
-              <span class="animation_char">u</span>
-              <span class="animation_char">t</span>
-              <span class="animation_char">i</span>
-              <span class="animation_char">o</span>
-              <span class="animation_char">n</span>
-              <span class="animation_char">s</span> -->
             </div>
           </h1>
         <div class="animation_button_container">
-            <a href="{{url_for('index')}}" class="animation_button">Learn More</a>
-          </div
+            <a href="{{ url_for('index') }}" class="animation_button">Learn More</a>
+          </div>
         </div>
       </div>
       <div class="lower-curtain"></div>
     </div>
-    </div>
-    </div>
    
     <script>
       document.addEventListener('DOMContentLoaded', function() {
- 
- const words = document.querySelectorAll(".animation_line");
- const animationBtn = document.querySelector(".animation_button");
-
- function startAnimation() {
-     // Start background transition
-     setTimeout(() => {
-         document.querySelector('.upper-curtain').classList.add("animate");
-         document.querySelector('.lower-curtain').classList.add("animate");
-     }, 500);
- 
-     let totalDelay = 900; // Initial delay for the first word
- 
-     words.forEach((word, wordIndex) => {
-         let chars = word.querySelectorAll('.animation_char');
- 
-         chars.forEach((char, index) => {
-             setTimeout(() => {
-                 char.classList.add('visible');
-             }, totalDelay + (index * 75));
-         });
- 
+        // Create a function to handle the redirect
+        function redirectToIndex() {
+          window.location.href = "{{ url_for('index') }}";
+        }
         
-         const wordAppearTime = totalDelay + (chars.length * 75);
-         const stayTime = 700; 
- 
-         
-         chars.forEach((char, index) => {
-             setTimeout(() => {
-                 char.classList.add('invisible');
-             }, wordAppearTime + stayTime + ((chars.length - 1 - index) * 75)); 
-         });
-         
- 
-         
-         totalDelay = wordAppearTime + stayTime + (chars.length * 75);
-     });
- }
- 
- // Start the animation
- startAnimation();
+        // Check if this is a return visit
+        if (sessionStorage.getItem('animationPlayed')) {
+          // If animation already played in this session, redirect immediately
+          redirectToIndex();
+          return;
+        }
+        
+        // For first visit in this session, play the animation
+        const words = document.querySelectorAll(".animation_line");
+        const animationBtn = document.querySelector(".animation_button");
 
-setTimeout(()=>animationBtn.click(),6500)
- 
- 
- // Add replay animation functionality (for development/testing)
- document.querySelector('.animation_container').addEventListener('dblclick', function() {
-     // Reset all animations
-     wrapper.classList.remove('animate');
-     chars.forEach(char => {
-         char.classList.remove('visible');
-     });
-     buttonContainer.classList.remove('visible');
-     
-     // Force reflow
-     void wrapper.offsetWidth;
-     
-     // Restart animation after a short delay
-     setTimeout(startAnimation, 300);
- });
-});
-
-
-
+        function startAnimation() {
+            // Start background transition
+            setTimeout(() => {
+                document.querySelector('.upper-curtain').classList.add("animate");
+                document.querySelector('.lower-curtain').classList.add("animate");
+            }, 500);
+        
+            let totalDelay = 900; // Initial delay for the first word
+        
+            words.forEach((word, wordIndex) => {
+                let chars = word.querySelectorAll('.animation_char');
+            
+                chars.forEach((char, index) => {
+                    setTimeout(() => {
+                        char.classList.add('visible');
+                    }, totalDelay + (index * 75));
+                });
+            
+                const wordAppearTime = totalDelay + (chars.length * 75);
+                const stayTime = 700; 
+            
+                chars.forEach((char, index) => {
+                    setTimeout(() => {
+                        char.classList.add('invisible');
+                    }, wordAppearTime + stayTime + ((chars.length - 1 - index) * 75)); 
+                });
+            
+                totalDelay = wordAppearTime + stayTime + (chars.length * 75);
+            });
+            
+            // Calculate total animation time and set redirect timeout
+            const totalAnimationTime = totalDelay + 1000; // Add extra time to ensure animation completes
+            
+            // Set a flag in sessionStorage and redirect after animation completes
+            setTimeout(() => {
+                // Mark that animation has played in this session
+                sessionStorage.setItem('animationPlayed', 'true');
+                // Also store in localStorage for persistent tracking across sessions
+                localStorage.setItem('hasVisitedBefore', 'true');
+                // Redirect to index
+                redirectToIndex();
+            }, totalAnimationTime);
+        }
+        
+        // Start the animation
+        startAnimation();
+        
+        // Prevent the button from navigating immediately
+        animationBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          sessionStorage.setItem('animationPlayed', 'true');
+          localStorage.setItem('hasVisitedBefore', 'true');
+          redirectToIndex();
+        });
+      });
     </script>
-    <!-- <script src="/static/js/Script.js"></script> -->
   </body>
 </html>

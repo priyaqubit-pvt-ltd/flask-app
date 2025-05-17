@@ -1,48 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 Error Page | Page Not Found</title>
-    <meta name="description" content="404 Error - The requested page does not exist. Please navigate back to our homepage.">
-    <meta name="keywords" content="404, error, page not found, missing page">
-    <link rel="canonical" href="https://yourwebsite.com/404">
-    <link rel="stylesheet" href="/static/css/404.css">
+    <meta
+      name="description"
+      content="404 Error - The requested page does not exist. Please navigate back to our homepage."
+    />
+    <meta name="keywords" content="404, error, page not found, missing page" />
+    <link rel="canonical" href="https://yourwebsite.com/404" />
+    <link rel="stylesheet" href="/static/css/404.css" />
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXX');</script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-XXXXX");
+    </script>
     <!-- End Google Tag Manager -->
     <!-- Schema.org markup for 404 page -->
     <script type="application/ld+json">
-    {
+      {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "404 Error Page",
         "description": "The requested page does not exist."
-    }
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
+    {%include "navbar.html"%}
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXX"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <section class="error-section">
-        <div class="error-container">
-            <div class="error-image-container">
-                <img src="/static/images/OBJECTS_copia (2).png" alt="404 Error Illustration" class="error-image">
-            </div>
-            <!-- <div class="error-text-container">
+      <div class="error-container">
+        <div class="error-image-container">
+          <img
+            src="/static/images/OBJECTS_copia (2).png"
+            alt="404 Error Illustration"
+            class="error-image"
+          />
+        </div>
+        <!-- <div class="error-text-container">
                 <h1 class="error-heading">ERROR</h1>
                 <p class="error-message">The requested page does not exist.</p>
             </div> -->
-        </div>
+      </div>
     </section>
 
+    {%include "footer.html"%}
     <script src="/static/Js/404.js"></script>
-</body>
+  </body>
 </html>

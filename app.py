@@ -4,12 +4,14 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 app.secret_key = "secret_key"
 
-@app.route('/pre')
+@app.route('/')
 def home():
+    """Route for the home page with animation"""
     return render_template('Home.html')
 
-@app.route('/')
+@app.route('/index')
 def index():
+    """Route for the main index page"""
     return render_template('index.html')
 
 # ✅ Flask-Mail Configuration (Update with your SMTP settings)
@@ -86,15 +88,15 @@ def submit2():
             flash("Email sending failed!", "error") 
 
         return redirect(url_for('home1'))
-@app.route("/self-storage")
+@app.route("/storage/self-storage")
 def hello_world():
     return render_template("self-storage.html")
  
-@app.route("/corporate-storage")
+@app.route("/storage/corporate-storage")
 def corporate():
     return render_template("corporate-storage.html")
 
-@app.route("/platinum-storage")
+@app.route("/storage/platinum-storage")
 def platinum():
     return render_template("platinum-class.html")
 
@@ -118,6 +120,9 @@ def e404():
 def contact():
     return render_template("contact-us.html")
 
+@app.route("/faq")
+def faq():
+    return render_template("Faq.html")
 
 @app.route("/blogs")
 def blogs():
@@ -133,12 +138,6 @@ def about():
     return render_template("about-us.html")
 
 
-@app.route("/faq")
-def faq():
-    return render_template("Faq.html")    
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port='80')
 
-
-
-if __name__ == '__main__':
-    # app.run(debug=True)
-    app.run(debug=True, host='0.0.0.0', port='8080')

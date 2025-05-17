@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ</title>
     <link rel="stylesheet" href="/static/css/Faq.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lato:wght@400;700&family=SF+Pro+Text:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+      {%include "navbar.html"%}
     <section class="hero-section">
         <div class="hero-container">
             <div class="hero-content">
@@ -264,10 +265,76 @@
                 <div class="faq-questions">
                     <!-- FAQ questions will be dynamically populated by JavaScript -->
                 </div>
-            </div>
-        </div>
-    </section>     
+           
 
+            <div class="faq-question-item">
+              <div class="faq-question-header">
+                <h3 class="faq-question-title">
+                  Why work from home is not as fun as we thought it would be?
+                </h3>
+                <button class="faq-toggle-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div class="faq-question-content">
+                <p class="faq-question-answer">
+                  Work from home lacks social interaction, creates work-life
+                  boundary issues, and can lead to isolation. Many miss office
+                  camaraderie, spontaneous collaboration, and the physical
+                  separation between work and personal life.
+                </p>
+              </div>
+              <div class="faq-divider"></div>
+            </div>
+
+            <div class="faq-question-item">
+              <div class="faq-question-header">
+                <h3 class="faq-question-title">
+                  In what way did human beings started using words?
+                </h3>
+                <button class="faq-toggle-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div class="faq-question-content">
+                <p class="faq-question-answer">
+                  Human language evolved gradually over hundreds of thousands of
+                  years, starting with simple vocalizations that became more
+                  complex as our brains and vocal anatomy developed. Early
+                  communication likely combined gestures, facial expressions,
+                  and sounds before formal language emerged.
+                </p>
+              </div>
+              <div class="faq-divider"></div>
+            </div>
+
+            <div class="faq-question-item">
+              <div class="faq-question-header">
+                <h3 class="faq-question-title">
+                  Which is the least developed area in the world
+                </h3>
+                <button class="faq-toggle-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div class="faq-question-content">
+                <p class="faq-question-answer">
+                  According to the United Nations, several countries in
+                  Sub-Saharan Africa, such as Niger, Central African Republic,
+                  South Sudan, and Chad, consistently rank among the least
+                  developed areas in the world based on economic, health, and
+                  education indicators.
+                </p>
+              </div>
+              <div class="faq-divider"></div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {%include "footer.html"%}
     <script src="/static/Js/Faq.js"></script>
-</body>
+  </body>
 </html>

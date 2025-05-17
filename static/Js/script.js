@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sectionBottom = section.getBoundingClientRect().bottom;
     const sectionTop = section.getBoundingClientRect().top;
     
-    if (sectionTop <= 100 && !triggered) {
+    if (sectionTop <= 500 && !triggered) {
       // allow a few pixels buffer to reliably catch the moment
       triggered = true;
       let index = 0;

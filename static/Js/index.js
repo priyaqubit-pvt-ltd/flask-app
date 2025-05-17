@@ -197,23 +197,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // For handling horizontal scroll in client section
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Function to check if an element is in viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.bottom > 0 &&
-            rect.right > 0 &&
-            rect.top < window.innerHeight &&
-            rect.left < window.innerWidth
-        );
-    }
-
     const horizontalScrollSection = document.querySelector(".clients-say-horizontal-scroll-container");
     const clientSection = document.querySelector(".clients-say-section");
 
-    window.addEventListener("wheel",(e)=>{
+    window.addEventListener("scroll",()=>{
 
-        if(window.innerWidth < 580)
+        if(window.innerWidth <= 1024)
             return;
 
         const rect = clientSection.getBoundingClientRect();
@@ -450,52 +439,56 @@ document.addEventListener('DOMContentLoaded', function() {
 // Valuuable client 
 document.addEventListener('DOMContentLoaded', () => {
     const clientRows = document.querySelectorAll('.client-row');
-    let lastScrollTop = 0;
+    let lastScrollY = window.scrollY;
+    let scrollDirection = 0;
     let ticking = false;
     
-    // Initial positions and set initial offset for each row
+    // Initial positions - start at center
     let positions = [];
-    clientRows.forEach((row, index) => {
-        // Stagger the initial positions for a more interesting look
-        const initialOffset = index % 2 === 0 ? -40 : 40;
-        positions.push(initialOffset);
-        row.style.transform = `translateX(${initialOffset}px)`;
+    clientRows.forEach(() => {
+        positions.push(0);
     });
     
-    function updateRowPositions(scrollPos) {
-        const scrollDirection = scrollPos > lastScrollTop ? 'down' : 'up';
+    function updateRowPositions() {
+        // Get current scroll position and calculate direction and speed
+        const currentScrollY = window.scrollY;
+        scrollDirection = currentScrollY > lastScrollY ? 1 : -1;
+        
+        // Calculate scroll speed - how fast user is scrolling
+        const scrollSpeed = Math.min(Math.abs(currentScrollY - lastScrollY), 50) / 5;
         
         clientRows.forEach((row, index) => {
-            const speed = parseFloat(row.getAttribute('data-speed'));
+            const speed = parseFloat(row.getAttribute('data-speed')) * 15; // Increased base speed
+            const direction = row.getAttribute('data-direction');
             
-            // Calculate new position based on scroll direction
-            if (scrollDirection === 'down') {
-                positions[index] -= speed * 35; // Move left when scrolling down
+            // Apply movement based on row direction (zig-zag pattern)
+            // Movement is proportional to scroll speed
+            if (direction === 'left') {
+                positions[index] -= speed * scrollSpeed * scrollDirection;
             } else {
-                positions[index] += speed * 35; // Move right when scrolling up
+                positions[index] += speed * scrollSpeed * scrollDirection;
             }
             
             // Apply limits to prevent rows from moving too far
-            // Different limits for odd and even rows for a staggered effect
-            const minLimit = index % 2 === 0 ? -150 : -100;
-            const maxLimit = index % 2 === 0 ? 100 : 150;
+            const limit = 250; // Increased limit for more dramatic effect
+            if (direction === 'left') {
+                positions[index] = Math.max(Math.min(positions[index], 100), -limit);
+            } else {
+                positions[index] = Math.max(Math.min(positions[index], limit), -100);
+            }
             
-            positions[index] = Math.max(Math.min(positions[index], maxLimit), minLimit);
-            
-            // Apply the transform with easing
+            // Apply the transform with minimal transition for immediate response
             row.style.transform = `translateX(${positions[index]}px)`;
-            row.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            row.style.transition = 'transform 0.1s linear'; // Very fast transition
         });
         
-        lastScrollTop = scrollPos <= 0 ? 0 : scrollPos;
+        lastScrollY = currentScrollY;
     }
     
     function onScroll() {
-        const scrollPos = window.scrollY;
-        
         if (!ticking) {
             window.requestAnimationFrame(() => {
-                updateRowPositions(scrollPos);
+                updateRowPositions();
                 ticking = false;
             });
             
@@ -508,27 +501,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = element.getBoundingClientRect();
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         
-        // Consider element in viewport if it's within 100px of entering or leaving
         return (
-            (rect.top <= windowHeight + 100 && rect.top >= -100) ||
-            (rect.bottom >= -100 && rect.bottom <= windowHeight + 100) ||
+            (rect.top <= windowHeight && rect.top >= -rect.height) ||
+            (rect.bottom >= 0 && rect.bottom <= windowHeight + rect.height) ||
             (rect.top <= 0 && rect.bottom >= windowHeight)
         );
     }
     
-    // Optimize by only animating when clients section is in view
+    // Reset positions when section comes into view
+    function resetPositions() {
+        clientRows.forEach((row, index) => {
+            const direction = row.getAttribute('data-direction');
+            positions[index] = direction === 'left' ? 0 : 0;
+            row.style.transform = `translateX(${positions[index]}px)`;
+            row.style.transition = 'none';
+        });
+    }
+    
+    // Handle visibility and scrolling
     function checkVisibility() {
         const clientsSection = document.querySelector('.clients-section');
-        if (isInViewport(clientsSection)) {
-            window.addEventListener('scroll', onScroll);
+        const isVisible = isInViewport(clientsSection);
+        
+        if (isVisible) {
+            // If section just came into view, reset positions
+            if (!clientsSection.classList.contains('in-view')) {
+                clientsSection.classList.add('in-view');
+                resetPositions();
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
         } else {
+            clientsSection.classList.remove('in-view');
             window.removeEventListener('scroll', onScroll);
         }
     }
     
     // Initial check and setup event listeners
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('resize', checkVisibility);
+    window.addEventListener('scroll', checkVisibility, { passive: true });
+    window.addEventListener('resize', checkVisibility, { passive: true });
     checkVisibility();
     
     // Touch events for mobile
@@ -537,49 +547,57 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
-    }, false);
+    }, { passive: true });
     
     document.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
-    }, false);
+    }, { passive: true });
     
     function handleSwipe() {
         const clientsSection = document.querySelector('.clients-section');
         if (!isInViewport(clientsSection)) return;
         
-        if (touchEndX < touchStartX) {
-            // Swipe left - simulate scroll down
-            clientRows.forEach((row, index) => {
-                const speed = parseFloat(row.getAttribute('data-speed'));
-                positions[index] -= speed * 60;
-                const minLimit = index % 2 === 0 ? -150 : -100;
-                positions[index] = Math.max(positions[index], minLimit);
-                row.style.transform = `translateX(${positions[index]}px)`;
-                row.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)';
-            });
-        }
+        // Calculate swipe direction and speed
+        const swipeDirection = touchEndX < touchStartX ? 1 : -1;
+        const swipeSpeed = Math.min(Math.abs(touchEndX - touchStartX), 200) / 20;
         
-        if (touchEndX > touchStartX) {
-            // Swipe right - simulate scroll up
-            clientRows.forEach((row, index) => {
-                const speed = parseFloat(row.getAttribute('data-speed'));
-                positions[index] += speed * 60;
-                const maxLimit = index % 2 === 0 ? 100 : 150;
-                positions[index] = Math.min(positions[index], maxLimit);
-                row.style.transform = `translateX(${positions[index]}px)`;
-                row.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)';
-            });
-        }
+        clientRows.forEach((row, index) => {
+            const speed = parseFloat(row.getAttribute('data-speed')) * 20;
+            const direction = row.getAttribute('data-direction');
+            
+            // Apply movement based on row direction (zig-zag pattern)
+            if (direction === 'left') {
+                positions[index] -= speed * swipeSpeed * swipeDirection;
+            } else {
+                positions[index] += speed * swipeSpeed * swipeDirection;
+            }
+            
+            // Apply limits
+            const limit = 250;
+            if (direction === 'left') {
+                positions[index] = Math.max(Math.min(positions[index], 100), -limit);
+            } else {
+                positions[index] = Math.max(Math.min(positions[index], limit), -100);
+            }
+            
+            // Apply the transform with minimal transition
+            row.style.transform = `translateX(${positions[index]}px)`;
+            row.style.transition = 'transform 0.1s linear';
+        });
     }
     
-    // Add a small animation on page load
-    setTimeout(() => {
-        clientRows.forEach((row, index) => {
-            const initialOffset = index % 2 === 0 ? -20 : 20;
-            positions[index] = initialOffset;
-            row.style.transform = `translateX(${initialOffset}px)`;
-            row.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1)';
-        });
-    }, 500);
+    // Intersection Observer for better visibility detection
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    resetPositions();
+                    checkVisibility();
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
+        
+        observer.observe(document.querySelector('.clients-section'));
+    }
 });
