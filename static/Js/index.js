@@ -223,8 +223,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    const scrollButton = document.querySelector(".scroll-up-button");
+
     // add event handler for scroll up button
-    document.querySelector(".scroll-up-button").addEventListener("click",()=>{
+    scrollButton.addEventListener("click",()=>{
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 

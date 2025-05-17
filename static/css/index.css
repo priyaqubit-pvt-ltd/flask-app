@@ -1493,7 +1493,8 @@ html, body {
     position: relative;
     z-index: 10;
     top: 50vh;
-    left: 80vw;
+    left: calc(100vw - 110px);
+    right: 20px;
     height: 90px;
     width: 90px;
     border: none;
@@ -1663,13 +1664,13 @@ html, body {
 .scroll-up-button {
     height: 50px;
     width: 50px;
-    font-size: 14px;
+    font-size: 12px;
     gap: 0;
-    left: 75%;
+    left: 80vw;
 }
 
 .scroll-up-button img {
-    width: 20px;
+    width: 10px;
     height: auto;
 }
 
@@ -1724,6 +1725,11 @@ html, body {
 }
 
 @media (max-width: 576px) {
+
+    .scroll-up-button {
+    font-size: 12px;
+    left: 75vw;
+}
 
 
 .scroll-up-button img {
@@ -1883,6 +1889,8 @@ html, body {
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .locations-section {
         margin-top: 0;
+        height: auto;
+        min-height: 100vh;
     }
     .locations-heading {
         margin-left: 50px;
@@ -1895,7 +1903,6 @@ html, body {
     }
     
     .locations-row {
-        margin-left: 50px;
         justify-content: center;
     }
     
