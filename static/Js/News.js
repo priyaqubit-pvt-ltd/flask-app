@@ -44,37 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Call lazy load function
     lazyLoadImages();
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// This script handles any dynamic functionality for the latest news section
-document.addEventListener('DOMContentLoaded', function() {
-    // Placeholder for future JavaScript functionality
     
-    const readMoreLinks = document.querySelectorAll('.news-card-read-more');
+    // Add functionality for latest news section
+    const latestNewsReadMoreLinks = document.querySelectorAll('.news-card-read-more');
     
-    readMoreLinks.forEach(link => {
+    latestNewsReadMoreLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             // Prevent default behavior for demo purposes
             e.preventDefault();
@@ -91,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add lazy loading for images to improve performance
-    const lazyLoadImages = () => {
+    const lazyLoadLatestImages = () => {
         const images = document.querySelectorAll('.news-card-image');
         
         // Replace with actual image sources when implementing
@@ -106,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Call lazy load function
-    lazyLoadImages();
+    lazyLoadLatestImages();
     
     // Add animation for cards on scroll
     const animateOnScroll = () => {
@@ -132,27 +106,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call animation function
     animateOnScroll();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
