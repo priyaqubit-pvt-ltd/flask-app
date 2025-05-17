@@ -621,9 +621,9 @@ html, body {
         height: auto;
     }
 
-    .vector-lines {
-        /* width: 50%; */
-    }
+    /* .vector-lines {
+         width: 50%; 
+    } */
 
     /* .hero-image {
         width: 45%;
@@ -1644,9 +1644,9 @@ html, body {
 /* client section media queries */
 @media (max-width: 1024px) {
 
-.clients-say-section {
-    height: auto;
-}
+    .clients-say-horizontal-scroll-container {
+        gap: 20vw;
+    }
 
 .scroll-up-button {
     height: 50px;
@@ -1661,19 +1661,8 @@ html, body {
     height: auto;
 }
 
-.clients-say-section-sticky {
-    height: auto;
-    display: grid;
-}
-
 .clients-say-heading {
     font-size: 16px;
-}
-
-.clients-say-horizontal-scroll-container {
-    height: 150vh;
-    flex-direction: column;
-    width: 100vw;
 }
 
 .clients-say-grid {
