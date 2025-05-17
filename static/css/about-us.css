@@ -27,8 +27,8 @@ body {
   max-width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #fff;
+  background-color: #000 !important;
+  color: #fff; 
 }
 
 /* Hero Section */
@@ -261,7 +261,7 @@ body {
     position: relative;
     overflow: hidden;
     padding-bottom: 100px;
-    margin-bottom: 100px; /* Added bottom margin */
+    /* removed margin to solve excessive spacing issue*/
 }
 
 .about-container {
@@ -310,8 +310,6 @@ body {
     margin-left: 190px;
     margin-top: 120px;
     z-index: 2;
-    min-width: 600px; /* Fixed width to match design */
-	max-width: 616px;
 }
 
 .vision-title {
@@ -328,13 +326,13 @@ body {
 }
 
 .about-paragraph {
-    width: 616px;
     height: auto; /* Changed from fixed height to auto */
     font-family: 'Inter';
     font-weight: 400;
     font-size: 22px;
     line-height: 30px;
     letter-spacing: 0%;
+    width: 33vw; /* Fixed width to match design */
 }
 
 .first-paragraph {
@@ -512,15 +510,16 @@ body {
 /* Stats Section Styles */
 .stats-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
 }
 
 .stat-box {
-    width: 280px;
-    height: 187px;
+  aspect-ratio: 280/187;
+    width: 15vw;
+    height: auto;
     background-color: rgba(217, 217, 217, 0.2);
     border-radius: 10px;
     display: flex;
@@ -769,7 +768,6 @@ body {
 }
 
 .vision-card.empty , .vision-card.dummy {
-	min-width: 15vw;
 	z-index: -1;
   	background: none;
 }
@@ -791,7 +789,7 @@ body {
 	max-width: 80%;
 	font-size: 20px;
 	font-weight: 600;
-	margin-bottom: 60%;
+	margin-bottom: auto;
 }
 
 .vision-card-text {
@@ -842,8 +840,60 @@ body {
 }
  
 @media (max-width:768px) {
+
+.vision-heading h4{
+	margin-left: 20px;
+	font-size: 60px;
 }
 
+.vision-horizontal-slider-outer {
+	display: grid;
+	grid-template-rows: 1fr 85vh;
+  grid-template-columns: 1fr;
+	width: 100vw;
+}
+
+.vision-card {
+  height: 40vh;
+  scroll-snap-align: center;
+}
+
+.vision-card-arrow {
+	height: 20px;
+	width: 20px;
+}
+
+.vision-card-title {
+	font-size: 20px;
+}
+
+.vision-card-text {
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+.vision-horizontal-slider-buttons {
+	padding-left: 2vw;
+	padding-bottom: 6vh;
+}
+}
+
+@media (max-width: 500px) {
+
+.vision-card-text {
+	font-size: 12px;
+	margin-bottom: 15px;
+}
+
+.vision-card-title {
+	font-size: 16px;
+}
+.vision-heading h4{
+	margin-left: 20px;
+	font-size: 50px;
+}
+
+}
 
 /* form section */
  
@@ -887,7 +937,7 @@ body {
   }
  
   .call-us{
-    color: rgba(255, 255, 255, 1);position: absolute; right: 40px;top: 40px;
+    color: rgba(255, 255, 255, 1);position: absolute; right: 100px;top: 80px;
     font-size: 22px;
   }
  
@@ -896,7 +946,6 @@ color: rgba(255, 255, 255, 0.8); font-size: 60px;margin-bottom: 35px; display: f
   }
  
  #wavy-hand-form-section {
-    width: clamp(30px, 4vw,55px );
     height: auto;
     margin: 0 20px;
     animation: waveHand 2s ease-in-out infinite;

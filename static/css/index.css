@@ -33,12 +33,14 @@ html, body {
     /* overflow: hidden; */
     background-color: #f6f6f6;
     padding-bottom: 50px;
+    padding-top: 100px;
+    display: flex;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    padding-top: 150px;
+    padding-top: 50px;
     padding-left: 100px;
 }
 
@@ -578,6 +580,20 @@ html, body {
 }
 
 /* Media Queries for Responsive Design */
+@media (min-width: 1390px) and (max-width: 1920px) {
+    .storage_categories_container {
+        grid-template-columns: repeat(5, 268.83px);
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1441px) and (max-width: 1920px) {
+    .storage_categories_container {
+        grid-template-columns: repeat(5, 268.83px);
+        justify-content: center;
+    }
+}
+
 @media (min-width: 1441px) and (max-width: 1920px) {
     .storage_categories_container {
         grid-template-columns: repeat(5, 268.83px);
@@ -2203,14 +2219,14 @@ html, body {
     margin-left: 60px;
 }
 
-.horizontal-line {
+/* .horizontal-line {
     width: calc(100% - 120px);
     height: 1px;
     margin: 24px auto 45px;
     background-color: rgba(0, 0, 0, 0.6);
     border: none;
     max-width: 1533px;
-}
+} */
 
 .clients-rows-container {
     position: relative;
