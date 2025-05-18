@@ -1,14 +1,9 @@
-@font-face {
-  font-family: "SF Pro Text";
-  src: url('../fonts/SF-Pro.ttf');
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     line-height: 1.2;
-    font-family: "SF Pro Text";
+    font-family: 'Inter', sans-serif;
     scrollbar-width: none;
     -ms-overflow-style: none; 
     scroll-behavior: smooth;
@@ -16,7 +11,7 @@
   
   html,
   body {
-    font-family: "SF Pro Text";
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     max-width: 100%;
     margin: 0;
@@ -351,7 +346,7 @@
 }
 
 .lets-talk-heading {
-  font-family: "SF Pro Text";
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 60px;
   line-height: 100%;
@@ -378,7 +373,7 @@
 }
 
 .info-content h3 {
-  font-family: "SF Pro Text";
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 26px;
   line-height: 100%;
@@ -387,7 +382,7 @@
 }
 
 .info-content p {
-  font-family: "SF Pro Text";
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 22px;
@@ -419,7 +414,7 @@
 }
 
 .form-header h3 {
-  font-family: "SF Pro Text";
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 26px;
   line-height: 100%;
@@ -457,7 +452,7 @@
   border: 1px solid #ffffff;
   background-color: transparent;
   padding: 0 30px;
-  font-family: "SF Pro Text";
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
@@ -484,7 +479,7 @@
 }
 
 .send-button span {
-  font-family: "SF Pro Text";
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 24px;
   line-height: 100%;

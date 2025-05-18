@@ -25,15 +25,8 @@ ul {
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'LozyFont';
-  src: url('/static/fonts/SF-Pro-Text-Semibold.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   line-height: 1;
 }
 
@@ -103,7 +96,7 @@ ul {
 }
 
 .storage-navbar__menu-item {
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: clamp(14px, 1.3vw, 20px);
   color: #000;
@@ -163,7 +156,7 @@ ul {
 .storage-navbar__dropdown-title {
   margin: 10px 0;
   height: 26px;
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 22px;
   line-height: 100%;
@@ -223,7 +216,7 @@ ul {
   height: 26px;
   margin-top: 10px;
   margin-left: 71px;
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 22px;
   line-height: 100%;
@@ -252,7 +245,7 @@ ul {
 }
 
 .storage-navbar__dropdown-link {
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: clamp(14px, 1.3vw, 20px);
   line-height: 100%;
@@ -294,7 +287,7 @@ ul {
 
 .storage-navbar__dropdown-description {
   width: 326px;
-    font-family: "LozyFont";
+     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 20px;
@@ -306,7 +299,7 @@ ul {
 .storage-navbar__dropdown-know-more {
   /* width: 116px; */
   height: 26px;
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 22px;
   line-height: 100%;
@@ -340,7 +333,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   font-weight: 600;
   line-height: 100%;
   letter-spacing: 0%;
@@ -363,7 +356,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
@@ -433,7 +426,7 @@ ul {
 
 
 .storage-mobile-menu__item {
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
   color: rgba(255, 255, 255, 1);
@@ -485,7 +478,7 @@ ul {
 
 /* Update the link color to white for better visibility on the dark background */
 .storage-mobile-menu__dropdown-link {
-  font-family: "LozyFont";
+   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 22px;
   color: #fff !important;
