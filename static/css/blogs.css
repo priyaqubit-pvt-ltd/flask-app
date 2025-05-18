@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "SF Pro Text";
-    src: url('../fonts/SF-Pro.ttf');
-}
-  
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +6,12 @@
   scrollbar-width: none;
   -ms-overflow-style: none; 
   scroll-behavior: smooth;
-  font-family: "SF Pro Text", Arial, sans-serif;
+   font-family: 'Inter', Arial, sans-serif;
 }
   
 html,
 body {
-  font-family: "SF Pro Text", Arial, sans-serif;
+   font-family: 'Inter', Arial, sans-serif;
   line-height: 1.6;
   max-width: 100%;
   margin: 0;
@@ -313,7 +308,7 @@ a{
   height: 60px;
   border: none;
   font-size: 16px;
-  font-family: 'Poppins','SF Pro Text';
+  font-family: 'Poppins';
 }
 
 @media (min-width: 1600px) and (max-width: 1920px) {

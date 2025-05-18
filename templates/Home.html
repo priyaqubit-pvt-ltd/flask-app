@@ -6,12 +6,11 @@
     <title>Secure & Smart Storage Solutions</title>
     <link rel="stylesheet" href="/static/css/Home.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-   
     <div class="animation_wrapper">
       <div class="upper-curtain"></div>
       <div class="animation_container">
@@ -42,84 +41,86 @@
               <span class="animation_char">e</span>
             </div>
           </h1>
-        <div class="animation_button_container">
-            <a href="{{ url_for('index') }}" class="animation_button">Learn More</a>
+          <div class="animation_button_container">
+            <a href="{{ url_for('index') }}" class="animation_button"
+              >Learn More</a
+            >
           </div>
         </div>
       </div>
       <div class="lower-curtain"></div>
     </div>
-   
+
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         // Create a function to handle the redirect
         function redirectToIndex() {
           window.location.href = "{{ url_for('index') }}";
         }
-        
+
         // Check if this is a return visit
-        if (sessionStorage.getItem('animationPlayed')) {
+        if (sessionStorage.getItem("animationPlayed")) {
           // If animation already played in this session, redirect immediately
           redirectToIndex();
           return;
         }
-        
+
         // For first visit in this session, play the animation
         const words = document.querySelectorAll(".animation_line");
         const animationBtn = document.querySelector(".animation_button");
 
         function startAnimation() {
-            // Start background transition
-            setTimeout(() => {
-                document.querySelector('.upper-curtain').classList.add("animate");
-                document.querySelector('.lower-curtain').classList.add("animate");
-            }, 500);
-        
-            let totalDelay = 900; // Initial delay for the first word
-        
-            words.forEach((word, wordIndex) => {
-                let chars = word.querySelectorAll('.animation_char');
-            
-                chars.forEach((char, index) => {
-                    setTimeout(() => {
-                        char.classList.add('visible');
-                    }, totalDelay + (index * 75));
-                });
-            
-                const wordAppearTime = totalDelay + (chars.length * 75);
-                const stayTime = 700; 
-            
-                chars.forEach((char, index) => {
-                    setTimeout(() => {
-                        char.classList.add('invisible');
-                    }, wordAppearTime + stayTime + ((chars.length - 1 - index) * 75)); 
-                });
-            
-                totalDelay = wordAppearTime + stayTime + (chars.length * 75);
+          // Start background transition
+          setTimeout(() => {
+            document.querySelector(".upper-curtain").classList.add("animate");
+            document.querySelector(".lower-curtain").classList.add("animate");
+          }, 500);
+
+          let totalDelay = 900; // Initial delay for the first word
+
+          words.forEach((word, wordIndex) => {
+            let chars = word.querySelectorAll(".animation_char");
+
+            chars.forEach((char, index) => {
+              setTimeout(() => {
+                char.classList.add("visible");
+              }, totalDelay + index * 75);
             });
-            
-            // Calculate total animation time and set redirect timeout
-            const totalAnimationTime = totalDelay + 1000; // Add extra time to ensure animation completes
-            
-            // Set a flag in sessionStorage and redirect after animation completes
-            setTimeout(() => {
-                // Mark that animation has played in this session
-                sessionStorage.setItem('animationPlayed', 'true');
-                // Also store in localStorage for persistent tracking across sessions
-                localStorage.setItem('hasVisitedBefore', 'true');
-                // Redirect to index
-                redirectToIndex();
-            }, totalAnimationTime);
+
+            const wordAppearTime = totalDelay + chars.length * 75;
+            const stayTime = 700;
+
+            chars.forEach((char, index) => {
+              setTimeout(() => {
+                char.classList.add("invisible");
+              }, wordAppearTime + stayTime + (chars.length - 1 - index) * 75);
+            });
+
+            totalDelay = wordAppearTime + stayTime + chars.length * 75;
+          });
+
+          // Calculate total animation time and set redirect timeout
+          const totalAnimationTime = totalDelay + 1000; // Add extra time to ensure animation completes
+
+          // Set a flag in sessionStorage and redirect after animation completes
+          setTimeout(() => {
+            // Mark that animation has played in this session
+            sessionStorage.setItem("animationPlayed", "true");
+            // Also store in localStorage for persistent tracking across sessions
+            localStorage.setItem("hasVisitedBefore", "true");
+            // Redirect to index
+            redirectToIndex();
+          }, totalAnimationTime);
         }
-        
+
         // Start the animation
         startAnimation();
-        
+
         // Prevent the button from navigating immediately
-        animationBtn.addEventListener('click', function(e) {
+        animationBtn.addEventListener("click", function (e) {
           e.preventDefault();
-          sessionStorage.setItem('animationPlayed', 'true');
-          localStorage.setItem('hasVisitedBefore', 'true');
+          sessionStorage.setItem("animationPlayed", "true");
+          localStorage.setItem("hasVisitedBefore", "true");
           redirectToIndex();
         });
       });
