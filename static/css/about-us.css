@@ -877,8 +877,21 @@ body {
 
 @media (max-width:768px) {
 
+.vision-horizontal-slider-outer {
+	display: grid;
+	grid-template-rows: 1fr 85vh;
+  grid-template-columns: 1fr;
+	width: 100vw;
+}
+
 .vision-heading h4{
 	font-size: 60px;
+  margin-left: 10px;
+}
+
+.vision-card {
+  height: 40vh;
+  scroll-snap-align: center;
 }
 
 .vision-card-arrow {
@@ -892,10 +905,12 @@ body {
 
 .vision-card-text {
 	font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .vision-horizontal-slider-buttons {
 	padding-left: 2vw;
+	padding-bottom: 6vh;
 }
 }
 
