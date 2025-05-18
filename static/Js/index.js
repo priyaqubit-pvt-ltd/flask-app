@@ -201,9 +201,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const clientSection = document.querySelector(".clients-say-section");
     const widthRef = document.querySelector(".clients-say-container");
 
-    const sectionWidth = widthRef.getBoundingClientRect().right - widthRef.getBoundingClientRect().left;
+    let sectionWidth = widthRef.getBoundingClientRect().right - widthRef.getBoundingClientRect().left;
 
-    const maxThreshold = (window.innerWidth > 1024) ? sectionWidth * 2 : sectionWidth * 2 + 0.4 * window.innerWidth;
+    let maxThreshold = (window.innerWidth > 1024) ? sectionWidth * 2 : sectionWidth * 2 + 0.4 * window.innerWidth;
 
     window.addEventListener("scroll",()=>{
 
@@ -221,6 +221,12 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (rect.top > 0) {
             horizontalScrollSection.style.transform = `translateX(0px)`;
         }
+    });
+
+    // update threshold value and speed when window size changes
+    window.addEventListener("resize",()=>{
+        sectionWidth = widthRef.getBoundingClientRect().right - widthRef.getBoundingClientRect().left;
+        maxThreshold = (window.innerWidth > 1024) ? sectionWidth * 2 : sectionWidth * 2 + 0.4 * window.innerWidth;
     });
 
     const scrollButton = document.querySelector(".scroll-up-button");
