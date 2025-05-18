@@ -164,6 +164,13 @@ window.addEventListener('DOMContentLoaded', ()=>{
         },300);
     });
 
+    // horizontal scroll
+    visionCards.addEventListener("scroll",()=>{
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
+    });
+
     document.querySelector(".vision-horizontal-slider-button.left").addEventListener("click",()=>{
         visionCards.scrollBy({
             left: scrollValue,
