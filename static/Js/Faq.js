@@ -112,35 +112,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to attach toggle listeners to buttons
     function attachToggleListeners() {
-        const toggleButtons = document.querySelectorAll('.faq-toggle-btn');
-        const questionHeaders = document.querySelectorAll('.faq-question-header');
+        // First handle dynamically created FAQ items
+        const allQuestionItems = document.querySelectorAll('.faq-question-item');
         
-        // Add event listeners to toggle buttons
-        toggleButtons.forEach(button => {
-            // Remove existing event listeners if any
-            const newButton = button.cloneNode(true);
-            button.parentNode.replaceChild(newButton, button);
+        allQuestionItems.forEach(item => {
+            const header = item.querySelector('.faq-question-header');
+            const button = item.querySelector('.faq-toggle-btn');
+            const icon = item.querySelector('.faq-toggle-btn i');
             
-            newButton.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent event bubbling
-                toggleQuestion(this);
-            });
-        });
-        
-        // Make the question headers clickable to toggle content
-        questionHeaders.forEach(header => {
-            // Remove existing event listeners if any
-            const newHeader = header.cloneNode(true);
-            header.parentNode.replaceChild(newHeader, header);
-            
-            newHeader.addEventListener('click', function(e) {
-                // Don't trigger if the button itself was clicked (handled above)
-                if (e.target.closest('.faq-toggle-btn')) return;
+            // Remove existing listeners by cloning and replacing elements
+            if (header) {
+                const newHeader = header.cloneNode(true);
+                header.parentNode.replaceChild(newHeader, header);
                 
-                // Trigger toggle on the button
-                const button = this.querySelector('.faq-toggle-btn');
-                toggleQuestion(button);
-            });
+                // Get the new references after replacement
+                const newButton = newHeader.querySelector('.faq-toggle-btn');
+                const newIcon = newHeader.querySelector('.faq-toggle-btn i');
+                
+                // Add click event to the header (excluding the button)
+                newHeader.addEventListener('click', function(e) {
+                    // Don't trigger if clicking directly on button or icon (they have their own handlers)
+                    if (e.target === newButton || e.target === newIcon) return;
+                    toggleQuestion(newButton);
+                });
+                
+                // Add click event to the button
+                if (newButton) {
+                    newButton.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        toggleQuestion(this);
+                    });
+                }
+                
+                // Add click event directly to the icon
+                if (newIcon) {
+                    newIcon.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        // Find the parent button and toggle it
+                        const parentButton = this.closest('.faq-toggle-btn');
+                        if (parentButton) {
+                            toggleQuestion(parentButton);
+                        }
+                    });
+                }
+            }
         });
     }
     
@@ -264,4 +279,58 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-}); 
+    
+    // Initialize toggle listeners for all FAQ items on page load
+    attachToggleListeners();
+    
+    // Direct fix for the static FAQ items that might not be caught by the above
+    document.querySelectorAll('.faq-right > .faq-question-item').forEach(item => {
+        const button = item.querySelector('.faq-toggle-btn');
+        const icon = item.querySelector('.faq-toggle-btn i');
+        const header = item.querySelector('.faq-question-header');
+        
+        if (icon) {
+            // Remove any existing listeners
+            const newIcon = icon.cloneNode(true);
+            icon.parentNode.replaceChild(newIcon, icon);
+            
+            // Add direct click handler to the icon
+            newIcon.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const parentButton = this.closest('.faq-toggle-btn');
+                if (parentButton) {
+                    toggleQuestion(parentButton);
+                }
+            });
+        }
+        
+        if (button) {
+            // Remove any existing listeners
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            
+            // Add click handler to the button
+            newButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleQuestion(this);
+            });
+        }
+        
+        if (header) {
+            // Remove any existing listeners
+            const newHeader = header.cloneNode(true);
+            header.parentNode.replaceChild(newHeader, header);
+            
+            // Add click handler to the header (excluding button and icon)
+            newHeader.addEventListener('click', function(e) {
+                // Don't trigger if clicking directly on button or icon
+                if (e.target.closest('.faq-toggle-btn') || e.target.tagName === 'I') return;
+                
+                const headerButton = this.querySelector('.faq-toggle-btn');
+                if (headerButton) {
+                    toggleQuestion(headerButton);
+                }
+            });
+        }
+    });
+});

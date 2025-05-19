@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkResponsiveness() {
         const viewportWidth = window.innerWidth;
         
+        // Hero section adjustments
+        if (viewportWidth <= 480) {
+            // Fix the gap in hero title text
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                heroTitle.style.whiteSpace = 'normal';
+            }
+        }
+        
         // Adjust the container width based on viewport
         if (viewportWidth < 1920) {
             // Make sure the yellow line doesn't extend beyond the screen
@@ -19,6 +28,83 @@ document.addEventListener('DOMContentLoaded', function() {
                 imageContainer.style.width = Math.min(viewportWidth * 0.45, 923) + 'px';
             }
         }
+        
+        // Stats section adjustments
+        if (viewportWidth <= 768) {
+            // Adjust stat boxes for mobile
+            const statBoxes = document.querySelectorAll('.stat-box');
+            statBoxes.forEach(box => {
+                box.style.width = '100%';
+                box.style.maxWidth = '280px';
+            });
+            
+            // Adjust stat numbers to fit
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(number => {
+                number.style.fontSize = '50px';
+            });
+        } else if (viewportWidth <= 1024) {
+            // Adjust stat boxes for tablet
+            const statBoxes = document.querySelectorAll('.stat-box');
+            statBoxes.forEach(box => {
+                box.style.width = '45%';
+                box.style.minWidth = '200px';
+            });
+            
+            // Adjust stat numbers to fit
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(number => {
+                number.style.fontSize = '60px';
+            });
+        } else {
+            // Reset for desktop
+            const statBoxes = document.querySelectorAll('.stat-box');
+            statBoxes.forEach(box => {
+                box.style.width = '22%';
+            });
+            
+            // Adjust stat numbers to fit
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(number => {
+                number.style.fontSize = viewportWidth > 1440 ? '70px' : '80px';
+            });
+        }
+        
+        // About section text adjustments
+        if (viewportWidth <= 767) {
+            // Mobile adjustments for about section
+            const visionTitle = document.querySelector('.vision-title');
+            if (visionTitle) {
+                visionTitle.style.width = '100%';
+            }
+            
+            const aboutParagraphs = document.querySelectorAll('.about-paragraph');
+            aboutParagraphs.forEach(paragraph => {
+                paragraph.style.width = '100%';
+            });
+        } else if (viewportWidth <= 1023) {
+            // Tablet adjustments for about section
+            const visionTitle = document.querySelector('.vision-title');
+            if (visionTitle) {
+                visionTitle.style.width = '100%';
+            }
+            
+            const aboutParagraphs = document.querySelectorAll('.about-paragraph');
+            aboutParagraphs.forEach(paragraph => {
+                paragraph.style.width = '100%';
+            });
+        } else {
+            // Reset for desktop
+            const visionTitle = document.querySelector('.vision-title');
+            if (visionTitle) {
+                visionTitle.style.width = '30vw';
+            }
+            
+            const aboutParagraphs = document.querySelectorAll('.about-paragraph');
+            aboutParagraphs.forEach(paragraph => {
+                paragraph.style.width = '33vw';
+            });
+        }
     }
     
     // Run on page load
@@ -27,17 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run on window resize
     window.addEventListener('resize', checkResponsiveness);
 });
-
-
-
-
-
-
-
-
-
-
-
 
 // Counter Animation for Stats
 document.addEventListener('DOMContentLoaded', function() {
@@ -98,33 +173,49 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(checkCounters, 500);
 });
 
-
-// animation for horizontal slider in vision to reality section
-
+// Animation for horizontal slider in vision to reality section
 window.addEventListener('DOMContentLoaded', ()=>{
-
     const visionCards = document.querySelector(".vision-horizontal-slider");
-
-    document.querySelector(".vision-card.dummy").style.width = window.innerWidth <= 1024 ? (window.innerWidth - parseInt(window.getComputedStyle(visionCards.children[0].children[1]).width))/2 + "px" : window.getComputedStyle(visionCards.children[0].children[1]).width;
-    document.querySelector(".vision-card.empty").style.minWidth = parseFloat(window.innerWidth - (visionCards.children[0].children[1]).getBoundingClientRect().right) + "px";
-
-    const scrollValue = parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width);
-
+    
+    if (!visionCards) return; // Safety check
+    
+    // Set width for dummy and empty cards
+    const dummyCard = document.querySelector(".vision-card.dummy");
+    const emptyCard = document.querySelector(".vision-card.empty");
+    
+    if (dummyCard) {
+        dummyCard.style.width = window.innerWidth <= 1024 ? 
+            (window.innerWidth - parseInt(window.getComputedStyle(visionCards.children[0].children[1]).width))/2 + "px" : 
+            window.getComputedStyle(visionCards.children[0].children[1]).width;
+    }
+    
+    if (emptyCard && visionCards.children[0] && visionCards.children[0].children[1]) {
+        emptyCard.style.minWidth = parseFloat(window.innerWidth - (visionCards.children[0].children[1]).getBoundingClientRect().right) + "px";
+    }
+    
+    // Get scroll value based on card width
+    let scrollValue = 0;
+    if (visionCards.children[0] && visionCards.children[0].children[1]) {
+        scrollValue = parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width);
+    }
+    
     let isDragging = false;
     let startX;
-
+    let scrollStart;
+    
+    // Mouse events for dragging
     visionCards.addEventListener("mousedown", (e) => {
         isDragging = true;
         visionCards.classList.add("dragging");
         startX = e.clientX;
         scrollStart = visionCards.scrollLeft;
     });
-
+    
     visionCards.addEventListener("mouseleave", () => {
         isDragging = false;
         visionCards.classList.remove("dragging");
     });
-
+    
     visionCards.addEventListener("mouseup", () => {
         isDragging = false;
         visionCards.classList.remove("dragging");
@@ -132,7 +223,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
             vanishCheck();
         },300);
     });
-
+    
     visionCards.addEventListener("mousemove", (e) => {
         if (!isDragging) return;
         e.preventDefault();
@@ -146,53 +237,72 @@ window.addEventListener('DOMContentLoaded', ()=>{
             vanishCheck();
         },300);
     });
-
+    
     // Touch support
     visionCards.addEventListener("touchstart", (e) => {
         startX = e.touches[0].pageX;
+        scrollStart = visionCards.scrollLeft;
     });
-
+    
     visionCards.addEventListener("touchmove", (e) => {
         const x = e.touches[0].pageX;
         const difference = x - startX;
         visionCards.scrollBy({
-            left: -1*difference,
+            left: -1*difference/50,
             behavior: "smooth"
         });
+        startX = x;
         setTimeout(()=>{
             vanishCheck();
         },300);
     });
-
-    // horizontal scroll
+    
+    visionCards.addEventListener("touchend", () => {
+        setTimeout(()=>{
+            vanishCheck();
+        },300);
+    });
+    
+    // Horizontal scroll
     visionCards.addEventListener("scroll",()=>{
         setTimeout(()=>{
             vanishCheck();
         },300);
     });
-
-    document.querySelector(".vision-horizontal-slider-button.left").addEventListener("click",()=>{
-        visionCards.scrollBy({
-            left: scrollValue,
-            behavior: "smooth"
+    
+    // Button controls
+    const leftButton = document.querySelector(".vision-horizontal-slider-button.left");
+    const rightButton = document.querySelector(".vision-horizontal-slider-button.right");
+    
+    if (leftButton) {
+        leftButton.addEventListener("click",()=>{
+            visionCards.scrollBy({
+                left: -1 * scrollValue,
+                behavior: "smooth"
+            });
+            setTimeout(()=>{
+                vanishCheck();
+            },300);
         });
-        setTimeout(()=>{
-            vanishCheck();
-        },300);
-    });
-
-    document.querySelector(".vision-horizontal-slider-button.right").addEventListener("click",()=>{
-        visionCards.scrollBy({
-            left: -1 * scrollValue,
-            behavior: "smooth"
+    }
+    
+    if (rightButton) {
+        rightButton.addEventListener("click",()=>{
+            visionCards.scrollBy({
+                left: scrollValue,
+                behavior: "smooth"
+            });
+            setTimeout(()=>{
+                vanishCheck();
+            },300);
         });
-        setTimeout(()=>{
-            vanishCheck();
-        },300);
-    });
-
+    }
+    
+    // Function to check if cards should be visible or not
     function vanishCheck() {
         document.querySelectorAll(".vision-card").forEach((i)=>{
+            if (!i || !visionCards) return; // Safety check
+            
             const threshold = window.innerWidth > 768 ? 100 : 0;
             if(i.getBoundingClientRect().left <= visionCards.getBoundingClientRect().left + threshold && !i.classList.contains("dummy")) {
                 i.style.opacity = 0;
@@ -203,4 +313,76 @@ window.addEventListener('DOMContentLoaded', ()=>{
             }
         });
     }
+    
+    // Initial check
+    vanishCheck();
+    
+    // Adjust on window resize
+    window.addEventListener('resize', () => {
+        // Recalculate dimensions
+        if (dummyCard) {
+            dummyCard.style.width = window.innerWidth <= 1024 ? 
+                (window.innerWidth - parseInt(window.getComputedStyle(visionCards.children[0].children[1]).width))/2 + "px" : 
+                window.getComputedStyle(visionCards.children[0].children[1]).width;
+        }
+        
+        if (emptyCard && visionCards.children[0] && visionCards.children[0].children[1]) {
+            emptyCard.style.minWidth = parseFloat(window.innerWidth - (visionCards.children[0].children[1]).getBoundingClientRect().right) + "px";
+        }
+        
+        // Update scroll value
+        if (visionCards.children[0] && visionCards.children[0].children[1]) {
+            scrollValue = parseFloat(window.getComputedStyle(visionCards.children[0].children[1]).width);
+        }
+        
+        // Check visibility
+        vanishCheck();
+    });
+});
+
+// Form responsiveness
+document.addEventListener('DOMContentLoaded', function() {
+    function adjustFormResponsiveness() {
+        const viewportWidth = window.innerWidth;
+        
+        if (viewportWidth <= 768) {
+            // Adjust form elements for mobile
+            const formInputLabels = document.querySelectorAll('.form-input-label');
+            formInputLabels.forEach(label => {
+                label.style.fontSize = '24px';
+            });
+            
+            const formInputFields = document.querySelectorAll('.form-input-field');
+            formInputFields.forEach(field => {
+                field.style.fontSize = '18px';
+            });
+            
+            const formSectionHeadingP = document.querySelector('.form-section-heading p');
+            if (formSectionHeadingP) {
+                formSectionHeadingP.style.width = '100%';
+            }
+        } else {
+            // Reset for desktop
+            const formInputLabels = document.querySelectorAll('.form-input-label');
+            formInputLabels.forEach(label => {
+                label.style.fontSize = 'clamp(30px, 4vw, 60px)';
+            });
+            
+            const formInputFields = document.querySelectorAll('.form-input-field');
+            formInputFields.forEach(field => {
+                field.style.fontSize = '22px';
+            });
+            
+            const formSectionHeadingP = document.querySelector('.form-section-heading p');
+            if (formSectionHeadingP) {
+                formSectionHeadingP.style.width = '50%';
+            }
+        }
+    }
+    
+    // Run on page load
+    adjustFormResponsiveness();
+    
+    // Run on window resize
+    window.addEventListener('resize', adjustFormResponsiveness);
 });

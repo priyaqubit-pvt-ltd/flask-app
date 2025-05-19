@@ -6,12 +6,12 @@
   scrollbar-width: none;
   -ms-overflow-style: none; 
   scroll-behavior: smooth;
-   font-family: 'Inter', sans-serif;
+   font-family: 'Inter';
 }
   
 html,
 body {
-   font-family: 'Inter', sans-serif;
+   font-family: 'Inter';
   line-height: 1.6;
   max-width: 100%;
   margin: 0;
@@ -21,7 +21,7 @@ body {
 }
   
 .header-section {
-  margin-top: 70px;
+  margin-top: 170px;
   padding-left: 10%;
   padding-right: 10%;
   width: 100%;

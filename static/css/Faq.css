@@ -6,7 +6,7 @@
 
 html,
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     line-height: 1.6;
     max-width: 100%;
     margin: 0;
@@ -135,7 +135,7 @@ body {
     background-color: #000000;
     padding: 60px 0;
     color: #FFFFFF;
-     font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .faq-container {
@@ -154,7 +154,8 @@ body {
 }
 
 .faq-category-container {
-    width: 500px;
+    width: 100%; /* Changed from fixed width to responsive */
+    max-width: 500px; /* Added max-width for larger screens */
     border-radius: 6px;
     background: #211E1E;
     padding: 32px;
@@ -215,7 +216,8 @@ body {
 }
 
 .faq-form-container {
-    width: 500px;
+    width: 100%; /* Changed from fixed width to responsive */
+    max-width: 500px; /* Added max-width for larger screens */
     border-radius: 6px;
     background: #211E1E;
     padding: 32px;
@@ -259,7 +261,7 @@ body {
     color: #FFFFFF;
     padding: 0 12px;
     font-size: 16px;
-     font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .faq-form-textarea {
@@ -427,15 +429,22 @@ body {
     .faq-container {
         flex-direction: column;
         align-items: center;
+        width: 90%; /* Increased width for better spacing */
     }
     
     .faq-left, .faq-right {
         width: 100%;
+        padding-left: 0; /* Remove padding when stacked */
+    }
+    
+    .faq-right {
+        margin-top: 30px; /* Add space between sections when stacked */
     }
     
     .faq-category-container, .faq-form-container {
         width: 100%;
         height: auto;
+        max-width: 100%; /* Allow full width on smaller screens */
     }
     
     .faq-questions {
@@ -509,9 +518,14 @@ body {
 /* Specific device fixes */
 /* iPad Mini, Air, Surface Pro 7 */
 @media (min-width: 768px) and (max-width: 1024px) {
+    .faq-container {
+        gap: 30px; /* Reduced gap for better spacing */
+    }
+    
     .faq-question-title {
         font-size: 20px;
         line-height: 1.4;
+        width: 85%; /* Reduced width to prevent overlap with button */
     }
     
     .faq-question-answer {
@@ -543,7 +557,8 @@ body {
     }
     
     .faq-container {
-        width: 90%;
+        width: 95%;
+        gap: 20px; /* Reduced gap for smaller screens */
     }
     
     .faq-category-title, .faq-form-title {
@@ -561,6 +576,7 @@ body {
     .faq-question-title {
         font-size: 18px;
         line-height: 1.4;
+        width: 80%; /* Reduced width to prevent overlap with button */
     }
     
     .faq-question-answer {
@@ -590,6 +606,7 @@ body {
     
     .faq-question-title {
         font-size: 16px;
+        width: 75%; /* Further reduced width for very small screens */
     }
     
     .faq-question-answer {

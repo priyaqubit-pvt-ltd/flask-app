@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     line-height: 1.2;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     scrollbar-width: none;
     -ms-overflow-style: none; 
     scroll-behavior: smooth;
@@ -11,7 +11,7 @@
   
   html,
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     line-height: 1.6;
     max-width: 100%;
     margin: 0;
@@ -23,7 +23,6 @@
   /* Hero Section */
   .hero-section {
     padding-top: 50px;
-  
     position: relative;
     width: 100%;
     margin: 0 auto;
@@ -222,15 +221,7 @@
     }
   }
 
-
-
-
-
-
-
-
-
-  @import url("https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;500;600&display=swap");
 
 .contact-section {
@@ -249,12 +240,10 @@
   height: 100%;
   z-index: 0;
   filter: grayscale(100%);
-  display: flex;
-  justify-content: flex-end;
 }
 
 #map {
-  width: 60%;
+  width: 100%;
   height: 100%;
 }
 
@@ -317,7 +306,6 @@
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0) 100%);
   height: 100%;
   max-width: 95vw;
-    /* pointer-events: none; */
 }
 
 .contact-header {
@@ -337,7 +325,8 @@
 }
 
 .yellow-line {
-  width: 1552px;
+  width: 100%;
+  max-width: 1552px;
   height: 1px;
   margin-top: 24px;
   margin-bottom: 24px;
@@ -359,11 +348,13 @@
 .contact-info {
   display: flex;
   margin-bottom: 80px;
+  flex-wrap: wrap;
 }
 
 .info-item {
   display: flex;
   margin-right: 86px;
+  margin-bottom: 20px;
 }
 
 .info-icon {
@@ -405,6 +396,7 @@
 
 .contact-form-container {
   width: 100%;
+  max-width: 800px;
 }
 
 .form-header {
@@ -437,7 +429,7 @@
 
 .form-row {
   display: flex;
-  /* gap: 27px; */
+  gap: 27px;
   margin-bottom: 30px;
 }
 
@@ -446,7 +438,7 @@
 }
 
 .form-group input {
-  width: 70%;
+  width: 100%;
   height: 82px;
   border-radius: 10px;
   border: 1px solid #ffffff;
@@ -497,7 +489,9 @@
 /* Media Queries for Responsive Design */
 @media (max-width: 1200px) {
   .contact-content {
-    padding-left: 100px;
+    padding-left: 50px;
+    padding-right: 20px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 60%, rgba(0, 0, 0, 0.7) 80%, rgba(0, 0, 0, 0.5) 100%);
   }
 
   .yellow-line {
@@ -506,8 +500,32 @@
   }
 
   .form-row {
-    flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+  }
+  
+  .info-item {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-content {
+    padding-left: 40px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 70%, rgba(0, 0, 0, 0.7) 100%);
+  }
+  
+  .lets-talk-heading {
+    font-size: 50px;
+    width: auto;
+    height: auto;
+  }
+  
+  .connect-heading {
+    width: auto;
+  }
+  
+  .info-item {
+    margin-right: 30px;
   }
 }
 
@@ -516,10 +534,7 @@
     padding-left: 30px;
     padding-right: 30px;
     background: rgba(0, 0, 0, 0.8);
-  }
-
-  #map {
-    width: 100%;
+    overflow-y: auto;
   }
 
   .contact-info {
@@ -529,6 +544,7 @@
 
   .info-item {
     margin-right: 0;
+    margin-bottom: 30px;
   }
 
   .lets-talk-heading {
@@ -540,13 +556,65 @@
     width: 100%;
     height: auto;
   }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group input {
+    height: 60px;
+  }
 }
 
-
-/* letting inputs and buttons receive events */
-/* input {
-  pointer-events: auto;
+@media (max-width: 576px) {
+  .contact-content {
+    padding: 30px 20px;
+  }
+  
+  .contact-header {
+    margin-bottom: 40px;
+  }
+  
+  .lets-talk-heading {
+    font-size: 36px;
+  }
+  
+  .connect-heading {
+    font-size: 22px;
+  }
+  
+  .info-content h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  
+  .info-content p {
+    font-size: 18px;
+  }
+  
+  .form-header h3 {
+    font-size: 22px;
+    width: auto;
+  }
+  
+  .send-button {
+    width: 100%;
+  }
 }
-button {
-  pointer-events: auto;
-} */
+
+@media (max-width: 480px) {
+  .contact-section {
+    min-height: 800px;
+  }
+  
+  .lets-talk-heading {
+    font-size: 32px;
+  }
+  
+  .form-group input {
+    height: 50px;
+    font-size: 16px;
+    padding: 0 15px;
+  }
+}

@@ -138,40 +138,62 @@
           </div>
           <div class="blog-contact-form-outer">
             <h4 class="blog-contact-form-title">In what way can we help?</h4>
-            <form class="blog-contact-form">
+            <div id="form-success-message" class="form-success-message">
+              Thank you! Your message has been submitted successfully.
+            </div>
+            <form id="blog-contact-form" class="blog-contact-form">
               <div class="blog-contact-form-top-row">
                 <div class="blog-contact-form-input" id="name">
                   <label
                     for="blog-contact-form-name"
                     class="blog-contact-form-label"
-                    >Full Name</label
+                    >Full Name <span class="required">*</span></label
                   >
-                  <input type="text" class="blog-contact-form-name" />
+                  <input 
+                    type="text" 
+                    id="blog-contact-form-name" 
+                    class="blog-contact-form-name" 
+                    required 
+                  />
+                  <span class="error-message" id="name-error"></span>
                 </div>
                 <div class="blog-contact-form-input" id="email">
                   <label
                     for="blog-contact-form-email"
                     class="blog-contact-form-label"
-                    >Email</label
+                    >Email <span class="required">*</span></label
                   >
-                  <input type="email" class="blog-contact-form-email" />
+                  <input 
+                    type="email" 
+                    id="blog-contact-form-email" 
+                    class="blog-contact-form-email" 
+                    required 
+                  />
+                  <span class="error-message" id="email-error"></span>
                 </div>
               </div>
               <div class="blog-contact-form-input" id="phone">
                 <label
                   for="blog-contact-form-phone"
                   class="blog-contact-form-label"
-                  >Phone</label
+                  >Phone <span class="required">*</span></label
                 >
-                <input type="number" class="blog-contact-form-phone" />
+                <input 
+                  type="tel" 
+                  id="blog-contact-form-phone" 
+                  class="blog-contact-form-phone" 
+                  pattern="[0-9]*" 
+                  required 
+                />
+                <span class="error-message" id="phone-error"></span>
               </div>
               <div class="blog-contact-form-input" id="message">
                 <label
-                  for="blog-contact-form-name"
+                  for="blog-contact-form-message"
                   class="blog-contact-form-label"
                   >Write your own question</label
                 >
-                <textarea class="blog-contact-form-message"></textarea>
+                <textarea id="blog-contact-form-message" class="blog-contact-form-message"></textarea>
               </div>
               <button type="submit" class="blog-contact-form-btn">
                 Submit
@@ -181,16 +203,16 @@
           <div class="content-social-media">
             <h4 class="content-social-media-title">Social Media Links</h4>
             <div class="content-social-media-icons">
-              <div class="content-scoial-media-icon" id="linkedin">
+              <div class="content-social-media-icon" id="linkedin">
                 <img src="/static/images/blog_linkedin_icon.png" />
               </div>
-              <div class="content-scoial-media-icon" id="twitter">
+              <div class="content-social-media-icon" id="twitter">
                 <img src="/static/images/blog_twitter_icon.png" />
               </div>
-              <div class="content-scoial-media-icon" id="facebook">
+              <div class="content-social-media-icon" id="facebook">
                 <img src="/static/images/blog_facebook_icon.png" />
               </div>
-              <div class="content-scoial-media-icon" id="instagram">
+              <div class="content-social-media-icon" id="instagram">
                 <img src="/static/images/blog_instagram_icon.png" />
               </div>
             </div>
@@ -216,6 +238,6 @@
     </section>
 
     {%include "footer.html"%}
-    <script src="/static/js/blog.js"></script>
+    <script src="/static/Js/blog.js"></script>
   </body>
 </html>
