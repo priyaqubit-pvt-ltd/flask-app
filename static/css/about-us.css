@@ -819,7 +819,7 @@ body {
 
 
 @media (min-width: 1600px) and (max-width: 1920px) {
-	.vision-heading h4{
+	.vision-heading h2{
 		font-size: 95px;
 	}
   .vision-card-title {
@@ -837,7 +837,7 @@ body {
  
 @media (max-width:1024px) and (min-height: 700px) {
 
-.vision-heading h4{
+.vision-heading h2{
 	margin-left: 20px;
 	font-size: 65px;
 }
@@ -883,7 +883,7 @@ body {
 	width: 100vw;
 }
 
-.vision-heading h4{
+.vision-heading h2{
 	font-size: 60px;
   margin-left: 10px;
 }
@@ -923,9 +923,9 @@ body {
 .vision-card-title {
 	font-size: 16px;
 }
-.vision-heading h4{
+.vision-heading h2{
 	margin-left: 20px;
-	font-size: 50px;
+	font-size: 48px;
 }
 
 }
