@@ -299,23 +299,87 @@ html, body {
     color: #ffffff;
 }
 
-/* .gray-text {
- 
-    color: #88888880;
+/* Responsive styles for iPhone 14 Pro Max and smaller screens */
+@media (max-width: 932px) {
+    .hero-content {
+        padding-left: 20px;
+        padding-top: 30px;
+        width: 100%;
+    }
+
+    .hero-heading {
+        width: 100%;
+        height: auto;
+        font-size: 60px;
+        line-height: 65px;
+    }
+
+    .heading-line {
+        height: 70px;
+        margin-bottom: 5px;
+    }
+
+    .hero-paragraph {
+        width: 90%;
+        height: auto;
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 20px;
+    }
+
+    .book-now-btn {
+        width: 180px;
+        height: 60px;
+        font-size: 18px;
+        margin-top: 30px;
+    }
+
+    .hero-image {
+        width: 70%;
+        top: auto;
+        bottom: 0;
+        right: -10px;
+    }
 }
 
-.white-text {
-   
-    color: #88888880;
+/* Additional fixes for iPhone 14 Pro Max specifically */
+@media (min-width: 430px) and (max-width: 932px) {
+    .hero-heading {
+        font-size: 50px;
+        line-height: 55px;
+    }
+
+    .heading-line {
+        height: 60px;
+    }
 }
 
-.white-text.filled{
-    color: white;
-}
+/* Smaller phones */
+@media (max-width: 429px) {
+    .hero-heading {
+        font-size: 40px;
+        line-height: 45px;
+    }
 
-.gray-text.filled{
-    color: #888888;
-} */
+    .heading-line {
+        height: 50px;
+    }
+
+    .hero-paragraph {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .book-now-btn {
+        width: 150px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .hero-image {
+        width: 80%;
+    }
+}
 
 /* Storage Section Styles */
 .lozy_storage_section_wrapper {
@@ -719,6 +783,29 @@ html, body {
     }
 }
 
+/* Fix for iPhone XR and similar mobile devices */
+@media (max-width: 896px) {
+    .lozy_storage_card_image_overlay {
+        padding: 25px;
+        overflow-y: auto; /* Allow scrolling within the card if content overflows */
+    }
+    
+    .lozy_storage_card_heading_image {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .lozy_storage_card_text_image {
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 10px;
+    }
+    
+    .lozy_storage_card_image {
+        min-height: 400px; /* Ensure enough height for content */
+    }
+}
+
 @media (max-width: 767px) {
     .hero-content {
         padding-left: 15px;
@@ -824,7 +911,7 @@ html, body {
     }
 
     .lozy_storage_card {
-        padding: 30px;
+        padding: 25px;
     }
     
     .lozy_storage_card_heading {
@@ -836,7 +923,9 @@ html, body {
     }
     
     .lozy_storage_card_heading_image {
-        font-size: 28px;
+        font-size: 26px;
+        line-height: 1.2;
+        margin-bottom: 10px;
     }
     
     .lozy_storage_card_text,
@@ -853,6 +942,25 @@ html, body {
         max-width: 400px;
         min-height: 250px;
         margin-bottom: 20px;
+    }
+    
+    /* Fix for the third card text visibility */
+    .lozy_storage_card_image {
+        min-height: 350px;
+    }
+    
+    .lozy_storage_card_image_overlay {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+    
+    .lozy_storage_card_text_image {
+        margin-top: 15px;
+        max-height: 250px;
+        overflow-y: auto;
     }
 
     .arrow-button {
@@ -888,6 +996,32 @@ html, body {
     }
 }
 
+/* Additional fixes for iPhone XR specifically */
+@media (min-width: 414px) and (max-width: 896px) {
+    .lozy_storage_card_image {
+        min-height: 380px;
+    }
+    
+    .lozy_storage_card_image_overlay {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .lozy_storage_card_heading_image {
+        font-size: 28px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+    
+    .lozy_storage_card_text_image {
+        font-size: 16px;
+        line-height: 1.4;
+        max-height: 200px;
+        overflow-y: auto;
+        padding-right: 5px;
+    }
+}
 
 
 
