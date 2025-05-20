@@ -4,13 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Storage Navigation</title>
+    <meta name="robots" content="noindex, nofollow" />
     <link rel="stylesheet" href="/static/css/navbar.css" />
     <link rel="stylesheet" href="/static/css/contact-form.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.webp', _external=True) }}"
+      type="image/x-icon"
+    />
     <!-- Add this to ensure the CSS is not cached -->
     <meta
       http-equiv="Cache-Control"
@@ -28,7 +33,7 @@
             <!-- Logo added here -->
             <a href="/">
               <img
-                src="/static/Images/logo.png"
+                src="/static/Images/logo.webp"
                 alt="Storage Logo"
                 class="logo-image"
               />
@@ -78,7 +83,7 @@
                       <li class="storage-navbar__dropdown-item">
                         <span class="storage-navbar__dropdown-bullet"></span>
                         <a
-                          href="/corporate-storage"
+                          href="/storage/corporate-storage"
                           class="storage-navbar__dropdown-link"
                           >Corporate Storage</a
                         >
@@ -86,7 +91,7 @@
                       <li class="storage-navbar__dropdown-item">
                         <span class="storage-navbar__dropdown-bullet"></span>
                         <a
-                          href="/business"
+                          href="/storage/business-storage"
                           class="storage-navbar__dropdown-link"
                           >Business Storage</a
                         >
@@ -94,7 +99,7 @@
                       <li class="storage-navbar__dropdown-item">
                         <span class="storage-navbar__dropdown-bullet"></span>
                         <a
-                          href="/enterprise-storage"
+                          href="/storage/enterprises-storage"
                           class="storage-navbar__dropdown-link"
                           >Enterprise Storage</a
                         >
@@ -102,7 +107,7 @@
                       <li class="storage-navbar__dropdown-item">
                         <span class="storage-navbar__dropdown-bullet"></span>
                         <a
-                          href="/3pl-storage"
+                          href="/storage/3pl-storage"
                           class="storage-navbar__dropdown-link"
                           >3PL Storage</a
                         >
@@ -110,7 +115,7 @@
                       <li class="storage-navbar__dropdown-item">
                         <span class="storage-navbar__dropdown-bullet"></span>
                         <a
-                          href="/vehicle-storage"
+                          href="/storage/vehicle-storage"
                           class="storage-navbar__dropdown-link"
                           >Vehicle Storage</a
                         >
@@ -128,7 +133,7 @@
                       <li class="storage-navbar__dropdown-item">
                         <span class="storage-navbar__dropdown-bullet"></span>
                         <a
-                          href="/platinum-storage"
+                          href="/storage/warehouse-storage"
                           class="storage-navbar__dropdown-link"
                           >Warehousing</a
                         >
@@ -137,7 +142,7 @@
                       <li class="storage-navbar__dropdown-item">
                         <span class="storage-navbar__dropdown-bullet"></span>
                         <a
-                          href="/platinum-storage"
+                          href="/storage/platinum-storage"
                           class="storage-navbar__dropdown-link"
                           >Platinum Class Storage</a
                         >
@@ -146,7 +151,7 @@
                       <li class="storage-navbar__dropdown-item">
                         <span class="storage-navbar__dropdown-bullet"></span>
                         <a
-                          href="/bonded-storage"
+                          href="/storage/bonded-storage"
                           class="storage-navbar__dropdown-link"
                           >Bonded Warehouses</a
                         >
@@ -163,7 +168,7 @@
                   >
                     <div class="storage-navbar__dropdown-image-container">
                       <img
-                        src="/static/Images/img1.png"
+                        src="/static/Images/img1.webp"
                         alt="Storage Warehouse"
                         class="storage-navbar__dropdown-image"
                       />
@@ -174,12 +179,12 @@
                       short-term or long-term needs.
                     </p>
                     <a
-                      href="/self-storage"
+                      href="/storage/self-storage"
                       class="storage-navbar__dropdown-know-more"
                     >
                       Know More
                       <img
-                        src="/static/Images/arrowDiagonal.png"
+                        src="/static/Images/arrowDiagonal.webp"
                         alt="Arrow"
                         class="storage-navbar__dropdown-arrow"
                       />
@@ -192,7 +197,7 @@
               >Size Guide & Pricing</a
             >
             <a href="/about-us" class="storage-navbar__menu-item">About us</a>
-            <a href="/News" class="storage-navbar__menu-item">News</a>
+            <a href="/news" class="storage-navbar__menu-item">News</a>
           </div>
 
           <div class="storage-navbar__buttons">
@@ -219,50 +224,54 @@
             <div class="storage-mobile-menu__item_wrapper">
               <span>Storage Types</span>
               <img
-                src="/static/images/upwardArrow.png"
+                src="/static/images/upwardArrow.webp"
                 class="storage-mobile-menu__dropdown-icon"
               />
             </div>
             <!-- Mobile Dropdown Content -->
             <div class="storage-mobile-menu__dropdown-content">
-              <a href="/self-storage" class="storage-mobile-menu__dropdown-link"
+              <a
+                href="/storage/self-storage"
+                class="storage-mobile-menu__dropdown-link"
                 >Self Storage</a
               >
               <a
-                href="/corporate-storage"
+                href="/storage/corporate-storage"
                 class="storage-mobile-menu__dropdown-link"
                 >Corporate Storage</a
               >
               <a
-                href="/business-storage"
+                href="/storage/business-storage"
                 class="storage-mobile-menu__dropdown-link"
                 >Business Storage</a
               >
               <a
-                href="/warehouse-storage"
+                href="/storage/warehouse-storage"
                 class="storage-mobile-menu__dropdown-link"
                 >Warehousing</a
               >
-              <a href="/3pl-storage" class="storage-mobile-menu__dropdown-link"
+              <a
+                href="/storage/3pl-storage"
+                class="storage-mobile-menu__dropdown-link"
                 >3PL Storage</a
               >
               <a
-                href="/vehicle-storage"
+                href="/storage/vehicle-storage"
                 class="storage-mobile-menu__dropdown-link"
                 >Vehicle Storage</a
               >
               <a
-                href="/enterprise-storage"
+                href="/storage/enterprises-storage"
                 class="storage-mobile-menu__dropdown-link"
                 >Enterprise Storage</a
               >
               <a
-                href="/platinum-storage"
+                href="/storage/platinum-storage"
                 class="storage-mobile-menu__dropdown-link"
                 >Platinum Class Storage</a
               >
               <a
-                href="/bonded-storage"
+                href="/storage/bonded-storage"
                 class="storage-mobile-menu__dropdown-link"
                 >Bonded Warehouses</a
               >
@@ -270,7 +279,7 @@
           </div>
           <a href="#" class="storage-mobile-menu__item">Size Guide & Pricing</a>
           <a href="/about-us" class="storage-mobile-menu__item">About us</a>
-          <a href="/News" class="storage-mobile-menu__item">News</a>
+          <a href="/news" class="storage-mobile-menu__item">News</a>
           <a href="/blogs" class="storage-mobile-menu__item">Blogs</a>
           <!-- <a
             href="#"
@@ -647,7 +656,12 @@
       <div class="contact-popup-right">
         <h2 class="contact-popup-form-title">Enter Details</h2>
 
-        <form class="contact-popup-form" id="contactForm">
+        <form
+          class="contact-popup-form"
+          id="contactForm"
+          action="/contact-popup-submit"
+          method="post"
+        >
           <div class="contact-popup-form-row">
             <div class="contact-popup-form-group">
               <label for="fullName" class="contact-popup-form-label"
@@ -656,7 +670,7 @@
               <input
                 type="text"
                 id="fullName"
-                name="fullName"
+                name="name"
                 class="contact-popup-form-input"
                 required
               />
@@ -679,7 +693,7 @@
             <input
               type="tel"
               id="phone"
-              name="phone"
+              name="contact_number"
               class="contact-popup-form-input"
               required
             />
@@ -711,9 +725,13 @@
           </div>
 
           <div class="contact-popup-form-submit">
-            <a href="#" class="contact-popup-form-button" id="submitButton"
-              >Submit</a
+            <button
+              type="submit"
+              class="contact-popup-form-button"
+              id="submitButton"
             >
+              Submit
+            </button>
           </div>
         </form>
       </div>
@@ -727,17 +745,17 @@
     <div class="social-links-container">
       <div class="social-link">
         <div class="social-icon phone-icon">
-          <img src="/static/images/phone.png" alt="Phone" />
+          <img src="/static/images/phone.webp" alt="Phone" />
         </div>
       </div>
       <div class="social-link">
         <div class="social-icon email-icon">
-          <img src="/static/images/image 62.png" alt="Email" />
+          <img src="/static/images/image 62.webp" alt="Email" />
         </div>
       </div>
       <div class="social-link">
         <div class="social-icon whatsapp-icon">
-          <img src="/static/images/image 61.png" alt="WhatsApp" />
+          <img src="/static/images/image 61.webp" alt="WhatsApp" />
         </div>
       </div>
     </div>

@@ -8,8 +8,14 @@
       name="description"
       content="404 Error - The requested page does not exist. Please navigate back to our homepage."
     />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.webp', _external=True) }}"
+      type="image/x-icon"
+    />
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="keywords" content="404, error, page not found, missing page" />
-    <link rel="canonical" href="https://yourwebsite.com/404" />
+    <link rel="canonical" href="https://lozy.in/404" />
     <link rel="stylesheet" href="/static/css/404.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
@@ -57,7 +63,7 @@
       <div class="error-container">
         <div class="error-image-container">
           <img
-            src="/static/images/OBJECTS_copia (2).png"
+            src="/static/images/OBJECTS_copia (2).webp"
             alt="404 Error Illustration"
             class="error-image"
           />

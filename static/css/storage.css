@@ -8,6 +8,25 @@
   scroll-behavior: smooth;
 }
 
+/* Standard syntax */
+::selection {
+  background: #FFCC00; /* highlight color */
+  color: #000000;       /* text color */
+}
+
+/* Webkit (Safari, old Chrome) */
+::-webkit-selection {
+  background: #FFCC00;
+  color: #000000;
+}
+
+/* Mozilla (older Firefox versions, though modern ones use ::selection) */
+::-moz-selection {
+  background: #FFCC00;
+  color: #000000;
+}
+
+
 html,
 body {
    font-family: 'Inter';

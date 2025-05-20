@@ -9,7 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.webp', _external=True) }}"
+      type="image/x-icon"
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://lozy.in/blog" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -35,7 +41,7 @@
         </p>
       </div>
       <div class="blog-image">
-        <img src="/static/images/blog_background.png" />
+        <img src="/static/images/blog_background.webp" />
       </div>
     </section>
 
@@ -149,11 +155,11 @@
                     class="blog-contact-form-label"
                     >Full Name <span class="required">*</span></label
                   >
-                  <input 
-                    type="text" 
-                    id="blog-contact-form-name" 
-                    class="blog-contact-form-name" 
-                    required 
+                  <input
+                    type="text"
+                    id="blog-contact-form-name"
+                    class="blog-contact-form-name"
+                    required
                   />
                   <span class="error-message" id="name-error"></span>
                 </div>
@@ -163,11 +169,11 @@
                     class="blog-contact-form-label"
                     >Email <span class="required">*</span></label
                   >
-                  <input 
-                    type="email" 
-                    id="blog-contact-form-email" 
-                    class="blog-contact-form-email" 
-                    required 
+                  <input
+                    type="email"
+                    id="blog-contact-form-email"
+                    class="blog-contact-form-email"
+                    required
                   />
                   <span class="error-message" id="email-error"></span>
                 </div>
@@ -178,12 +184,12 @@
                   class="blog-contact-form-label"
                   >Phone <span class="required">*</span></label
                 >
-                <input 
-                  type="tel" 
-                  id="blog-contact-form-phone" 
-                  class="blog-contact-form-phone" 
-                  pattern="[0-9]*" 
-                  required 
+                <input
+                  type="tel"
+                  id="blog-contact-form-phone"
+                  class="blog-contact-form-phone"
+                  pattern="[0-9]*"
+                  required
                 />
                 <span class="error-message" id="phone-error"></span>
               </div>
@@ -193,7 +199,10 @@
                   class="blog-contact-form-label"
                   >Write your own question</label
                 >
-                <textarea id="blog-contact-form-message" class="blog-contact-form-message"></textarea>
+                <textarea
+                  id="blog-contact-form-message"
+                  class="blog-contact-form-message"
+                ></textarea>
               </div>
               <button type="submit" class="blog-contact-form-btn">
                 Submit
@@ -204,16 +213,16 @@
             <h4 class="content-social-media-title">Social Media Links</h4>
             <div class="content-social-media-icons">
               <div class="content-social-media-icon" id="linkedin">
-                <img src="/static/images/blog_linkedin_icon.png" />
+                <img src="/static/images/blog_linkedin_icon.webp" />
               </div>
               <div class="content-social-media-icon" id="twitter">
-                <img src="/static/images/blog_twitter_icon.png" />
+                <img src="/static/images/blog_twitter_icon.webp" />
               </div>
               <div class="content-social-media-icon" id="facebook">
-                <img src="/static/images/blog_facebook_icon.png" />
+                <img src="/static/images/blog_facebook_icon.webp" />
               </div>
               <div class="content-social-media-icon" id="instagram">
-                <img src="/static/images/blog_instagram_icon.png" />
+                <img src="/static/images/blog_instagram_icon.webp" />
               </div>
             </div>
           </div>
@@ -223,7 +232,7 @@
 
     <section class="contact-section">
       <div class="contact-banner">
-        <img src="/static/images/contact_us_faq_background.png" />
+        <img src="/static/images/contact_us_faq_background.webp" />
         <div class="contact-banner-content">
           <h3>The Ultimate Guide to Choosing the Right Storage Unit</h3>
           <p>

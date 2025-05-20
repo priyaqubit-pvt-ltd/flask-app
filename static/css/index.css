@@ -3,6 +3,25 @@
   display: none;
 }
 
+/* Standard syntax */
+::selection {
+  background: #FFCC00; /* highlight color */
+  color: #000000;       /* text color */
+}
+
+/* Webkit (Safari, old Chrome) */
+::-webkit-selection {
+  background: #FFCC00;
+  color: #000000;
+}
+
+/* Mozilla (older Firefox versions, though modern ones use ::selection) */
+::-moz-selection {
+  background: #FFCC00;
+  color: #000000;
+}
+
+
 /* Hide scrollbar for IE, Edge, and Firefox */
 html {
   scrollbar-width: none; /* Firefox */
@@ -2748,8 +2767,9 @@ color: rgba(255, 255, 255, 0.8); font-size: 60px;margin-bottom: 35px; display: f
  color: rgba(255, 255, 255, 0.8); font-size: clamp(30px,4vw,60px);}
 
  .form-input-field{
+    padding: 0 5px;
     flex: 1;
-  height:50px;font-size:22px;background-color: transparent; border: none; border-bottom: 1px solid grey; width: auto;
+  height:50px;font-size:22px;background-color: transparent; border: none; border-bottom: 1px solid grey; width: auto;color: rgb(217, 217, 217);
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
