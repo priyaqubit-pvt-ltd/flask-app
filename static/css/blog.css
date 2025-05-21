@@ -258,6 +258,16 @@ body {
   text-align: center;
 }
 
+.form-failure-message {
+  background-color: #c38282;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: none;
+  text-align: center;
+}
+
 .content-social-media-title {
   color: #000;
   font-size: 20px;

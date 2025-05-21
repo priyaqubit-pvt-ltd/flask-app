@@ -59,7 +59,37 @@ def submit():
 
         return redirect(url_for('contact'))
 
+@app.route('/home-page-submit', methods=["POST"])
+def home_submit():
+    if request.method== "POST":
+        print(request.form)  # Debug: Print form data
+        user_name = request.form.get('name')
+        user_email = request.form.get('email')
+        user_message = request.form.get('question')
+        user_location = request.form.get('location')
+        
+        print(user_name)
+        # ✅ Validate Form Data
+        if not user_name or not user_email or not user_message or not user_location:
+            return "All fields are required!", 400  # Bad Request
 
+        
+        # Send email to the client
+        client_email =app.config['MAIL_USERNAME']   # Replace with the website's client email
+        subject = f"New Request from {user_name}"
+        body = f"Name: {user_name}\nEmail: {user_email}\nMessage: {user_message}\nlocation: {user_location}"
+
+        try:
+            msg = Message(subject, recipients=[client_email], body=body,sender=user_email)
+            mail.send(msg)
+            flash("Your form has been submitted successfully!", "success") 
+
+        except Exception as e:
+            
+            print(f"Error: {e}")
+            flash("Email sending failed!", "error") 
+
+        return redirect(url_for('index'))
 
 @app.route('/contact-popup-submit', methods=["POST"])
 def submit2():
@@ -94,8 +124,8 @@ def submit2():
 
         return redirect(url_for('index'))
     
-@app.route('/blog-page-submit', methods=["POST"])
-def blog_page():
+@app.route('/blog-faq-page-submit', methods=["POST"])
+def blog_faq_page():
     if request.method== "POST":
         print(request.form)  # Debug: Print form data
         user_name = request.form.get('name')
@@ -106,8 +136,7 @@ def blog_page():
         print(user_name)
         # ✅ Validate Form Data
         if not user_name or not user_email or not user_contact or not user_question:
-            flash("All fields are required!", "error")
-            return redirect(url_for('blog'))  # Bad Request
+            return "All fields are required!", 400  # Bad Request
  
        
         # Send email to the client
@@ -118,47 +147,14 @@ def blog_page():
         try:
             msg = Message(subject, recipients=[client_email], body=body,sender=user_email)
             mail.send(msg)
-            flash("Your form has been submitted successfully!", "success")
+            return "Your form has been submitted successfully!", 200
  
         except Exception as e:
            
             print(f"Error: {e}")
             flash("Email sending failed!", "error")
  
-        return redirect(url_for('blog'))
-    
-@app.route('/faq-page-submit', methods=["POST"])
-def faq_page():
-    if request.method== "POST":
-        print(request.form)  # Debug: Print form data
-        user_name = request.form.get('fullName')
-        user_email = request.form.get('email')
-        user_contact = request.form.get('phone')
-        user_question = request.form.get('question')
-       
-        print(user_name)
-        # ✅ Validate Form Data
-        if not user_name or not user_email or not user_contact or not user_question:
-            flash("All fields are required!", "error")
-            return redirect(url_for('blog'))  # Bad Request
- 
-       
-        # Send email to the client
-        client_email =app.config['MAIL_USERNAME']   # Replace with the website's client email
-        subject = f"New Request from {user_name}"
-        body = f"Name: {user_name}\nEmail: {user_email}\nContact: {user_contact}\nQuestion: {user_question}"
- 
-        try:
-            msg = Message(subject, recipients=["client_email"], body=body,sender=user_email)
-            mail.send(msg)
-            flash("Your form has been submitted successfully!", "success")
- 
-        except Exception as e:
-           
-            print(f"Error: {e}")
-            flash("Email sending failed!", "error")
- 
-        return redirect(url_for('faq'))
+        return "Error", 400
 
 @app.route("/storage/self-storage")
 def self():
