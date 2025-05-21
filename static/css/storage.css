@@ -239,6 +239,9 @@ body {
   .hero-description {
     font-size: 18px;
   }
+  .hero-title {
+    line-height: 70px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -248,6 +251,7 @@ body {
   }
   .hero-title {
     font-size: 42px;
+    line-height: 60px;
   }
 }
 
@@ -1333,7 +1337,7 @@ body {
   width: 90%;
   max-width: 1530px;
   height: 495px;
-  background-image: url("/static/images/contact_us_faq_background.png");
+  background-image: url("/static/images/contact_us_faq_background.webp");
   background-size: cover;
   background-position: center;
   border-radius: 8px;
