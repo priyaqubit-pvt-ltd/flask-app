@@ -246,29 +246,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Form Submission
-    if (faqForm) {
-        faqForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(faqForm);
-            const formDataObj = {};
-            
-            formData.forEach((value, key) => {
-                formDataObj[key] = value;
-            });
-            
-            // Here you would typically send the data to your backend
-            console.log('Form submitted with data:', formDataObj);
-            
-            // For demonstration purposes, show success message
-            alert('Your question has been submitted successfully!');
-            
-            // Reset form
-            faqForm.reset();
-        });
-    }
     
     // Ensure proper resizing of content when window is resized
     window.addEventListener('resize', function() {

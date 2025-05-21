@@ -93,6 +93,72 @@ def submit2():
             flash("Email sending failed!", "error") 
 
         return redirect(url_for('index'))
+    
+@app.route('/blog-page-submit', methods=["POST"])
+def blog_page():
+    if request.method== "POST":
+        print(request.form)  # Debug: Print form data
+        user_name = request.form.get('name')
+        user_email = request.form.get('email')
+        user_contact = request.form.get('contact_number')
+        user_question = request.form.get('question')
+       
+        print(user_name)
+        # ✅ Validate Form Data
+        if not user_name or not user_email or not user_contact or not user_question:
+            flash("All fields are required!", "error")
+            return redirect(url_for('blog'))  # Bad Request
+ 
+       
+        # Send email to the client
+        client_email =app.config['MAIL_USERNAME']   # Replace with the website's client email
+        subject = f"New Request from {user_name}"
+        body = f"Name: {user_name}\nEmail: {user_email}\nContact: {user_contact}\nQuestion: {user_question}"
+ 
+        try:
+            msg = Message(subject, recipients=[client_email], body=body,sender=user_email)
+            mail.send(msg)
+            flash("Your form has been submitted successfully!", "success")
+ 
+        except Exception as e:
+           
+            print(f"Error: {e}")
+            flash("Email sending failed!", "error")
+ 
+        return redirect(url_for('blog'))
+    
+@app.route('/faq-page-submit', methods=["POST"])
+def faq_page():
+    if request.method== "POST":
+        print(request.form)  # Debug: Print form data
+        user_name = request.form.get('fullName')
+        user_email = request.form.get('email')
+        user_contact = request.form.get('phone')
+        user_question = request.form.get('question')
+       
+        print(user_name)
+        # ✅ Validate Form Data
+        if not user_name or not user_email or not user_contact or not user_question:
+            flash("All fields are required!", "error")
+            return redirect(url_for('blog'))  # Bad Request
+ 
+       
+        # Send email to the client
+        client_email =app.config['MAIL_USERNAME']   # Replace with the website's client email
+        subject = f"New Request from {user_name}"
+        body = f"Name: {user_name}\nEmail: {user_email}\nContact: {user_contact}\nQuestion: {user_question}"
+ 
+        try:
+            msg = Message(subject, recipients=["client_email"], body=body,sender=user_email)
+            mail.send(msg)
+            flash("Your form has been submitted successfully!", "success")
+ 
+        except Exception as e:
+           
+            print(f"Error: {e}")
+            flash("Email sending failed!", "error")
+ 
+        return redirect(url_for('faq'))
 
 @app.route("/storage/self-storage")
 def self():

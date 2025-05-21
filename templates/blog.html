@@ -147,7 +147,7 @@
             <div id="form-success-message" class="form-success-message">
               Thank you! Your message has been submitted successfully.
             </div>
-            <form id="blog-contact-form" class="blog-contact-form">
+            <form id="blog-contact-form" class="blog-contact-form" action="/blog-page-submit" method="post">
               <div class="blog-contact-form-top-row">
                 <div class="blog-contact-form-input" id="name">
                   <label
@@ -159,6 +159,7 @@
                     type="text"
                     id="blog-contact-form-name"
                     class="blog-contact-form-name"
+                    name="name"
                     required
                   />
                   <span class="error-message" id="name-error"></span>
@@ -173,6 +174,7 @@
                     type="email"
                     id="blog-contact-form-email"
                     class="blog-contact-form-email"
+                    name="email"
                     required
                   />
                   <span class="error-message" id="email-error"></span>
@@ -189,6 +191,7 @@
                   id="blog-contact-form-phone"
                   class="blog-contact-form-phone"
                   pattern="[0-9]*"
+                  name="contact_number"
                   required
                 />
                 <span class="error-message" id="phone-error"></span>
@@ -200,6 +203,7 @@
                   >Write your own question</label
                 >
                 <textarea
+                  name="question"
                   id="blog-contact-form-message"
                   class="blog-contact-form-message"
                 ></textarea>

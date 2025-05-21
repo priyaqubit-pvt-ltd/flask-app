@@ -93,7 +93,6 @@ function setupFormValidation() {
     
     // Form submission
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
         
         // Validate all fields
         let isValid = true;
@@ -118,13 +117,14 @@ function setupFormValidation() {
             // Show success message
             successMessage.style.display = 'block';
             
-            // Reset form
-            form.reset();
-            
             // Hide success message after 5 seconds
             setTimeout(function() {
                 successMessage.style.display = 'none';
             }, 5000);
         }
+
+        else {
+        e.preventDefault();
+    }
     });
 }
