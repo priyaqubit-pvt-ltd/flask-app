@@ -9,376 +9,425 @@ html {
   -ms-overflow-style: none; /* IE and Edge */
 }
 
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-     font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-    background-color: white;
-     overscroll-behavior-y: none;
-
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  background-color: white;
+  overscroll-behavior-y: none;
 }
 
 /* Hero Section Styles */
 .hero-section {
-    position: fixed;
-    width: 100%;
-    /* height: 100vh; */
-    /* min-height: 1000px; */
-    /* overflow: hidden; */
-    background-color: #f6f6f6;
-    padding-bottom: 50px;
-    padding-top: 100px;
-    display: flex;
+  position: fixed;
+  width: 100%;
+  /* height: 100vh; */
+  /* min-height: 1000px; */
+  /* overflow: hidden; */
+  background-color: #f6f6f6;
+  padding-bottom: 50px;
+  padding-top: 100px;
+  display: flex;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    padding-top: 50px;
-    padding-left: 100px;
+  position: relative;
+  z-index: 4; /* Increased z-index to ensure text appears above image */
+  padding-top: 50px;
+  padding-left: 100px;
 }
 
 .hero-heading {
-    width: 953px;
-    height: 315px;
-    font-weight: 600;
-    font-size: 110px ;
-    line-height: 110px;
-    letter-spacing: 0;
-    margin: 0;
-    color: #000;
+  width: 953px;
+  height: 315px;
+  font-weight: 600;
+  font-size: 110px;
+  line-height: 110px;
+  letter-spacing: 0;
+  margin: 0;
+  color: #000;
 }
 
-.heading-line{
-    height: 120px;
-    white-space: nowrap;
-    overflow: hidden;
+.heading-line {
+  height: 120px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.hero-heading span{
-    transform: translateY(-100%);
-    display: inline-block;
-    transition: all 0.5s ease-out;
+.hero-heading span {
+  transform: translateY(-100%);
+  display: inline-block;
+  transition: all 0.5s ease-out;
 }
 
-.hero-heading span.show{
-    transform: translateY(0);
+.hero-heading span.show {
+  transform: translateY(0);
 }
 
 .hero-heading .highlight {
-    color: #b0b0b0;
+  color: #b0b0b0;
 }
 
 .hero-paragraph {
-    width: 748px;
-    height: 128px;
-    margin-top: 45px;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 32px;
-    letter-spacing: 0;
-    color: rgba(0, 0, 0, 1);
+  width: 748px;
+  height: 128px;
+  margin-top: 45px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 0;
+  color: rgba(0, 0, 0, 1);
 }
 
 .book-now-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 214px;
-    height: 73px;
-    margin-top: 56px;
-    background-color: #000000;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 100%;
-    letter-spacing: 0;
-    color: rgba(255, 255, 255, 1);
-    transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 214px;
+  height: 73px;
+  margin-top: 56px;
+  background-color: #000000;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 1);
+  transition: transform 0.3s ease;
 }
 
 .book-now-btn:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
-
 
 /* Vector lines with SVG */
 .vector-lines {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 120%;
-    z-index: 1;
-    overflow: visible;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+  overflow: visible;
 }
 
 .vector-lines svg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .line {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: drawLine 2s forwards, gradientMove 10s infinite linear;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 2s forwards, gradientMove 10s infinite linear;
 }
 
 .line-1 {
-    animation-delay: 0s, 2s;
+  animation-delay: 0s, 2s;
 }
 
 .line-2 {
-    animation-delay: .2s, 2.2s;
+  animation-delay: .2s, 2.2s;
 }
 
 .line-3 {
-    animation-delay: .4s, 2.4s;
+  animation-delay: .4s, 2.4s;
 }
 
 .line-4 {
-    animation-delay: .6s, 2.6s;
+  animation-delay: .6s, 2.6s;
+   height: 120%;
 }
 
 .line-5 {
-    animation-delay: .8s, 2.8s;
+  animation-delay: .8s, 2.8s;
 }
 
 @keyframes drawLine {
-    to {
-        stroke-dashoffset: 0;
-    }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes gradientMove {
-    0% {
-        stroke: rgba(255, 180, 0, 0.4);
-    }
-    25% {
-        stroke: rgba(0, 128, 0, 0.2);
-    }
-    50% {
-        stroke: rgba(75, 0, 130, 0.2);
-    }
-    75% {
-        stroke: rgba(255, 0, 0, 0.2);
-    }
-    100% {
-        stroke: rgba(255, 165, 0, 0.2);
-    }
+  0% {
+    stroke: rgba(255, 180, 0, 0.4);
+  }
+  25% {
+    stroke: rgba(0, 128, 0, 0.2);
+  }
+  50% {
+    stroke: rgba(75, 0, 130, 0.2);
+  }
+  75% {
+    stroke: rgba(255, 0, 0, 0.2);
+  }
+  100% {
+    stroke: rgba(255, 165, 0, 0.2);
+  }
 }
 
 /* Fixed hero image positioning */
 .hero-image {
-    position: absolute;
-    top: 99px;
-    right: -15px;
-    width: 60%;
-    /* height: 100%; */
-    z-index: 3;
-    /* transform: translateX(5%);*/
+  position: absolute;
+  top: 99px;
+  right: -15px;
+  width: 60%;
+  /* height: 100%; */
+  z-index: 3;
+  /* transform: translateX(5%);*/
 }
 
 .hero-image img {
-    width: 100%;
-    height: 100%;
-    /* object-fit: contain; */
-    /* transform: rotate(360deg); */
+  width: 100%;
+  height: 100%;
+  /* object-fit: contain; */
+  /* transform: rotate(360deg); */
 }
 
-.hero-image-up{
-    transform: translate(50%,-50%);
-    transition: all 2.5s ease-in;
+.hero-image-up {
+  transform: translate(50%, -50%);
+  transition: all 2.5s ease-in;
 }
 
-.hero-image-down{
-    transform: translate(-50%,50%);
-     transition: all 2.3s ease-out;
+.hero-image-down {
+  transform: translate(-50%, 50%);
+  transition: all 2.3s ease-out;
 }
 
-.hero-image-up.show, .hero-image-down.show{
-    transform: translate(0,0);
+.hero-image-up.show,
+.hero-image-down.show {
+  transform: translate(0, 0);
 }
 
-.block-2{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: black; /* changed to black to fix white line issue */
+.block-2 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: black; /* changed to black to fix white line issue */
 }
 
 /* Pricing Section Styles */
 .pricing-section {
-    position: relative;
-    top: 0;
-    width: 100%;
-    min-height: 100vh;
-    background-color: black;
-    overflow: hidden;
+  position: relative;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .pricing-container {
-    position: relative;
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .priority-text {
-    position: relative;
-    width: auto;
-    max-width: 301px;
-    margin-top: 129px;
-    margin-left: 189px;
-    font-family: 'Georgia';
-    font-weight: 400;
-    font-style: italic;
-    font-size: 26px;
-    line-height: 100%;
-    letter-spacing: 0;
-    color: rgba(255, 255, 255, 1);
+  position: relative;
+  width: auto;
+  max-width: 301px;
+  margin-top: 129px;
+  margin-left: 189px;
+  font-family: "Georgia";
+  font-weight: 400;
+  font-style: italic;
+  font-size: 26px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 1);
 }
 
 .horizontal-line {
-    position: relative;
-    width: calc(100% - 378px);
-    max-width: 1540px;
-    height: 1px;
-    margin-top: 24px;
-    margin-left: 189px;
-    border-top: 1px solid rgba(255, 222, 89, 1);
+  position: relative;
+  width: calc(100% - 378px);
+  max-width: 1540px;
+  height: 1px;
+  margin-top: 24px;
+  margin-left: 189px;
+  border-top: 1px solid rgba(255, 222, 89, 1);
 }
 
 .pricing-content {
-    position: relative;
-    width: calc(100% - 378px);
-    max-width: 1426px;
-    margin-top: 73px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: calc(100% - 378px);
+  max-width: 1426px;
+  margin-top: 73px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pricing-text-container {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .pricing-text {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 70px;
-    line-height: 100%;
-    letter-spacing: 0;
-    text-align: center;
-    color: #88888880;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    margin-bottom: 10px;
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #88888880;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  margin-bottom: 10px;
 }
 
 .pricing-text.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .pricing-text span.filled {
-    color: #ffffff;
+  color: #ffffff;
 }
 
-/* Responsive styles for iPhone 14 Pro Max and smaller screens */
+.pricing-text .white-text {
+  color: #ffffff;
+}
+
+.pricing-text .gray-text {
+  color: #88888880;
+}
+
+/* Mobile responsive styles */
 @media (max-width: 932px) {
-    .hero-content {
-        padding-left: 20px;
-        padding-top: 30px;
-        width: 100%;
-    }
+  .pricing-section {
+    min-height: auto; /* Remove min-height for mobile */
+  }
 
-    .hero-heading {
-        width: 100%;
-        height: auto;
-        font-size: 60px;
-        line-height: 65px;
-    }
+  .pricing-container {
+    height: auto; /* Remove fixed height for mobile */
+    padding-bottom: 40px; /* Add some padding at the bottom */
+  }
 
-    .heading-line {
-        height: 70px;
-        margin-bottom: 5px;
-    }
+  .priority-text {
+    margin-top: 60px;
+    margin-left: 20px;
+    font-size: 22px;
+  }
 
-    .hero-paragraph {
-        width: 90%;
-        height: auto;
-        font-size: 16px;
-        line-height: 24px;
-        margin-top: 20px;
-    }
+  .horizontal-line {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-top: 15px;
+  }
 
-    .book-now-btn {
-        width: 180px;
-        height: 60px;
-        font-size: 18px;
-        margin-top: 30px;
-    }
+  .pricing-content {
+    width: calc(100% - 40px);
+    margin-top: 40px;
+  }
 
-    .hero-image {
-        width: 70%;
-        top: auto;
-        bottom: 0;
-        right: -10px;
-    }
+  .pricing-text {
+    font-size: 36px;
+    margin-bottom: 5px;
+  }
 }
 
-/* Additional fixes for iPhone 14 Pro Max specifically */
-@media (min-width: 430px) and (max-width: 932px) {
-    .hero-heading {
-        font-size: 50px;
-        line-height: 55px;
-    }
+/* iPhone XR, 12 Pro, 14 Pro Max specific fixes */
+@media (min-width: 375px) and (max-width: 428px) {
+  .pricing-container {
+    padding-bottom: 30px;
+  }
 
-    .heading-line {
-        height: 60px;
-    }
+  .pricing-text {
+    font-size: 32px;
+  }
 }
 
-/* Smaller phones */
-@media (max-width: 429px) {
-    .hero-heading {
-        font-size: 40px;
-        line-height: 45px;
-    }
+/* Pixel 7, S20 Ultra specific fixes */
+@media (min-width: 360px) and (max-width: 412px) {
+  .pricing-container {
+    padding-bottom: 30px;
+  }
 
-    .heading-line {
-        height: 50px;
-    }
+  .pricing-text {
+    font-size: 30px;
+  }
+}
 
-    .hero-paragraph {
-        font-size: 14px;
-        line-height: 20px;
-    }
+/* Fold 5 specific fixes */
+@media (max-width: 359px) {
+  .pricing-container {
+    padding-bottom: 25px;
+  }
 
-    .book-now-btn {
-        width: 150px;
-        height: 50px;
-        font-size: 16px;
-    }
+  .pricing-text {
+    font-size: 26px;
+  }
+}
 
-    .hero-image {
-        width: 80%;
-    }
+/* A51/71 specific fixes */
+@media (min-width: 412px) and (max-width: 450px) {
+  .pricing-container {
+    padding-bottom: 30px;
+  }
+}
+
+/* Tablet devices (iPad mini/air/pro, Surface Pro) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pricing-section {
+    min-height: auto;
+  }
+
+  .pricing-container {
+    height: auto;
+    padding-bottom: 60px;
+  }
+
+  .priority-text {
+    margin-top: 80px;
+    margin-left: 40px;
+  }
+
+  .horizontal-line {
+    width: calc(100% - 80px);
+    margin-left: 40px;
+  }
+
+  .pricing-content {
+    width: calc(100% - 80px);
+    margin-top: 50px;
+  }
+
+  .pricing-text {
+    font-size: 50px;
+  }
+}
+
+/* Larger devices (Surface Duo, Asus Zenbook Fold, Nest Hub/Max) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .pricing-container {
+    padding-bottom: 0; /* Keep original desktop layout */
+  }
+
+  .priority-text {
+    margin-left: 100px;
+  }
+
+  .horizontal-line {
+    width: calc(100% - 200px);
+    margin-left: 100px;
+  }
 }
 
 /* Storage Section Styles */
@@ -404,7 +453,7 @@ html, body {
 }
 
 .lozy_storage_main_heading {
-     font-family: 'Inter', sans-serif;
+     font-family: 'Inter';
     font-weight: 600;
     font-size: 70px;
     line-height: 75px;
@@ -414,7 +463,7 @@ html, body {
 }
 
 .lozy_storage_heading_light {
-     font-family: 'Inter', sans-serif;
+     font-family: 'Inter';
     font-weight: 600;
     font-size: 70px;
     line-height: 75px;
@@ -488,7 +537,7 @@ html, body {
 }
 
 .lozy_storage_card_heading {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     font-weight: 600;
     font-size: 40px;
     line-height: 100%;
@@ -501,7 +550,7 @@ html, body {
 }
 
 .lozy_storage_card_heading_dark {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     font-weight: 600;
     font-size: 30px;
     line-height: 100%;
@@ -1150,7 +1199,6 @@ html, body {
     }
 }
 
-
 /* Why Choose Lozy section */
 .lazy-container {
   padding: 5%;
@@ -1187,7 +1235,7 @@ html, body {
   font-weight: 500;
   margin-bottom: 30px;
   color: #fff;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia;
 }
 
 .feature-divider {
@@ -1226,8 +1274,8 @@ html, body {
   z-index: 2;
   color: white;
   font-size: 60px;
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 500;
+  line-height: 0.9;
   margin-top: 70px;
   max-width: 600px;
   margin-left: 16%;
@@ -1437,6 +1485,65 @@ html, body {
   }
 }
 
+/* Fix for iPhone SE (375x667) */
+@media (min-width: 374px) and (max-width: 376px) {
+  .why-choose-section {
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px; /* Add more space after the heading */
+  }
+  
+  .section-title {
+    margin-bottom: 15px;
+  }
+  
+  .content-wrapper {
+    padding-top: 30px; /* Add more space before the content */
+  }
+  
+  .lazy-left-content h3 {
+    position: relative;
+    top: auto;
+    margin-top: 100px; /* Increase top margin to prevent overlap */
+    font-size: 24px;
+    line-height: 1.3;
+  }
+  
+  .lazy-left-content {
+    min-height: 350px;
+  }
+  
+  .lazy-left-content img {
+    top: 40%;
+    height: 300px;
+  }
+  
+  .feature-grid {
+    row-gap: 10px;
+    height: auto;
+    margin-top: 20px;
+  }
+  
+  .feature-box-outer {
+    min-height: 90px;
+  }
+  
+  .feature-box {
+    min-height: 90px;
+    padding: 10px;
+  }
+  
+  .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  .feature-text p {
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 480px) {
   .lazy-left-content h3 {
     position: absolute;
@@ -1453,21 +1560,39 @@ html, body {
     height: 350px;
     object-fit: contain;
   }
+  
+  /* Override for iPhone SE to prevent overlap */
+  @media (min-width: 374px) and (max-width: 376px) {
+    .lazy-left-content h3 {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      margin-top: 70px;
+      margin-left: 16%;
+      font-size: 24px;
+      width: auto;
+    }
+  }
 }
 
 
 
 
 
+
+
+
+
+
  /* Blog Section Styles */
-/* Blog Section Styles */
 .blog-section {
-    padding: 40px 0;
+    padding: 80px 0;
     background-color: #ffffff;
     position: relative;
     overflow: hidden;
     width: 100%;
-    /* margin-top: 30px; */
+    /* margin-top: 60px; */
 }
 
 .blog-container {
@@ -1560,7 +1685,7 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease; /* Increased transition duration for smoother effect */
 }
 
 .default-image {
@@ -1652,8 +1777,6 @@ html, body {
         height: 250px;
     }
 }
-
-
 
 
 
@@ -2299,7 +2422,7 @@ html, body {
 }
 
 .about-paragraph {
-     font-family: 'Inter', sans-serif;
+     font-family: 'Inter';
     font-weight: 400;
     font-size: 24px;
     line-height: 32px;
@@ -2708,7 +2831,7 @@ html, body {
   }
 
   .call-us{
-    color: rgba(255, 255, 255, 1);position: absolute; right: 40px;top: 40px;
+    color: rgba(255, 255, 255, 1);position: absolute; right: 70px;top: 40px;
   }
 
   .hello-form-text{

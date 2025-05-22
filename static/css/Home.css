@@ -1,3 +1,16 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+/* Animation styles */
 .animation_wrapper {
   width: 100%;
   height: 100vh;
@@ -5,91 +18,133 @@
   top: 0;
   left: 0;
   z-index: 9999;
+  background-color: #fff; /* Added background color to ensure visibility */
 }
-.animation_wrapper.animate {
-  background-color: #fff;
-}
+
 .lower-curtain,
 .upper-curtain {
   width: 100%;
   height: 51vh;
   background-color: #000;
   position: absolute;
+  z-index: 10; /* Added z-index to ensure curtains are above content */
 }
+
 .upper-curtain {
   top: 0;
   left: 0;
 }
+
 .lower-curtain {
   bottom: 0;
   left: 0;
 }
+
 .upper-curtain.animate {
   transform: translateY(-100%);
   transition: transform 6.5s ease-out;
 }
+
 .lower-curtain.animate {
   transform: translateY(100%);
   transition: transform 6.5s ease-out;
 }
+
 .animation_container {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  z-index: 5; /* Ensure content is below curtains but above background */
 }
+
 .animation_content {
-  text-align: left;
-  height: 100px;
+  text-align: center;
   width: 100%;
-  overflow: hidden;
+  max-width: 800px; /* Added max-width for better control */
+  position: relative;
+  padding: 0 20px; /* Added padding for mobile */
 }
+
 .animation_title {
-  font-size: 4rem;
+  font-size: 7rem;
   font-weight: 700;
-  overflow: hidden;
   margin: 0;
   line-height: 1.2;
   color: #000;
   width: 100%;
+  position: relative;
+  height: 300px; /* Fixed height to prevent layout shifts */
 }
+
 .animation_line {
-  overflow: hidden;
   position: absolute;
-  width: 55%;
+  width: 100%; /* Changed from 55% to 100% for better centering */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
+  height: 130px; /* Fixed height for each line */
+  display: flex;
+  justify-content: center; /* Center the characters */
+  overflow: visible; /* Changed from hidden to visible */
 }
+
+/* Position each line vertically */
+.animation_line:nth-child(1) {
+  top: 25%;
+}
+
+.animation_line:nth-child(2) {
+  top: 50%;
+}
+
+.animation_line:nth-child(3) {
+  top: 75%;
+}
+
 .animation_char {
   display: inline-block;
-  font-size: 8rem;
+  font-size: 5rem; /* Reduced from 8rem for better visibility */
   transform: translateY(100%);
   transition: transform 0.8s ease;
   color: #000;
   margin: 0;
-  font-weight: 600;
-  letter-spacing: -19px;
+  font-weight: 700;
+  letter-spacing: -5px; /* Reduced from -19px */
+  opacity: 0; /* Start with opacity 0 */
+  transition: transform 0.8s ease, opacity 0.8s ease; /* Added opacity transition */
 }
+
 .animation_char.visible {
   transform: translateY(0);
+  opacity: 1; /* Fade in when visible */
 }
+
 .animation_char.invisible {
   transform: translateY(-105%);
+  opacity: 0; /* Fade out when invisible */
 }
+
 .animation_button_container {
   display: none;
   margin-top: 2rem;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  text-align: center;
+  position: relative;
+  z-index: 20; /* Ensure button is above everything */
 }
+
 .animation_button_container.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 .animation_button {
   display: inline-block;
   padding: 15px 30px;
@@ -101,28 +156,45 @@
   font-weight: 600;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .animation_button:hover {
   background-color: #000;
   color: #fff;
 }
+
 @media screen and (max-width: 768px) {
   .animation_title {
     font-size: 3rem;
+    height: 250px; /* Adjusted height for mobile */
   }
+
   .animation_char {
-    font-size: 4rem;
-    letter-spacing: -4px;
+    font-size: 3.5rem; /* Further reduced for mobile */
+    letter-spacing: -2px;
   }
+
   .animation_line {
-    width: 70%;
+    height: 80px; /* Adjusted height for mobile */
   }
 }
+
 @media screen and (max-width: 480px) {
   .animation_title {
     font-size: 2rem;
+    height: 200px; /* Adjusted height for small mobile */
   }
+
+  .animation_char {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+  }
+
   .animation_button {
     padding: 12px 24px;
     font-size: 1rem;
+  }
+
+  .animation_line {
+    height: 60px; /* Adjusted height for small mobile */
   }
 }

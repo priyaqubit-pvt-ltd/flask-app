@@ -45,7 +45,7 @@
 .contact-us h3 {
   width: 141px;
   height: 31px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 26px;
   line-height: 100%;
@@ -57,7 +57,7 @@
 .contact-us .address {
   width: 289px;
   height: 66px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 22px;
@@ -82,7 +82,7 @@
 }
 
 .bold-text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 800;
   font-size: 21px;
   line-height: 22px;
@@ -102,7 +102,7 @@
 }
 
 .regular-text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 22px;
@@ -133,7 +133,7 @@
 .quick-links h3 {
   width: 145px;
   height: 31px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 26px;
   line-height: 100%;
@@ -153,7 +153,7 @@
 }
 
 .quick-links a {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 21px;
   line-height: 100%;
@@ -173,7 +173,7 @@
 .policies h3 {
   width: 97px;
   height: 31px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 26px;
   line-height: 100%;
@@ -193,7 +193,7 @@
 }
 
 .policies a {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter";
   font-weight: 400;
   font-size: 21px;
   line-height: 100%;
@@ -213,7 +213,7 @@
 .corporate-address h3 {
   width: 290px;
   height: 31px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter";
   font-weight: 500;
   font-size: 26px;
   line-height: 100%;
@@ -223,21 +223,23 @@
 }
 
 .corporate-address .address {
-  width: 266px;
-  height: 66px;
-  font-family: 'Inter', sans-serif;
+  width: 400px; /* Increased from 270px to 290px to fit "Delhi" completely */
+  height: auto; /* Changed from fixed height to auto */
+  font-family: "Inter";
   font-weight: 400;
   font-size: 21px;
   line-height: 22px;
   letter-spacing: 0;
   color: #f2f2f2;
   margin-top: 30px;
+  overflow: visible; /* Ensure text doesn't get cut off */
+  white-space: normal; /* Allow text to wrap if needed */
 }
 
 .corporate-address .company-name {
   width: 195px;
   height: 22px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter";
   font-weight: 500;
   font-size: 21px;
   line-height: 22px;
@@ -246,14 +248,14 @@
   margin-top: 15px;
 }
 
-.footer-social-links{
+.footer-social-links {
   margin-top: 40px;
 }
 
 .social-heading {
   width: 232px;
   height: 31px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter";
   font-weight: 500;
   font-size: 26px;
   line-height: 100%;
@@ -275,16 +277,16 @@
   height: 370px;
   /* position: relative;
   top: 50px; */
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to visible to prevent text cutoff */
   margin: 0 auto;
   text-align: center;
   clear: both; /* Add this to ensure it appears below all columns */
 }
 
-.lozy-text span{
+.lozy-text span {
   font-family: "Georgia";
   font-weight: 700;
-  font-size:  350px;
+  font-size: 350px;
   line-height: 100%;
   color: #ffffff;
   margin: 0;
@@ -293,7 +295,7 @@
   transition: all 1.5s ease-out;
 }
 
-.lozy-text span.show{
+.lozy-text span.show {
   transform: translateY(0);
 }
 
@@ -306,7 +308,7 @@
 }
 
 .copyright {
-  width: 395px;
+  width: 495px;
   height: 24px;
   margin: 0 auto;
   text-align: center;
@@ -314,7 +316,7 @@
 }
 
 .copyright p {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter";
   font-weight: 400;
   font-size: 20px;
   line-height: 100%;
@@ -343,12 +345,20 @@
 
   .lozy-text {
     width: 100%;
+    height: auto; /* Changed from fixed height to auto */
     /* margin-top: 30px; */
   }
 
   .lozy-text h1 {
     font-size: 200px;
-    letter-spacing: -30px;
+    letter-spacing: -10px; /* Reduced from -30px to -10px */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .lozy-text span {
+    font-size: 200px; /* Reduced from 350px */
   }
 
   .footer-divider {
@@ -398,18 +408,24 @@
     margin: 0 auto;
   }
 
-  .lozy-text{
+  .lozy-text {
     margin: 20px 0;
-    height: 170px;
+    height: auto; /* Changed from fixed height to auto */
+    overflow: visible; /* Ensure text isn't cut off */
+    width: 100%;
   }
 
   .lozy-text h1 {
     font-size: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    letter-spacing: normal;
   }
 
-  .lozy-text span{
-    font-size: 150px;
-    letter-spacing: 10px;
+  .lozy-text span {
+    font-size: 120px; /* Changed from 150px to 120px */
+    letter-spacing: 0; /* Remove letter spacing on mobile */
   }
 
   .copyright {
@@ -421,19 +437,20 @@
   }
 }
 
-/* Fix for iPhone SE specifically */
+/* Fix for iPhone SE and other small devices */
 @media (min-width: 320px) and (max-width: 375px) {
   .lozy-text {
     width: 100%;
-    height: 120px;
+    height: auto;
     overflow: visible;
+    padding: 0 10px;
   }
-  
+
   .lozy-text span {
-    font-size: 100px;
+    font-size: 80px; /* Reduced from 100px */
     letter-spacing: 0;
   }
-  
+
   .lozy-text h1 {
     width: 100%;
     display: flex;
@@ -442,23 +459,124 @@
   }
 }
 
-/* Fix for iPhone 12 Pro specifically */
+/* Fix for iPhone 12 Pro and similar sized devices */
 @media (min-width: 376px) and (max-width: 390px) {
   .lozy-text {
     width: 100%;
-    height: 140px;
+    height: auto;
     overflow: visible;
+    padding: 0 10px;
   }
-  
+
   .lozy-text span {
-    font-size: 120px;
+    font-size: 90px; /* Reduced from 120px */
     letter-spacing: 0;
   }
-  
+
   .lozy-text h1 {
     width: 100%;
     display: flex;
     justify-content: center;
     letter-spacing: normal;
+  }
+}
+
+/* Fix for iPhone XR, 12pro, 14pro max, etc. */
+@media (min-width: 391px) and (max-width: 428px) {
+  .lozy-text {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    padding: 0 10px;
+  }
+
+  .lozy-text span {
+    font-size: 100px;
+    letter-spacing: 0;
+  }
+
+  .lozy-text h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    letter-spacing: normal;
+  }
+}
+
+/* Fix for larger phones and small tablets */
+@media (min-width: 429px) and (max-width: 767px) {
+  .lozy-text {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .lozy-text span {
+    font-size: 110px;
+    letter-spacing: 0;
+  }
+
+  .lozy-text h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    letter-spacing: normal;
+  }
+}
+
+/* Fix for iPad and similar tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .lozy-text {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .lozy-text span {
+    font-size: 180px;
+    letter-spacing: 0;
+  }
+
+  .lozy-text h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    letter-spacing: normal;
+  }
+}
+
+/* Fix for Samsung Galaxy S8+, S20 Ultra, Z Fold 5 */
+@media (min-width: 360px) and (max-width: 375px) {
+  .lozy-text {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .lozy-text span {
+    font-size: 85px;
+    letter-spacing: 0;
+  }
+}
+
+/* Fix for Samsung Galaxy A51/71 */
+@media (width: 412px) {
+  .lozy-text {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .lozy-text span {
+    font-size: 95px;
+    letter-spacing: 0;
+  }
+}
+
+/* Fix for footer divider on all screen sizes */
+@media (max-width: 1536px) {
+  .footer-divider {
+    width: 95%;
+    max-width: 1536px;
   }
 }
