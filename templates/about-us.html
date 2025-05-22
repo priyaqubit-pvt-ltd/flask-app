@@ -30,7 +30,7 @@
     />
     <meta
       property="og:description"
-      content="Learn about Lozy’s modern, secure, and flexible storage solutions for businesses and individuals. From self-storage to enterprise warehousing, we've got you covered."
+      content="Learn about Lozy's modern, secure, and flexible storage solutions for businesses and individuals. From self-storage to enterprise warehousing, we've got you covered."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lozy.in/about-us" />
@@ -45,6 +45,109 @@
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
     />
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Lozy",
+      "url": "https://lozy.in",
+      "logo": "https://lozy.in/static/images/logo.webp",
+      "description": "Lozy provides modern, secure, and flexible storage solutions for businesses and individuals. From self-storage to enterprise warehousing, we offer tailored storage options.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "India"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91 89 0003 0004",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.facebook.com/lozy",
+        "https://www.instagram.com/lozy",
+        "https://www.linkedin.com/company/lozy"
+      ]
+    }
+    </script>
+    
+    <!-- About Page Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Lozy",
+        "description": "Lozy delivers modern self storage solutions that adapt to the evolving demands of both individuals and businesses. From compact storage units for personal belongings to large-scale warehousing for commercial inventory, we offer flexible and scalable options tailored to your needs.",
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "value": "100+"
+        },
+        "slogan": "Built to Store. Ready to Scale",
+        "knowsAbout": [
+          "Self Storage",
+          "Commercial Storage",
+          "Business Storage",
+          "Vehicle Storage",
+          "On-Demand Warehousing",
+          "Bonded Warehousing",
+          "3PL Storage",
+          "Enterprise Storage",
+          "Platinum Class Storage"
+        ]
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hero-title", ".hero-description", ".about-paragraph"]
+      }
+    }
+    </script>
+    
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Storage Solutions",
+      "provider": {
+        "@type": "Organization",
+        "name": "Lozy"
+      },
+      "areaServed": "India",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Storage Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Self Storage",
+              "description": "Personalized and secure storage units for individuals and households. Access your belongings anytime with ease and flexibility."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Storage",
+              "description": "Dedicated storage solutions for retailers and corporations. Ideal for storing inventory, equipment, and seasonal goods."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business Storage",
+              "description": "Scalable and affordable storage designed to support growing businesses. Streamline your operations with tailored space."
+            }
+          }
+        ]
+      }
+    }
+    </script>
   </head>
   <body>
     {%include "navbar.html"%}
@@ -263,8 +366,6 @@
 
     <!-- hero section ended -->
 
-
-
 <!-- About our company section start -->
     <section class="about-section">
       <div class="about-container">
@@ -280,7 +381,7 @@
             </p>
 
             <p class="about-paragraph first-paragraph">
-              In today’s fast-moving world, Lozy delivers modern
+              In today's fast-moving world, Lozy delivers modern
               <b>self storage solutions</b> that adapt to the evolving demands
               of both individuals and businesses. From compact
               <b>storage units</b> for personal belongings to large-scale
@@ -292,7 +393,7 @@
               Lozy simplifies the storage process—our plug-and-play model
               ensures you can get started quickly and without complications.
               Whether you're a homeowner, entrepreneur, or enterprise, just
-              bring your <b>inventory</b>, and we’ll take care of the space,
+              bring your <b>inventory</b>, and we'll take care of the space,
               security, and support.
             </p>
           </div>
@@ -308,11 +409,7 @@
 
           <div class="about-image-container">
             <img
-
-              src="/static/images/Lozy team members discussing business solutions.webp"
-
               src="/static/images/Rectangle 448 (1).webp"
-
               alt="Lozy team members discussing business solutions"
               class="about-image"
             />
@@ -413,8 +510,6 @@
       </div>
     </section>
 <!-- why choose section ended -->
-
-
 
 <!-- Vision to Reality section start -->
     <section class="vision-section">
@@ -567,9 +662,6 @@
       </div>
     </section>
 <!-- Vision to reality section ended -->
-
-
-
 
 <!-- Form section Start -->
     <section class="form-section">
