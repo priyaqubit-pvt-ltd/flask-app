@@ -71,9 +71,23 @@ html, body {
 }
 
 .heading-line{
-    height: 120px;
+    height: 110px;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.heading-line-mobile{
+    display: none;
+}
+
+@media (max-width: 540px) {
+    .heading-line-mobile{
+        display: block;
+    }
+
+    .heading-line:first-of-type > span:nth-of-type(2) {
+  display: none;
+}
 }
 
 .hero-heading span{
@@ -91,7 +105,7 @@ html, body {
 }
 
 .hero-paragraph {
-    width: 748px;
+    width: 600px;
     height: 128px;
     margin-top: 45px;
     font-weight: 400;
@@ -248,7 +262,7 @@ html, body {
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
 }
@@ -282,7 +296,7 @@ html, body {
     position: relative;
     width: calc(100% - 378px);
     max-width: 1426px;
-    margin-top: 73px;
+    /* margin-top: 73px; */
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -303,7 +317,7 @@ html, body {
     letter-spacing: 0;
     text-align: center;
     color: #88888880;
-    opacity: 0;
+    /* opacity: 0; */
     transform: translateY(50px);
     transition: opacity 0.8s ease, transform 0.8s ease;
     margin-bottom: 10px;
@@ -354,7 +368,7 @@ html, body {
     }
 
     .hero-image {
-        width: 70%;
+        /* width: 70%; */
         top: auto;
         bottom: 0;
         right: -10px;
@@ -704,29 +718,40 @@ html, body {
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
-    .hero-content {
+    /* .hero-content {
         padding-left: 100px;
         padding-top: 150px;
         
+    } */
+
+      .hero-section{
+    
+   flex-direction: column;
     }
 
     .hero-heading {
         width: 700px;
-        font-size: 90px;
+        font-size: 80px;
         line-height: 100px;
         height: auto;
     }
 
+    .heading-line{
+        height: 80px;
+    }
+
     .hero-paragraph {
-        width: 600px;
+        width: 400px;
         font-size: 18px;
         line-height: 28px;
         height: auto;
+         margin-top: 25px;
     }
 
     .priority-text {
         margin-left: 100px;
         font-size: 22px;
+        margin-top: 80px;
     }
 
     .horizontal-line {
@@ -735,7 +760,7 @@ html, body {
     }
 
     .pricing-content {
-        width: calc(100% - 200px);
+        width: calc(100% - 165px);
         margin-left: auto;
         margin-right: auto;
     }
@@ -757,6 +782,8 @@ html, body {
         font-size: 60px;
         line-height: 65px;
     }
+
+   
 
     .lozy_storage_cards_container {
         padding-left: 100px;
@@ -826,13 +853,18 @@ html, body {
 }
 
 @media (max-width: 767px) {
+    .hero-section{
+        flex-direction: column;
+        padding-top: 50px;
+    }
     .hero-content {
         padding-left: 15px;
-        padding-top: 100px;
+        /* padding-top: 100px; */
+        height: 55vh;
     }
 
     .heading-line{
-        height: 120px;
+        height: 70px;
     }
 
     .hero-heading {
@@ -879,11 +911,12 @@ html, body {
     }
 
     .hero-image {
-        width: 70%;
+       position: relative;
+        width: 100%;
         height: 40%;
-        right: 0;
-        top: 500px;
-        transform: translateX(15%);
+        /* right: 0; */
+        /* top: 500px; */
+        right: -20%;
     }
 
     .priority-text {
@@ -2600,7 +2633,7 @@ html, body {
     }
     
     .horizontal-line {
-        width: calc(100% - 60px);
+        width: calc(100% - 80px);
     }
     
     .clients-rows-container {
@@ -2639,6 +2672,10 @@ html, body {
 }
 
 @media (max-width: 767px) {
+    .hero-section{
+    
+    flex-direction: column;
+   }
     .clients-heading {
         margin-left: 20px;
         width: auto;

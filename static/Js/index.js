@@ -19,28 +19,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Function to handle scroll events for pricing text
-    function handlePricingScroll() {
-        const pricingTexts = document.querySelectorAll('.pricing-text');
-        let delay = 0;
+    // function handlePricingScroll() {
+    //     const pricingTexts = document.querySelectorAll('.pricing-text');
+    //     let delay = 0;
         
-        pricingTexts.forEach((text, index) => {
-            if (isInViewport(text) && !text.classList.contains('visible')) {
-                setTimeout(() => {
-                    text.classList.add('visible');
-                }, delay);
-                delay += 300; // Add delay for each subsequent line
-            }
-        });
-    }
+    //     pricingTexts.forEach((text, index) => {
+    //         if (isInViewport(text) && !text.classList.contains('visible')) {
+    //             setTimeout(() => {
+    //                 text.classList.add('visible');
+    //             }, delay);
+    //             delay += 300; // Add delay for each subsequent line
+    //         }
+    //     });
+    // }
     
     // Initial check on page load
-    handlePricingScroll();
+    // handlePricingScroll();
     
-    // Add scroll event listener for pricing text
-    window.addEventListener('scroll', handlePricingScroll);
+    // // Add scroll event listener for pricing text
+    // window.addEventListener('scroll', handlePricingScroll);
     
-    // Also trigger on resize
-    window.addEventListener('resize', handlePricingScroll);
+    // // Also trigger on resize
+    // window.addEventListener('resize', handlePricingScroll);
 
     // Toggle between default and alternate views
     const defaultView = document.getElementById('default-view');
