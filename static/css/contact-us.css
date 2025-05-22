@@ -9,6 +9,25 @@
     scroll-behavior: smooth;
   }
   
+  /* Standard syntax */
+::selection {
+  background: #FFCC00; /* highlight color */
+  color: #000000;       /* text color */
+}
+
+/* Webkit (Safari, old Chrome) */
+::-webkit-selection {
+  background: #FFCC00;
+  color: #000000;
+}
+
+/* Mozilla (older Firefox versions, though modern ones use ::selection) */
+::-moz-selection {
+  background: #FFCC00;
+  color: #000000;
+}
+
+
   html,
   body {
     font-family: 'Inter';
@@ -239,36 +258,39 @@
   width: 100%;
   height: 100%;
   z-index: 0;
-  filter: grayscale(100%);
 }
 
 #map {
   width: 100%;
   height: 100%;
-}
-
-/* map zoom button styling */
-.leaflet-control-zoom {
-  right: 50px !important;
-  bottom: 50px !important;
-  margin: 0 !important;
-}
-
-.marker .marker-outer {
   display: grid;
 }
 
-.marker .marker-shape {
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.marker-outer {
+  position: absolute;
+  top: 50%;
+  left: 70vw;
+  display: grid;
+  z-index: 2;
+}
+
+.marker-shape {
   grid-row: 1/2;
   grid-column: 1/2;
   z-index: 5;
   width: 32px;
   height: 35px;
-  background-image: url('/static/images/location_marker.png');
+  background-image: url('/static/images/location_marker.webp');
   background-position: center;
 }
 
-.marker .marker-circle {
+.marker-circle {
   grid-row: 1/2;
   grid-column: 1/2;
   height: 100%;
@@ -279,7 +301,7 @@
   animation: pulse 3s infinite;
 }
 
-.marker .marker-circle-inner {
+.marker-circle-inner {
   grid-row: 1/2;
   grid-column: 1/2;
   height: 100%;
@@ -491,7 +513,6 @@
   .contact-content {
     padding-left: 50px;
     padding-right: 20px;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 60%, rgba(0, 0, 0, 0.7) 80%, rgba(0, 0, 0, 0.5) 100%);
   }
 
   .yellow-line {
@@ -511,7 +532,6 @@
 @media (max-width: 992px) {
   .contact-content {
     padding-left: 40px;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 70%, rgba(0, 0, 0, 0.7) 100%);
   }
   
   .lets-talk-heading {
@@ -534,6 +554,7 @@
     padding-left: 30px;
     padding-right: 30px;
     background: rgba(0, 0, 0, 0.8);
+    max-width: 100vw;
     overflow-y: auto;
   }
 

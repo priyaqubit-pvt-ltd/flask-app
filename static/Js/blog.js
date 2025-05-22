@@ -37,6 +37,7 @@ function setupFormValidation() {
     const emailError = document.getElementById('email-error');
     const phoneError = document.getElementById('phone-error');
     const successMessage = document.getElementById('form-success-message');
+    const failureMessage = document.getElementById('form-failure-message');
     
     if (!form || !nameInput || !emailInput || !phoneInput) return;
     
@@ -93,6 +94,7 @@ function setupFormValidation() {
     
     // Form submission
     form.addEventListener('submit', function(e) {
+
         e.preventDefault();
         
         // Validate all fields
@@ -115,16 +117,31 @@ function setupFormValidation() {
         }
         
         if (isValid) {
-            // Show success message
-            successMessage.style.display = 'block';
+
+            const formData = new FormData(form);
+
+            fetch('/blog-faq-page-submit', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(res => {
+                if (res.status === 200) {
+                    form.reset();
+                successMessage.style.display = 'block';
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                } else if (res.status === 400) {
+                failureMessage.style.display = 'block';
+                setTimeout(function() {
+                    failureMessage.style.display = 'none';
+                }, 5000);
+                }
+  })
+  .catch(err => {
+    console.error('Network error:', err);
+  });
             
-            // Reset form
-            form.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 5000);
         }
     });
 }

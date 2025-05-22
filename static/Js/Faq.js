@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const faqQuestionsContainer = document.querySelector('.faq-questions');
     const phoneInput = document.getElementById('phone');
     const faqForm = document.getElementById('faqForm');
+    const successMessage = document.getElementById('form-success-message');
+    const failureMessage = document.getElementById('form-failure-message');
 
     // Function to update FAQ content based on selected category
     function updateFAQContent(category) {
@@ -246,29 +248,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Form Submission
-    if (faqForm) {
-        faqForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(faqForm);
-            const formDataObj = {};
-            
-            formData.forEach((value, key) => {
-                formDataObj[key] = value;
-            });
-            
-            // Here you would typically send the data to your backend
-            console.log('Form submitted with data:', formDataObj);
-            
-            // For demonstration purposes, show success message
-            alert('Your question has been submitted successfully!');
-            
-            // Reset form
-            faqForm.reset();
-        });
-    }
     
     // Ensure proper resizing of content when window is resized
     window.addEventListener('resize', function() {
@@ -331,6 +310,56 @@ document.addEventListener('DOMContentLoaded', function() {
                     toggleQuestion(headerButton);
                 }
             });
+        }
+    });
+
+    // Form submission
+    faqForm.addEventListener('submit', function(e) {
+
+        e.preventDefault();
+        
+        // Validate all fields
+        let isValid = true;
+        
+        if (document.querySelector(".faq-form-input.name").value.trim() === '') {
+            isValid = false;
+        }
+        
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(document.querySelector(".faq-form-input.email").value)) {
+            isValid = false;
+        }
+        
+        if (document.querySelector(".faq-form-input.phone").value.trim() === '') {
+            isValid = false;
+        }
+        
+        if (isValid) {
+
+            const formData = new FormData(faqForm);
+
+            fetch('/blog-faq-page-submit', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(res => {
+                if (res.status === 200) {
+                    faqForm.reset();
+                successMessage.style.display = 'block';
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                } else if (res.status === 400) {
+                failureMessage.style.display = 'block';
+                setTimeout(function() {
+                    failureMessage.style.display = 'none';
+                }, 5000);
+                }
+  })
+  .catch(err => {
+    console.error('Network error:', err);
+  });
+            
         }
     });
 });

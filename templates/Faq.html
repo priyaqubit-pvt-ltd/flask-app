@@ -2,8 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.webp', _external=True) }}"
+      type="image/x-icon"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ</title>
+    <title>FAQs | Answers to Your Storage & Warehousing Queries | Lozy</title>
+    <link rel="canonical" href="https://lozy.in/faq" />
+<meta name="description" content="Find quick answers about Lozy’s storage services, pricing, security, and warehousing options. Get informed before you book your secure storage space!" />
+<meta name="keywords" content="Lozy FAQs, storage service questions, warehouse info Delhi, storage rental FAQs, business storage help" />
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Lozy FAQs | Answers to Your Storage & Warehousing Queries" />
+<meta property="og:description" content="Browse frequently asked questions about Lozy’s personal, business, and on-demand storage solutions in Delhi NCR." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lozy.in/faq" />
+<meta property="og:image" content="https://lozy.in/assets/og-faq.jpg" />
     <link rel="stylesheet" href="/static/css/Faq.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lato:wght@400;700&family=SF+Pro+Text:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -239,20 +253,26 @@
 
                 <div class="faq-form-container">
                     <h2 class="faq-form-title">In what way can we help?</h2>
-                    <form id="faqForm" class="faq-form">
+            <div id="form-success-message" class="form-success-message">
+              Thank you! Your message has been submitted successfully.
+            </div>
+            <div id="form-failure-message" class="form-failure-message">
+              Form could not be submitted!
+            </div>
+                    <form id="faqForm" class="faq-form" action="/blog-faq-page-submit" method="post">
                         <div class="faq-form-row">
                             <div class="faq-form-group">
                                 <label for="fullName" class="faq-form-label">Full Name</label>
-                                <input type="text" id="fullName" name="fullName" class="faq-form-input" required>
+                                <input type="text" id="fullName" name="name" class="faq-form-input name" required>
                             </div>
                             <div class="faq-form-group">
                                 <label for="email" class="faq-form-label">Email</label>
-                                <input type="email" id="email" name="email" class="faq-form-input" required>
+                                <input type="email" id="email" name="email" class="faq-form-input email" required>
                             </div>
                         </div>
                         <div class="faq-form-group">
                             <label for="phone" class="faq-form-label">Phone</label>
-                            <input type="tel" id="phone" name="phone" class="faq-form-input" pattern="[0-9]+" title="Please enter numbers only" required>
+                            <input type="tel" id="phone" name="contact_number" class="faq-form-input phone" pattern="[0-9]+" title="Please enter numbers only" required>
                         </div>
                         <div class="faq-form-group">
                             <label for="question" class="faq-form-label">Write your own question</label>

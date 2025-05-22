@@ -1,16 +1,3 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  overflow: hidden;
-}
-
-/* Animation styles */
 .animation_wrapper {
   width: 100%;
   height: 100vh;

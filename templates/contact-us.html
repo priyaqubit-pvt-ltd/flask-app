@@ -3,22 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact-Us</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>
+      Contact | Book Your Self Storage & Warehousing Solutions | Lozy
+    </title>
+    <meta
+      name="description"
+      content="Reach out to Lozy for tailored, secure, and flexible storage solutions for personal, business, and enterprise needs in Delhi NCR. We're here to assist!"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.webp', _external=True) }}"
+      type="image/x-icon"
+    />
+    <meta
+      name="keywords"
+      content="Contact Lozy, storage booking Delhi, storage services contact, warehouse booking, business storage enquiry"
+    />
+    <link rel="canonical" href="https://lozy.in/contact-us" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      property="og:title"
+      content="Contact Lozy | Book Your Self Storage & Warehousing Solutions"
+    />
+    <meta
+      property="og:description"
+      content="Get in touch with Lozy for secure, affordable storage services and tailored warehousing solutions in Delhi NCR."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lozy.in/contact-us" />
+    <meta property="og:image" content="https://lozy.in/assets/og-contact.jpg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="/static/css/contact-us.css" />
-        <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
   </head>
   <body>
     {%include "navbar.html"%}
    
 
     
-<!-- contactus hero section start -->
+
     <section class="hero-section">
       <div class="hero-container">
         <div class="hero-content">
@@ -230,7 +258,14 @@
 
 <!-- contactus today section start -->
     <section class="contact-section">
-      <div id="map" class="map-container"></div>
+      <div id="map" class="map-container">
+        <img class="map-image">
+        <div class="marker-outer">
+          <div class="marker-shape"></div>
+          <div class="marker-circle"></div>
+          <div class="marker-circle-inner"></div>
+        </div>
+      </div>
 
       <div class="contact-content">
         <div class="contact-header">
@@ -300,7 +335,7 @@
               
               <button type="submit" class="send-button">
                 <span>Send Us</span>
-                <img src="/static/images/arrow-icon.webp" alt="Arrow" class="arrow-icon">
+                <img src="/static/images/arrow-icon.png" alt="Arrow" class="arrow-icon">
               </button>
             </form>
           </div>

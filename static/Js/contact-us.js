@@ -1,35 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  if(window.innerWidth <= 1024) {
+    document.querySelector(".map-image").src="/static/images/contact_map_phone.png";
+  } else {
+    document.querySelector(".map-image").src="/static/images/contact_map_pc.png";
+  }
+
   // styled icon for location marker
-  const styledIcon = L.divIcon({
-    className: 'marker',
-    html: '<div class="marker-outer"><div class="marker-shape"></div><div class="marker-circle"></div><div class="marker-circle-inner"></div></div>',
-    iconSize: [32, 35]
-  });
+  // const styledIcon = L.divIcon({
+  //   className: 'marker',
+  //   html: '<div class="marker-outer"><div class="marker-shape"></div><div class="marker-circle"></div><div class="marker-circle-inner"></div></div>',
+  //   iconSize: [32, 35]
+  // });
   
-  // Initialize the map
-  const map = L.map("map", {
-    zoom: 15,
-    attributionControl: false,
-  }).setView([28.5921, 77.046], 13) // Coordinates for Dwarka, New Delhi
+  // // Initialize the map
+  // const map = L.map("map", {
+  //   zoom: 15,
+  //   attributionControl: false,
+  // }).setView([28.5921, 77.046], 13) // Coordinates for Dwarka, New Delhi
 
-  // Add a dark-themed map layer
-  L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
-    minZoom: 15,
-    maxZoom: 15,
-    attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    ext: 'png'
-  }).addTo(map)
+  // // Add a dark-themed map layer
+  // L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  //   minZoom: 15,
+  //   maxZoom: 15,
+  //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+  //   ext: 'png'
+  // }).addTo(map)
 
-  // Add a marker for the location
-  const marker = L.marker([28.5921, 77.046], { icon: styledIcon });
-  marker.addTo(map);
+  // // Add a marker for the location
+  // const marker = L.marker([28.5921, 77.046], { icon: styledIcon });
+  // marker.addTo(map);
 
-  // Center the map on the marker with an offset to account for the content overlay
-  const point = map.latLngToContainerPoint(marker.getLatLng());
-  const difference = (window.innerWidth >= 1600) ? 100 : 80;
-  const offsetPoint = L.point(point.x - difference, point.y + 40);
-  const offsetLatLng = map.containerPointToLatLng(offsetPoint);
-  map.setView(offsetLatLng, map.getZoom());
+  // // Center the map on the marker with an offset to account for the content overlay
+  // const point = map.latLngToContainerPoint(marker.getLatLng());
+  // const difference = (window.innerWidth >= 1600) ? 100 : 80;
+  // const offsetPoint = (window.innerWidth >= 568) ? L.point(point.x - difference, point.y) : L.point(point.x - 20, point.y);
+  // const offsetLatLng = map.containerPointToLatLng(offsetPoint);
+  // map.setView(offsetLatLng, map.getZoom());
 
   // Handle form submission
   const contactForm = document.getElementById("contactForm")
@@ -133,11 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle window resize to adjust map view
   window.addEventListener('resize', () => {
     // Re-center the map on resize
-    map.invalidateSize();
-    const point = map.latLngToContainerPoint(marker.getLatLng());
-    const difference = (window.innerWidth >= 1600) ? 100 : 80;
-    const offsetPoint = L.point(point.x - difference, point.y + 40);
-    const offsetLatLng = map.containerPointToLatLng(offsetPoint);
-    map.setView(offsetLatLng, map.getZoom());
+    // map.invalidateSize();
+    // const point = map.latLngToContainerPoint(marker.getLatLng());
+    // const difference = (window.innerWidth >= 1600) ? 100 : 80;
+    // const offsetPoint = (window.innerWidth >= 568) ? L.point(point.x - difference, point.y) : L.point(point.x - 20, point.y);
+    // const offsetLatLng = map.containerPointToLatLng(offsetPoint);
+    // map.setView(offsetLatLng, map.getZoom());
   });
 })
