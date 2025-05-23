@@ -304,11 +304,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 550px;
 }
 
 .pricing-text-container {
   width: 100%;
   text-align: center;
+  height: 100%;
 }
 
 .pricing-text {
@@ -2730,13 +2732,16 @@ body {
 
 /* Media Queries */
 @media (min-width: 1025px) and (max-width: 1600px) {
+    .pricing-content{
+            height: 650px;
+    }
     .clients-heading {
         margin-left: 40px;
     }
     
-    .horizontal-line {
+    /* .horizontal-line {
         width: calc(100% - 80px);
-    }
+    } */
     
     .clients-rows-container {
         padding: 0 40px;
