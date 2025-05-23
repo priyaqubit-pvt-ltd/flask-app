@@ -70,32 +70,32 @@ const navbarImage = document.querySelector(".storage-navbar__dropdown-image");
 const navbarContent = document.querySelector(".storage-navbar__dropdown-description");
 const navbarLink = document.querySelector(".storage-navbar__dropdown-know-more");
 const Images = [
-  {"src":"img1.png", "content":`Self-storage offers a secure, flexible, and convenient
+  {"src":"img1.webp", "content":`Self-storage offers a secure, flexible, and convenient
                       solution for storing your belongings, whether for
                       short-term or long-term needs.`
                       , "link":"/storage/self-storage"},
-  {"src":"img2.png", "content":`Commercial-storage offers a secure, flexible, and convenient
+  {"src":"img2.webp", "content":`Commercial-storage offers a secure, flexible, and convenient
                       solution for storing your belongings, whether for
                       short-term or long-term needs.`, "link":"/storage/commercial-storage"},
-  {"src":"img3.png", "content":`Business-storage offers a secure, flexible, and convenient
+  {"src":"img3.webp", "content":`Business-storage offers a secure, flexible, and convenient
                       solution for storing your belongings, whether for
                       short-term or long-term needs.`, "link":"/storage/business-storage"},
-  {"src":"img1.png", "content":`Enterprise-storage offers a secure, flexible, and convenient
+  {"src":"img1.webp", "content":`Enterprise-storage offers a secure, flexible, and convenient
                       solution for storing your belongings, whether for
                       short-term or long-term needs.`, "link":"/storage/enterprises-storage"},
-  {"src":"img2.png", "content":`3pl-storage offers a secure, flexible, and convenient
+  {"src":"img2.webp", "content":`3pl-storage offers a secure, flexible, and convenient
                       solution for storing your belongings, whether for
                       short-term or long-term needs.`, "link":"/storage/3pl-storage"},
-  {"src":"img3.png", "content":`Vehicle-storage offers a secure, flexible, and convenient
+  {"src":"img3.webp", "content":`Vehicle-storage offers a secure, flexible, and convenient
                       solution for storing your belongings, whether for
                       short-term or long-term needs.`, "link":"/storage/vehicle-storage"},
-  {"src":"img1.png", "content":`Warehouse-storage offers a secure, flexible, and convenient
+  {"src":"img1.webp", "content":`Warehouse-storage offers a secure, flexible, and convenient
                       solution for storing your belongings, whether for
                       short-term or long-term needs.`, "link":"/storage/warehouse-storage"},
-  {"src":"img2.png", "content":`Platinum-storage offers a secure, flexible, and convenient
+  {"src":"img2.webp", "content":`Platinum-storage offers a secure, flexible, and convenient
                       solution for storing your belongings, whether for
                       short-term or long-term needs.`, "link":"/storage/platinum-storage"},
-  {"src":"img3.png", "content":`Bonded-storage offers a secure, flexible, and convenient
+  {"src":"img3.webp", "content":`Bonded-storage offers a secure, flexible, and convenient
                       solution for storing your belongings, whether for
                       short-term or long-term needs.`, "link":"/storage/bonded-storage"},
 ]
