@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   if(window.innerWidth <= 1024) {
-    document.querySelector(".map-image").src="/static/images/contact_map_phone.png";
+    document.querySelector(".map-image").src="/static/images/contact_map_phone.webp";
   } else {
-    document.querySelector(".map-image").src="/static/images/contact_map_pc.png";
+    document.querySelector(".map-image").src="/static/images/contact_map_pc.webp";
   }
 
   // styled icon for location marker
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // }).setView([28.5921, 77.046], 13) // Coordinates for Dwarka, New Delhi
 
   // // Add a dark-themed map layer
-  // L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  // L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.webp', {
   //   minZoom: 15,
   //   maxZoom: 15,
   //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
