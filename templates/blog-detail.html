@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} | Lozy Blog</title>
+    <meta name="description" content="{{ post.excerpt or post.content[:160] }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.webp', _external=True) }}" type="image/x-icon">
+    <meta property="og:title" content="{{ post.title }}">
+    <meta property="og:description" content="{{ post.excerpt or post.content[:160] }}">
+    <meta property="og:image" content="{{ post.image_url or '/static/images/blog_hero_section.webp' }}">
+    <meta property="og:url" content="{{ request.url }}">
+    <link rel="stylesheet" href="/static/css/blogs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        .blog-detail-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .blog-detail-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .blog-detail-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .blog-detail-meta {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .blog-detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .blog-detail-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+        .blog-detail-content h1,
+        .blog-detail-content h2,
+        .blog-detail-content h3,
+        .blog-detail-content h4,
+        .blog-detail-content h5,
+        .blog-detail-content h6 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .blog-detail-content p {
+            margin-bottom: 1.5rem;
+        }
+        .blog-detail-content ul,
+        .blog-detail-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .blog-detail-content li {
+            margin-bottom: 0.5rem;
+        }
+        .related-posts {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        .related-posts h3 {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .related-post {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.3s ease;
+        }
+        .related-post:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+        }
+        .related-post-image {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 1rem;
+        }
+        .related-post-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .related-post-content p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+        .back-to-blogs {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-to-blogs:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    {%include "navbar.html"%}
+    
+    <div class="blog-detail-container">
+        <a href="{{ url_for('blogs') }}" class="back-to-blogs">
+            <i class="fas fa-arrow-left"></i> Back to Blogs
+        </a>
+        
+        <div class="blog-detail-header">
+            <h1 class="blog-detail-title">{{ post.title }}</h1>
+            <div class="blog-detail-meta">
+                <i class="fas fa-calendar"></i> {{ post.created_at.strftime('%B %d, %Y') }}
+                {% if post.updated_at != post.created_at %}
+                    | <i class="fas fa-edit"></i> Updated {{ post.updated_at.strftime('%B %d, %Y') }}
+                {% endif %}
+            </div>
+        </div>
+        
+        {% if post.image_url %}
+        <img src="{{ post.image_url }}" alt="{{ post.title }}" class="blog-detail-image">
+        {% endif %}
+        
+        <div class="blog-detail-content">
+            {{ post.content | safe }}
+        </div>
+        
+        {% if related_posts %}
+        <div class="related-posts">
+            <h3>Related Posts</h3>
+            {% for related_post in related_posts %}
+            <a href="{{ url_for('blog_detail', post_id=related_post.id) }}" class="related-post">
+                {% if related_post.image_url %}
+                <img src="{{ related_post.image_url }}" alt="{{ related_post.title }}" class="related-post-image">
+                {% endif %}
+                <div class="related-post-content">
+                    <h4>{{ related_post.title }}</h4>
+                    <p>{{ related_post.excerpt or related_post.content[:100] + '...' }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    
+    {%include "footer.html"%}
+</body>
+</html>
