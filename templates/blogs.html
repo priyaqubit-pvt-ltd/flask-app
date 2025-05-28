@@ -1,476 +1,476 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blogs | Storage Tips, Industry News & Moving Guides | Lozy</title>
-    <meta
-      name="description"
-      content="Read expert tips, industry insights, and smart storage hacks from Lozy's blog. Stay updated on the latest trends in storage and warehousing services."
-    />
-    <link
-      rel="icon"
-      href="{{ url_for('static', filename='images/logo.webp', _external=True) }}"
-      type="image/x-icon"
-    />
-    <meta
-      name="keywords"
-      content="Lozy blog, storage tips, warehousing articles, business storage advice, moving and packing guides"
-    />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta
-      property="og:title"
-      content="Lozy Blog | Storage Tips, Industry News & Moving Guides"
-    />
-    <link rel="canonical" href="https://lozy.in/blogs" />
-    <meta
-      property="og:description"
-      content="Discover smart storage advice, business insights, and warehousing trends from Lozy's expert blog."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://lozy.in/blogs" />
-    <meta property="og:image" content="https://lozy.in/assets/og-blog.jpg" />
-    <link rel="stylesheet" href="/static/css/blogs.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-      rel="stylesheet"
-    />
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Blogs | Storage Tips, Industry News & Moving Guides | Lozy</title>
+      <meta
+        name="description"
+        content="Read expert tips, industry insights, and smart storage hacks from Lozy's blog. Stay updated on the latest trends in storage and warehousing services."
+      />
+      <link
+        rel="icon"
+        href="{{ url_for('static', filename='images/logo.webp', _external=True) }}"
+        type="image/x-icon"
+      />
+      <meta
+        name="keywords"
+        content="Lozy blog, storage tips, warehousing articles, business storage advice, moving and packing guides"
+      />
+      <meta name="robots" content="noindex, nofollow" />
+      <meta
+        property="og:title"
+        content="Lozy Blog | Storage Tips, Industry News & Moving Guides"
+      />
+      <link rel="canonical" href="https://lozy.in/blogs" />
+      <meta
+        property="og:description"
+        content="Discover smart storage advice, business insights, and warehousing trends from Lozy's expert blog."
+      />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://lozy.in/blogs" />
+      <meta property="og:image" content="https://lozy.in/assets/og-blog.jpg" />
+      <link rel="stylesheet" href="/static/css/blogs.css" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+        rel="stylesheet"
+      />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      />
 
-    <!-- Organization Schema -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Lozy",
-        "url": "https://lozy.in",
-        "logo": "https://lozy.in/static/images/logo.webp",
-        "description": "Lozy provides modern, secure, and flexible storage solutions for businesses and individuals. From self-storage to enterprise warehousing, we offer tailored storage options.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "India"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+91 89 0003 0004",
-          "contactType": "customer service"
-        },
-        "sameAs": [
-          "https://www.facebook.com/lozy",
-          "https://www.instagram.com/lozy",
-          "https://www.linkedin.com/company/lozy"
-        ]
-      }
-    </script>
-
-    <!-- Blog Website Schema -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "headline": "Lozy Blog | Storage Tips, Industry News & Moving Guides",
-        "description": "Read expert tips, industry insights, and smart storage hacks from Lozy's blog. Stay updated on the latest trends in storage and warehousing services.",
-        "url": "https://lozy.in/blogs",
-        "image": "https://lozy.in/assets/og-blog.jpg",
-        "publisher": {
+      <!-- Organization Schema -->
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Lozy",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://lozy.in/static/images/logo.webp"
+          "url": "https://lozy.in",
+          "logo": "https://lozy.in/static/images/logo.webp",
+          "description": "Lozy provides modern, secure, and flexible storage solutions for businesses and individuals. From self-storage to enterprise warehousing, we offer tailored storage options.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "India"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91 89 0003 0004",
+            "contactType": "customer service"
+          },
+          "sameAs": [
+            "https://www.facebook.com/lozy",
+            "https://www.instagram.com/lozy",
+            "https://www.linkedin.com/company/lozy"
+          ]
+        }
+      </script>
+
+      <!-- Blog Website Schema -->
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "headline": "Lozy Blog | Storage Tips, Industry News & Moving Guides",
+          "description": "Read expert tips, industry insights, and smart storage hacks from Lozy's blog. Stay updated on the latest trends in storage and warehousing services.",
+          "url": "https://lozy.in/blogs",
+          "image": "https://lozy.in/assets/og-blog.jpg",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Lozy",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://lozy.in/static/images/logo.webp"
+            }
+          },
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "BlogPosting",
+                  "headline": "The Ultimate Guide to Choosing the Right Storage Unit",
+                  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+                  "image": "../static/images/blog_hero_section.webp",
+                  "datePublished": "2025-01-04T00:00:00+05:30",
+                  "author": {
+                    "@type": "Organization",
+                    "name": "Lozy"
+                  },
+                  "publisher": {
+                    "@type": "Organization",
+                    "name": "Lozy",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "url": "https://lozy.in/static/images/logo.webp"
+                    }
+                  },
+                  "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://lozy.in/blog"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "BlogPosting",
+                  "headline": "Designing for Tomorrow: Trends Shaping the User Experience in 2025",
+                  "description": "As technology continues to evolve, so does its impact on the environment. At the intersection of innovation and responsibility lies the need for sustainable practices in the tech industry",
+                  "image": "/static/images/blog_image_1.webp",
+                  "datePublished": "2025-01-01T00:00:00+05:30",
+                  "author": {
+                    "@type": "Organization",
+                    "name": "Lozy"
+                  },
+                  "publisher": {
+                    "@type": "Organization",
+                    "name": "Lozy",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "url": "https://lozy.in/static/images/logo.webp"
+                    }
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "BlogPosting",
+                  "headline": "Sustainability in Tech: Steps Toward a Greener Future",
+                  "description": "As technology continues to evolve, so does its impact on the environment. At the intersection of innovation and responsibility lies the need for sustainable practices in the tech industry",
+                  "image": "/static/images/blog_image_2.webp",
+                  "datePublished": "2024-12-15T00:00:00+05:30",
+                  "author": {
+                    "@type": "Organization",
+                    "name": "Lozy"
+                  },
+                  "publisher": {
+                    "@type": "Organization",
+                    "name": "Lozy",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "url": "https://lozy.in/static/images/logo.webp"
+                    }
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "BlogPosting",
+                  "headline": "5 Innovative Solutions Transforming the Tech Industry Today",
+                  "description": "As technology continues to evolve, so does its impact on the environment. At the intersection of innovation and responsibility lies the need for sustainable practices in the tech industry",
+                  "image": "/static/images/blog_image_3.webp",
+                  "datePublished": "2024-12-01T00:00:00+05:30",
+                  "author": {
+                    "@type": "Organization",
+                    "name": "Lozy"
+                  },
+                  "publisher": {
+                    "@type": "Organization",
+                    "name": "Lozy",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "url": "https://lozy.in/static/images/logo.webp"
+                    }
+                  }
+                }
+              }
+            ]
           }
-        },
-        "mainEntity": {
-          "@type": "ItemList",
+        }
+      </script>
+
+      <!-- BreadcrumbList Schema -->
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
           "itemListElement": [
             {
               "@type": "ListItem",
               "position": 1,
-              "item": {
-                "@type": "BlogPosting",
-                "headline": "The Ultimate Guide to Choosing the Right Storage Unit",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-                "image": "../static/images/blog_hero_section.webp",
-                "datePublished": "2025-01-04T00:00:00+05:30",
-                "author": {
-                  "@type": "Organization",
-                  "name": "Lozy"
-                },
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "Lozy",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://lozy.in/static/images/logo.webp"
-                  }
-                },
-                "mainEntityOfPage": {
-                  "@type": "WebPage",
-                  "@id": "https://lozy.in/blog"
-                }
-              }
+              "name": "Home",
+              "item": "https://lozy.in"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "item": {
-                "@type": "BlogPosting",
-                "headline": "Designing for Tomorrow: Trends Shaping the User Experience in 2025",
-                "description": "As technology continues to evolve, so does its impact on the environment. At the intersection of innovation and responsibility lies the need for sustainable practices in the tech industry",
-                "image": "/static/images/blog_image_1.webp",
-                "datePublished": "2025-01-01T00:00:00+05:30",
-                "author": {
-                  "@type": "Organization",
-                  "name": "Lozy"
-                },
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "Lozy",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://lozy.in/static/images/logo.webp"
-                  }
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "item": {
-                "@type": "BlogPosting",
-                "headline": "Sustainability in Tech: Steps Toward a Greener Future",
-                "description": "As technology continues to evolve, so does its impact on the environment. At the intersection of innovation and responsibility lies the need for sustainable practices in the tech industry",
-                "image": "/static/images/blog_image_2.webp",
-                "datePublished": "2024-12-15T00:00:00+05:30",
-                "author": {
-                  "@type": "Organization",
-                  "name": "Lozy"
-                },
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "Lozy",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://lozy.in/static/images/logo.webp"
-                  }
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "item": {
-                "@type": "BlogPosting",
-                "headline": "5 Innovative Solutions Transforming the Tech Industry Today",
-                "description": "As technology continues to evolve, so does its impact on the environment. At the intersection of innovation and responsibility lies the need for sustainable practices in the tech industry",
-                "image": "/static/images/blog_image_3.webp",
-                "datePublished": "2024-12-01T00:00:00+05:30",
-                "author": {
-                  "@type": "Organization",
-                  "name": "Lozy"
-                },
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "Lozy",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://lozy.in/static/images/logo.webp"
-                  }
-                }
-              }
+              "name": "Blogs",
+              "item": "https://lozy.in/blogs"
             }
           ]
         }
-      }
-    </script>
+      </script>
+    </head>
+    <body>
+      {%include "navbar.html"%}
 
-    <!-- BreadcrumbList Schema -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://lozy.in"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Blogs",
-            "item": "https://lozy.in/blogs"
-          }
-        ]
-      }
-    </script>
-  </head>
-  <body>
-    {%include "navbar.html"%}
-
-    <!-- Hero section start -->
-    <section class="hero-section">
-      <div class="hero-container">
-        <div class="hero-background">
-          <div class="hero-background-plain"></div>
-          <div class="hero-background-image">
-            <img src="../static/images/blog_hero_section.webp" />
+      <!-- Hero section start -->
+      <section class="hero-section">
+        <div class="hero-container">
+          <div class="hero-background">
+            <div class="hero-background-plain"></div>
+            <div class="hero-background-image">
+              <img src="../static/images/blog_hero_section.webp" />
+            </div>
+          </div>
+          <div class="hero-content">
+            <div class="hero-date">January 4, 2025</div>
+            <h1 class="hero-title">
+              The Ultimate Guide to Choosing<br />the Right Storage Unit
+            </h1>
+            <p class="hero-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+              ad minim veniam, quis nostrud exercitation ullamco
+            </p>
+            <a href="/blog">
+              <div class="hero-read-more">
+                <span>Read More</span>
+                <div class="read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-        <div class="hero-content">
-          <div class="hero-date">January 4, 2025</div>
-          <h1 class="hero-title">
-            The Ultimate Guide to Choosing<br />the Right Storage Unit
-          </h1>
-          <p class="hero-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco
-          </p>
-          <a href="/blog">
-            <div class="hero-read-more">
-              <span>Read More</span>
-              <div class="read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- hero section ended -->
+      </section>
+      <!-- hero section ended -->
 
-    <!-- Our blogs section start -->
-    <section class="blogs-section">
-      <h2 class="blogs-heading">Our Blogs</h2>
-      <div class="blogs-divider"></div>
-      <h3 class="blogs-read">Read Our Latest Blogs</h3>
-      <div class="blogs-grid-outer">
-        <div class="blogs-grid">
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_1.webp" />
-            </div>
-            <h4 class="blog-title">
-              Designing for Tomorrow: Trends Shaping the User Experience in 2025
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
+      <!-- Our blogs section start -->
+      <section class="blogs-section">
+        <h2 class="blogs-heading">Our Blogs</h2>
+        <div class="blogs-divider"></div>
+        <h3 class="blogs-read">Read Our Latest Blogs</h3>
+        <div class="blogs-grid-outer">
+          <div class="blogs-grid">
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_1.webp" />
+              </div>
+              <h4 class="blog-title">
+                Designing for Tomorrow: Trends Shaping the User Experience in 2025
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
 
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_2.webp" />
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              Sustainability in Tech: Steps Toward a Greener Future
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_2.webp" />
               </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_3.webp" />
+              <h4 class="blog-title">
+                Sustainability in Tech: Steps Toward a Greener Future
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              5 Innovative Solutions Transforming the Tech Industry Today
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_3.webp" />
               </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_1.webp" />
+              <h4 class="blog-title">
+                5 Innovative Solutions Transforming the Tech Industry Today
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              Designing for Tomorrow: Trends Shaping the User Experience in 2025
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_1.webp" />
               </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_2.webp" />
+              <h4 class="blog-title">
+                Designing for Tomorrow: Trends Shaping the User Experience in 2025
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              Sustainability in Tech: Steps Toward a Greener Future
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_2.webp" />
               </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_3.webp" />
+              <h4 class="blog-title">
+                Sustainability in Tech: Steps Toward a Greener Future
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              5 Innovative Solutions Transforming the Tech Industry Today
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_3.webp" />
               </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_2.webp" />
+              <h4 class="blog-title">
+                5 Innovative Solutions Transforming the Tech Industry Today
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              Sustainability in Tech: Steps Toward a Greener Future
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_2.webp" />
               </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_3.webp" />
+              <h4 class="blog-title">
+                Sustainability in Tech: Steps Toward a Greener Future
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              5 Innovative Solutions Transforming the Tech Industry Today
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_3.webp" />
               </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_1.webp" />
+              <h4 class="blog-title">
+                5 Innovative Solutions Transforming the Tech Industry Today
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              Designing for Tomorrow: Trends Shaping the User Experience in 2025
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_1.webp" />
               </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_2.webp" />
+              <h4 class="blog-title">
+                Designing for Tomorrow: Trends Shaping the User Experience in 2025
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              Sustainability in Tech: Steps Toward a Greener Future
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_2.webp" />
               </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_3.webp" />
+              <h4 class="blog-title">
+                Sustainability in Tech: Steps Toward a Greener Future
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
             </div>
-            <h4 class="blog-title">
-              5 Innovative Solutions Transforming the Tech Industry Today
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
+            <div class="blog-outer">
+              <div class="blog-image">
+                <img src="/static/images/blog_image_3.webp" />
               </div>
-            </button>
+              <h4 class="blog-title">
+                5 Innovative Solutions Transforming the Tech Industry Today
+              </h4>
+              <p class="blog-content">
+                As technology continues to evolve, so does its impact on the
+                environment. At the intersection of innovation and responsibility
+                lies the need for sustainable practices in the tech industry
+              </p>
+              <button class="blog-read-more">
+                <span>Read More</span>
+                <div class="blog-read-more-icon">
+                  <img src="../static/images/blog_read_more_arrow.webp" />
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="blogs-grid-overlay">
+            <button class="blogs-view-all">View All</button>
           </div>
         </div>
-        <div class="blogs-grid-overlay">
-          <button class="blogs-view-all">View All</button>
-        </div>
-      </div>
-    </section>
-    <!-- our blog section ended -->
+      </section>
+      <!-- our blog section ended -->
 
-    {%include "footer.html"%}
-    <script src="/static/Js/blogs.js"></script>
-  </body>
-</html>
+      {%include "footer.html"%}
+      <script src="/static/Js/blogs.js"></script>
+    </body>
+  </html>
