@@ -1,12 +1,16 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mail import Mail, Message
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from models import db, Admin, BlogPost, create_sample_data
-from forms import LoginForm, BlogPostForm, AdminForm
+from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField, BooleanField, PasswordField
+from wtforms.validators import DataRequired, Length, Optional
+from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 import os
 
 app = Flask(__name__)
-app.secret_key = "your-secret-key-change-this"  # Change this!
+app.secret_key = "8f2e9d1c6b5a4e3f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3"
 
 # Database Configuration
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -14,10 +18,63 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "blog
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize extensions
-db.init_app(app)
+db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'admin_login'
+
+# Models
+class Admin(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(120), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+    
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+    
+    def get_id(self):
+        return str(self.id)
+    
+    def is_authenticated(self):
+        return True
+    
+    def is_active(self):
+        return True
+    
+    def is_anonymous(self):
+        return False
+
+class BlogPost(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(200), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    excerpt = db.Column(db.Text, nullable=True)
+    image_url = db.Column(db.String(200), nullable=True)
+    is_featured = db.Column(db.Boolean, default=False)
+    is_published = db.Column(db.Boolean, default=True)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    def __repr__(self):
+        return f'<BlogPost {self.title}>'
+
+# Forms
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+
+class BlogPostForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired(), Length(min=1, max=200)])
+    excerpt = TextAreaField('Excerpt', validators=[Optional(), Length(max=500)])
+    content = TextAreaField('Content', validators=[DataRequired()])
+    image_url = StringField('Image URL', validators=[Optional(), Length(max=200)])
+    is_featured = BooleanField('Featured Post', default=False)
+    is_published = BooleanField('Published', default=True)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -31,6 +88,65 @@ app.config['MAIL_USERNAME'] = 'anjalypriya7@gmail.com'
 app.config['MAIL_PASSWORD'] = 'kiod yhth lecq xaau'
 
 mail = Mail(app)
+
+# Create database tables and sample data
+def create_sample_data():
+    """Create sample blog posts and admin user"""
+    
+    # Create admin user
+    admin = Admin(
+        username='admin',
+        email='admin@lozy.in'
+    )
+    admin.set_password('admin123')
+    
+    # Sample blog posts
+    sample_posts = [
+        {
+            'title': 'The Ultimate Guide to Choosing the Right Storage Unit',
+            'content': '''<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            
+            <h3>Why Choose the Right Storage Unit?</h3>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            
+            <h3>Key Factors to Consider</h3>
+            <ul>
+                <li>Size requirements</li>
+                <li>Security features</li>
+                <li>Location accessibility</li>
+                <li>Climate control</li>
+                <li>Pricing and contracts</li>
+            </ul>''',
+            'excerpt': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            'image_url': '/static/images/blog_hero_section.webp',
+            'is_featured': True
+        },
+        {
+            'title': 'Designing for Tomorrow: Trends Shaping the User Experience in 2025',
+            'content': '''<p>As technology continues to evolve, so does its impact on the environment. At the intersection of innovation and responsibility lies the need for sustainable practices in the tech industry.</p>
+            
+            <h3>Emerging Trends</h3>
+            <p>The future of user experience design is being shaped by several key trends that prioritize both functionality and sustainability.</p>''',
+            'excerpt': 'As technology continues to evolve, so does its impact on the environment. At the intersection of innovation and responsibility lies the need for sustainable practices in the tech industry',
+            'image_url': '/static/images/blog_image_1.webp',
+            'is_featured': False
+        }
+    ]
+    
+    try:
+        db.session.add(admin)
+        
+        for post_data in sample_posts:
+            post = BlogPost(**post_data)
+            db.session.add(post)
+        
+        db.session.commit()
+        print("Sample data created successfully!")
+        print("Admin login: admin / admin123")
+        
+    except Exception as e:
+        print(f"Error creating sample data: {e}")
+        db.session.rollback()
 
 # Create database tables
 with app.app_context():
@@ -69,7 +185,7 @@ def blogs():
 @app.route("/blog/<int:post_id>")
 def blog_detail(post_id):
     post = BlogPost.query.get_or_404(post_id)
-    if not post.is_published:
+    if not post.is_published and not current_user.is_authenticated:
         return redirect(url_for('blogs'))
     
     # Get related posts (3 latest posts excluding current)
@@ -96,6 +212,7 @@ def admin_login():
         admin = Admin.query.filter_by(username=form.username.data).first()
         if admin and admin.check_password(form.password.data):
             login_user(admin)
+            flash('Login successful!', 'success')
             return redirect(url_for('admin_dashboard'))
         flash('Invalid username or password', 'error')
     
@@ -105,7 +222,8 @@ def admin_login():
 @login_required
 def admin_logout():
     logout_user()
-    return redirect(url_for('blogs'))
+    flash('You have been logged out', 'success')
+    return redirect(url_for('admin_login'))
 
 @app.route('/admin')
 @login_required
@@ -131,23 +249,46 @@ def admin_posts():
 @login_required
 def admin_new_post():
     form = BlogPostForm()
-    if form.validate_on_submit():
-        # If this post is set as featured, remove featured from other posts
-        if form.is_featured.data:
-            BlogPost.query.filter_by(is_featured=True).update({'is_featured': False})
+    
+    if request.method == 'POST':
+        print("Form submitted!")
+        print("Form data:", request.form)
         
-        post = BlogPost(
-            title=form.title.data,
-            content=form.content.data,
-            excerpt=form.excerpt.data,
-            image_url=form.image_url.data,
-            is_featured=form.is_featured.data,
-            is_published=form.is_published.data
-        )
-        db.session.add(post)
-        db.session.commit()
-        flash('Post created successfully!', 'success')
-        return redirect(url_for('admin_posts'))
+        if form.validate_on_submit():
+            print("Form validation passed!")
+            
+            # If this post is set as featured, remove featured from other posts
+            if form.is_featured.data:
+                BlogPost.query.filter_by(is_featured=True).update({'is_featured': False})
+                db.session.commit()
+            
+            post = BlogPost(
+                title=form.title.data,
+                content=form.content.data,
+                excerpt=form.excerpt.data,
+                image_url=form.image_url.data or '/static/images/blog_image_1.webp',
+                is_featured=form.is_featured.data,
+                is_published=form.is_published.data,
+                created_at=datetime.utcnow(),
+                updated_at=datetime.utcnow()
+            )
+            
+            try:
+                db.session.add(post)
+                db.session.commit()
+                flash('Post created successfully!', 'success')
+                print(f"Post created: {post.title}")
+                return redirect(url_for('admin_posts'))
+            except Exception as e:
+                db.session.rollback()
+                flash(f'Error creating post: {str(e)}', 'error')
+                print(f"Error creating post: {e}")
+        else:
+            print("Form validation failed!")
+            print("Form errors:", form.errors)
+            for field, errors in form.errors.items():
+                for error in errors:
+                    flash(f'{field}: {error}', 'error')
     
     return render_template('admin/post_form.html', form=form, title='New Post')
 
@@ -157,15 +298,32 @@ def admin_edit_post(post_id):
     post = BlogPost.query.get_or_404(post_id)
     form = BlogPostForm(obj=post)
     
-    if form.validate_on_submit():
-        # If this post is set as featured, remove featured from other posts
-        if form.is_featured.data and not post.is_featured:
-            BlogPost.query.filter_by(is_featured=True).update({'is_featured': False})
-        
-        form.populate_obj(post)
-        db.session.commit()
-        flash('Post updated successfully!', 'success')
-        return redirect(url_for('admin_posts'))
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            # If this post is set as featured, remove featured from other posts
+            if form.is_featured.data and not post.is_featured:
+                BlogPost.query.filter_by(is_featured=True).update({'is_featured': False})
+                db.session.commit()
+            
+            post.title = form.title.data
+            post.content = form.content.data
+            post.excerpt = form.excerpt.data
+            post.image_url = form.image_url.data
+            post.is_featured = form.is_featured.data
+            post.is_published = form.is_published.data
+            post.updated_at = datetime.utcnow()
+            
+            try:
+                db.session.commit()
+                flash('Post updated successfully!', 'success')
+                return redirect(url_for('admin_posts'))
+            except Exception as e:
+                db.session.rollback()
+                flash(f'Error updating post: {str(e)}', 'error')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    flash(f'{field}: {error}', 'error')
     
     return render_template('admin/post_form.html', form=form, title='Edit Post', post=post)
 
@@ -173,16 +331,21 @@ def admin_edit_post(post_id):
 @login_required
 def admin_delete_post(post_id):
     post = BlogPost.query.get_or_404(post_id)
-    db.session.delete(post)
-    db.session.commit()
-    flash('Post deleted successfully!', 'success')
+    
+    try:
+        db.session.delete(post)
+        db.session.commit()
+        flash('Post deleted successfully!', 'success')
+    except Exception as e:
+        db.session.rollback()
+        flash(f'Error deleting post: {str(e)}', 'error')
+    
     return redirect(url_for('admin_posts'))
 
-# ===== EXISTING ROUTES (keeping all your original routes) =====
+# ===== ALL YOUR EXISTING ROUTES =====
 @app.route('/contact-page-submit', methods=["POST"])
 def submit():
     if request.method == "POST":
-        print(request.form)
         user_name = request.form.get('name')
         user_email = request.form.get('email')
         user_contact = request.form.get('contact_number')
@@ -200,7 +363,6 @@ def submit():
             mail.send(msg)
             flash("Your form has been submitted successfully!", "success")
         except Exception as e:
-            print(f"Error: {e}")
             flash("Email sending failed!", "error")
 
         return redirect(url_for('contact'))
@@ -208,7 +370,6 @@ def submit():
 @app.route('/home-page-submit', methods=["POST"])
 def home_submit():
     if request.method == "POST":
-        print(request.form)
         user_name = request.form.get('name')
         user_email = request.form.get('email')
         user_message = request.form.get('question')
@@ -226,7 +387,6 @@ def home_submit():
             mail.send(msg)
             flash("Your form has been submitted successfully!", "success")
         except Exception as e:
-            print(f"Error: {e}")
             flash("Email sending failed!", "error")
 
         return redirect(url_for('index'))
@@ -234,7 +394,6 @@ def home_submit():
 @app.route('/contact-popup-submit', methods=["POST"])
 def submit2():
     if request.method == "POST":
-        print(request.form)
         user_name = request.form.get('name')
         user_email = request.form.get('email')
         user_contact = request.form.get('contact_number')
@@ -253,7 +412,6 @@ def submit2():
             mail.send(msg)
             flash("Your form has been submitted successfully!", "success")
         except Exception as e:
-            print(f"Error: {e}")
             flash("Email sending failed!", "error")
 
         return redirect(url_for('index'))
@@ -261,7 +419,6 @@ def submit2():
 @app.route('/blog-faq-page-submit', methods=["POST"])
 def blog_faq_page():
     if request.method == "POST":
-        print(request.form)
         user_name = request.form.get('name')
         user_email = request.form.get('email')
         user_contact = request.form.get('contact_number')
@@ -279,7 +436,6 @@ def blog_faq_page():
             mail.send(msg)
             return "Your form has been submitted successfully!", 200
         except Exception as e:
-            print(f"Error: {e}")
             flash("Email sending failed!", "error")
 
         return "Error", 400
@@ -349,7 +505,8 @@ def faq():
 def about():
     return render_template("about-us.html")
 
+@app.route("/blog-desc")
+def blogDesc():
+    return render_template("blog-desc.html")
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port='80')
-
-print("Updated app.py created successfully!")
