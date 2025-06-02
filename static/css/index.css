@@ -323,13 +323,18 @@ body {
     color: #88888880;
     /* opacity: 0; */
     transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     margin-bottom: 10px;
 }
 
 .pricing-text.visible {
   opacity: 1;
   transform: translateY(0);
+}
+.pricing-text span {
+  /* Added smooth transition for color changes */
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #88888880;
 }
 
 .pricing-text span.filled {
@@ -342,6 +347,17 @@ body {
 
 .pricing-text .gray-text {
   color: #88888880;
+}
+
+
+/* IMPROVED: Added animation states for better visual feedback */
+.pricing-section.scroll-locked {
+  /* Visual indicator that scroll is locked */
+}
+
+.pricing-text span.filling {
+  /* Intermediate state during filling animation */
+  color: #cccccc;
 }
 
 /* Mobile responsive styles */
@@ -2458,7 +2474,7 @@ body {
 }
 
 .about-image-container {
-    width: 712px;
+    width: 690px;
     height: 473px;
     flex-shrink: 0;
 }
@@ -2480,7 +2496,7 @@ body {
 .about-paragraph {
      font-family: 'Inter';
     font-weight: 400;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 32px;
     letter-spacing: 0;
     color: #FFFFFFCC;
@@ -2702,11 +2718,13 @@ body {
 
 .client-logo {
     height: auto;
-    max-height: 70%;
+    max-height: 50%;
     width: auto;
-    max-width: 40%;
+    max-width: 30%;
     object-fit: contain;
-    margin-right: 15px;
+    /* margin-right: 1px; */
+    align-items: center;
+    margin-left: 17px;
 }
 
 .logo-only {
