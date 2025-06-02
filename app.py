@@ -33,12 +33,21 @@ app.config['MAIL_PASSWORD'] = 'kiod yhth lecq xaau'
 mail = Mail(app)
 
 # Create database tables
-with app.app_context():
-    db.create_all()
+#with app.app_context():
+ #   db.create_all()
     
     # Create sample data if no admin exists
-    if not Admin.query.first():
-        create_sample_data()
+  #  if not Admin.query.first():
+   #     create_sample_data()
+
+
+with app.app_context():
+      db.create_all()
+
+      try:
+          create_sample_data()
+      except Exception as e:
+          print("Error creating sample data:", e)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -352,4 +361,3 @@ def about():
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port='80')
 
-print("Updated app.py created successfully!")
