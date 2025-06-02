@@ -61,6 +61,10 @@ def home():
 def index():
     return render_template('index.html')
 
+@app.route('/blog-desc')
+def blogDesc():
+    return render_template('blog.html')
+
 # ===== BLOG ROUTES =====
 @app.route("/blogs")
 def blogs():
