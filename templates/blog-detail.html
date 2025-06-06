@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <style>
+    <!-- <style>
         .blog-detail-container {
             max-width: 800px;
             margin: 0 auto;
@@ -27,8 +27,10 @@
         .blog-detail-title {
             font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 1rem;
-            color: #333;
+            /* margin-bottom: 1rem; */
+            margin-top: 2.5rem;   
+
+            color: #333 ;
         }
         .blog-detail-meta {
             color: #666;
@@ -101,6 +103,7 @@
         .related-post-content h4 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
+            color: #333;
         }
         .related-post-content p {
             font-size: 0.9rem;
@@ -116,7 +119,114 @@
         .back-to-blogs:hover {
             text-decoration: underline;
         }
-    </style>
+    </style> -->
+
+    <style> .blog-detail-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            margin-top: 100px;
+        }
+        .blog-detail-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .blog-detail-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            /* margin-bottom: 1rem; */
+            margin-top: 2.5rem;
+            color: #333;
+        }
+        .blog-detail-meta {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .blog-detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .blog-detail-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+        .blog-detail-content h1,
+        .blog-detail-content h2,
+        .blog-detail-content h3,
+        .blog-detail-content h4,
+        .blog-detail-content h5,
+        .blog-detail-content h6 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .blog-detail-content p {
+            margin-bottom: 1.5rem;
+        }
+        .blog-detail-content ul,
+        .blog-detail-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .blog-detail-content li {
+            margin-bottom: 0.5rem;
+        }
+        .related-posts {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        .related-posts h3 {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #333
+        }
+        .related-post {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.3s ease;
+        }
+        .related-post:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+        }
+        .related-post-image {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 1rem;
+        }
+        .related-post-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #333
+        }
+        .related-post-content p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+        .back-to-blogs {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-to-blogs:hover {
+            text-decoration: underline;
+        }
+ </style>
 </head>
 <body>
     {%include "navbar.html"%}
@@ -141,7 +251,9 @@
         {% endif %}
         
         <div class="blog-detail-content">
+             {{ post.excerpt | safe }}
             {{ post.content | safe }}
+
         </div>
         
         {% if related_posts %}

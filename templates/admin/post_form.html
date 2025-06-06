@@ -1,9 +1,10 @@
+
 {% extends "admin/base.html" %}
 
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="margin-top: 80px;">
     <h1 class="h2">{{ title }}</h1>
     <a href="{{ url_for('admin_posts') }}" class="btn btn-secondary">
         <i class="fas fa-arrow-left"></i> Back to Posts
@@ -30,7 +31,12 @@
                     
                     <div class="mb-3">
                         {{ form.content.label(class="form-label") }}
-                        {{ form.content(class="form-control", id="content-editor") }}
+                        <!-- Hide original textarea -->
+                        <!-- {{ form.content(class="form-control", id="content-editor", style="display:none;") }} -->
+                        <input type="hidden" id="content-editor" name="content" class="form-control" style="display:none;">
+
+                        <!-- Quill editor container -->
+                        <div id="quill-editor" style="height: 400px;"></div>
                     </div>
                 </div>
             </div>
@@ -82,20 +88,32 @@
 {% endblock %}
 
 {% block scripts %}
+<!-- Quill CSS and JS CDN -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
-    tinymce.init({
-        selector: '#content-editor',
-        height: 400,
-        menubar: false,
-        plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste code help wordcount'
-        ],
-        toolbar: 'undo redo | formatselect | bold italic backcolor | \
-                  alignleft aligncenter alignright alignjustify | \
-                  bullist numlist outdent indent | removeformat | help',
-        content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px }'
-    });
+  var quill = new Quill('#quill-editor', {
+    theme: 'snow',
+    modules: {
+      toolbar: [
+        ['bold', 'italic', 'underline'],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        ['link', 'image']
+      ]
+    }
+  });
+
+  // ✅ Load existing content into the editor when editing
+    const initialContent = {{ form.content.data | default('') | tojson | safe }};
+    quill.root.innerHTML = initialContent;
+
+  // ✅ Sync content before submitting
+  document.querySelector('form').addEventListener('submit', function () {
+    const contentEditor = document.getElementById('content-editor');
+    contentEditor.value = quill.root.innerHTML;
+    console.log("📤 Form submitted with content:", contentEditor.value);
+  });
 </script>
+
+
 {% endblock %}

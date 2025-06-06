@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for, f
 from flask_mail import Mail, Message
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models import db, Admin, BlogPost, create_sample_data
-from forms import LoginForm, BlogPostForm, AdminForm
+from forms import LoginForm, BlogPostForm
 import os
-
+from sqlalchemy import inspect
 app = Flask(__name__)
 app.secret_key = "your-secret-key-change-this"  # Change this!
 
@@ -18,6 +18,7 @@ db.init_app(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'admin_login'
+print("Using DB:", app.config['SQLALCHEMY_DATABASE_URI'])
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -32,18 +33,11 @@ app.config['MAIL_PASSWORD'] = 'kiod yhth lecq xaau'
 
 mail = Mail(app)
 
-# Create database tables
-#with app.app_context():
- #   db.create_all()
-    
-    # Create sample data if no admin exists
-  #  if not Admin.query.first():
-   #     create_sample_data()
 
 
 with app.app_context():
       db.create_all()
-
+      print("Tables created:", inspect(db.engine).get_table_names())
       try:
           create_sample_data()
       except Exception as e:
@@ -68,15 +62,22 @@ def blogDesc():
 # ===== BLOG ROUTES =====
 @app.route("/blogs")
 def blogs():
-    # Get featured post
+    # Try to get a featured post
     featured_post = BlogPost.query.filter_by(is_featured=True, is_published=True).first()
-    
-    # Get all published posts (excluding featured)
+
+    # Fallback to latest published post if no featured post
+    if not featured_post:
+        featured_post = BlogPost.query.filter_by(is_published=True).order_by(BlogPost.created_at.desc()).first()
+
+    # Get all other posts excluding the one shown in hero section
     if featured_post:
-        blog_posts = BlogPost.query.filter_by(is_published=True).filter(BlogPost.id != featured_post.id).order_by(BlogPost.created_at.desc()).all()
+        blog_posts = BlogPost.query.filter(
+            BlogPost.is_published == True,
+            BlogPost.id != featured_post.id
+        ).order_by(BlogPost.created_at.desc()).all()
     else:
-        blog_posts = BlogPost.query.filter_by(is_published=True).order_by(BlogPost.created_at.desc()).all()
-    
+        blog_posts = []
+
     return render_template("blogs.html", featured_post=featured_post, blog_posts=blog_posts)
 
 @app.route("/blog/<int:post_id>")
@@ -86,9 +87,10 @@ def blog_detail(post_id):
         return redirect(url_for('blogs'))
     
     # Get related posts (3 latest posts excluding current)
-    related_posts = BlogPost.query.filter_by(is_published=True).filter(BlogPost.id != post_id).order_by(BlogPost.created_at.desc()).limit(3).all()
+    related_posts = BlogPost.query.filter_by(is_published=True).filter(BlogPost.id != post_id).order_by(BlogPost.created_at.desc()).limit(10).all()
     
     return render_template("blog-detail.html", post=post, related_posts=related_posts)
+
 
 @app.route("/blog")  # Keep this for backward compatibility
 def blog():
@@ -106,9 +108,13 @@ def admin_login():
     
     form = LoginForm()
     if form.validate_on_submit():
+        # Check if admin exists
         admin = Admin.query.filter_by(username=form.username.data).first()
+
+         # Validate password
         if admin and admin.check_password(form.password.data):
             login_user(admin)
+
             return redirect(url_for('admin_dashboard'))
         flash('Invalid username or password', 'error')
     
@@ -123,16 +129,20 @@ def admin_logout():
 @app.route('/admin')
 @login_required
 def admin_dashboard():
+     # Fetch blog stats
     total_posts = BlogPost.query.count()
     published_posts = BlogPost.query.filter_by(is_published=True).count()
     featured_posts = BlogPost.query.filter_by(is_featured=True).count()
-    recent_posts = BlogPost.query.order_by(BlogPost.created_at.desc()).limit(5).all()
+    recent_posts = BlogPost.query.order_by(BlogPost.created_at.desc()).limit(10).all()
     
     return render_template('admin/dashboard.html', 
                          total_posts=total_posts,
                          published_posts=published_posts,
                          featured_posts=featured_posts,
-                         recent_posts=recent_posts)
+                         recent_posts=recent_posts)  
+
+
+# Admin: List all blog posts
 
 @app.route('/admin/posts')
 @login_required
@@ -140,33 +150,58 @@ def admin_posts():
     posts = BlogPost.query.order_by(BlogPost.created_at.desc()).all()
     return render_template('admin/posts.html', posts=posts)
 
+
+# Admin: Create a new blog post
+
 @app.route('/admin/posts/new', methods=['GET', 'POST'])
 @login_required
 def admin_new_post():
+   
     form = BlogPostForm()
+    
+     # ✅ Check blog count before allowing creation
+    post_count = BlogPost.query.count()
+    if post_count >= 10:
+        flash('You can only create up to 10 blog posts. Please delete one to add a new post.', 'warning')
+        return redirect(url_for('admin_posts'))
+
+
+
+   
     if form.validate_on_submit():
         # If this post is set as featured, remove featured from other posts
+       
         if form.is_featured.data:
             BlogPost.query.filter_by(is_featured=True).update({'is_featured': False})
         
+        # 📝 Create new blog post object
         post = BlogPost(
             title=form.title.data,
             content=form.content.data,
             excerpt=form.excerpt.data,
             image_url=form.image_url.data,
             is_featured=form.is_featured.data,
-            is_published=form.is_published.data
+            is_published=form.is_published.data,
+            
         )
-        db.session.add(post)
-        db.session.commit()
+        try:
+            db.session.add(post)
+            db.session.commit()
+            # print("✅ Post saved to DB")
+            
+        except Exception as e:
+            db.session.rollback()
+            # print("❌ Error saving post:", e)
         flash('Post created successfully!', 'success')
         return redirect(url_for('admin_posts'))
     
+   
     return render_template('admin/post_form.html', form=form, title='New Post')
 
 @app.route('/admin/posts/<int:post_id>/edit', methods=['GET', 'POST'])
 @login_required
 def admin_edit_post(post_id):
+    
     post = BlogPost.query.get_or_404(post_id)
     form = BlogPostForm(obj=post)
     
@@ -295,7 +330,7 @@ def blog_faq_page():
             print(f"Error: {e}")
             flash("Email sending failed!", "error")
 
-        return "Error", 400
+        return "Error", 400 
 
 # All your existing routes
 @app.route("/storage/self-storage")

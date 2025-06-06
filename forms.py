@@ -14,10 +14,10 @@ class BlogPostForm(FlaskForm):
     image_url = StringField('Image URL', validators=[Length(max=200)])
     is_featured = BooleanField('Featured Post')
     is_published = BooleanField('Published', default=True)
-
-class AdminForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(max=80)])
-    email = StringField('Email', validators=[DataRequired(), Email(), Length(max=120)])
-    password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+ 
+# class AdminForm(FlaskForm):
+#     username = StringField('Username', validators=[DataRequired(), Length(max=80)])
+#     email = StringField('Email', validators=[DataRequired(), Email(), Length(max=120)])
+#     password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
 
 print("Forms created successfully!")

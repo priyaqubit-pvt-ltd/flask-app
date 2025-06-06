@@ -209,268 +209,72 @@
         ]
       }
     </script>
+
+    <style>
+        .blogs-grid-container {
+  padding: 20px;
+}
+
+.blog-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.blog-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 32%;
+  box-sizing: border-box;
+}
+    </style>
   </head>
   <body>
     {%include "navbar.html"%}
 
-    <!-- Hero section start -->
-    <section class="hero-section">
-      <div class="hero-container">
-        <div class="hero-background">
-          <div class="hero-background-plain"></div>
-          <div class="hero-background-image">
-            <img src="../static/images/blog_hero_section.webp" />
-          </div>
-        </div>
-        <div class="hero-content">
-          <div class="hero-date">January 4, 2025</div>
-          <h1 class="hero-title">
-            The Ultimate Guide to Choosing<br />the Right Storage Unit
-          </h1>
-          <p class="hero-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco
-          </p>
-          <a href="/blog-desc">
-            <div class="hero-read-more">
-              <span>Read More</span>
-              <div class="read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </div>
-          </a>
-        </div>
+   
+{% include "navbar.html" %}
+
+<!-- ✅ HERO / Featured Section -->
+{% if featured_post %}
+<section class="featured-section">
+  <div class="featured-blog-card custom-featured-style">
+    <img src="{{ featured_post.image_url }}" alt="{{ featured_post.title }}">
+    <div class="blog-content">
+      <h2>{{ featured_post.title }}</h2>
+      <p>{{ featured_post.excerpt }}</p>
+      <a href="{{ url_for('blog_detail', post_id=featured_post.id) }}" class="read-more-btn">Read More</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<!-- ✅ Blog Grid Section: Remaining posts -->
+<section class="blogs-grid-container">
+  <div class="blog-grid">
+    {% for post in blog_posts %}
+    {% if loop.index0 is divisibleby 3 %}
+      {% if not loop.first %}</div>{% endif %}
+      <div class="blog-row"> <!-- start a new row every 3 items -->
+    {% endif %}
+
+    <div class="blog-card custom-style">
+      <img src="{{ post.image_url }}" alt="{{ post.title }}">
+      <div class="blog-content">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt }}</p>
+        <a href="{{ url_for('blog_detail', post_id=post.id) }}" class="read-more-link">Read More</a>
       </div>
-    </section>
-    <!-- hero section ended -->
+    </div>
 
-    <!-- Our blogs section start -->
-    <section class="blogs-section">
-      <h2 class="blogs-heading">Our Blogs</h2>
-      <div class="blogs-divider"></div>
-      <h3 class="blogs-read">Read Our Latest Blogs</h3>
-      <div class="blogs-grid-outer">
-        <div class="blogs-grid">
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_1.webp" />
-            </div>
-            <h4 class="blog-title">
-              Designing for Tomorrow: Trends Shaping the User Experience in 2025
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
+    {% if loop.last %}</div>{% endif %}
+    {% endfor %}
+  </div>
+</section>
 
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_2.webp" />
-            </div>
-            <h4 class="blog-title">
-              Sustainability in Tech: Steps Toward a Greener Future
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_3.webp" />
-            </div>
-            <h4 class="blog-title">
-              5 Innovative Solutions Transforming the Tech Industry Today
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_1.webp" />
-            </div>
-            <h4 class="blog-title">
-              Designing for Tomorrow: Trends Shaping the User Experience in 2025
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_2.webp" />
-            </div>
-            <h4 class="blog-title">
-              Sustainability in Tech: Steps Toward a Greener Future
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_3.webp" />
-            </div>
-            <h4 class="blog-title">
-              5 Innovative Solutions Transforming the Tech Industry Today
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_2.webp" />
-            </div>
-            <h4 class="blog-title">
-              Sustainability in Tech: Steps Toward a Greener Future
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_3.webp" />
-            </div>
-            <h4 class="blog-title">
-              5 Innovative Solutions Transforming the Tech Industry Today
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_1.webp" />
-            </div>
-            <h4 class="blog-title">
-              Designing for Tomorrow: Trends Shaping the User Experience in 2025
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_2.webp" />
-            </div>
-            <h4 class="blog-title">
-              Sustainability in Tech: Steps Toward a Greener Future
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-          <div class="blog-outer">
-            <div class="blog-image">
-              <img src="/static/images/blog_image_3.webp" />
-            </div>
-            <h4 class="blog-title">
-              5 Innovative Solutions Transforming the Tech Industry Today
-            </h4>
-            <p class="blog-content">
-              As technology continues to evolve, so does its impact on the
-              environment. At the intersection of innovation and responsibility
-              lies the need for sustainable practices in the tech industry
-            </p>
-            <button class="blog-read-more">
-              <span>Read More</span>
-              <div class="blog-read-more-icon">
-                <img src="../static/images/blog_read_more_arrow.webp" />
-              </div>
-            </button>
-          </div>
-        </div>
-        <div class="blogs-grid-overlay">
-          <button class="blogs-view-all">View All</button>
-        </div>
-      </div>
-    </section>
-    <!-- our blog section ended -->
-
-    {%include "footer.html"%}
+{% include "footer.html" %}
     <script src="/static/Js/blogs.js"></script>
   </body>
 </html>
